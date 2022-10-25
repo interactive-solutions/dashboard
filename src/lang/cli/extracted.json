@@ -1,0 +1,58 @@
+{
+  "Error.message": {
+    "defaultMessage": "Obligatoriskt fält",
+    "description": "Form error message"
+  },
+  "Home.seoTitle": {
+    "defaultMessage": "Home",
+    "description": "Seo title"
+  },
+  "useValidate.isAtLeast": {
+    "defaultMessage": "Behöver vara minst {atLeast}",
+    "description": "Is at least passed number"
+  },
+  "useValidate.isEmail": {
+    "defaultMessage": "E-post har fel format",
+    "description": "Incorrect format of email"
+  },
+  "useValidate.isInt": {
+    "defaultMessage": "Behöver vara heltal",
+    "description": "Is integer"
+  },
+  "useValidate.isLatitude": {
+    "defaultMessage": "Latitud måste vara mellan -90 och 90",
+    "description": "Incorrect format of latitude"
+  },
+  "useValidate.isLongitude": {
+    "defaultMessage": "Longitud måste vara mellan -180 och 180",
+    "description": "Incorrect format of longitude"
+  },
+  "useValidate.isNumeric": {
+    "defaultMessage": "Behöver vara i nummerformat",
+    "description": "Incorrect format of numeric"
+  },
+  "useValidate.isOrganisationNumber": {
+    "defaultMessage": "Organisationsnummer har fel format",
+    "description": "Incorrect format of organisation number"
+  },
+  "useValidate.isPhoneNumber": {
+    "defaultMessage": "Telefon har fel format",
+    "description": "Incorrect format of phone number"
+  },
+  "useValidate.isPostalCode": {
+    "defaultMessage": "Postnummer har fel format",
+    "description": "Incorrect format of postal code"
+  },
+  "useValidate.isURL": {
+    "defaultMessage": "URL har fel format",
+    "description": "Incorrect format of URL"
+  },
+  "userRole.admin": {
+    "defaultMessage": "Admin",
+    "description": "Admin"
+  },
+  "userRole.user": {
+    "defaultMessage": "Användare",
+    "description": "User"
+  }
+}

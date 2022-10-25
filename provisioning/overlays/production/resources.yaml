@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-boilerplate
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nextjs-boilerplate
+  template:
+    spec:
+      containers:
+        - name: nextjs-boilerplate
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-boilerplate
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nextjs-boilerplate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nextjs-boilerplate
+        app.kubernetes.io/component: web
+    spec:
+      containers:
+        - name: nextjs-boilerplate
+          image: "image"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+              name: "http"
+
+      imagePullSecrets:
+        - name: registry-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-boilerplate-web-service
+  labels:
+    app.kubernetes.io/name: nextjs-boilerplate-web-service
+    app.kubernetes.io/component: web
+
+spec:
+  selector:
+    app.kubernetes.io/name: nextjs-boilerplate
+  ports:
+    - port: 9090
+      targetPort: "http"
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+# N.B the server deployment yaml depends on this name
+metadata:
+  name: nextjs-boilerplate-web
+  labels:
+    app.kubernetes.io/name: nextjs-boilerplate
+    app.kubernetes.io/component: web
+spec:
+  rules:
+    - host: "hostname"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nextjs-boilerplate-web-service
+                port:
+                  number: 9090

@@ -1,0 +1,16 @@
+{
+  "Error.message": "Obligatoriskt fält",
+  "Home.seoTitle": "Home",
+  "useValidate.isAtLeast": "Behöver vara minst {atLeast}",
+  "useValidate.isEmail": "E-post har fel format",
+  "useValidate.isInt": "Behöver vara heltal",
+  "useValidate.isLatitude": "Latitud måste vara mellan -90 och 90",
+  "useValidate.isLongitude": "Longitud måste vara mellan -180 och 180",
+  "useValidate.isNumeric": "Behöver vara i nummerformat",
+  "useValidate.isOrganisationNumber": "Organisationsnummer har fel format",
+  "useValidate.isPhoneNumber": "Telefon har fel format",
+  "useValidate.isPostalCode": "Postnummer har fel format",
+  "useValidate.isURL": "URL har fel format",
+  "userRole.admin": "Admin",
+  "userRole.user": "Användare"
+}

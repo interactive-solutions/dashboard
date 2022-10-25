@@ -1,0 +1,159 @@
+query BookIsbn($isbn: String!) {
+  bookIsbn(isbn: $isbn) {
+    id
+    image {
+      height
+      id
+      uri
+      width
+    }
+    title
+  }
+}
+
+query Books($filter: BookFilter, $sorting: SortOrdering) {
+  books(filter: $filter, sorting: $sorting) {
+    edges {
+      id
+      isbn
+      title
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+
+query Users($filter: UserFilter, $sorting: SortOrdering) {
+  users(filter: $filter, sorting: $sorting) {
+    edges {
+      id
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+
+mutation RefreshToken($token: String!) {
+  refreshToken(token: $token) {
+    jwt
+    refreshToken
+  }
+}
+
+mutation LoginEmail($email: String!, $password: String!) {
+  loginEmail(email: $email, password: $password) {
+    jwt
+    refreshToken
+    userId
+    message
+    success
+    newAccount
+    user {
+      id
+      firstName
+      lastName
+      email
+      mobileNumber
+      role
+      blocked
+      emailVerified
+      image {
+        id
+        uri
+        width
+        height
+        sizeInBytes
+        contentType
+        filename
+        originalName
+        createdAt
+      }
+      subscription {
+        id
+        customerId
+        plan
+        status
+        PaidAt
+        currentPeriodEnd
+        cancelAtPeriodEnd
+        planBillingInterval
+        currency
+        interval
+        amount
+        createdAt
+        updatedAt
+        trialUntil
+      }
+      signupReason
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      newsletter
+      language
+      createdAt
+      updatedAt
+      deletedAt
+    }
+  }
+}
+
+query Me {
+  me {
+    id
+    firstName
+    lastName
+    email
+    mobileNumber
+    role
+    blocked
+    emailVerified
+    image {
+      id
+      uri
+      width
+      height
+      sizeInBytes
+      contentType
+      filename
+      originalName
+      createdAt
+    }
+    subscription {
+      id
+      customerId
+      plan
+      status
+      PaidAt
+      currentPeriodEnd
+      cancelAtPeriodEnd
+      planBillingInterval
+      currency
+      interval
+      amount
+      createdAt
+      updatedAt
+      trialUntil
+    }
+    signupReason
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    newsletter
+    language
+    createdAt
+    updatedAt
+    deletedAt
+  }
+}
