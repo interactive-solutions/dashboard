@@ -126,10 +126,10 @@ deploy:storybook:
     - build:storybook
   script:
     - tar -cvf dist.tar.gz -C build-storybook .
-    - 'curl -F "hostname=$IS_HOSTNAME_STORYBOOK" -F "file=@dist.tar.gz" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/publish'
+    - 'curl -F "hostname=$ENTIRE_HOSTNAME_STORYBOOK" -F "file=@dist.tar.gz" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/publish'
   environment:
     name: storybook
-    url: https://$IS_HOSTNAME_STORYBOOK
+    url: https://$ENTIRE_HOSTNAME_STORYBOOK
   tags:
     - docker
   only:
@@ -154,7 +154,7 @@ deploy:staging:
     - docker
   environment:
     name: frontend
-    url: https://$IS_HOSTNAME_STAGING
+    url: https://$ENTIRE_HOSTNAME_STAGING
   needs:
     - docker:staging
   only:
@@ -179,7 +179,7 @@ deploy:production:
     - docker
   environment:
     name: frontend
-    url: https://$IS_HOSTNAME_PRODUCTION
+    url: https://$ENTIRE_HOSTNAME_PRODUCTION
   needs:
     - docker:production
   only:

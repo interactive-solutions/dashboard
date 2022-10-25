@@ -5,8 +5,8 @@ Some things within this boilerplate are project specific and therefore needs to 
 1. Search within the entire repository for `TODO:` and adjust the comments.
 2. Setup variables for our pipelines in Settings --> CI/CD --> Variables:
 
-- **IS_HOSTNAME_STAGING** - URL to isdemo for the project (e.g. boilerplate has _nextjs-boilerplate.isdemo.se_).
-- **IS_HOSTNAME_STORYBOOK** - URL to Storybook for the project (e.g. boilerplate has _storybook.nextjs-boilerplate.isdemo.se_).
+- **ENTIRE_HOSTNAME_STAGING** - URL to isdemo for the project (e.g. boilerplate has _nextjs-boilerplate.isdemo.se_).
+- **ENTIRE_HOSTNAME_STORYBOOK** - URL to Storybook for the project (e.g. boilerplate has _storybook.nextjs-boilerplate.isdemo.se_).
 - **CF_ACCESS_CLIENT_ID_STAGING** - Cloudflare access client id. Set as masked and use values from [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/ci_cd).
 - **CF_ACCESS_CLIENT_SECRET_STAGING** - Cloudflare access client secret. Set as masked and use values from [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/ci_cd).
 
