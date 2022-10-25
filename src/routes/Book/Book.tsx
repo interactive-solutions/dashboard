@@ -41,6 +41,8 @@ export const Book = ({ bookIsbn }: BookProps) => {
                   width={image.width}
                   height={image.height}
                   backgroundColor="dark-400"
+                  layout="responsive"
+                  sizes="(min-width: 480px) 50vw, 100vw"
                 />
               </Grid.Item>
             )}
