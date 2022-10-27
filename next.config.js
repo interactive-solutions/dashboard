@@ -41,6 +41,7 @@ module.exports = withSentry
         }
       },
       {
+        authToken: process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN,
         silent: true
       }
     )
