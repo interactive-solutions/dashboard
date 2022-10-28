@@ -7,7 +7,7 @@ import { IntlProvider } from 'react-intl';
 
 import { client } from '../src/api/apollo';
 import { useIsTabbing } from '../src/hooks';
-import { messages } from '../src/lang/messages';
+import { messages } from '../src/i18n/messages';
 import { theme } from '../src/styles/settings';
 import { Documentation } from './components';
 

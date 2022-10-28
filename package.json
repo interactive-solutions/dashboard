@@ -36,8 +36,8 @@
     "graphql:operations": "amplify-graphql-docs-generator --schema graphql/graphql.schema.json --maxDepth=4 --output graphql/operations.graphql --language graphql",
     "storybook:start": "env-cmd -f .env.isStorybook start-storybook -p 1337",
     "storybook:build": "env-cmd -f .env.isStorybook build-storybook -o build-storybook",
-    "lang:extract": "formatjs extract 'src/**/*.{js,tsx,ts}' --out-file src/lang/cli/extracted.json --ignore **/*.d.ts",
-    "lang:compile": "formatjs compile src/lang/cli/extracted.json --out-file src/lang/cli/compiled.json"
+    "i18n:extract": "formatjs extract 'src/**/*.{js,tsx,ts}' --out-file src/i18n/cli/extracted.json --ignore **/*.d.ts",
+    "i18n:compile": "formatjs compile src/i18n/cli/extracted.json --out-file src/i18n/cli/compiled.json"
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",

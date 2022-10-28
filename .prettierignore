@@ -11,5 +11,5 @@ build-storybook
 src/api/graphql.ts
 graphql/graphql.schema.json
 src/graphql/fragment-matcher.json
-src/lang/cli
+src/i18n/cli
 /graphql
