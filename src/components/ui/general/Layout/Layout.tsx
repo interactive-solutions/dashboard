@@ -1,5 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 
+import { setUser as setUserSentry } from '@sentry/nextjs';
+
 import { useMeQuery } from 'api/graphql';
 import { Header, Footer } from 'components/ui/general';
 import { useIsTabbing } from 'hooks';
@@ -17,7 +19,17 @@ export const Layout = ({ children }: LayoutProps) => {
   const { data } = useMeQuery({ skip: !token });
 
   useEffect(() => {
-    if (data?.me) setUser(data.me);
+    const user = data?.me || null;
+
+    setUser(user);
+    setUserSentry(
+      user
+        ? {
+            id: String(user.id),
+            email: user.email
+          }
+        : null
+    );
   }, [data?.me, setUser]);
 
   useIsTabbing();

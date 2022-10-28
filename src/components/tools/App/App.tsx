@@ -7,7 +7,7 @@ import { client } from 'api/apollo';
 import { SEO } from 'components/tools';
 import { Layout } from 'components/ui/general';
 import { ProgressBar } from 'components/ui/router';
-import { messages } from 'lang/messages';
+import { messages } from 'i18n/messages';
 import { theme } from 'styles/settings';
 
 import { Global } from 'styles/Global.styles';
