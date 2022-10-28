@@ -17,10 +17,6 @@ export interface HomeProps {
 export const Home = ({ books }: HomeProps) => {
   const { formatMessage } = useIntl();
 
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN);
-  console.log(process.env.NEXT_PUBLIC_SENTRY_DSN);
-
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />

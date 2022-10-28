@@ -13,21 +13,20 @@ Recommended node version is defined in `.nvmrc`.
 
 - `$ yarn install` - Install packages
 - `$ yarn start` - Start development server on port 9000
+- `$ yarn start:localhost` - Same as `$ yarn start` but with localhost settings
 - `$ yarn start:staging` - Same as `$ yarn start` but with staging settings
 - `$ yarn start:production` - Same as `$ yarn start` but with production settings
 - `$ yarn build` - Build project to the build folder
+- `$ yarn build:localhost` - Same as `$ yarn build` but with localhost settings
 - `$ yarn build:staging` - Same as `$ yarn build` but with staging settings
 - `$ yarn build:production` - Same as `$ yarn build` but with production settings
 - `$ yarn serve` - Serve the build folder on port 9090
-- `$ yarn serve:staging` - Same as `$ yarn serve` but with staging settings
-- `$ yarn serve:production` - Same as `$ yarn serve` but with production settings
 - `$ yarn cypress:open` - Open [Cypress](https://www.cypress.io/) test runner
 - `$ yarn cypress:run` - Run [Cypress](https://www.cypress.io/) tests to completion
-- `$ yarn cypress:run:staging` - Same as `$ yarn cypress:run` but with staging record settings
-- `$ yarn cypress:start` - Start development server together with `cypress:open`
-- `$ yarn cypress:start:staging` - Same as `$ yarn cypress:start` but with staging details
-- `$ yarn cypress:ci` - Continuous integration together with `cypress:run`
-- `$ yarn cypress:ci:staging` - Same as `$ yarn cypress:ci` but with staging details
+- `$ yarn cypress:start:localhost` - Start `$ yarn start:localhost` together with `cypress:open`
+- `$ yarn cypress:start:staging` - Start `$ yarn start:staging` together with `cypress:open`
+- `$ yarn cypress:ci:localhost` - Continuous integration with `cypress:run` and localhost settings
+- `$ yarn cypress:ci:staging` - Continuous integration with `cypress:run` and staging settings
 - `$ yarn prettier:report` - Report any [Prettier](https://prettier.io/) issues
 - `$ yarn prettier:fix` - Fix any [Prettier](https://prettier.io/) issues
 - `$ yarn eslint:report` - Report any [ESLint](https://eslint.org/) issues

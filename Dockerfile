@@ -11,4 +11,4 @@ RUN env
 RUN JOBS=max yarn install
 RUN JOBS=max yarn run build:${BUILD}
 
-CMD yarn serve:${BUILD}
+CMD yarn serve
