@@ -94,12 +94,18 @@ docker:staging:
   image: docker:20.10.16
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID} --build-arg BUILD_ENVIRONMENT=staging --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+      --build-arg BUILD_ENVIRONMENT=staging
+      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
+      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
     - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
   services:
     - docker:20.10.16-dind
   needs:
-    - test:lint
+    - ["test:cypress", "test:lint"]
   tags:
     - docker
   only:
@@ -110,12 +116,18 @@ docker:production:
   image: docker:20.10.16
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID} --build-arg BUILD_ENVIRONMENT=production --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+      --build-arg BUILD_ENVIRONMENT=production
+      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
+      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
     - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
   services:
     - docker:20.10.16-dind
   needs:
-    - test:lint
+    - ["test:cypress", "test:lint"]
   tags:
     - docker
   only:
