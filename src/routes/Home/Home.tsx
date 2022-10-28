@@ -17,6 +17,8 @@ export interface HomeProps {
 export const Home = ({ books }: HomeProps) => {
   const { formatMessage } = useIntl();
 
+  console.log(process.env.CI_PIPELINE_IID);
+
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
