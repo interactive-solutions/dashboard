@@ -45,3 +45,15 @@ export enum SelectSelectors {
   Root = 'select-root',
   Label = 'select-label'
 }
+
+export enum TableSelectors {
+  Root = 'table-root',
+  Table = 'table-table',
+  Head = 'table-head',
+  Body = 'table-body',
+  Empty = 'table-empty',
+  Loading = 'table-loading',
+  Pagination = 'table-pagination',
+  Above = 'table-above',
+  Search = 'table-search'
+}

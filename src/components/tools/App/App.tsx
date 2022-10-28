@@ -1,7 +1,9 @@
 import { ApolloProvider } from '@apollo/client';
 import { RootProvider } from '@entire.se/components';
+import { NextAdapter } from 'next-query-params';
 import { AppProps as NextAppProps } from 'next/app';
 import { IntlProvider } from 'react-intl';
+import { QueryParamProvider } from 'use-query-params';
 
 import { client } from 'api/apollo';
 import { SEO } from 'components/tools';
@@ -18,15 +20,17 @@ export const App = ({ Component, pageProps }: AppProps) => {
   return (
     <RootProvider theme={theme}>
       <Global />
-      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
-        <ApolloProvider client={client}>
-          <SEO />
-          <ProgressBar />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ApolloProvider>
-      </IntlProvider>
+      <QueryParamProvider adapter={NextAdapter}>
+        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+          <ApolloProvider client={client}>
+            <SEO />
+            <ProgressBar />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ApolloProvider>
+        </IntlProvider>
+      </QueryParamProvider>
     </RootProvider>
   );
 };

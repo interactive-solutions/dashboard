@@ -4,6 +4,6 @@ export const texts = defineMessages({
   seoTitle: {
     id: 'Home.seoTitle',
     description: 'Seo title',
-    defaultMessage: 'Home'
+    defaultMessage: 'Hem'
   }
 });
