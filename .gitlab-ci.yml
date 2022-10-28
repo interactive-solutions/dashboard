@@ -105,7 +105,7 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
-    - ["test:cypress", "test:lint"]
+    - ["test:lint"]
   tags:
     - docker
   only:
@@ -127,7 +127,7 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
-    - ["test:cypress", "test:lint"]
+    - ["test:lint"]
   tags:
     - docker
   only:
