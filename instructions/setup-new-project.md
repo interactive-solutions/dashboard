@@ -33,4 +33,5 @@ Some things within this boilerplate are project specific and therefore needs to 
 - **process.env.NEXT_PUBLIC_SENTRY_DSN** - Within `.gitlab-ci.yml`.
 - **sentry.properties** - Edit `defaults.project`.
 
-10. TODO: Write how to setup provisioning...
+10. Remove `src/pages/books`.
+11. TODO: Write how to setup provisioning...

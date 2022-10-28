@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Instructions/Authentication" />
+
+# Authentication
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+## Example setup
+
+```tsx
+import { useEffect } from 'react';
+
+import { useAuthenticationStore } from 'store/authentication';
+
+const Component = () => {
+  const isLoading = useAuthenticationStore((store) => store.isLoading);
+  const hasError = useAuthenticationStore((store) => store.hasError);
+  const user = useAuthenticationStore((store) => store.user);
+  const login = useAuthenticationStore((store) => store.login);
+  const logout = useAuthenticationStore((store) => store.logout);
+
+  useEffect(() => {
+    console.log(isLoading, hasError, user);
+  }, [isLoading, hasError, user]);
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={() =>
+          login({
+            email: '...',
+            password: '...'
+          })
+        }
+      >
+        Login
+      </button>
+      <button type="button" onClick={() => logout()}>
+        Logout
+      </button>
+    </div>
+  );
+};
+```
