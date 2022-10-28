@@ -5,7 +5,6 @@
 ## To do
 
 - [https://vercel.com/guides/how-can-i-use-gitlab-pipelines-with-vercel](https://vercel.com/guides/how-can-i-use-gitlab-pipelines-with-vercel)
-- Table component
 
 ## Usage
 
