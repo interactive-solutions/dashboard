@@ -30,7 +30,7 @@ Some things within this boilerplate are project specific and therefore needs to 
 8. Want to disable SSR because e.g. you're going to create a backoffice? Go to `src/pages/_app.tsx` and use the commented out code.
 9. Setup [Sentry](https://sentry.interactivesolutions.se/) and edit these:
 
-- **process.env.NEXT_PUBLIC_SENTRY_DSN**
-- **sentry.properties**
+- **process.env.NEXT_PUBLIC_SENTRY_DSN** - Within `.gitlab-ci.yml`.
+- **sentry.properties** - Edit `defaults.project`.
 
 10. TODO: Write how to setup provisioning...

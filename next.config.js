@@ -12,8 +12,8 @@ const nextConfig = {
     }
   },
   i18n: {
-    locales: ['en'],
-    defaultLocale: 'en'
+    locales: ['sv'],
+    defaultLocale: 'sv'
   },
   swcMinify: true,
   reactStrictMode: true,
@@ -37,7 +37,7 @@ module.exports = withSentry
       {
         ...nextConfig,
         sentry: {
-          hideSourceMaps: false
+          hideSourceMaps: true
         }
       },
       {

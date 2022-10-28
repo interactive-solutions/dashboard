@@ -30,6 +30,10 @@ export const Home = ({ books }: HomeProps) => {
             ))}
           </Grid>
         </Container>
+        {/* @ts-ignore */}
+        <button type="button" onClick={onClick}>
+          {'Test'.toString()}
+        </button>
       </styles.Root>
     </>
   );
