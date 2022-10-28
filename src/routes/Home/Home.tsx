@@ -30,9 +30,13 @@ export const Home = ({ books }: HomeProps) => {
             ))}
           </Grid>
         </Container>
-        {/* @ts-ignore */}
-        <button type="button" onClick={onClick}>
-          {'Test'.toString()}
+        <button
+          type="button"
+          onClick={() => {
+            throw new Error('Test sentry message');
+          }}
+        >
+          {'Test sentry button'.toString()}
         </button>
       </styles.Root>
     </>
