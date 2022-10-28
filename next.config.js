@@ -37,7 +37,7 @@ module.exports = withSentry
       {
         ...nextConfig,
         sentry: {
-          hideSourceMaps: true
+          hideSourceMaps: false
         }
       },
       {

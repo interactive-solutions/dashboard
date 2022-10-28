@@ -21,6 +21,9 @@ Recommended node version is defined in `.nvmrc`.
 - `$ yarn build:staging` - Same as `$ yarn build` but with staging settings
 - `$ yarn build:production` - Same as `$ yarn build` but with production settings
 - `$ yarn serve` - Serve the build folder on port 9090
+- `$ yarn serve:localhost` - Same as `$ yarn serve` but with localhost settings
+- `$ yarn serve:staging` - Same as `$ yarn serve` but with staging settings
+- `$ yarn serve:production` - Same as `$ yarn serve` but with production settings
 - `$ yarn cypress:open` - Open [Cypress](https://www.cypress.io/) test runner
 - `$ yarn cypress:run` - Run [Cypress](https://www.cypress.io/) tests to completion
 - `$ yarn cypress:start:localhost` - Start `$ yarn start:localhost` together with `cypress:open`

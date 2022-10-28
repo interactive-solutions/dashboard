@@ -95,7 +95,7 @@ docker:staging:
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
-      --build-arg BUILD_ENVIRONMENT=staging
+      --build-arg DOCKER_ENVIRONMENT=staging
       --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
       --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
       --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
@@ -117,7 +117,7 @@ docker:production:
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
-      --build-arg BUILD_ENVIRONMENT=production
+      --build-arg DOCKER_ENVIRONMENT=production
       --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
       --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
       --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
