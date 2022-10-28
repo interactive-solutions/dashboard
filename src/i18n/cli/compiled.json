@@ -1,5 +1,5 @@
 {
-  "Error.message": "Obligatoriskt fält",
+  "FormError.message": "Obligatoriskt fält",
   "Home.seoTitle": "Home",
   "useValidate.isAtLeast": "Behöver vara minst {atLeast}",
   "useValidate.isEmail": "E-post har fel format",

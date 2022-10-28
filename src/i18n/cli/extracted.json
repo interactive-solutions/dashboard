@@ -1,5 +1,5 @@
 {
-  "Error.message": {
+  "FormError.message": {
     "defaultMessage": "Obligatoriskt fält",
     "description": "Form error message"
   },
