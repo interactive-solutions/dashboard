@@ -111,7 +111,7 @@ export const Content = ({
 
   const onSearchChange = useCallback(
     (searchTerm: string) => {
-      if (!sorting) return;
+      if (!search) return;
 
       setVariables((previousVariables) => ({
         ...previousVariables,
@@ -119,7 +119,7 @@ export const Content = ({
         pageIndex: 0
       }));
     },
-    [sorting]
+    [search]
   );
 
   const table = useReactTable({

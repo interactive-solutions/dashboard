@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback } from 'react';
+import { ChangeEvent, useCallback, useEffect } from 'react';
 
 import debounce from 'lodash/debounce';
 import { useForm } from 'react-hook-form';
@@ -37,6 +37,10 @@ export const Search = ({
   const debouncedOnChange = useCallback(debounce(handleOnChange, 250), [
     handleOnChange
   ]);
+
+  useEffect(() => {
+    return () => debouncedOnChange.cancel();
+  }, [debouncedOnChange]);
 
   return (
     <styles.Root data-cy={TableSelectors.Search}>
