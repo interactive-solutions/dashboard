@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import { TextField } from 'components/ui/forms';
+import { TableProps } from 'components/ui/table';
 import { TableSelectors } from 'consts/cypress';
 import { useTable } from 'hooks';
 
@@ -14,9 +15,13 @@ import * as styles from './Search.styles';
 
 export interface SearchProps {
   onSearchChange: (searchTerm: string) => void;
+  handleQueryParameters?: TableProps['handleQueryParameters'];
 }
 
-export const Search = ({ onSearchChange }: SearchProps) => {
+export const Search = ({
+  onSearchChange,
+  handleQueryParameters
+}: SearchProps) => {
   const { formatMessage } = useIntl();
   const { register } = useForm();
   const { getSearchTermQueryVariable } = useTable();
@@ -40,7 +45,9 @@ export const Search = ({ onSearchChange }: SearchProps) => {
         name="searchTerm"
         fullWidth
         onChange={debouncedOnChange}
-        defaultValue={getSearchTermQueryVariable()}
+        defaultValue={
+          handleQueryParameters ? getSearchTermQueryVariable() : undefined
+        }
         placeholder={formatMessage(texts.placeholder)}
       />
     </styles.Root>

@@ -150,6 +150,7 @@ export const Content = ({
         visible={!!search}
         search={search}
         onSearchChange={onSearchChange}
+        handleQueryParameters={handleQueryParameters}
       />
       <styles.Table data-cy={TableSelectors.Table}>
         <Head table={table} visible sorting={!!sorting} />

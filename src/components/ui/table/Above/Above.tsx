@@ -9,9 +9,15 @@ export interface AboveProps {
   visible: boolean;
   search: TableProps['search'];
   onSearchChange: SearchProps['onSearchChange'];
+  handleQueryParameters?: TableProps['handleQueryParameters'];
 }
 
-export const Above = ({ visible, search, onSearchChange }: AboveProps) => {
+export const Above = ({
+  visible,
+  search,
+  onSearchChange,
+  handleQueryParameters
+}: AboveProps) => {
   if (!visible) {
     return null;
   }
@@ -21,7 +27,10 @@ export const Above = ({ visible, search, onSearchChange }: AboveProps) => {
       <Grid>
         {!!search && (
           <Grid.Item width={3}>
-            <Search onSearchChange={onSearchChange} />
+            <Search
+              onSearchChange={onSearchChange}
+              handleQueryParameters={handleQueryParameters}
+            />
           </Grid.Item>
         )}
       </Grid>
