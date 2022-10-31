@@ -10,7 +10,7 @@ import {
 import { TableFetchDataVariables } from 'types/table';
 
 export const useTable = () => {
-  const [getAllQueryVariables, setAllQueryVariables] = useQueryParams(
+  const [getAllQueryParameters, setAllQueryParameters] = useQueryParams(
     {
       pageIndex: NumberParam,
       sortingId: StringParam,
@@ -22,28 +22,32 @@ export const useTable = () => {
     }
   );
 
-  const getPageIndexQueryVariable = useCallback(
-    () => getAllQueryVariables.pageIndex || undefined,
-    [getAllQueryVariables.pageIndex]
+  const clearAllQueryParameters = useCallback(() => {
+    setAllQueryParameters({});
+  }, [setAllQueryParameters]);
+
+  const getPageIndexQueryParameter = useCallback(
+    () => getAllQueryParameters.pageIndex || undefined,
+    [getAllQueryParameters.pageIndex]
   );
 
-  const getSortingQueryVariable = useCallback(() => {
+  const getSortingQueryParameter = useCallback(() => {
     if (
-      getAllQueryVariables.sortingId &&
-      typeof getAllQueryVariables.sortingDesc === 'boolean'
+      getAllQueryParameters.sortingId &&
+      typeof getAllQueryParameters.sortingDesc === 'boolean'
     ) {
       return [
         {
-          id: getAllQueryVariables.sortingId,
-          desc: getAllQueryVariables.sortingDesc
+          id: getAllQueryParameters.sortingId,
+          desc: getAllQueryParameters.sortingDesc
         }
       ];
     }
-  }, [getAllQueryVariables.sortingDesc, getAllQueryVariables.sortingId]);
+  }, [getAllQueryParameters.sortingDesc, getAllQueryParameters.sortingId]);
 
-  const getSearchTermQueryVariable = useCallback(
-    () => getAllQueryVariables.searchTerm || undefined,
-    [getAllQueryVariables.searchTerm]
+  const getSearchTermQueryParameter = useCallback(
+    () => getAllQueryParameters.searchTerm || undefined,
+    [getAllQueryParameters.searchTerm]
   );
 
   const getPageCount = useCallback(
@@ -86,10 +90,11 @@ export const useTable = () => {
   return {
     getPageCount,
     getFetchDataVariables,
-    getAllQueryVariables,
-    setAllQueryVariables,
-    getPageIndexQueryVariable,
-    getSortingQueryVariable,
-    getSearchTermQueryVariable
+    getAllQueryParameters,
+    setAllQueryParameters,
+    getPageIndexQueryParameter,
+    getSortingQueryParameter,
+    getSearchTermQueryParameter,
+    clearAllQueryParameters
   };
 };

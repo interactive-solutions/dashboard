@@ -41,23 +41,25 @@ export const Content = ({
 }: TableProps) => {
   const [initiated, setInitiated] = useState<boolean>(false);
   const {
-    setAllQueryVariables,
-    getPageIndexQueryVariable,
-    getSortingQueryVariable,
-    getSearchTermQueryVariable
+    setAllQueryParameters,
+    getPageIndexQueryParameter,
+    getSortingQueryParameter,
+    getSearchTermQueryParameter
   } = useTable();
 
   const [variables, setVariables] = useState<TableFetchDataVariables>({
-    pageIndex: handleQueryParameters ? getPageIndexQueryVariable() || 0 : 0,
+    pageIndex: handleQueryParameters ? getPageIndexQueryParameter() || 0 : 0,
     pageSize: typeof pageSize === 'number' ? pageSize : 10,
-    sorting: handleQueryParameters ? getSortingQueryVariable() || [] : [],
-    searchTerm: handleQueryParameters ? getSearchTermQueryVariable() : undefined
+    sorting: handleQueryParameters ? getSortingQueryParameter() || [] : [],
+    searchTerm: handleQueryParameters
+      ? getSearchTermQueryParameter()
+      : undefined
   });
 
   const handleFetchData = useCallback(() => {
     if (handleQueryParameters) {
-      setAllQueryVariables((previousQueryVariables) => ({
-        ...previousQueryVariables,
+      setAllQueryParameters((previousQueryParameters) => ({
+        ...previousQueryParameters,
         pageIndex: variables.pageIndex,
         sortingId: variables.sorting[0]?.id,
         sortingDesc:
@@ -71,7 +73,7 @@ export const Content = ({
     }
 
     onFetchData?.(variables);
-  }, [variables, onFetchData, setAllQueryVariables, handleQueryParameters]);
+  }, [variables, onFetchData, setAllQueryParameters, handleQueryParameters]);
 
   useEffect(() => {
     handleFetchData();

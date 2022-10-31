@@ -24,7 +24,7 @@ export const Search = ({
 }: SearchProps) => {
   const { formatMessage } = useIntl();
   const { register } = useForm();
-  const { getSearchTermQueryVariable } = useTable();
+  const { getSearchTermQueryParameter } = useTable();
 
   const handleOnChange = useCallback(
     ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,7 +50,7 @@ export const Search = ({
         fullWidth
         onChange={debouncedOnChange}
         defaultValue={
-          handleQueryParameters ? getSearchTermQueryVariable() : undefined
+          handleQueryParameters ? getSearchTermQueryParameter() : undefined
         }
         placeholder={formatMessage(texts.placeholder)}
       />
