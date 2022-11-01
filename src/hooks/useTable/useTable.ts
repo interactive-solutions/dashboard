@@ -7,15 +7,16 @@ import {
   BooleanParam
 } from 'use-query-params';
 
+import { QueryParameters } from 'consts/table';
 import { TableFetchDataVariables } from 'types/table';
 
 export const useTable = () => {
   const [getAllQueryParameters, setAllQueryParameters] = useQueryParams(
     {
-      pageIndex: NumberParam,
-      sortingId: StringParam,
-      sortingDesc: BooleanParam,
-      searchTerm: StringParam
+      [QueryParameters.PageIndex]: NumberParam,
+      [QueryParameters.SortingId]: StringParam,
+      [QueryParameters.SortingDesc]: BooleanParam,
+      [QueryParameters.SearchTerm]: StringParam
     },
     {
       updateType: 'replaceIn'
