@@ -18,12 +18,17 @@ export const useTable = () => {
       searchTerm: StringParam
     },
     {
-      updateType: 'replace'
+      updateType: 'replaceIn'
     }
   );
 
   const clearAllQueryParameters = useCallback(() => {
-    setAllQueryParameters({});
+    setAllQueryParameters({
+      pageIndex: undefined,
+      sortingId: undefined,
+      sortingDesc: undefined,
+      searchTerm: undefined
+    });
   }, [setAllQueryParameters]);
 
   const getPageIndexQueryParameter = useCallback(
