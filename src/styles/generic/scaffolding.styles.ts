@@ -8,7 +8,7 @@ export const scaffolding = css`
   }
 
   body {
-    overflow-wrap: break-word;
+    word-break: break-word;
     background-color: ${({ theme }) => theme.surfaces.light};
     color: ${({ theme }) => theme.surfaces.onLight};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
