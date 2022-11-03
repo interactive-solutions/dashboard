@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",
-    "@entire.se/components": "^1.1.1",
+    "@entire.se/components": "^1.2.1",
     "@entire.se/hooks": "^1.1.0",
     "@entire.se/utils": "^1.1.0",
     "@sentry/nextjs": "^7.15.0",

@@ -1,4 +1,4 @@
-import { Grid } from '@entire.se/components';
+import { Grid, Tooltip } from '@entire.se/components';
 import { useIntl } from 'react-intl';
 
 import { BooksQuery } from 'api/graphql';
@@ -25,7 +25,9 @@ export const Home = ({ books }: HomeProps) => {
           <Grid gap={[2, 0]}>
             {books.edges.map(({ isbn, title }) => (
               <Grid.Item key={isbn} width={12}>
-                <Link href={Paths.Book(isbn)}>{title}</Link>
+                <Tooltip trigger="hover" tooltip={isbn}>
+                  <Link href={Paths.Book(isbn)}>{title}</Link>
+                </Tooltip>
               </Grid.Item>
             ))}
           </Grid>
