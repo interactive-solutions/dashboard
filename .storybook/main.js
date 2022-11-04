@@ -38,6 +38,7 @@ module.exports = {
 
     config.resolve.fallback = {
       ...(config.resolve.fallback || {}),
+      assert: require.resolve('assert'),
       util: require.resolve('util')
     };
 

@@ -1,15 +1,15 @@
 import { ThemePaletteRange } from '@entire.se/components';
 import NextImage from 'next/image';
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 import { ImageProps } from './Image';
 
 export const Root = styled.div<{
   $shouldFadeIn: boolean;
   $hasLoaded: boolean;
-  $layout?: ImageProps['layout'];
-  $backgroundColor?: ImageProps['backgroundColor'];
 }>`
+  display: flex;
+
   ${({ $shouldFadeIn, $hasLoaded, theme }) =>
     $shouldFadeIn &&
     `
@@ -30,27 +30,13 @@ export const Root = styled.div<{
         }
       }
     `}
+`;
 
-  ${({ $layout }) => {
-    if ($layout === 'fixed' || $layout === 'intrinsic') {
-      return css`
-        display: inline-flex;
-        flex-direction: row;
-      `;
-    }
-
-    if ($layout === 'fill' || $layout === 'responsive') {
-      return css`
-        display: flex;
-        flex-direction: column;
-      `;
-    }
-
-    return css`
-      display: inline-flex;
-      flex-direction: row;
-    `;
-  }}
+export const Inner = styled.div<{
+  $backgroundColor?: ImageProps['backgroundColor'];
+  $isFill?: ImageProps['fill'];
+}>`
+  display: inline-flex;
 
   ${({ $backgroundColor, theme }) => {
     if (!$backgroundColor) {
@@ -58,14 +44,23 @@ export const Root = styled.div<{
     }
 
     const [name, range] = $backgroundColor.split('-');
-    return css`
-      & > span {
-        background-color: ${theme.palettes[
-          name as keyof DefaultTheme['palettes']
-        ][range as unknown as ThemePaletteRange]} !important;
-      }
+    return `
+      background-color: ${
+        theme.palettes[name as keyof DefaultTheme['palettes']][
+          range as unknown as ThemePaletteRange
+        ]
+      };
     `;
   }}
+
+  ${({ $isFill }) =>
+    !!$isFill &&
+    `
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      inset: 0px;
+    `}
 `;
 
 export const Image = styled(NextImage)``;

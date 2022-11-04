@@ -4,7 +4,10 @@ import { Image, ImageProps } from './Image';
 
 export default {
   title: 'components/general/Image',
-  component: Image
+  component: Image,
+  args: {
+    alt: 'Lorem ipsum'
+  }
 } as Meta;
 
 const Template: Story<ImageProps & { amountOfItems: number }> = ({
@@ -13,18 +16,37 @@ const Template: Story<ImageProps & { amountOfItems: number }> = ({
 }) => (
   <div>
     {Array.from('.'.repeat(amountOfItems || 99)).map((_, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <div key={index}>
+      <div
+        // eslint-disable-next-line react/no-array-index-key
+        key={index}
+        style={
+          args.fill
+            ? {
+                position: 'relative',
+                width: '100%',
+                height: '333px',
+                border: '2px dashed #616161',
+                resize: 'both',
+                overflow: 'auto'
+              }
+            : {}
+        }
+      >
         <Image
           {...args}
           src={`https://source.unsplash.com/592x333/?${
             index % 2 === 0 ? 'kitten' : 'kittens'
           }`}
-          width={592}
-          height={333}
+          width={args.fill ? undefined : 592}
+          height={args.fill ? undefined : 333}
           onLoad={(data) => console.log('onLoad', data)}
           onError={(data) => console.log('onError', data)}
         />
+        {!!args.fill && (
+          <div style={{ position: 'absolute', bottom: 8, right: 4 }}>
+            Resize here 👇
+          </div>
+        )}
       </div>
     ))}
   </div>
@@ -37,30 +59,28 @@ BackgroundColor.args = {
   backgroundColor: 'dark-400'
 };
 
-export const Fill = Template.bind({});
-Fill.args = {
-  layout: 'fill'
+export const FillWithBackgroundColor = Template.bind({});
+FillWithBackgroundColor.args = {
+  fill: true,
+  amountOfItems: 1,
+  priority: true,
+  backgroundColor: 'dark-400'
 };
 
-export const Fixed = Template.bind({});
-Fixed.args = {
-  layout: 'fixed'
+export const FillCover = Template.bind({});
+FillCover.args = {
+  fill: true,
+  amountOfItems: 1,
+  priority: true,
+  fit: 'cover',
+  position: 'center'
 };
 
-export const Intrinsic = Template.bind({});
-Intrinsic.args = {
-  layout: 'intrinsic'
-};
-
-export const Responsive = Template.bind({});
-Responsive.args = {
-  layout: 'responsive'
-};
-
-export const Cover = Template.bind({});
-Cover.args = {
-  layout: 'fill',
-  objectFit: 'cover',
-  objectPosition: 'center',
-  amountOfItems: 1
+export const FillContainRight = Template.bind({});
+FillContainRight.args = {
+  fill: true,
+  amountOfItems: 1,
+  priority: true,
+  fit: 'contain',
+  position: 'right'
 };

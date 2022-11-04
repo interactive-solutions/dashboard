@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { ThemePaletteRange } from '@entire.se/components';
+import type * as CSS from 'csstype';
 import { ImageProps as NextImageProps } from 'next/image';
 import { DefaultTheme } from 'styled-components';
 
@@ -11,19 +12,23 @@ import * as styles from './Image.styles';
 export interface ImageProps extends NextImageProps {
   fadeIn?: boolean;
   backgroundColor?: `${keyof DefaultTheme['palettes']}-${ThemePaletteRange}`;
+  fit?: CSS.Property.ObjectFit;
+  position?: CSS.Property.ObjectPosition;
 }
 
 export const Image = ({
   fadeIn = true,
   backgroundColor,
+  fit,
+  position,
   ...rest
 }: ImageProps) => {
   const [hasLoaded, setHasLoaded] = useState(false);
 
   const onLoadingComplete = useCallback(
-    (result: { naturalWidth: number; naturalHeight: number }) => {
+    (image: HTMLImageElement) => {
       setHasLoaded(true);
-      rest.onLoadingComplete?.(result);
+      rest.onLoadingComplete?.(image);
     },
     [rest]
   );
@@ -33,14 +38,18 @@ export const Image = ({
       data-cy={ImageSelectors.Root}
       $shouldFadeIn={fadeIn}
       $hasLoaded={hasLoaded}
-      $layout={rest.layout}
-      $backgroundColor={backgroundColor}
     >
-      <styles.Image
-        {...rest}
-        data-cy={ImageSelectors.Image}
-        onLoadingComplete={onLoadingComplete}
-      />
+      <styles.Inner $backgroundColor={backgroundColor} $isFill={rest.fill}>
+        <styles.Image
+          {...rest}
+          data-cy={ImageSelectors.Image}
+          onLoadingComplete={onLoadingComplete}
+          style={{
+            objectFit: fit,
+            objectPosition: position
+          }}
+        />
+      </styles.Inner>
     </styles.Root>
   );
 };
