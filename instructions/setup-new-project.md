@@ -25,7 +25,7 @@ Some things within this boilerplate are project specific and therefore needs to 
 - **.env** - Within desired file update `NEXT_PUBLIC_APOLLO_URI` and `NEXT_PUBLIC_IMAGES_DOMAINS`.
 - **codegen/default.config.ts** - Update `schema`.
 
-6. Search within the entire repository for `nextjs-boilerplate` and replace it with the project name. Some strings aren't supposed to be replaced, but you'll probably notice it yourself.
+6. Search within the entire repository for `nextjs-boilerplate` and replace it with the project name.
 7. Replace namespace `internal` with the namespace that is for your project.
 8. Want to disable SSR because e.g. you're going to create a backoffice? Go to `src/pages/_app.tsx` and use the commented out code.
 9. Setup [Sentry](https://sentry.interactivesolutions.se/) and edit these:
