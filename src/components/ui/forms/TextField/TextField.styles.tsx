@@ -169,6 +169,7 @@ export const IconRight = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 `;
 
 export const IconLeft = styled(IconRight)`

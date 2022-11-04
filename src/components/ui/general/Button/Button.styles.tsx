@@ -135,9 +135,13 @@ export const Content = styled.span`
   color: currentColor;
 `;
 
-export const IconRight = styled(Content)``;
+export const IconRight = styled(Content)`
+  white-space: nowrap;
+`;
 
-export const IconLeft = styled(Content)``;
+export const IconLeft = styled(Content)`
+  white-space: nowrap;
+`;
 
 export const Loading = styled.div`
   position: absolute;

@@ -71,8 +71,11 @@ export const Book = ({ bookIsbn }: BookProps) => {
                   </Typography>
                 </Grid.Item>
                 <Grid.Item width={12}>
-                  <Button link={{ href: Paths.Home }}>
-                    {'Go back'.toString()}
+                  <Button
+                    link={{ href: Paths.Home }}
+                    iconLeft={<span>👈</span>}
+                  >
+                    {'Tillbaka'.toString()}
                   </Button>
                 </Grid.Item>
               </Grid>
