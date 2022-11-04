@@ -2,10 +2,6 @@
 
 [Next.js](https://nextjs.org/) with modifications.
 
-## To do
-
-- [https://vercel.com/guides/how-can-i-use-gitlab-pipelines-with-vercel](https://vercel.com/guides/how-can-i-use-gitlab-pipelines-with-vercel)
-
 ## Usage
 
 Recommended node version is defined in `.nvmrc`.
@@ -47,7 +43,7 @@ Recommended node version is defined in `.nvmrc`.
 
 ## Pages
 
-Pages lives within two places, this because we're using separate sibling files for styling, texts etc. and Next.js doesn't like that. Within the pages folder we're collecting data and making the optional data request, then the page itself with styling, texts etc. should be within the routes folder. So the pages component will send its data as props to the routes component.
+Pages lives within two places, this because we're using separate sibling files for styling, texts etc. and Next.js doesn't like that. So within the pages folder we're collecting data and making the optional data request(s), then the page itself with styling, texts etc. should be within the routes folder. So the pages component will send its data as props to the routes component.
 
 ## Component lifecycle
 
