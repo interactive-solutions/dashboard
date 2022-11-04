@@ -43,7 +43,17 @@ const Template: Story<ImageProps & { amountOfItems: number }> = ({
           onError={(data) => console.log('onError', data)}
         />
         {!!args.fill && (
-          <div style={{ position: 'absolute', bottom: 8, right: 4 }}>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              backgroundColor: '#fff',
+              padding: 8,
+              borderTop: '2px dashed #616161',
+              borderLeft: '2px dashed #616161'
+            }}
+          >
             Resize here 👇
           </div>
         )}
