@@ -106,8 +106,8 @@ export const sizes: {
   small: (theme, size = {}) =>
     generateSize({
       ...size,
-      paddingTopAndBottom: theme.spacing(0.5),
-      paddingRightAndLeft: theme.spacing(2),
+      paddingTopAndBottom: theme.spacing(0.75),
+      paddingRightAndLeft: theme.spacing(1.25),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
       borderWidth: '2px',
@@ -117,7 +117,7 @@ export const sizes: {
     generateSize({
       ...size,
       paddingTopAndBottom: theme.spacing(1),
-      paddingRightAndLeft: theme.spacing(3),
+      paddingRightAndLeft: theme.spacing(1.5),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
       borderWidth: '2px',
@@ -126,8 +126,8 @@ export const sizes: {
   large: (theme, size = {}) =>
     generateSize({
       ...size,
-      paddingTopAndBottom: theme.spacing(1.5),
-      paddingRightAndLeft: theme.spacing(4),
+      paddingTopAndBottom: theme.spacing(1.25),
+      paddingRightAndLeft: theme.spacing(1.75),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
       borderWidth: '2px',

@@ -36,14 +36,6 @@ SizeWithBreakpoints.args = {
   }
 };
 
-export const Link = Template.bind({});
-Link.args = {
-  link: {
-    href: 'https://www.modohockey.se/',
-    target: '_blank'
-  }
-};
-
 export const Ghost = Template.bind({});
 Ghost.args = {
   ghost: true

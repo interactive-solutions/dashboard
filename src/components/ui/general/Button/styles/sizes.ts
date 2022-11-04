@@ -62,7 +62,7 @@ export const sizes: {
   small: (theme, size = {}) =>
     generateSize({
       ...size,
-      paddingTopAndBottom: theme.spacing(0.5),
+      paddingTopAndBottom: theme.spacing(0.75),
       paddingRightAndLeft: theme.spacing(2),
       typography: theme.typography.body[20],
       borderWidth: '2px',
@@ -80,7 +80,7 @@ export const sizes: {
   large: (theme, size = {}) =>
     generateSize({
       ...size,
-      paddingTopAndBottom: theme.spacing(1.5),
+      paddingTopAndBottom: theme.spacing(1.25),
       paddingRightAndLeft: theme.spacing(4),
       typography: theme.typography.body[20],
       borderWidth: '2px',
