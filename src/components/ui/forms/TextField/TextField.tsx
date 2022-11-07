@@ -71,8 +71,8 @@ export const TextField = ({
   ...rest
 }: TextFieldProps) => {
   const getValidation = useMemo(
-    () => (!disabled ? validation : {}),
-    [disabled, validation]
+    () => (!disabled && !readOnly ? validation : {}),
+    [disabled, readOnly, validation]
   );
 
   const registerHolder = useMemo(

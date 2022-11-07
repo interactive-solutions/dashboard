@@ -48,7 +48,8 @@ Disabled.args = {
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {
-  readOnly: true
+  readOnly: true,
+  defaultValue: 'Default value'
 };
 
 export const IconLeft = Template.bind({});
