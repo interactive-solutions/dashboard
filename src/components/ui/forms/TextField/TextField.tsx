@@ -68,9 +68,10 @@ export const TextField = ({
   iconLeft,
   ...rest
 }: TextFieldProps) => {
-  const getValidation = useMemo(() => {
-    return !disabled ? validation : {};
-  }, [disabled, validation]);
+  const getValidation = useMemo(
+    () => (!disabled ? validation : {}),
+    [disabled, validation]
+  );
 
   const registerHolder = useMemo(
     () => register(name, getValidation),

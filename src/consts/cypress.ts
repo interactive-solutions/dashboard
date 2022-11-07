@@ -57,3 +57,8 @@ export enum TableSelectors {
   Above = 'table-above',
   Search = 'table-search'
 }
+
+export enum CheckboxSelectors {
+  Root = 'checkbox-root',
+  Input = 'checkbox-input'
+}

@@ -185,6 +185,7 @@ export const LoadingIndicator = styled(components.LoadingIndicator)`
 export const MultiValue = styled(components.MultiValue)`
   && {
     border-style: solid;
+    align-items: center;
 
     /* react-select has issues with passing components... */
     .react-select__multi-value__label,

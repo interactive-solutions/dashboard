@@ -86,9 +86,10 @@ export const Select = ({
 }: SelectProps) => {
   const instanceId = useId();
 
-  const getValidation = useMemo(() => {
-    return !disabled ? validation : {};
-  }, [disabled, validation]);
+  const getValidation = useMemo(
+    () => (!disabled ? validation : {}),
+    [disabled, validation]
+  );
 
   return (
     <styles.Root

@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+import { isTabbing } from 'styles/tools';
+
 export const scaffolding = css`
   html {
     font-size: 100%;
@@ -54,8 +56,7 @@ export const scaffolding = css`
     textarea:focus,
     [role='button']:focus,
     .react-select__control:focus {
-      outline: auto 5px !important;
-      outline: auto 5px -webkit-focus-ring-color !important;
+      ${isTabbing};
     }
   }
 `;
