@@ -46,11 +46,26 @@ export const generateColor = ({ label, field }: TextFieldColor) => {
           `)}
       }
 
-      &:not(:disabled):hover {
+      &:read-only {
+        background-color: ${field.readOnly.backgroundColor};
+        border-color: ${field.readOnly.borderColor};
+
+        &,
+        & ~ ${IconRight}, & ~ ${IconLeft} {
+          color: ${field.readOnly.color};
+        }
+
+        ${({ theme }) =>
+          theme.placeholder(`
+            color: ${field.readOnly.placeholder};
+          `)}
+      }
+
+      &:not(:disabled):not(:read-only):hover {
         border-color: ${field.hover.borderColor};
       }
 
-      &:not(:disabled):focus {
+      &:not(:disabled):not(:read-only):focus {
         border-color: ${field.focus.borderColor};
       }
     }
@@ -81,6 +96,12 @@ export const colors: {
           placeholder: theme.palettes.dark[700]
         },
         disabled: {
+          backgroundColor: theme.palettes.light[400],
+          color: theme.palettes.dark[400],
+          borderColor: theme.palettes.dark[400],
+          placeholder: theme.palettes.dark[400]
+        },
+        readOnly: {
           backgroundColor: theme.palettes.light[400],
           color: theme.palettes.dark[400],
           borderColor: theme.palettes.dark[400],

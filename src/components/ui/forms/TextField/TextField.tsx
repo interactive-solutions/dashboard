@@ -31,6 +31,7 @@ export interface TextFieldProps {
   type?: string;
   label?: ReactNode;
   disabled?: boolean;
+  readOnly?: boolean;
   placeholder?: string;
   defaultValue?: string;
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
@@ -57,6 +58,7 @@ export const TextField = ({
   type,
   label,
   disabled,
+  readOnly,
   placeholder,
   defaultValue,
   error,
@@ -89,6 +91,7 @@ export const TextField = ({
       $hasIconLeft={!!iconLeft}
       $hasError={!!error}
       $isDisabled={disabled}
+      $isReadOnly={readOnly}
       {...rest}
     >
       <styles.Content>
@@ -105,6 +108,7 @@ export const TextField = ({
             type={type}
             autoComplete="off"
             disabled={disabled}
+            readOnly={readOnly}
             placeholder={placeholder}
             defaultValue={defaultValue}
             {...registerHolder}

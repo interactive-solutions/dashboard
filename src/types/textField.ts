@@ -19,6 +19,12 @@ export type TextFieldColor = {
       borderColor: string;
       placeholder: string;
     };
+    readOnly: {
+      backgroundColor: string;
+      color: string;
+      borderColor: string;
+      placeholder: string;
+    };
     hover: {
       borderColor: string;
     };

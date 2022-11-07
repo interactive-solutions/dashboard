@@ -28,6 +28,7 @@ export const Root = styled.div<{
   $hasIconLeft: boolean;
   $hasError: boolean;
   $isDisabled?: boolean;
+  $isReadOnly?: boolean;
 }>`
   display: inline-flex;
   flex-direction: column;
@@ -92,8 +93,8 @@ export const Root = styled.div<{
       }
     `}
   
-  ${({ $isDisabled }) =>
-    !!$isDisabled &&
+  ${({ $isDisabled, $isReadOnly }) =>
+    (!!$isDisabled || !!$isReadOnly) &&
     `
       &, * {
         cursor: not-allowed;
@@ -129,6 +130,7 @@ export const Field = styled(
         type: TextFieldProps['type'];
         autoComplete: string;
         disabled: TextFieldProps['disabled'];
+        readOnly: TextFieldProps['readOnly'];
         placeholder: TextFieldProps['placeholder'];
         defaultValue: TextFieldProps['defaultValue'];
         onChange: TextFieldProps['onChange'];

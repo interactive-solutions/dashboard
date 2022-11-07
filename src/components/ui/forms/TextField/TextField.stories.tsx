@@ -46,6 +46,11 @@ Disabled.args = {
   disabled: true
 };
 
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  readOnly: true
+};
+
 export const IconLeft = Template.bind({});
 IconLeft.args = {
   iconLeft: '🔥'
