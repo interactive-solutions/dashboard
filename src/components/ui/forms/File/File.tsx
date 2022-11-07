@@ -25,7 +25,7 @@ export interface FileProps {
   name: string;
   children: ReactNode;
   accept?: string;
-  capture?: 'user' | 'environment';
+  capture?: boolean | 'user' | 'environment';
   multiple?: boolean;
   validation?: RegisterOptions;
   disabled?: boolean;
