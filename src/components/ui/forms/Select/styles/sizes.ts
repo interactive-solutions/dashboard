@@ -19,7 +19,8 @@ import {
   MultiValue,
   NoOptionsMessage,
   Option,
-  ValueContainer
+  ValueContainer,
+  Label
 } from '../Select.styles';
 
 export const generateSize = ({
@@ -44,7 +45,8 @@ export const generateSize = ({
   optionTypography,
   optionPadding,
   messageTypography,
-  messagePadding
+  messagePadding,
+  labelTypography
 }: SelectSize) => {
   return css`
     && ${Control} {
@@ -117,6 +119,10 @@ export const generateSize = ({
       ${messageTypography};
       padding: ${messagePadding};
     }
+
+    && ${Label} {
+      ${labelTypography}
+    }
   `;
 };
 
@@ -155,7 +161,8 @@ export const sizes: {
       optionTypography: theme.typography.body[20],
       optionPadding: theme.spacing(0.75, 1.25),
       messageTypography: theme.typography.body[20],
-      messagePadding: theme.spacing(1.25)
+      messagePadding: theme.spacing(1.25),
+      labelTypography: theme.typography.title[10]
     }),
   medium: (theme, size = {}) =>
     generateSize({
@@ -180,7 +187,8 @@ export const sizes: {
       optionTypography: theme.typography.body[20],
       optionPadding: theme.spacing(1, 1.5),
       messageTypography: theme.typography.body[20],
-      messagePadding: theme.spacing(1.5)
+      messagePadding: theme.spacing(1.5),
+      labelTypography: theme.typography.title[10]
     }),
   large: (theme, size = {}) =>
     generateSize({
@@ -205,6 +213,7 @@ export const sizes: {
       optionTypography: theme.typography.body[20],
       optionPadding: theme.spacing(1.25, 1.75),
       messageTypography: theme.typography.body[20],
-      messagePadding: theme.spacing(1.75)
+      messagePadding: theme.spacing(1.75),
+      labelTypography: theme.typography.title[10]
     })
 };

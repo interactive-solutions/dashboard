@@ -106,7 +106,6 @@ export const Content = styled.label`
 `;
 
 export const Label = styled.span`
-  ${({ theme }) => theme.typography.title[10]};
   margin-bottom: ${({ theme }) => theme.spacing(0.5)};
 `;
 

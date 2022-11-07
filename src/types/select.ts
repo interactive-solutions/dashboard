@@ -136,4 +136,5 @@ export type SelectSize = {
   optionPadding: string;
   messageTypography: FlattenSimpleInterpolation;
   messagePadding: string;
+  labelTypography: FlattenSimpleInterpolation;
 };

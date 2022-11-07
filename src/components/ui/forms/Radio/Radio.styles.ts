@@ -36,6 +36,7 @@ export const Label = styled.label`
   flex-direction: row;
   align-items: center;
   user-select: none;
+  color: ${({ theme }) => theme.surfaces.onLight};
 `;
 
 export const Input = styled.input`
