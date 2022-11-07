@@ -62,3 +62,8 @@ export enum CheckboxSelectors {
   Root = 'checkbox-root',
   Input = 'checkbox-input'
 }
+
+export enum RadioSelectors {
+  Root = 'radio-root',
+  Input = 'radio-input'
+}
