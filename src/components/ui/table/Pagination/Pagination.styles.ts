@@ -23,7 +23,8 @@ export const Button = styled.button`
   width: 32px;
   height: 32px;
   border-radius: ${({ theme }) => theme.border.radius};
-  transition: ${({ theme }) => theme.ease(['background-color', 'color'])};
+  transition: ${({ theme }) =>
+    theme.ease(['background-color', 'color', 'opacity'])};
 
   &:not(:disabled):hover {
     background-color: ${({ theme }) => theme.surfaces.onLight};

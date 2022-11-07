@@ -11,6 +11,7 @@ export const Root = styled.div<{
   display: inline-flex;
   flex-direction: column;
   text-align: left;
+  transition: ${({ theme }) => theme.ease(['opacity'])};
 
   ${({ $isDisabled }) =>
     !!$isDisabled &&
@@ -25,7 +26,7 @@ export const Root = styled.div<{
   ${({ $hasError, theme }) =>
     $hasError &&
     `
-      ${Input}:not(:checked) + ${RadioHolder} ${RadioNotChecked} {
+      ${Input}:not(:checked) ~ ${RadioHolder} ${RadioNotChecked} {
         border-color: ${theme.surfaces.error};
       }
     `}
@@ -47,7 +48,7 @@ export const Input = styled.input`
 export const RadioHolder = styled.div`
   position: relative;
 
-  .is-tabbing ${Input}:focus + & {
+  .is-tabbing ${Input}:focus ~ & {
     ${isTabbing};
   }
 `;
@@ -60,7 +61,7 @@ export const RadioNotChecked = styled.div`
   height: 18px;
   transition: ${({ theme }) => theme.ease(['opacity', 'border-color'])};
 
-  ${Input}:checked + ${RadioHolder} & {
+  ${Input}:checked ~ ${RadioHolder} & {
     opacity: 0;
   }
 `;
@@ -74,7 +75,7 @@ export const RadioChecked = styled(RadioNotChecked)`
   opacity: 0;
   background-color: ${({ theme }) => theme.surfaces.onLight};
 
-  ${Input}:checked + ${RadioHolder} & {
+  ${Input}:checked ~ ${RadioHolder} & {
     opacity: 1;
   }
 `;

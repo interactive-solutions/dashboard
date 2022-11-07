@@ -16,6 +16,7 @@ export default {
 
 const Template: Story<RadioProps> = (args) => {
   const { register } = useForm();
+
   return (
     <Grid gap={[1, 0]}>
       <Grid.Item width={12}>

@@ -11,6 +11,7 @@ export const Root = styled.div<{
   display: inline-flex;
   flex-direction: column;
   text-align: left;
+  transition: ${({ theme }) => theme.ease(['opacity'])};
 
   ${({ $isDisabled }) =>
     !!$isDisabled &&
@@ -25,7 +26,7 @@ export const Root = styled.div<{
   ${({ $hasError, theme }) =>
     $hasError &&
     `
-      ${Input}:not(:checked) + ${CheckboxHolder} ${CheckboxNotChecked} {
+      ${Input}:not(:checked) ~ ${CheckboxHolder} ${CheckboxNotChecked} {
         border-color: ${theme.surfaces.error};
       }
     `}
@@ -47,7 +48,7 @@ export const Input = styled.input`
 export const CheckboxHolder = styled.div`
   position: relative;
 
-  .is-tabbing ${Input}:focus + & {
+  .is-tabbing ${Input}:focus ~ & {
     ${isTabbing};
   }
 `;
@@ -60,7 +61,7 @@ export const CheckboxNotChecked = styled.div`
   height: 18px;
   transition: ${({ theme }) => theme.ease(['opacity', 'border-color'])};
 
-  ${Input}:checked + ${CheckboxHolder} & {
+  ${Input}:checked ~ ${CheckboxHolder} & {
     opacity: 0;
   }
 `;
@@ -74,7 +75,7 @@ export const CheckboxChecked = styled(CheckboxNotChecked)`
   opacity: 0;
   background-color: ${({ theme }) => theme.surfaces.onLight};
 
-  ${Input}:checked + ${CheckboxHolder} & {
+  ${Input}:checked ~ ${CheckboxHolder} & {
     opacity: 1;
   }
 `;
