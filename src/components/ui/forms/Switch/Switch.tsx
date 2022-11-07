@@ -9,7 +9,7 @@ import {
 } from 'react-hook-form';
 
 import { FormError } from 'components/ui/forms';
-import { CheckboxSelectors } from 'consts/cypress';
+import { SwitchSelectors } from 'consts/cypress';
 
 import * as styles from './Switch.styles';
 
@@ -58,7 +58,7 @@ export const Switch = ({
     <styles.Root
       $hasError={!!error}
       $isDisabled={disabled}
-      data-cy={CheckboxSelectors.Root}
+      data-cy={SwitchSelectors.Root}
     >
       <styles.Label>
         <styles.Input
@@ -66,7 +66,7 @@ export const Switch = ({
           value={value}
           disabled={disabled}
           defaultChecked={defaultChecked}
-          data-cy={CheckboxSelectors.Input}
+          data-cy={SwitchSelectors.Input}
           {...registerHolder}
           ref={(event) => {
             if (switchRef) switchRef.current = event;

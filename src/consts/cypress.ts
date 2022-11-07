@@ -67,3 +67,13 @@ export enum RadioSelectors {
   Root = 'radio-root',
   Input = 'radio-input'
 }
+
+export enum SwitchSelectors {
+  Root = 'switch-root',
+  Input = 'switch-input'
+}
+
+export enum FileSelectors {
+  Root = 'file-root',
+  Input = 'file-input'
+}
