@@ -45,6 +45,8 @@ export interface TextFieldProps {
   fullWidth?: boolean;
   iconRight?: ReactNode;
   iconLeft?: ReactNode;
+  addonRight?: ReactNode;
+  addonLeft?: ReactNode;
 }
 
 export const TextField = ({
@@ -68,6 +70,8 @@ export const TextField = ({
   fullWidth,
   iconRight,
   iconLeft,
+  addonRight,
+  addonLeft,
   ...rest
 }: TextFieldProps) => {
   const getValidation = useMemo(
@@ -92,6 +96,8 @@ export const TextField = ({
       $hasError={!!error}
       $isDisabled={disabled}
       $isReadOnly={readOnly}
+      $hasAddonRight={!!addonRight}
+      $hasAddonLeft={!!addonLeft}
       {...rest}
     >
       <styles.Content>
@@ -101,37 +107,41 @@ export const TextField = ({
             {getValidation?.required ? ' *' : ''}
           </styles.Label>
         )}
-        <styles.FieldHolder>
-          <styles.Field
-            data-cy={TextFieldSelectors.Field}
-            textarea={textarea}
-            type={type}
-            autoComplete="off"
-            disabled={disabled}
-            readOnly={readOnly}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            {...registerHolder}
-            ref={(event: HTMLInputElement | HTMLTextAreaElement | null) => {
-              if (textFieldRef) textFieldRef.current = event;
-              registerHolder.ref(event);
-            }}
-            onChange={(
-              event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-            ) => {
-              registerHolder.onChange(event);
-              onChange?.(event);
-            }}
-            onBlur={(
-              event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-            ) => {
-              registerHolder.onBlur(event);
-              onBlur?.(event);
-            }}
-          />
-          {!!iconLeft && <styles.IconLeft>{iconLeft}</styles.IconLeft>}
-          {!!iconRight && <styles.IconRight>{iconRight}</styles.IconRight>}
-        </styles.FieldHolder>
+        <styles.AddonsHolder>
+          {!!addonLeft && <styles.AddonLeft>{addonLeft}</styles.AddonLeft>}
+          <styles.FieldHolder>
+            <styles.Field
+              data-cy={TextFieldSelectors.Field}
+              textarea={textarea}
+              type={type}
+              autoComplete="off"
+              disabled={disabled}
+              readOnly={readOnly}
+              placeholder={placeholder}
+              defaultValue={defaultValue}
+              {...registerHolder}
+              ref={(event: HTMLInputElement | HTMLTextAreaElement | null) => {
+                if (textFieldRef) textFieldRef.current = event;
+                registerHolder.ref(event);
+              }}
+              onChange={(
+                event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+              ) => {
+                registerHolder.onChange(event);
+                onChange?.(event);
+              }}
+              onBlur={(
+                event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+              ) => {
+                registerHolder.onBlur(event);
+                onBlur?.(event);
+              }}
+            />
+            {!!iconLeft && <styles.IconLeft>{iconLeft}</styles.IconLeft>}
+            {!!iconRight && <styles.IconRight>{iconRight}</styles.IconRight>}
+          </styles.FieldHolder>
+          {!!addonRight && <styles.AddonRight>{addonRight}</styles.AddonRight>}
+        </styles.AddonsHolder>
       </styles.Content>
       <FormError error={error} />
     </styles.Root>

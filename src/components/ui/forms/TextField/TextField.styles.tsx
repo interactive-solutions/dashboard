@@ -29,6 +29,8 @@ export const Root = styled.div<{
   $hasError: boolean;
   $isDisabled?: boolean;
   $isReadOnly?: boolean;
+  $hasAddonRight: boolean;
+  $hasAddonLeft: boolean;
 }>`
   display: inline-flex;
   flex-direction: column;
@@ -38,10 +40,17 @@ export const Root = styled.div<{
     !!$fullWidth &&
     `
       display: flex;
+
+      ${FieldHolder} {
+        flex: 1;
+      }
     `}
 
-  ${({ $color = defaultValues.color, theme }) => css`
-    ${colors[$color](theme)}
+  ${({ $color = defaultValues.color, theme, $isDisabled, $isReadOnly }) => css`
+    ${colors[$color](theme, {
+      isDisabled: $isDisabled,
+      isReadOnly: $isReadOnly
+    })}
   `}
 
   ${({
@@ -49,14 +58,18 @@ export const Root = styled.div<{
     $size = defaultValues.size,
     $rounded = defaultValues.rounded,
     $hasIconRight,
-    $hasIconLeft
+    $hasIconLeft,
+    $hasAddonRight,
+    $hasAddonLeft
   }) => {
     if (typeof $size === 'string') {
       return css`
         ${sizes[$size](theme, {
           rounded: $rounded,
           hasIconRight: $hasIconRight,
-          hasIconLeft: $hasIconLeft
+          hasIconLeft: $hasIconLeft,
+          hasAddonRight: $hasAddonRight,
+          hasAddonLeft: $hasAddonLeft
         })}
       `;
     }
@@ -75,7 +88,9 @@ export const Root = styled.div<{
             ${sizes[getSize](theme, {
               rounded: $rounded,
               hasIconRight: $hasIconRight,
-              hasIconLeft: $hasIconLeft
+              hasIconLeft: $hasIconLeft,
+              hasAddonRight: $hasAddonRight,
+              hasAddonLeft: $hasAddonLeft
             })}
           `}
         `;
@@ -109,6 +124,28 @@ export const Content = styled.label`
 
 export const Label = styled.span`
   margin-bottom: ${({ theme }) => theme.spacing(0.5)};
+`;
+
+export const AddonsHolder = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+`;
+
+export const AddonRight = styled.span`
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: ${({ theme }) =>
+    theme.ease(['color', 'background-color', 'border-color'])};
+`;
+
+export const AddonLeft = styled.span`
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: ${({ theme }) =>
+    theme.ease(['color', 'background-color', 'border-color'])};
 `;
 
 export const FieldHolder = styled.div`

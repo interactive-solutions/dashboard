@@ -62,6 +62,30 @@ IconRight.args = {
   iconRight: '🔥'
 };
 
+export const AddonRightAndLeft = Template.bind({});
+AddonRightAndLeft.args = {
+  addonRight: 'Ipsum',
+  addonLeft: 'Lorem'
+};
+
+export const AddonRightRounded = Template.bind({});
+AddonRightRounded.args = {
+  addonRight: 'Lorem',
+  rounded: true
+};
+
+export const AddonLeftDisabled = Template.bind({});
+AddonLeftDisabled.args = {
+  addonLeft: 'Lorem',
+  disabled: true
+};
+
+export const AddonRightReadOnly = Template.bind({});
+AddonRightReadOnly.args = {
+  addonRight: 'Lorem',
+  readOnly: true
+};
+
 export const Textarea = Template.bind({});
 Textarea.args = {
   textarea: {

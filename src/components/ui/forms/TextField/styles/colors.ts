@@ -9,9 +9,22 @@ import { TextFieldColor } from 'types/textField';
 
 import { TextFieldProps } from '../TextField';
 
-import { Field, IconLeft, IconRight, Label } from '../TextField.styles';
+import {
+  AddonLeft,
+  AddonRight,
+  Field,
+  IconLeft,
+  IconRight,
+  Label
+} from '../TextField.styles';
 
-export const generateColor = ({ label, field }: TextFieldColor) => {
+export const generateColor = ({
+  label,
+  field,
+  addon,
+  isDisabled,
+  isReadOnly
+}: TextFieldColor) => {
   return css`
     ${Label} {
       color: ${label.default.color};
@@ -69,6 +82,26 @@ export const generateColor = ({ label, field }: TextFieldColor) => {
         border-color: ${field.focus.borderColor};
       }
     }
+
+    ${AddonRight}, ${AddonLeft} {
+      background-color: ${addon.default.backgroundColor};
+      color: ${addon.default.color};
+      border-color: ${addon.default.borderColor};
+
+      ${isDisabled === true &&
+      `
+        background-color: ${addon.disabled.backgroundColor};
+        color: ${addon.disabled.color};
+        border-color: ${addon.disabled.borderColor};
+      `}
+
+      ${isReadOnly === true &&
+      `
+        background-color: ${addon.readOnly.backgroundColor};
+        color: ${addon.readOnly.color};
+        border-color: ${addon.readOnly.borderColor};
+      `}
+    }
   `;
 };
 
@@ -78,11 +111,16 @@ export const generateColor = ({ label, field }: TextFieldColor) => {
  */
 export const colors: {
   [key in NonNullable<TextFieldProps['color']>]: (
-    theme: DefaultTheme
+    theme: DefaultTheme,
+    color?: {
+      isDisabled?: boolean;
+      isReadOnly?: boolean;
+    }
   ) => FlattenInterpolation<ThemeProps<DefaultTheme>>;
 } = {
-  light: (theme) =>
+  light: (theme, color = {}) =>
     generateColor({
+      ...color,
       label: {
         default: {
           color: theme.palettes.dark[700]
@@ -112,6 +150,23 @@ export const colors: {
         },
         focus: {
           borderColor: theme.surfaces.primary
+        }
+      },
+      addon: {
+        default: {
+          backgroundColor: theme.palettes.dark[700],
+          color: theme.palettes.light[100],
+          borderColor: theme.palettes.dark[700]
+        },
+        disabled: {
+          backgroundColor: theme.palettes.light[400],
+          color: theme.palettes.dark[400],
+          borderColor: theme.palettes.dark[400]
+        },
+        readOnly: {
+          backgroundColor: theme.palettes.light[400],
+          color: theme.palettes.dark[400],
+          borderColor: theme.palettes.dark[400]
         }
       }
     })
