@@ -132,7 +132,7 @@ export const AddonsHolder = styled.div`
   overflow: hidden;
 `;
 
-export const AddonRight = styled.div`
+export const AddonRight = styled.span`
   display: flex;
   align-items: center;
   user-select: none;
@@ -140,7 +140,7 @@ export const AddonRight = styled.div`
     theme.ease(['color', 'background-color', 'border-color'])};
 `;
 
-export const AddonLeft = styled.div`
+export const AddonLeft = styled.span`
   display: flex;
   align-items: center;
   user-select: none;
