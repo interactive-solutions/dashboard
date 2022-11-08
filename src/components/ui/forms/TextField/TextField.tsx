@@ -107,7 +107,7 @@ export const TextField = ({
             {getValidation?.required ? ' *' : ''}
           </styles.Label>
         )}
-        <styles.FieldAndAddonsHolder>
+        <styles.AddonsHolder>
           {!!addonLeft && <styles.AddonLeft>{addonLeft}</styles.AddonLeft>}
           <styles.FieldHolder>
             <styles.Field
@@ -141,7 +141,7 @@ export const TextField = ({
             {!!iconRight && <styles.IconRight>{iconRight}</styles.IconRight>}
           </styles.FieldHolder>
           {!!addonRight && <styles.AddonRight>{addonRight}</styles.AddonRight>}
-        </styles.FieldAndAddonsHolder>
+        </styles.AddonsHolder>
       </styles.Content>
       <FormError error={error} />
     </styles.Root>

@@ -126,7 +126,7 @@ export const Label = styled.span`
   margin-bottom: ${({ theme }) => theme.spacing(0.5)};
 `;
 
-export const FieldAndAddonsHolder = styled.div`
+export const AddonsHolder = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
