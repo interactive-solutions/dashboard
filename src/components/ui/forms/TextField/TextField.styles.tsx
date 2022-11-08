@@ -40,6 +40,10 @@ export const Root = styled.div<{
     !!$fullWidth &&
     `
       display: flex;
+
+      ${FieldHolder} {
+        flex: 1;
+      }
     `}
 
   ${({ $color = defaultValues.color, theme, $isDisabled, $isReadOnly }) => css`
