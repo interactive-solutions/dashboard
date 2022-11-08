@@ -68,24 +68,21 @@ AddonRightAndLeft.args = {
   addonLeft: 'Lorem'
 };
 
-export const AddonRightAndLeftRounded = Template.bind({});
-AddonRightAndLeftRounded.args = {
-  addonRight: 'Ipsum',
-  addonLeft: 'Lorem',
+export const AddonRightRounded = Template.bind({});
+AddonRightRounded.args = {
+  addonRight: 'Lorem',
   rounded: true
 };
 
-export const AddonRightAndLeftDisabled = Template.bind({});
-AddonRightAndLeftDisabled.args = {
-  addonRight: 'Ipsum',
+export const AddonLeftDisabled = Template.bind({});
+AddonLeftDisabled.args = {
   addonLeft: 'Lorem',
   disabled: true
 };
 
-export const AddonRightAndLeftReadOnly = Template.bind({});
-AddonRightAndLeftReadOnly.args = {
-  addonRight: 'Ipsum',
-  addonLeft: 'Lorem',
+export const AddonRightReadOnly = Template.bind({});
+AddonRightReadOnly.args = {
+  addonRight: 'Lorem',
   readOnly: true
 };
 
