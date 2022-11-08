@@ -1,6 +1,8 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type TextFieldColor = {
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
   label: {
     default: {
       color: string;
@@ -32,6 +34,23 @@ export type TextFieldColor = {
       borderColor: string;
     };
   };
+  addon: {
+    default: {
+      backgroundColor: string;
+      color: string;
+      borderColor: string;
+    };
+    disabled: {
+      backgroundColor: string;
+      color: string;
+      borderColor: string;
+    };
+    readOnly: {
+      backgroundColor: string;
+      color: string;
+      borderColor: string;
+    };
+  };
 };
 
 export type TextFieldSizes = 'small' | 'medium' | 'large';
@@ -40,10 +59,14 @@ export type TextFieldSize = {
   rounded?: boolean;
   hasIconRight?: boolean;
   hasIconLeft?: boolean;
+  hasAddonRight?: boolean;
+  hasAddonLeft?: boolean;
   paddingTopAndBottom: string;
   paddingRightAndLeft: string;
   fieldTypography: FlattenSimpleInterpolation;
   labelTypography: FlattenSimpleInterpolation;
   borderWidth: string;
   textareaMinHeight?: string;
+  addonTypography: FlattenSimpleInterpolation;
+  addonPaddingRightAndLeft: string;
 };
