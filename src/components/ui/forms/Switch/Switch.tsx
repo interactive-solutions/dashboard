@@ -16,6 +16,7 @@ import * as styles from './Switch.styles';
 export interface SwitchProps {
   register: UseFormRegister<any>;
   name: string;
+  color?: 'primary';
   value?: string;
   type?: 'checkbox' | 'radio';
   validation?: RegisterOptions;
@@ -32,6 +33,7 @@ export interface SwitchProps {
 export const Switch = ({
   register,
   name,
+  color,
   value,
   type = 'checkbox',
   validation,
@@ -56,6 +58,7 @@ export const Switch = ({
 
   return (
     <styles.Root
+      $color={color}
       $hasError={!!error}
       $isDisabled={disabled}
       data-cy={SwitchSelectors.Root}
