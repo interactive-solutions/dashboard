@@ -1,0 +1,3 @@
+# This is only for the linting (via @graphql-eslint/eslint-plugin)
+# The generation config is placed in the codegen folder
+schema: graphql/graphql.schema.json

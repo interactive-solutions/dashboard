@@ -32,8 +32,7 @@ Recommended node version is defined in `.nvmrc`.
 - `$ yarn stylelint:report` - Report any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn stylelint:fix` - Fix any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn typescript:report` - Report any TypeScript issues.
-- `$ yarn graphql:generate` - Generate GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql`.
-- `$ yarn graphql:generate:everything` - Generate everything from backend with [codegen](https://graphql-code-generator.com/) into gitignored `/graphql`.
+- `$ yarn graphql:generate` - Generate GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql` and generate everything from backend into gitignored `/graphql`.
 - `$ yarn graphql:watch` - Watch GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql`.
 - `$ yarn graphql:operations` - Generate a GraphQL operations file for [codegen](https://graphql-code-generator.com/).
 - `$ yarn storybook:start` - Start [Storybook](https://storybook.js.org/) server on port 1337.
