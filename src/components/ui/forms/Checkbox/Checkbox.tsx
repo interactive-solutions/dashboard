@@ -1,5 +1,6 @@
 import { ChangeEvent, MutableRefObject, ReactNode, useMemo } from 'react';
 
+import { ResponsiveBreakpoints } from '@entire.se/components';
 import {
   FieldError,
   FieldErrorsImpl,
@@ -10,6 +11,7 @@ import {
 
 import { FormError } from 'components/ui/forms';
 import { CheckboxSelectors } from 'consts/cypress';
+import { CheckboxSizes } from 'types/checkbox';
 
 import * as styles from './Checkbox.styles';
 
@@ -17,6 +19,11 @@ export interface CheckboxProps {
   register: UseFormRegister<any>;
   name: string;
   color?: 'light';
+  size?:
+    | CheckboxSizes
+    | {
+        [key in ResponsiveBreakpoints]?: CheckboxSizes;
+      };
   value?: string;
   validation?: RegisterOptions;
   disabled?: boolean;
@@ -32,6 +39,7 @@ export const Checkbox = ({
   register,
   name,
   color,
+  size,
   value,
   validation,
   disabled,
@@ -55,6 +63,7 @@ export const Checkbox = ({
   return (
     <styles.Root
       $color={color}
+      $size={size}
       $hasError={!!error}
       $isDisabled={disabled}
       data-cy={CheckboxSelectors.Root}

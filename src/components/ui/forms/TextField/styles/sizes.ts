@@ -35,7 +35,7 @@ export const generateSize = ({
 }: TextFieldSize) => {
   return css`
     ${Label} {
-      ${labelTypography}
+      ${labelTypography};
     }
 
     ${Field} {
@@ -65,7 +65,7 @@ export const generateSize = ({
     ${!!textareaMinHeight &&
     `
       textarea${Field} {
-        min-height: ${textareaMinHeight}
+        min-height: ${textareaMinHeight};
       }
     `}
 

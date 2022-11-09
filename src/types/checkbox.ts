@@ -1,3 +1,5 @@
+import { FlattenSimpleInterpolation } from 'styled-components';
+
 export type CheckboxColor = {
   isDisabled?: boolean;
   label: {
@@ -32,4 +34,13 @@ export type CheckboxColor = {
       borderColor: string;
     };
   };
+};
+
+export type CheckboxSizes = 'small' | 'medium' | 'large';
+
+export type CheckboxSize = {
+  labelTypography: FlattenSimpleInterpolation;
+  checkboxSize: string;
+  checkboxBorderWidth: string;
+  labelGap: string;
 };

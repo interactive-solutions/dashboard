@@ -1,18 +1,23 @@
+import { ResponsiveBreakpoints } from '@entire.se/components';
 import styled, { css } from 'styled-components';
 
 import { isTabbing } from 'styles/tools';
+import { CheckboxSizes } from 'types/checkbox';
 
 import { CheckboxProps } from './Checkbox';
-import { colors } from './styles';
+import { sizes, colors } from './styles';
 
 export const defaultValues: {
   color: NonNullable<CheckboxProps['color']>;
+  size: CheckboxSizes;
 } = {
-  color: 'light'
+  color: 'light',
+  size: 'medium'
 };
 
 export const Root = styled.div<{
   $color: CheckboxProps['color'];
+  $size: CheckboxProps['size'];
   $hasError: boolean;
   $isDisabled?: CheckboxProps['disabled'];
 }>`
@@ -25,6 +30,33 @@ export const Root = styled.div<{
       isDisabled: $isDisabled
     })}
   `}
+
+  ${({ theme, $size = defaultValues.size }) => {
+    if (typeof $size === 'string') {
+      return css`
+        ${sizes[$size](theme)}
+      `;
+    }
+
+    if (typeof $size === 'object' && !Array.isArray($size)) {
+      return Object.keys($size).map((breakpoint) => {
+        const getBreakpoint = breakpoint as ResponsiveBreakpoints;
+        const getSize = $size[getBreakpoint];
+
+        if (!getSize) {
+          return '';
+        }
+
+        return css`
+          ${theme.respondTo[getBreakpoint]`
+            ${sizes[getSize](theme)}
+          `}
+        `;
+      });
+    }
+
+    return '';
+  }}
 
   ${({ $isDisabled }) =>
     !!$isDisabled &&
@@ -64,10 +96,8 @@ export const CheckboxHolder = styled.div`
 `;
 
 export const CheckboxNotChecked = styled.div`
-  border: 2px solid;
+  border-style: solid;
   border-radius: ${({ theme }) => theme.border.radius};
-  width: 18px;
-  height: 18px;
   transition: ${({ theme }) => theme.ease(['opacity', 'border-color'])};
 
   ${Input}:checked ~ ${CheckboxHolder} & {
@@ -88,6 +118,4 @@ export const CheckboxChecked = styled(CheckboxNotChecked)`
   }
 `;
 
-export const LabelHolder = styled.span`
-  padding-left: ${({ theme }) => theme.spacing(1)};
-`;
+export const LabelHolder = styled.span``;
