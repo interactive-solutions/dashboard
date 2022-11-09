@@ -68,6 +68,7 @@ export type TextFieldSize = {
   paddingRightAndLeft: string;
   fieldTypography: FlattenSimpleInterpolation;
   labelTypography: FlattenSimpleInterpolation;
+  labelGap: string;
   borderWidth: string;
   textareaMinHeight?: string;
   addonTypography: FlattenSimpleInterpolation;

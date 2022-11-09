@@ -46,7 +46,8 @@ export const generateSize = ({
   optionPadding,
   messageTypography,
   messagePadding,
-  labelTypography
+  labelTypography,
+  labelGap
 }: SelectSize) => {
   return css`
     && ${Control} {
@@ -121,7 +122,8 @@ export const generateSize = ({
     }
 
     && ${Label} {
-      ${labelTypography}
+      ${labelTypography};
+      margin-bottom: ${labelGap};
     }
   `;
 };
@@ -162,7 +164,8 @@ export const sizes: {
       optionPadding: theme.spacing(0.75, 1.25),
       messageTypography: theme.typography.body[20],
       messagePadding: theme.spacing(1.25),
-      labelTypography: theme.typography.title[10]
+      labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5)
     }),
   medium: (theme, size = {}) =>
     generateSize({
@@ -188,7 +191,8 @@ export const sizes: {
       optionPadding: theme.spacing(1, 1.5),
       messageTypography: theme.typography.body[20],
       messagePadding: theme.spacing(1.5),
-      labelTypography: theme.typography.title[10]
+      labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5)
     }),
   large: (theme, size = {}) =>
     generateSize({
@@ -214,6 +218,7 @@ export const sizes: {
       optionPadding: theme.spacing(1.25, 1.75),
       messageTypography: theme.typography.body[20],
       messagePadding: theme.spacing(1.75),
-      labelTypography: theme.typography.title[10]
+      labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5)
     })
 };

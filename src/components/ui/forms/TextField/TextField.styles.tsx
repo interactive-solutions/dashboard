@@ -122,9 +122,7 @@ export const Content = styled.label`
   flex-direction: column;
 `;
 
-export const Label = styled.span`
-  margin-bottom: ${({ theme }) => theme.spacing(0.5)};
-`;
+export const Label = styled.span``;
 
 export const AddonsHolder = styled.div`
   display: flex;

@@ -26,6 +26,7 @@ export const generateSize = ({
   paddingRightAndLeft,
   fieldTypography,
   labelTypography,
+  labelGap,
   borderWidth,
   textareaMinHeight,
   hasAddonRight,
@@ -36,6 +37,7 @@ export const generateSize = ({
   return css`
     ${Label} {
       ${labelTypography};
+      margin-bottom: ${labelGap};
     }
 
     ${Field} {
@@ -178,6 +180,7 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(1.25),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5),
       borderWidth: '2px',
       textareaMinHeight: '78px',
       addonTypography: theme.typography.body[10],
@@ -190,6 +193,7 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(1.5),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5),
       borderWidth: '2px',
       textareaMinHeight: '86px',
       addonTypography: theme.typography.body[10],
@@ -202,6 +206,7 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(1.75),
       fieldTypography: theme.typography.body[20],
       labelTypography: theme.typography.title[10],
+      labelGap: theme.spacing(0.5),
       borderWidth: '2px',
       textareaMinHeight: '94px',
       addonTypography: theme.typography.body[10],
