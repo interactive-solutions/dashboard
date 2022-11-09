@@ -39,11 +39,17 @@ export const generateColor = ({
   multiValueRemove,
   menu,
   option,
-  message
+  message,
+  isDisabled
 }: SelectColor) => {
   return css`
     && ${Label} {
       color: ${label.default.color};
+
+      ${isDisabled === true &&
+      `
+        color: ${label.disabled.color};
+      `}
     }
 
     && ${Control} {
@@ -55,6 +61,12 @@ export const generateColor = ({
       &.react-select__control--menu-is-open {
         border-color: ${control.hover.borderColor};
       }
+
+      ${isDisabled === true &&
+      `
+        background-color: ${control.disabled.backgroundColor};
+        border-color: ${control.disabled.borderColor};
+      `}
     }
 
     && ${Input} {
@@ -63,14 +75,29 @@ export const generateColor = ({
 
     && ${SingleValue} {
       color: ${singleValue.default.color};
+
+      ${isDisabled === true &&
+      `
+        color: ${singleValue.disabled.color};
+      `}
     }
 
     && ${Placeholder} {
       color: ${placeholder.default.color};
+
+      ${isDisabled === true &&
+      `
+        color: ${placeholder.disabled.color};
+      `}
     }
 
     && ${IndicatorSeparator} {
       background-color: ${indicatorSeparator.default.backgroundColor};
+
+      ${isDisabled === true &&
+      `
+        background-color: ${indicatorSeparator.disabled.backgroundColor};
+      `}
     }
 
     &&
@@ -84,6 +111,11 @@ export const generateColor = ({
       &:hover {
         color: ${indicator.hover.color};
       }
+
+      ${isDisabled === true &&
+      `
+        color: ${indicator.disabled.color};
+      `}
     }
 
     && ${MultiValue} {
@@ -101,6 +133,26 @@ export const generateColor = ({
           color: ${multiValueRemove.hover.color};
         }
       }
+
+      ${isDisabled === true &&
+      `
+        background-color: ${multiValue.disabled.backgroundColor};
+        border-color: ${multiValue.disabled.borderColor};
+
+        .react-select__multi-value__label,
+        .react-select__multi-value__remove {
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .react-select__multi-value__label {
+          color: ${multiValueLabel.disabled.color};
+        }
+
+        .react-select__multi-value__remove {
+          color: ${multiValueRemove.disabled.color};
+        }
+      `}
     }
 
     && ${Menu} {
@@ -123,48 +175,6 @@ export const generateColor = ({
     && ${NoOptionsMessage}, && ${LoadingMessage} {
       color: ${message.default.color};
     }
-
-    && .react-select--is-disabled {
-      ${Control} {
-        background-color: ${control.disabled.backgroundColor};
-        border-color: ${control.disabled.borderColor};
-      }
-
-      ${SingleValue} {
-        color: ${singleValue.disabled.color};
-      }
-
-      ${Placeholder} {
-        color: ${placeholder.disabled.color};
-      }
-
-      ${IndicatorSeparator} {
-        background-color: ${indicatorSeparator.disabled.backgroundColor};
-      }
-
-      ${ClearIndicator}, ${DropdownIndicator}, ${LoadingIndicatorContainer} {
-        color: ${indicator.disabled.color};
-      }
-
-      ${MultiValue} {
-        background-color: ${multiValue.disabled.backgroundColor};
-        border-color: ${multiValue.disabled.borderColor};
-
-        .react-select__multi-value__label,
-        .react-select__multi-value__remove {
-          background-color: transparent;
-          border-color: transparent;
-        }
-
-        .react-select__multi-value__label {
-          color: ${multiValueLabel.disabled.color};
-        }
-
-        .react-select__multi-value__remove {
-          color: ${multiValueRemove.disabled.color};
-        }
-      }
-    }
   `;
 };
 
@@ -174,14 +184,21 @@ export const generateColor = ({
  */
 export const colors: {
   [key in NonNullable<SelectProps['color']>]: (
-    theme: DefaultTheme
+    theme: DefaultTheme,
+    color?: {
+      isDisabled?: boolean;
+    }
   ) => FlattenInterpolation<ThemeProps<DefaultTheme>>;
 } = {
-  light: (theme) =>
+  light: (theme, color = {}) =>
     generateColor({
+      ...color,
       label: {
         default: {
           color: theme.palettes.dark[700]
+        },
+        disabled: {
+          color: theme.palettes.dark[400]
         }
       },
       control: {

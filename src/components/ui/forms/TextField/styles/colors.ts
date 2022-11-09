@@ -28,6 +28,11 @@ export const generateColor = ({
   return css`
     ${Label} {
       color: ${label.default.color};
+
+      ${isDisabled === true &&
+      `
+        color: ${label.disabled.color};
+      `}
     }
 
     ${Field} {
@@ -124,6 +129,9 @@ export const colors: {
       label: {
         default: {
           color: theme.palettes.dark[700]
+        },
+        disabled: {
+          color: theme.palettes.dark[400]
         }
       },
       field: {

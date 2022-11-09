@@ -43,7 +43,8 @@ SizeWithBreakpoints.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  disabled: true
+  disabled: true,
+  label: 'Label'
 };
 
 export const ReadOnly = Template.bind({});

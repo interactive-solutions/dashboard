@@ -36,8 +36,10 @@ export const Root = styled.div<{
       display: flex;
     `}
 
-  ${({ $color = defaultValues.color, theme }) => css`
-    ${colors[$color](theme)}
+  ${({ $color = defaultValues.color, theme, $isDisabled }) => css`
+    ${colors[$color](theme, {
+      isDisabled: $isDisabled
+    })}
   `}
 
   ${({

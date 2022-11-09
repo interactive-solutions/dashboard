@@ -7,6 +7,9 @@ export type TextFieldColor = {
     default: {
       color: string;
     };
+    disabled: {
+      color: string;
+    };
   };
   field: {
     default: {
