@@ -16,6 +16,7 @@ import * as styles from './Checkbox.styles';
 export interface CheckboxProps {
   register: UseFormRegister<any>;
   name: string;
+  color?: 'light';
   value?: string;
   validation?: RegisterOptions;
   disabled?: boolean;
@@ -30,6 +31,7 @@ export interface CheckboxProps {
 export const Checkbox = ({
   register,
   name,
+  color,
   value,
   validation,
   disabled,
@@ -52,6 +54,7 @@ export const Checkbox = ({
 
   return (
     <styles.Root
+      $color={color}
       $hasError={!!error}
       $isDisabled={disabled}
       data-cy={CheckboxSelectors.Root}

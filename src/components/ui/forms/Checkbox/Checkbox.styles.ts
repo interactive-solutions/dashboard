@@ -1,23 +1,34 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { isTabbing } from 'styles/tools';
 
 import { CheckboxProps } from './Checkbox';
+import { colors } from './styles';
+
+export const defaultValues: {
+  color: NonNullable<CheckboxProps['color']>;
+} = {
+  color: 'light'
+};
 
 export const Root = styled.div<{
+  $color: CheckboxProps['color'];
   $hasError: boolean;
   $isDisabled?: CheckboxProps['disabled'];
 }>`
   display: inline-flex;
   flex-direction: column;
   text-align: left;
-  transition: ${({ theme }) => theme.ease(['opacity'])};
+
+  ${({ $color = defaultValues.color, theme, $isDisabled }) => css`
+    ${colors[$color](theme, {
+      isDisabled: $isDisabled
+    })}
+  `}
 
   ${({ $isDisabled }) =>
     !!$isDisabled &&
     `
-      opacity: 0.5;
-
       &, * {
         cursor: not-allowed;
       }
@@ -37,7 +48,6 @@ export const Label = styled.label`
   flex-direction: row;
   align-items: center;
   user-select: none;
-  color: ${({ theme }) => theme.surfaces.onLight};
 `;
 
 export const Input = styled.input`
@@ -54,8 +64,7 @@ export const CheckboxHolder = styled.div`
 `;
 
 export const CheckboxNotChecked = styled.div`
-  border: 2px solid ${({ theme }) => theme.surfaces.onLight};
-  background-color: transparent;
+  border: 2px solid;
   border-radius: ${({ theme }) => theme.border.radius};
   width: 18px;
   height: 18px;
@@ -73,7 +82,6 @@ export const CheckboxChecked = styled(CheckboxNotChecked)`
   bottom: 0;
   left: 0;
   opacity: 0;
-  background-color: ${({ theme }) => theme.surfaces.onLight};
 
   ${Input}:checked ~ ${CheckboxHolder} & {
     opacity: 1;
