@@ -122,7 +122,9 @@ export const Content = styled.label`
   flex-direction: column;
 `;
 
-export const Label = styled.span``;
+export const Label = styled.span`
+  transition: ${({ theme }) => theme.ease(['color'])};
+`;
 
 export const AddonsHolder = styled.div`
   display: flex;

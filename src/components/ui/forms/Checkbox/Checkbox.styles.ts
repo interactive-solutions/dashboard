@@ -80,6 +80,7 @@ export const Label = styled.label`
   flex-direction: row;
   align-items: center;
   user-select: none;
+  transition: ${({ theme }) => theme.ease(['color'])};
 `;
 
 export const Input = styled.input`
@@ -98,7 +99,8 @@ export const CheckboxHolder = styled.div`
 export const CheckboxNotChecked = styled.div`
   border-style: solid;
   border-radius: ${({ theme }) => theme.border.radius};
-  transition: ${({ theme }) => theme.ease(['opacity', 'border-color'])};
+  transition: ${({ theme }) =>
+    theme.ease(['opacity', 'border-color', 'color', 'background-color'])};
 
   ${Input}:checked ~ ${CheckboxHolder} & {
     opacity: 0;

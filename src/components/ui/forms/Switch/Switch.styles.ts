@@ -54,6 +54,7 @@ export const Label = styled.label`
   flex-direction: row;
   align-items: center;
   user-select: none;
+  transition: ${({ theme }) => theme.ease(['color'])};
 `;
 
 export const Input = styled.input`
@@ -68,6 +69,7 @@ export const SwitchHolder = styled.div`
   min-height: ${size.trackHeight};
   max-height: ${size.trackHeight};
   border-radius: calc(${size.trackHeight} / 2);
+  transition: ${({ theme }) => theme.ease(['background-color'])};
 
   .is-tabbing ${Input}:focus ~ & {
     ${isTabbing};
@@ -92,6 +94,7 @@ export const Switch = styled.div`
     width: ${size.knobSize};
     height: ${size.knobSize};
     border-radius: 50%;
+    transition: ${({ theme }) => theme.ease(['background-color'])};
   }
 
   ${Input}:checked ~ ${SwitchHolder} & {

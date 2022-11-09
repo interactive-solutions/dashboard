@@ -19,7 +19,6 @@ export const generateColor = ({
   return css`
     ${Label} {
       color: ${label.default.color};
-      transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
       `
@@ -29,7 +28,6 @@ export const generateColor = ({
 
     ${SwitchHolder} {
       background-color: ${switchColor.default.switchHolderBackgroundColor};
-      transition: ${({ theme }) => theme.ease(['background-color'])};
 
       ${isDisabled === true &&
       `
@@ -49,7 +47,6 @@ export const generateColor = ({
 
     ${Switch}::after {
       background-color: ${switchColor.default.switchBackgroundColor};
-      transition: ${({ theme }) => theme.ease(['background-color'])};
 
       ${isDisabled === true &&
       `

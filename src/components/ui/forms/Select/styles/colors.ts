@@ -45,6 +45,7 @@ export const generateColor = ({
   return css`
     && ${Label} {
       color: ${label.default.color};
+      transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
       `
@@ -55,6 +56,8 @@ export const generateColor = ({
     && ${Control} {
       background-color: ${control.default.backgroundColor};
       border-color: ${control.default.borderColor};
+      transition: ${({ theme }) =>
+        theme.ease(['background-color', 'border-color'])};
 
       &:hover,
       &.react-select__control--is-focused,
@@ -71,10 +74,17 @@ export const generateColor = ({
 
     && ${Input} {
       color: ${input.default.color};
+      transition: ${({ theme }) => theme.ease(['color'])};
+
+      ${isDisabled === true &&
+      `
+        color: ${input.disabled.color};
+      `}
     }
 
     && ${SingleValue} {
       color: ${singleValue.default.color};
+      transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
       `
@@ -84,6 +94,7 @@ export const generateColor = ({
 
     && ${Placeholder} {
       color: ${placeholder.default.color};
+      transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
       `
@@ -93,6 +104,7 @@ export const generateColor = ({
 
     && ${IndicatorSeparator} {
       background-color: ${indicatorSeparator.default.backgroundColor};
+      transition: ${({ theme }) => theme.ease(['background-color'])};
 
       ${isDisabled === true &&
       `
@@ -107,6 +119,7 @@ export const generateColor = ({
       &&
       ${LoadingIndicatorContainer} {
       color: ${indicator.default.color};
+      transition: ${({ theme }) => theme.ease(['color'])};
 
       &:hover {
         color: ${indicator.hover.color};
@@ -121,13 +134,17 @@ export const generateColor = ({
     && ${MultiValue} {
       background-color: ${multiValue.default.backgroundColor};
       border-color: ${multiValue.default.borderColor};
+      transition: ${({ theme }) =>
+        theme.ease(['background-color', 'border-color'])};
 
       .react-select__multi-value__label {
         color: ${multiValueLabel.default.color};
+        transition: ${({ theme }) => theme.ease(['color'])};
       }
 
       .react-select__multi-value__remove {
         color: ${multiValueRemove.default.color};
+        transition: ${({ theme }) => theme.ease(['color'])};
 
         &:hover {
           color: ${multiValueRemove.hover.color};
@@ -135,14 +152,18 @@ export const generateColor = ({
       }
 
       ${isDisabled === true &&
-      `
+      css`
         background-color: ${multiValue.disabled.backgroundColor};
         border-color: ${multiValue.disabled.borderColor};
+        transition: ${({ theme }) =>
+          theme.ease(['background-color', 'border-color'])};
 
         .react-select__multi-value__label,
         .react-select__multi-value__remove {
           background-color: transparent;
           border-color: transparent;
+          transition: ${({ theme }) =>
+            theme.ease(['background-color', 'border-color', 'color'])};
         }
 
         .react-select__multi-value__label {
@@ -163,6 +184,7 @@ export const generateColor = ({
     && ${Option} {
       background-color: ${option.default.backgroundColor};
       color: ${option.default.color};
+      transition: ${({ theme }) => theme.ease(['background-color', 'color'])};
 
       &:hover,
       &.react-select__option--is-focused,
@@ -217,6 +239,9 @@ export const colors: {
       input: {
         default: {
           color: theme.palettes.dark[700]
+        },
+        disabled: {
+          color: theme.palettes.dark[400]
         }
       },
       singleValue: {

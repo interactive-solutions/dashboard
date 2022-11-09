@@ -27,6 +27,9 @@ export type SelectColor = {
     default: {
       color: string;
     };
+    disabled: {
+      color: string;
+    };
   };
   singleValue: {
     default: {

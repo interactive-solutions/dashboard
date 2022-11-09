@@ -80,6 +80,7 @@ export const Label = styled.label`
   flex-direction: row;
   align-items: center;
   user-select: none;
+  transition: ${({ theme }) => theme.ease(['color'])};
 `;
 
 export const Input = styled.input`
@@ -100,7 +101,8 @@ export const RadioNotChecked = styled.div`
   border-radius: 50%;
   width: 18px;
   height: 18px;
-  transition: ${({ theme }) => theme.ease(['opacity', 'border-color'])};
+  transition: ${({ theme }) =>
+    theme.ease(['opacity', 'border-color', 'color', 'background-color'])};
 
   ${Input}:checked ~ ${RadioHolder} & {
     opacity: 0;

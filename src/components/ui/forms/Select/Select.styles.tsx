@@ -92,14 +92,6 @@ export const Root = styled.div<{
         cursor: not-allowed;
       }
     `}
-
-  ${({ $rounded }) =>
-    $rounded &&
-    `
-      && ${MultiValue} {
-        border-radius: 32px;
-      }
-    `}
 `;
 
 export const Content = styled.label`
@@ -107,7 +99,9 @@ export const Content = styled.label`
   flex-direction: column;
 `;
 
-export const Label = styled.span``;
+export const Label = styled.span`
+  transition: ${({ theme }) => theme.ease(['color'])};
+`;
 
 export const Select = styled(ReactSelect)`
   display: flex;
