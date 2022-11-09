@@ -29,6 +29,30 @@ const Template: Story<RadioProps> = (args) => {
   );
 };
 
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small'
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  size: 'medium'
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: 'large'
+};
+
+export const SizeWithBreakpoints = Template.bind({});
+SizeWithBreakpoints.args = {
+  size: {
+    root: 'small',
+    md: 'medium',
+    xl: 'large'
+  }
+};
+
 export const WithLabel = Template.bind({});
 
 export const WithoutLabel = Template.bind({});

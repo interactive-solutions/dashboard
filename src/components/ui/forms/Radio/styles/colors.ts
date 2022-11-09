@@ -5,18 +5,18 @@ import {
   ThemeProps
 } from 'styled-components';
 
-import { CheckboxColor } from 'types/checkbox';
+import { RadioColor } from 'types/radio';
 
-import { CheckboxProps } from '../Checkbox';
+import { RadioProps } from '../Radio';
 
-import { Label, CheckboxNotChecked, CheckboxChecked } from '../Checkbox.styles';
+import { Label, RadioNotChecked, RadioChecked } from '../Radio.styles';
 
 export const generateColor = ({
   label,
-  checkboxNotChecked,
-  checkboxChecked,
+  radioNotChecked,
+  radioChecked,
   isDisabled
-}: CheckboxColor) => {
+}: RadioColor) => {
   return css`
     ${Label} {
       color: ${label.default.color};
@@ -27,29 +27,29 @@ export const generateColor = ({
       `}
     }
 
-    ${CheckboxNotChecked} {
-      background-color: ${checkboxNotChecked.default.backgroundColor};
-      border-color: ${checkboxNotChecked.default.borderColor};
-      color: ${checkboxNotChecked.default.color};
+    ${RadioNotChecked} {
+      background-color: ${radioNotChecked.default.backgroundColor};
+      border-color: ${radioNotChecked.default.borderColor};
+      color: ${radioNotChecked.default.color};
 
       ${isDisabled === true &&
       `
-        background-color: ${checkboxNotChecked.disabled.backgroundColor};
-        border-color: ${checkboxNotChecked.disabled.borderColor};
-        color: ${checkboxNotChecked.disabled.color};
+        background-color: ${radioNotChecked.disabled.backgroundColor};
+        border-color: ${radioNotChecked.disabled.borderColor};
+        color: ${radioNotChecked.disabled.color};
       `}
     }
 
-    ${CheckboxChecked} {
-      background-color: ${checkboxChecked.default.backgroundColor};
-      border-color: ${checkboxChecked.default.borderColor};
-      color: ${checkboxChecked.default.color};
+    ${RadioChecked} {
+      background-color: ${radioChecked.default.backgroundColor};
+      border-color: ${radioChecked.default.borderColor};
+      color: ${radioChecked.default.color};
 
       ${isDisabled === true &&
       `
-        background-color: ${checkboxChecked.disabled.backgroundColor};
-        border-color: ${checkboxChecked.disabled.borderColor};
-        color: ${checkboxChecked.disabled.color};
+        background-color: ${radioChecked.disabled.backgroundColor};
+        border-color: ${radioChecked.disabled.borderColor};
+        color: ${radioChecked.disabled.color};
       `}
     }
   `;
@@ -60,7 +60,7 @@ export const generateColor = ({
  * they can overwrite each other.
  */
 export const colors: {
-  [key in NonNullable<CheckboxProps['color']>]: (
+  [key in NonNullable<RadioProps['color']>]: (
     theme: DefaultTheme,
     color?: {
       isDisabled?: boolean;
@@ -78,7 +78,7 @@ export const colors: {
           color: theme.palettes.dark[400]
         }
       },
-      checkboxNotChecked: {
+      radioNotChecked: {
         default: {
           backgroundColor: theme.palettes.light[100],
           color: theme.palettes.dark[700],
@@ -90,7 +90,7 @@ export const colors: {
           borderColor: theme.palettes.light[400]
         }
       },
-      checkboxChecked: {
+      radioChecked: {
         default: {
           backgroundColor: theme.palettes.dark[700],
           color: theme.palettes.light[100],

@@ -1,5 +1,6 @@
 import { ChangeEvent, MutableRefObject, ReactNode, useMemo } from 'react';
 
+import { ResponsiveBreakpoints } from '@entire.se/components';
 import {
   FieldError,
   FieldErrorsImpl,
@@ -10,12 +11,19 @@ import {
 
 import { FormError } from 'components/ui/forms';
 import { RadioSelectors } from 'consts/cypress';
+import { RadioSizes } from 'types/radio';
 
 import * as styles from './Radio.styles';
 
 export interface RadioProps {
   register: UseFormRegister<any>;
   name: string;
+  color?: 'light';
+  size?:
+    | RadioSizes
+    | {
+        [key in ResponsiveBreakpoints]?: RadioSizes;
+      };
   value?: string;
   validation?: RegisterOptions;
   disabled?: boolean;
@@ -30,6 +38,8 @@ export interface RadioProps {
 export const Radio = ({
   register,
   name,
+  color,
+  size,
   value,
   validation,
   disabled,
@@ -52,6 +62,8 @@ export const Radio = ({
 
   return (
     <styles.Root
+      $color={color}
+      $size={size}
       $hasError={!!error}
       $isDisabled={disabled}
       data-cy={RadioSelectors.Root}
