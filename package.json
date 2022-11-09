@@ -68,7 +68,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
     "@calm/eslint-plugin-react-intl": "^1.4.1",
-    "@entire.se/eslint-config-eslint-react": "^1.1.0",
+    "@entire.se/eslint-config-eslint-react": "^1.2.0",
     "@entire.se/eslint-plugin-eslint-react": "^1.1.0",
     "@entire.se/prettier": "^1.1.0",
     "@entire.se/stylelint-styled-components": "^1.1.0",
@@ -79,6 +79,7 @@
     "@graphql-codegen/typescript": "^2.8.1",
     "@graphql-codegen/typescript-operations": "^2.5.6",
     "@graphql-codegen/typescript-react-apollo": "^3.3.6",
+    "@graphql-eslint/eslint-plugin": "^3.13.1",
     "@next/eslint-plugin-next": "^13.0.2",
     "@sentry/cli": "^2.8.1",
     "@storybook/addon-a11y": "^6.5.13",
