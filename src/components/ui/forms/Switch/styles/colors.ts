@@ -81,7 +81,7 @@ export const colors: {
       switch: {
         default: {
           trackBackgroundColor: theme.palettes.dark[700],
-          trackBackgroundColorWhenChecked: theme.surfaces.success,
+          trackBackgroundColorWhenChecked: theme.surfaces.primary,
           knobBackgroundColor: theme.palettes.light[100]
         },
         disabled: {
