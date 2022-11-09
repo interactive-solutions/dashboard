@@ -1,5 +1,6 @@
 import { ChangeEvent, MutableRefObject, ReactNode, useMemo } from 'react';
 
+import { ResponsiveBreakpoints } from '@entire.se/components';
 import {
   FieldError,
   FieldErrorsImpl,
@@ -10,6 +11,7 @@ import {
 
 import { FormError } from 'components/ui/forms';
 import { SwitchSelectors } from 'consts/cypress';
+import { SwitchSizes } from 'types/switch';
 
 import * as styles from './Switch.styles';
 
@@ -17,6 +19,11 @@ export interface SwitchProps {
   register: UseFormRegister<any>;
   name: string;
   color?: 'primary';
+  size?:
+    | SwitchSizes
+    | {
+        [key in ResponsiveBreakpoints]?: SwitchSizes;
+      };
   value?: string;
   type?: 'checkbox' | 'radio';
   validation?: RegisterOptions;
@@ -34,6 +41,7 @@ export const Switch = ({
   register,
   name,
   color,
+  size,
   value,
   type = 'checkbox',
   validation,
@@ -59,6 +67,7 @@ export const Switch = ({
   return (
     <styles.Root
       $color={color}
+      $size={size}
       $hasError={!!error}
       $isDisabled={disabled}
       data-cy={SwitchSelectors.Root}

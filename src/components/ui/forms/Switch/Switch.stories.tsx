@@ -33,6 +33,30 @@ const Template: Story<SwitchProps> = (args) => {
   return <Switch {...args} register={register} />;
 };
 
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small'
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  size: 'medium'
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: 'large'
+};
+
+export const SizeWithBreakpoints = Template.bind({});
+SizeWithBreakpoints.args = {
+  size: {
+    root: 'small',
+    md: 'medium',
+    xl: 'large'
+  }
+};
+
 export const WithLabelRight = Template.bind({});
 
 export const WithLabelLeft = Template.bind({});

@@ -1,3 +1,5 @@
+import { FlattenSimpleInterpolation } from 'styled-components';
+
 export type SwitchColor = {
   isDisabled?: boolean;
   label: {
@@ -10,14 +12,24 @@ export type SwitchColor = {
   };
   switch: {
     default: {
-      switchHolderBackgroundColor: string;
-      switchHolderBackgroundColorWhenChecked: string;
-      switchBackgroundColor: string;
+      trackBackgroundColor: string;
+      trackBackgroundColorWhenChecked: string;
+      knobBackgroundColor: string;
     };
     disabled: {
-      switchHolderBackgroundColor: string;
-      switchHolderBackgroundColorWhenChecked: string;
-      switchBackgroundColor: string;
+      trackBackgroundColor: string;
+      trackBackgroundColorWhenChecked: string;
+      knobBackgroundColor: string;
     };
   };
+};
+
+export type SwitchSizes = 'small' | 'medium' | 'large';
+
+export type SwitchSize = {
+  trackWidth: string;
+  trackHeight: string;
+  knobSize: string;
+  labelTypography: FlattenSimpleInterpolation;
+  labelGap: string;
 };

@@ -27,30 +27,29 @@ export const generateColor = ({
     }
 
     ${SwitchHolder} {
-      background-color: ${switchColor.default.switchHolderBackgroundColor};
+      background-color: ${switchColor.default.trackBackgroundColor};
 
       ${isDisabled === true &&
       `
-        background-color: ${switchColor.disabled.switchHolderBackgroundColor};
+        background-color: ${switchColor.disabled.trackBackgroundColor};
       `}
     }
 
     ${Input}:checked ~ ${SwitchHolder} {
-      background-color: ${switchColor.default
-        .switchHolderBackgroundColorWhenChecked};
+      background-color: ${switchColor.default.trackBackgroundColorWhenChecked};
 
       ${isDisabled === true &&
       `
-        background-color: ${switchColor.disabled.switchHolderBackgroundColorWhenChecked};
+        background-color: ${switchColor.disabled.trackBackgroundColorWhenChecked};
       `}
     }
 
     ${Switch}::after {
-      background-color: ${switchColor.default.switchBackgroundColor};
+      background-color: ${switchColor.default.knobBackgroundColor};
 
       ${isDisabled === true &&
       `
-        background-color: ${switchColor.disabled.switchBackgroundColor};
+        background-color: ${switchColor.disabled.knobBackgroundColor};
       `}
     }
   `;
@@ -81,14 +80,14 @@ export const colors: {
       },
       switch: {
         default: {
-          switchHolderBackgroundColor: theme.palettes.dark[700],
-          switchHolderBackgroundColorWhenChecked: theme.surfaces.success,
-          switchBackgroundColor: theme.palettes.light[100]
+          trackBackgroundColor: theme.palettes.dark[700],
+          trackBackgroundColorWhenChecked: theme.surfaces.success,
+          knobBackgroundColor: theme.palettes.light[100]
         },
         disabled: {
-          switchHolderBackgroundColor: theme.palettes.light[400],
-          switchHolderBackgroundColorWhenChecked: theme.palettes.light[400],
-          switchBackgroundColor: theme.palettes.dark[400]
+          trackBackgroundColor: theme.palettes.light[400],
+          trackBackgroundColorWhenChecked: theme.palettes.light[400],
+          knobBackgroundColor: theme.palettes.dark[400]
         }
       }
     })

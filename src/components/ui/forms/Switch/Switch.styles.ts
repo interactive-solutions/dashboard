@@ -1,24 +1,23 @@
+import { ResponsiveBreakpoints } from '@entire.se/components';
 import styled, { css } from 'styled-components';
 
 import { isTabbing } from 'styles/tools';
+import { SwitchSizes } from 'types/switch';
 
-import { colors } from './styles';
+import { sizes, colors } from './styles';
 import { SwitchProps } from './Switch';
 
 export const defaultValues: {
   color: NonNullable<SwitchProps['color']>;
+  size: SwitchSizes;
 } = {
-  color: 'primary'
-};
-
-const size = {
-  trackWidth: '48px',
-  trackHeight: '24px',
-  knobSize: '18px'
+  color: 'primary',
+  size: 'medium'
 };
 
 export const Root = styled.div<{
   $color: SwitchProps['color'];
+  $size: SwitchProps['size'];
   $hasError: boolean;
   $isDisabled?: SwitchProps['disabled'];
 }>`
@@ -31,6 +30,33 @@ export const Root = styled.div<{
       isDisabled: $isDisabled
     })}
   `}
+
+  ${({ theme, $size = defaultValues.size }) => {
+    if (typeof $size === 'string') {
+      return css`
+        ${sizes[$size](theme)}
+      `;
+    }
+
+    if (typeof $size === 'object' && !Array.isArray($size)) {
+      return Object.keys($size).map((breakpoint) => {
+        const getBreakpoint = breakpoint as ResponsiveBreakpoints;
+        const getSize = $size[getBreakpoint];
+
+        if (!getSize) {
+          return '';
+        }
+
+        return css`
+          ${theme.respondTo[getBreakpoint]`
+            ${sizes[getSize](theme)}
+          `}
+        `;
+      });
+    }
+
+    return '';
+  }}
 
   ${({ $isDisabled }) =>
     !!$isDisabled &&
@@ -64,11 +90,6 @@ export const Input = styled.input`
 
 export const SwitchHolder = styled.div`
   position: relative;
-  min-width: ${size.trackWidth};
-  max-width: ${size.trackWidth};
-  min-height: ${size.trackHeight};
-  max-height: ${size.trackHeight};
-  border-radius: calc(${size.trackHeight} / 2);
   transition: ${({ theme }) => theme.ease(['background-color'])};
 
   .is-tabbing ${Input}:focus ~ & {
@@ -80,10 +101,8 @@ export const Switch = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: ${size.trackHeight};
-  height: ${size.trackHeight};
-  border-radius: calc(${size.trackHeight} / 2);
   background-color: transparent;
+  transition: ${({ theme }) => theme.ease(['transform'])};
 
   &::after {
     content: '';
@@ -91,21 +110,11 @@ export const Switch = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: ${size.knobSize};
-    height: ${size.knobSize};
     border-radius: 50%;
     transition: ${({ theme }) => theme.ease(['background-color'])};
   }
-
-  ${Input}:checked ~ ${SwitchHolder} & {
-    transform: translateX(calc(${size.trackWidth} - ${size.trackHeight}));
-  }
 `;
 
-export const LabelRight = styled.span`
-  padding-left: ${({ theme }) => theme.spacing(1)};
-`;
+export const LabelRight = styled.span``;
 
-export const LabelLeft = styled.span`
-  padding-right: ${({ theme }) => theme.spacing(1)};
-`;
+export const LabelLeft = styled.span``;
