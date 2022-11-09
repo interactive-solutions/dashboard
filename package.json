@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
-    "@entire.se/components": "^1.2.2",
+    "@entire.se/components": "^1.3.0",
     "@entire.se/hooks": "^1.1.0",
     "@entire.se/utils": "^1.1.0",
     "@sentry/nextjs": "^7.18.0",
@@ -67,7 +67,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
     "@calm/eslint-plugin-react-intl": "^1.4.1",
-    "@entire.se/eslint-config-eslint-react": "^1.2.0",
+    "@entire.se/eslint-config-eslint-react": "^1.2.1",
     "@entire.se/eslint-plugin-eslint-react": "^1.1.0",
     "@entire.se/prettier": "^1.1.0",
     "@entire.se/stylelint-styled-components": "^1.1.0",

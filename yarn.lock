@@ -1470,10 +1470,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/components@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.2.2.tgz#5e85a3eb74b75193cf38ed68910de9d3e598dee7"
-  integrity sha512-T+WOdFPRv2KGPwo6mLV7ud5SA/EKdYxbQSdPXEkZIuwaGtffGNxWCrxJDUzlw3TCP49FseEB5Fgj2MFqOCdhMw==
+"@entire.se/components@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.3.0.tgz#cd30b23b2a74428b1b04d7b07a1299d1217446aa"
+  integrity sha512-cwqvORPsRmB8Mon2skF3QZ6Ym/LcpHq3mA5Knx1J8eqOzzg8jH5dV63j/GH1lfLZmjut3h/n0UIjnDtZlQGKKA==
   dependencies:
     "@entire.se/hooks" "^1.1.0"
     "@entire.se/utils" "^1.1.0"
@@ -1485,10 +1485,10 @@
     lodash.remove "^4.7.0"
     uuid "^9.0.0"
 
-"@entire.se/eslint-config-eslint-react@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-1.2.0.tgz#54669dc35b53586f15a0646f0d8f80d7610cec5d"
-  integrity sha512-99WQlUh2+aZDLYyzkFxPsqgMEDYH+ah0c9ahQGSYTJ7sMnLMzpIHUG87ERPjsprZaNdBTDd0LFWzOY7IODmZlQ==
+"@entire.se/eslint-config-eslint-react@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-1.2.1.tgz#45293375eeeea215a4964008e393430e8657dcdf"
+  integrity sha512-vVtrR4qW+lflPwDtzRc+OC/1m8dAxhpRA+LGwAvIEDv1F3+O5I4mDdyIs+2o9GaOE+I4177+pVGDFdPYTFH8TQ==
 
 "@entire.se/eslint-plugin-eslint-react@^1.1.0":
   version "1.1.0"
