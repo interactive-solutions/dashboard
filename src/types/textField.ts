@@ -2,7 +2,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type TextFieldColor = {
   label: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -10,7 +10,7 @@ export type TextFieldColor = {
     };
   };
   field: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;
@@ -36,7 +36,7 @@ export type TextFieldColor = {
     };
   };
   addon: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;

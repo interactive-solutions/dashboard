@@ -30,7 +30,7 @@ export const generateColor = ({
 }) => {
   return css`
     ${Label} {
-      color: ${label.default.color};
+      color: ${label.idle.color};
 
       ${isDisabled === true &&
       `
@@ -39,17 +39,17 @@ export const generateColor = ({
     }
 
     ${Field} {
-      background-color: ${field.default.backgroundColor};
-      border-color: ${field.default.borderColor};
+      background-color: ${field.idle.backgroundColor};
+      border-color: ${field.idle.borderColor};
 
       &,
       & ~ ${IconRight}, & ~ ${IconLeft} {
-        color: ${field.default.color};
+        color: ${field.idle.color};
       }
 
       ${({ theme }) =>
         theme.placeholder(`
-          color: ${field.default.placeholder};
+          color: ${field.idle.placeholder};
         `)}
 
       &:disabled {
@@ -92,9 +92,9 @@ export const generateColor = ({
     }
 
     ${AddonRight}, ${AddonLeft} {
-      background-color: ${addon.default.backgroundColor};
-      color: ${addon.default.color};
-      border-color: ${addon.default.borderColor};
+      background-color: ${addon.idle.backgroundColor};
+      color: ${addon.idle.color};
+      border-color: ${addon.idle.borderColor};
 
       ${isDisabled === true &&
       `
@@ -130,7 +130,7 @@ export const colors: {
     generateColor({
       ...color,
       label: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -138,7 +138,7 @@ export const colors: {
         }
       },
       field: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           color: theme.palettes.dark[700],
           borderColor: theme.palettes.dark[700],
@@ -164,7 +164,7 @@ export const colors: {
         }
       },
       addon: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.dark[700],
           color: theme.palettes.light[100],
           borderColor: theme.palettes.dark[700]

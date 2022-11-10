@@ -21,7 +21,7 @@ export const generateColor = ({
 }) => {
   return css`
     ${Label} {
-      color: ${label.default.color};
+      color: ${label.idle.color};
 
       ${isDisabled === true &&
       `
@@ -30,9 +30,9 @@ export const generateColor = ({
     }
 
     ${CheckboxNotChecked} {
-      background-color: ${checkboxNotChecked.default.backgroundColor};
-      border-color: ${checkboxNotChecked.default.borderColor};
-      color: ${checkboxNotChecked.default.color};
+      background-color: ${checkboxNotChecked.idle.backgroundColor};
+      border-color: ${checkboxNotChecked.idle.borderColor};
+      color: ${checkboxNotChecked.idle.color};
 
       ${isDisabled === true &&
       `
@@ -43,9 +43,9 @@ export const generateColor = ({
     }
 
     ${CheckboxChecked} {
-      background-color: ${checkboxChecked.default.backgroundColor};
-      border-color: ${checkboxChecked.default.borderColor};
-      color: ${checkboxChecked.default.color};
+      background-color: ${checkboxChecked.idle.backgroundColor};
+      border-color: ${checkboxChecked.idle.borderColor};
+      color: ${checkboxChecked.idle.color};
 
       ${isDisabled === true &&
       `
@@ -73,7 +73,7 @@ export const colors: {
     generateColor({
       ...color,
       label: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -81,7 +81,7 @@ export const colors: {
         }
       },
       checkboxNotChecked: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           color: theme.palettes.dark[700],
           borderColor: theme.palettes.dark[700]
@@ -93,7 +93,7 @@ export const colors: {
         }
       },
       checkboxChecked: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.dark[700],
           color: theme.palettes.light[100],
           borderColor: theme.palettes.dark[700]

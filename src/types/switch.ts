@@ -2,7 +2,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type SwitchColor = {
   label: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -10,7 +10,7 @@ export type SwitchColor = {
     };
   };
   switch: {
-    default: {
+    idle: {
       trackBackgroundColor: string;
       trackBackgroundColorWhenChecked: string;
       knobBackgroundColor: string;

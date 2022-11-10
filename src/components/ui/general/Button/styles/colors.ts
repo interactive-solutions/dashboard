@@ -20,9 +20,9 @@ export const generateColor = ({
     ${!!solid &&
     !isGhost &&
     `
-      background-color: ${solid.default.backgroundColor};
-      color: ${solid.default.color};
-      border-color: ${solid.default.borderColor};
+      background-color: ${solid.idle.backgroundColor};
+      color: ${solid.idle.color};
+      border-color: ${solid.idle.borderColor};
 
       &:disabled {
         background-color: ${solid.disabled.backgroundColor};
@@ -40,9 +40,9 @@ export const generateColor = ({
     ${!!ghost &&
     isGhost &&
     `
-      background-color: ${ghost.default.backgroundColor};
-      color: ${ghost.default.color};
-      border-color: ${ghost.default.borderColor};
+      background-color: ${ghost.idle.backgroundColor};
+      color: ${ghost.idle.color};
+      border-color: ${ghost.idle.borderColor};
 
       &:disabled {
         background-color: ${ghost.disabled.backgroundColor};
@@ -75,7 +75,7 @@ export const colors: {
     generateColor({
       ...color,
       solid: {
-        default: {
+        idle: {
           backgroundColor: theme.surfaces.primary,
           color: theme.palettes.light[100],
           borderColor: theme.surfaces.primary
@@ -92,7 +92,7 @@ export const colors: {
         }
       },
       ghost: {
-        default: {
+        idle: {
           backgroundColor: 'transparent',
           color: theme.palettes.dark[700],
           borderColor: theme.surfaces.primary

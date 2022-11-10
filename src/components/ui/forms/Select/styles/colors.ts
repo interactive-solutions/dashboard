@@ -46,7 +46,7 @@ export const generateColor = ({
 }) => {
   return css`
     && ${Label} {
-      color: ${label.default.color};
+      color: ${label.idle.color};
       transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
@@ -56,8 +56,8 @@ export const generateColor = ({
     }
 
     && ${Control} {
-      background-color: ${control.default.backgroundColor};
-      border-color: ${control.default.borderColor};
+      background-color: ${control.idle.backgroundColor};
+      border-color: ${control.idle.borderColor};
       transition: ${({ theme }) =>
         theme.ease(['background-color', 'border-color'])};
 
@@ -75,7 +75,7 @@ export const generateColor = ({
     }
 
     && ${Input} {
-      color: ${input.default.color};
+      color: ${input.idle.color};
       transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
@@ -85,7 +85,7 @@ export const generateColor = ({
     }
 
     && ${SingleValue} {
-      color: ${singleValue.default.color};
+      color: ${singleValue.idle.color};
       transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
@@ -95,7 +95,7 @@ export const generateColor = ({
     }
 
     && ${Placeholder} {
-      color: ${placeholder.default.color};
+      color: ${placeholder.idle.color};
       transition: ${({ theme }) => theme.ease(['color'])};
 
       ${isDisabled === true &&
@@ -105,7 +105,7 @@ export const generateColor = ({
     }
 
     && ${IndicatorSeparator} {
-      background-color: ${indicatorSeparator.default.backgroundColor};
+      background-color: ${indicatorSeparator.idle.backgroundColor};
       transition: ${({ theme }) => theme.ease(['background-color'])};
 
       ${isDisabled === true &&
@@ -120,7 +120,7 @@ export const generateColor = ({
       ${DropdownIndicator},
       &&
       ${LoadingIndicatorContainer} {
-      color: ${indicator.default.color};
+      color: ${indicator.idle.color};
       transition: ${({ theme }) => theme.ease(['color'])};
 
       &:hover {
@@ -134,18 +134,18 @@ export const generateColor = ({
     }
 
     && ${MultiValue} {
-      background-color: ${multiValue.default.backgroundColor};
-      border-color: ${multiValue.default.borderColor};
+      background-color: ${multiValue.idle.backgroundColor};
+      border-color: ${multiValue.idle.borderColor};
       transition: ${({ theme }) =>
         theme.ease(['background-color', 'border-color'])};
 
       .react-select__multi-value__label {
-        color: ${multiValueLabel.default.color};
+        color: ${multiValueLabel.idle.color};
         transition: ${({ theme }) => theme.ease(['color'])};
       }
 
       .react-select__multi-value__remove {
-        color: ${multiValueRemove.default.color};
+        color: ${multiValueRemove.idle.color};
         transition: ${({ theme }) => theme.ease(['color'])};
 
         &:hover {
@@ -179,13 +179,13 @@ export const generateColor = ({
     }
 
     && ${Menu} {
-      background-color: ${menu.default.backgroundColor};
-      box-shadow: ${menu.default.boxShadow};
+      background-color: ${menu.idle.backgroundColor};
+      box-shadow: ${menu.idle.boxShadow};
     }
 
     && ${Option} {
-      background-color: ${option.default.backgroundColor};
-      color: ${option.default.color};
+      background-color: ${option.idle.backgroundColor};
+      color: ${option.idle.color};
       transition: ${({ theme }) => theme.ease(['background-color', 'color'])};
 
       &:hover,
@@ -197,7 +197,7 @@ export const generateColor = ({
     }
 
     && ${NoOptionsMessage}, && ${LoadingMessage} {
-      color: ${message.default.color};
+      color: ${message.idle.color};
     }
   `;
 };
@@ -218,7 +218,7 @@ export const colors: {
     generateColor({
       ...color,
       label: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -226,7 +226,7 @@ export const colors: {
         }
       },
       control: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           borderColor: theme.palettes.dark[700]
         },
@@ -239,7 +239,7 @@ export const colors: {
         }
       },
       input: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -247,7 +247,7 @@ export const colors: {
         }
       },
       singleValue: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -255,7 +255,7 @@ export const colors: {
         }
       },
       placeholder: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -263,7 +263,7 @@ export const colors: {
         }
       },
       indicatorSeparator: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.dark[700]
         },
         disabled: {
@@ -271,7 +271,7 @@ export const colors: {
         }
       },
       indicator: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -282,7 +282,7 @@ export const colors: {
         }
       },
       multiValue: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           borderColor: theme.palettes.dark[700]
         },
@@ -292,7 +292,7 @@ export const colors: {
         }
       },
       multiValueLabel: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -300,7 +300,7 @@ export const colors: {
         }
       },
       multiValueRemove: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -311,13 +311,13 @@ export const colors: {
         }
       },
       menu: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           boxShadow: '0 4px 16px rgba(0, 0, 0, 0.12)'
         }
       },
       option: {
-        default: {
+        idle: {
           backgroundColor: 'transparent',
           color: theme.palettes.dark[700]
         },
@@ -327,7 +327,7 @@ export const colors: {
         }
       },
       message: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         }
       }

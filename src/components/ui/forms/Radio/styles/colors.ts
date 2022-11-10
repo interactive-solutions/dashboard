@@ -21,7 +21,7 @@ export const generateColor = ({
 }) => {
   return css`
     ${Label} {
-      color: ${label.default.color};
+      color: ${label.idle.color};
 
       ${isDisabled === true &&
       `
@@ -30,9 +30,9 @@ export const generateColor = ({
     }
 
     ${RadioNotChecked} {
-      background-color: ${radioNotChecked.default.backgroundColor};
-      border-color: ${radioNotChecked.default.borderColor};
-      color: ${radioNotChecked.default.color};
+      background-color: ${radioNotChecked.idle.backgroundColor};
+      border-color: ${radioNotChecked.idle.borderColor};
+      color: ${radioNotChecked.idle.color};
 
       ${isDisabled === true &&
       `
@@ -43,9 +43,9 @@ export const generateColor = ({
     }
 
     ${RadioChecked} {
-      background-color: ${radioChecked.default.backgroundColor};
-      border-color: ${radioChecked.default.borderColor};
-      color: ${radioChecked.default.color};
+      background-color: ${radioChecked.idle.backgroundColor};
+      border-color: ${radioChecked.idle.borderColor};
+      color: ${radioChecked.idle.color};
 
       ${isDisabled === true &&
       `
@@ -73,7 +73,7 @@ export const colors: {
     generateColor({
       ...color,
       label: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -81,7 +81,7 @@ export const colors: {
         }
       },
       radioNotChecked: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.light[100],
           color: theme.palettes.dark[700],
           borderColor: theme.palettes.dark[700]
@@ -93,7 +93,7 @@ export const colors: {
         }
       },
       radioChecked: {
-        default: {
+        idle: {
           backgroundColor: theme.palettes.dark[700],
           color: theme.palettes.light[100],
           borderColor: theme.palettes.dark[700]

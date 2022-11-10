@@ -2,7 +2,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type RadioColor = {
   label: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -10,7 +10,7 @@ export type RadioColor = {
     };
   };
   radioNotChecked: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;
@@ -22,7 +22,7 @@ export type RadioColor = {
     };
   };
   radioChecked: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;

@@ -1,7 +1,7 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type ButtonStyles = {
-  default: {
+  idle: {
     backgroundColor: string;
     color: string;
     borderColor: string;

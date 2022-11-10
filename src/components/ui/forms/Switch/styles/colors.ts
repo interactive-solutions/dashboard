@@ -20,7 +20,7 @@ export const generateColor = ({
 }) => {
   return css`
     ${Label} {
-      color: ${label.default.color};
+      color: ${label.idle.color};
 
       ${isDisabled === true &&
       `
@@ -29,7 +29,7 @@ export const generateColor = ({
     }
 
     ${SwitchHolder} {
-      background-color: ${switchColor.default.trackBackgroundColor};
+      background-color: ${switchColor.idle.trackBackgroundColor};
 
       ${isDisabled === true &&
       `
@@ -38,7 +38,7 @@ export const generateColor = ({
     }
 
     ${Input}:checked ~ ${SwitchHolder} {
-      background-color: ${switchColor.default.trackBackgroundColorWhenChecked};
+      background-color: ${switchColor.idle.trackBackgroundColorWhenChecked};
 
       ${isDisabled === true &&
       `
@@ -47,7 +47,7 @@ export const generateColor = ({
     }
 
     ${Switch}::after {
-      background-color: ${switchColor.default.knobBackgroundColor};
+      background-color: ${switchColor.idle.knobBackgroundColor};
 
       ${isDisabled === true &&
       `
@@ -73,7 +73,7 @@ export const colors: {
     generateColor({
       ...color,
       label: {
-        default: {
+        idle: {
           color: theme.palettes.dark[700]
         },
         disabled: {
@@ -81,7 +81,7 @@ export const colors: {
         }
       },
       switch: {
-        default: {
+        idle: {
           trackBackgroundColor: theme.palettes.dark[700],
           trackBackgroundColorWhenChecked: theme.surfaces.primary,
           knobBackgroundColor: theme.palettes.light[100]

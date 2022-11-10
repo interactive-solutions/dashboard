@@ -2,7 +2,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type SelectColor = {
   label: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -10,7 +10,7 @@ export type SelectColor = {
     };
   };
   control: {
-    default: {
+    idle: {
       backgroundColor: string;
       borderColor: string;
     };
@@ -23,7 +23,7 @@ export type SelectColor = {
     };
   };
   input: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -31,7 +31,7 @@ export type SelectColor = {
     };
   };
   singleValue: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -39,7 +39,7 @@ export type SelectColor = {
     };
   };
   placeholder: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -47,7 +47,7 @@ export type SelectColor = {
     };
   };
   indicatorSeparator: {
-    default: {
+    idle: {
       backgroundColor: string;
     };
     disabled: {
@@ -55,7 +55,7 @@ export type SelectColor = {
     };
   };
   indicator: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -66,7 +66,7 @@ export type SelectColor = {
     };
   };
   multiValue: {
-    default: {
+    idle: {
       backgroundColor: string;
       borderColor: string;
     };
@@ -76,7 +76,7 @@ export type SelectColor = {
     };
   };
   multiValueLabel: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -84,7 +84,7 @@ export type SelectColor = {
     };
   };
   multiValueRemove: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -95,13 +95,13 @@ export type SelectColor = {
     };
   };
   menu: {
-    default: {
+    idle: {
       backgroundColor: string;
       boxShadow: string;
     };
   };
   option: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
     };
@@ -111,7 +111,7 @@ export type SelectColor = {
     };
   };
   message: {
-    default: {
+    idle: {
       color: string;
     };
   };

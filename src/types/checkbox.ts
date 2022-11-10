@@ -2,7 +2,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type CheckboxColor = {
   label: {
-    default: {
+    idle: {
       color: string;
     };
     disabled: {
@@ -10,7 +10,7 @@ export type CheckboxColor = {
     };
   };
   checkboxNotChecked: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;
@@ -22,7 +22,7 @@ export type CheckboxColor = {
     };
   };
   checkboxChecked: {
-    default: {
+    idle: {
       backgroundColor: string;
       color: string;
       borderColor: string;
