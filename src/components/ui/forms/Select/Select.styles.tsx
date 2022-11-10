@@ -47,11 +47,13 @@ export const Root = styled.div<{
     $size = defaultValues.size,
     $rounded = defaultValues.rounded
   }) => {
+    const additional = {
+      rounded: $rounded
+    };
+
     if (typeof $size === 'string') {
       return css`
-        ${sizes[$size](theme, {
-          rounded: $rounded
-        })}
+        ${sizes[$size](theme, additional)}
       `;
     }
 
@@ -66,9 +68,7 @@ export const Root = styled.div<{
 
         return css`
           ${theme.respondTo[getBreakpoint]`
-            ${sizes[getSize](theme, {
-              rounded: $rounded
-            })}
+            ${sizes[getSize](theme, additional)}
           `}
         `;
       });

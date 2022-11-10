@@ -62,15 +62,17 @@ export const Root = styled.div<{
     $hasAddonRight,
     $hasAddonLeft
   }) => {
+    const additional = {
+      rounded: $rounded,
+      hasIconRight: $hasIconRight,
+      hasIconLeft: $hasIconLeft,
+      hasAddonRight: $hasAddonRight,
+      hasAddonLeft: $hasAddonLeft
+    };
+
     if (typeof $size === 'string') {
       return css`
-        ${sizes[$size](theme, {
-          rounded: $rounded,
-          hasIconRight: $hasIconRight,
-          hasIconLeft: $hasIconLeft,
-          hasAddonRight: $hasAddonRight,
-          hasAddonLeft: $hasAddonLeft
-        })}
+        ${sizes[$size](theme, additional)}
       `;
     }
 
@@ -85,13 +87,7 @@ export const Root = styled.div<{
 
         return css`
           ${theme.respondTo[getBreakpoint]`
-            ${sizes[getSize](theme, {
-              rounded: $rounded,
-              hasIconRight: $hasIconRight,
-              hasIconLeft: $hasIconLeft,
-              hasAddonRight: $hasAddonRight,
-              hasAddonLeft: $hasAddonLeft
-            })}
+            ${sizes[getSize](theme, additional)}
           `}
         `;
       });
