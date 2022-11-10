@@ -16,7 +16,9 @@ export const generateColor = ({
   radioNotChecked,
   radioChecked,
   isDisabled
-}: RadioColor) => {
+}: RadioColor & {
+  isDisabled?: boolean;
+}) => {
   return css`
     ${Label} {
       color: ${label.default.color};

@@ -15,7 +15,9 @@ export const generateColor = ({
   label,
   switch: switchColor,
   isDisabled
-}: SwitchColor) => {
+}: SwitchColor & {
+  isDisabled?: boolean;
+}) => {
   return css`
     ${Label} {
       color: ${label.default.color};

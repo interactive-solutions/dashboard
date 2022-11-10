@@ -19,7 +19,6 @@ export type ButtonStyles = {
 };
 
 export type ButtonColor = {
-  isGhost?: boolean;
   solid?: ButtonStyles;
   ghost?: ButtonStyles;
 };
@@ -27,10 +26,9 @@ export type ButtonColor = {
 export type ButtonSizes = 'small' | 'medium' | 'large';
 
 export type ButtonSize = {
-  rounded?: boolean;
   paddingTopAndBottom: string;
   paddingRightAndLeft: string;
   typography: FlattenSimpleInterpolation;
   borderWidth: string;
-  iconMargin: string;
+  iconGap: string;
 };

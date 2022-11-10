@@ -1,7 +1,6 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type CheckboxColor = {
-  isDisabled?: boolean;
   label: {
     default: {
       color: string;

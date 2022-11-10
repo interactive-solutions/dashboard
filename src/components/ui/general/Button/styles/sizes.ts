@@ -11,13 +11,15 @@ import { ButtonSize, ButtonSizes } from 'types/button';
 import { IconRight, IconLeft } from '../Button.styles';
 
 export const generateSize = ({
-  rounded,
   paddingTopAndBottom,
   paddingRightAndLeft,
   typography,
   borderWidth,
-  iconMargin
-}: ButtonSize) => {
+  iconGap,
+  rounded
+}: ButtonSize & {
+  rounded?: boolean;
+}) => {
   return css`
     padding: ${paddingTopAndBottom} ${paddingRightAndLeft};
     font-size: ${getFlattenSimpleInterpolationValue(typography, 'font-size')};
@@ -38,11 +40,11 @@ export const generateSize = ({
     `}
 
     ${IconRight} {
-      margin-left: ${iconMargin};
+      margin-left: ${iconGap};
     }
 
     ${IconLeft} {
-      margin-right: ${iconMargin};
+      margin-right: ${iconGap};
     }
   `;
 };
@@ -66,7 +68,7 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(2),
       typography: theme.typography.body[20],
       borderWidth: '2px',
-      iconMargin: theme.spacing(1)
+      iconGap: theme.spacing(1)
     }),
   medium: (theme, size = {}) =>
     generateSize({
@@ -75,7 +77,7 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(3),
       typography: theme.typography.body[20],
       borderWidth: '2px',
-      iconMargin: theme.spacing(1)
+      iconGap: theme.spacing(1)
     }),
   large: (theme, size = {}) =>
     generateSize({
@@ -84,6 +86,6 @@ export const sizes: {
       paddingRightAndLeft: theme.spacing(4),
       typography: theme.typography.body[20],
       borderWidth: '2px',
-      iconMargin: theme.spacing(1)
+      iconGap: theme.spacing(1)
     })
 };

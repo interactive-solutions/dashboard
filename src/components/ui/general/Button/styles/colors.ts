@@ -9,7 +9,13 @@ import { ButtonColor } from 'types/button';
 
 import { ButtonProps } from '../Button';
 
-export const generateColor = ({ isGhost, solid, ghost }: ButtonColor) => {
+export const generateColor = ({
+  solid,
+  ghost,
+  isGhost
+}: ButtonColor & {
+  isGhost?: boolean;
+}) => {
   return css`
     ${!!solid &&
     !isGhost &&

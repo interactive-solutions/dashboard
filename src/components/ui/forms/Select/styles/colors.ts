@@ -41,7 +41,9 @@ export const generateColor = ({
   option,
   message,
   isDisabled
-}: SelectColor) => {
+}: SelectColor & {
+  isDisabled?: boolean;
+}) => {
   return css`
     && ${Label} {
       color: ${label.default.color};

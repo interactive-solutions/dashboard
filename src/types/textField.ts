@@ -1,8 +1,6 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 
 export type TextFieldColor = {
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
   label: {
     default: {
       color: string;

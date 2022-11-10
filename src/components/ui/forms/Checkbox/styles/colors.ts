@@ -16,7 +16,9 @@ export const generateColor = ({
   checkboxNotChecked,
   checkboxChecked,
   isDisabled
-}: CheckboxColor) => {
+}: CheckboxColor & {
+  isDisabled?: boolean;
+}) => {
   return css`
     ${Label} {
       color: ${label.default.color};

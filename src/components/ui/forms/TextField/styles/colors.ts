@@ -24,7 +24,10 @@ export const generateColor = ({
   addon,
   isDisabled,
   isReadOnly
-}: TextFieldColor) => {
+}: TextFieldColor & {
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
+}) => {
   return css`
     ${Label} {
       color: ${label.default.color};
