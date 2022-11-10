@@ -19,9 +19,6 @@ import {
 } from '../TextField.styles';
 
 export const generateSize = ({
-  rounded,
-  hasIconRight,
-  hasIconLeft,
   paddingTopAndBottom,
   paddingRightAndLeft,
   fieldTypography,
@@ -29,11 +26,20 @@ export const generateSize = ({
   labelGap,
   borderWidth,
   textareaMinHeight,
-  hasAddonRight,
-  hasAddonLeft,
   addonTypography,
-  addonPaddingRightAndLeft
-}: TextFieldSize) => {
+  addonPaddingRightAndLeft,
+  rounded,
+  hasIconRight,
+  hasIconLeft,
+  hasAddonRight,
+  hasAddonLeft
+}: TextFieldSize & {
+  rounded?: boolean;
+  hasIconRight?: boolean;
+  hasIconLeft?: boolean;
+  hasAddonRight?: boolean;
+  hasAddonLeft?: boolean;
+}) => {
   return css`
     ${Label} {
       ${labelTypography};

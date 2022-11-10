@@ -57,11 +57,6 @@ export type TextFieldColor = {
 export type TextFieldSizes = 'small' | 'medium' | 'large';
 
 export type TextFieldSize = {
-  rounded?: boolean;
-  hasIconRight?: boolean;
-  hasIconLeft?: boolean;
-  hasAddonRight?: boolean;
-  hasAddonLeft?: boolean;
   paddingTopAndBottom: string;
   paddingRightAndLeft: string;
   fieldTypography: FlattenSimpleInterpolation;
