@@ -92,7 +92,7 @@ export const SwitchHolder = styled.div`
   position: relative;
   transition: ${({ theme }) => theme.ease(['background-color'])};
 
-  .is-tabbing ${Input}:focus ~ & {
+  .\\@entire\\.se__is-tabbing ${Input}:focus ~ & {
     ${isTabbing};
   }
 `;

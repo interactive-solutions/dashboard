@@ -91,7 +91,7 @@ export const Input = styled.input`
 export const CheckboxHolder = styled.div`
   position: relative;
 
-  .is-tabbing ${Input}:focus ~ & {
+  .\\@entire\\.se__is-tabbing ${Input}:focus ~ & {
     ${isTabbing};
   }
 `;

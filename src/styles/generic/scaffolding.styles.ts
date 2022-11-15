@@ -47,7 +47,7 @@ export const scaffolding = css`
     touch-action: manipulation;
   }
 
-  body[class*='is-tabbing'] {
+  body[class*='@entire.se__is-tabbing'] {
     a:focus,
     input:focus,
     button:focus,

@@ -1,10 +1,10 @@
 import { ReactNode, useEffect } from 'react';
 
+import { useIsTabbing } from '@entire.se/hooks';
 import { setUser as setUserSentry } from '@sentry/nextjs';
 
 import { useMeQuery } from 'api/graphql';
 import { Header, Footer } from 'components/ui/general';
-import { useIsTabbing } from 'hooks';
 import { useAuthenticationStore } from 'store/authentication';
 
 import * as styles from './Layout.styles';
