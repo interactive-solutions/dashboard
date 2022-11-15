@@ -25,7 +25,7 @@ export const Home = ({ books }: HomeProps) => {
           <Grid gap={[2, 0]}>
             {books.edges.map(({ isbn, title }) => (
               <Grid.Item key={isbn} width={12}>
-                <Tooltip trigger="hover" tooltip={isbn}>
+                <Tooltip trigger="hover" tooltip={isbn} as="span">
                   <Link href={Paths.Book(isbn)}>{title}</Link>
                 </Tooltip>
               </Grid.Item>

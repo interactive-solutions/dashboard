@@ -1470,10 +1470,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/components@^1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.3.3.tgz#94868ee77aa34597aa81291f66af80ce6647072f"
-  integrity sha512-G7fuka+W7AmZf7JiySWUQqgZKVg/ovDG/PdFR2y/YsbSCgvlb/RBmZMjEyICb9VQw77XEU5a9+IurysRjRPUWQ==
+"@entire.se/components@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.3.4.tgz#a1a3c629bad9c413040c284004486478b6a1deeb"
+  integrity sha512-UedwfdnfIRQNAHu/mcbS0Kde4KYbmfI4gKhxHQLFE7CvvBujrDY9wU67Sl4KP8gGL7+lPc+L3UVyehvHqG/7tA==
   dependencies:
     "@entire.se/hooks" "^1.3.0"
     "@entire.se/utils" "^1.1.0"
