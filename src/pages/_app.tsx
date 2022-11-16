@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 const App = dynamic(() => import('components/tools/App/App'), {
   ssr: false
 });
+
 export default (props: AppProps) => <App {...props} />;
 
 // import { App } from 'components/tools';
