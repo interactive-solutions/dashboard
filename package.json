@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
-    "@entire.se/components": "^1.5.0",
+    "@entire.se/components": "^1.6.0",
     "@entire.se/hooks": "^1.3.1",
     "@entire.se/utils": "^1.1.0",
     "@sentry/nextjs": "^7.19.0",
@@ -101,7 +101,6 @@
     "amplify-graphql-docs-generator": "^2.2.4",
     "assert": "^2.0.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
-    "csstype": "^3.1.1",
     "cypress": "^11.1.0",
     "dotenv": "^16.0.0",
     "env-cmd": "^10.1.0",

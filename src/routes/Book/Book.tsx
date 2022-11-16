@@ -1,8 +1,8 @@
-import { Grid, Typography } from '@entire.se/components';
+import { Grid, Image, Typography } from '@entire.se/components';
 
 import { BookIsbnQuery } from 'api/graphql';
 import { SEO } from 'components/tools';
-import { Button, Container, Image } from 'components/ui/general';
+import { Button, Container } from 'components/ui/general';
 import { Paths } from 'consts/router';
 
 import * as styles from './Book.styles';
@@ -40,7 +40,7 @@ export const Book = ({ bookIsbn }: BookProps) => {
                   alt={title}
                   width={image.width}
                   height={image.height}
-                  backgroundColor="dark-400"
+                  backgroundColor="dark-100"
                   sizes="(min-width: 480px) 50vw, 100vw"
                   priority
                 />
