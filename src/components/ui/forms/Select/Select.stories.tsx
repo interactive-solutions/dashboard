@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { FieldError, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { Select, SelectProps } from './Select';
 
@@ -58,9 +58,9 @@ WithoutPlaceholder.args = {
   fullWidth: true
 };
 
-export const NotSearchable = Template.bind({});
-NotSearchable.args = {
-  searchable: false
+export const Searchable = Template.bind({});
+Searchable.args = {
+  searchable: true
 };
 
 export const Rounded = Template.bind({});
@@ -86,7 +86,8 @@ Multiple.args = {
 export const Error = Template.bind({});
 Error.args = {
   error: {
-    message: 'Error message' as unknown as FieldError
+    message: 'Error message',
+    type: 'required'
   }
 };
 

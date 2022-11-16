@@ -1,115 +1,27 @@
-import { ChangeEvent, MutableRefObject, ReactNode, useMemo } from 'react';
-
-import { ResponsiveBreakpoints } from '@entire.se/components';
 import {
-  FieldError,
-  FieldErrorsImpl,
-  Merge,
-  RegisterOptions,
-  UseFormRegister
-} from 'react-hook-form';
+  Switch as EntireSwitch,
+  SwitchProps as EntireSwitchProps
+} from '@entire.se/components';
+import { useTheme } from 'styled-components';
 
 import { FormError } from 'components/ui/forms';
-import { SwitchSelectors } from 'consts/cypress';
-import { SwitchSizes } from 'types/switch';
 
 import * as styles from './Switch.styles';
 
-export interface SwitchProps {
-  register: UseFormRegister<any>;
-  name: string;
-  color?: 'primary';
-  size?:
-    | SwitchSizes
-    | {
-        [key in ResponsiveBreakpoints]?: SwitchSizes;
-      };
-  value?: string;
-  type?: 'checkbox' | 'radio';
-  validation?: RegisterOptions;
-  disabled?: boolean;
-  error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
-  defaultChecked?: boolean;
-  switchRef?: MutableRefObject<HTMLInputElement | null>;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
-  labelRight?: ReactNode;
-  labelLeft?: ReactNode;
+export interface SwitchProps extends EntireSwitchProps {
+  color?: 'light';
 }
 
-export const Switch = ({
-  register,
-  name,
-  color,
-  size,
-  value,
-  type = 'checkbox',
-  validation,
-  disabled,
-  error,
-  defaultChecked,
-  switchRef,
-  onChange,
-  onBlur,
-  labelRight,
-  labelLeft
-}: SwitchProps) => {
-  const getValidation = useMemo(
-    () => (!disabled ? validation : {}),
-    [disabled, validation]
-  );
-
-  const registerHolder = useMemo(
-    () => register(name, getValidation),
-    [name, register, getValidation]
-  );
+export const Switch = (props: SwitchProps) => {
+  const theme = useTheme();
 
   return (
-    <styles.Root
-      $color={color}
-      $size={size}
-      $hasError={!!error}
-      $isDisabled={disabled}
-      data-cy={SwitchSelectors.Root}
-    >
-      <styles.Label>
-        <styles.Input
-          type={type}
-          value={value}
-          disabled={disabled}
-          defaultChecked={defaultChecked}
-          data-cy={SwitchSelectors.Input}
-          {...registerHolder}
-          ref={(event) => {
-            if (switchRef) switchRef.current = event;
-            registerHolder.ref(event);
-          }}
-          onChange={(event) => {
-            registerHolder.onChange(event);
-            onChange?.(event);
-          }}
-          onBlur={(event) => {
-            registerHolder.onBlur(event);
-            onBlur?.(event);
-          }}
-        />
-        {!!labelLeft && (
-          <styles.LabelLeft>
-            {labelLeft}
-            {getValidation?.required ? ' *' : ''}
-          </styles.LabelLeft>
-        )}
-        <styles.SwitchHolder>
-          <styles.Switch />
-        </styles.SwitchHolder>
-        {!!labelRight && (
-          <styles.LabelRight>
-            {labelRight}
-            {getValidation?.required ? ' *' : ''}
-          </styles.LabelRight>
-        )}
-      </styles.Label>
-      <FormError error={error} />
-    </styles.Root>
+    <EntireSwitch
+      {...props}
+      color={props.color || 'light'}
+      colors={styles.getColors(theme)}
+      sizes={styles.getSizes(theme)}
+      errorComponent={<FormError />}
+    />
   );
 };

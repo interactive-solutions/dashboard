@@ -1,120 +1,61 @@
-import { ResponsiveBreakpoints } from '@entire.se/components';
-import styled, { css } from 'styled-components';
+import { SwitchColor, SwitchSize, SwitchSizes } from '@entire.se/components';
+import { DefaultTheme } from 'styled-components';
 
-import { isTabbing } from 'styles/tools';
-import { SwitchSizes } from 'types/switch';
-
-import { sizes, colors } from './styles';
 import { SwitchProps } from './Switch';
 
-export const defaultValues: {
-  color: NonNullable<SwitchProps['color']>;
-  size: SwitchSizes;
-} = {
-  color: 'primary',
-  size: 'medium'
-};
-
-export const Root = styled.div<{
-  $color: SwitchProps['color'];
-  $size: SwitchProps['size'];
-  $hasError: boolean;
-  $isDisabled?: SwitchProps['disabled'];
-}>`
-  display: inline-flex;
-  flex-direction: column;
-  text-align: left;
-
-  ${({ $color = defaultValues.color, theme, $isDisabled }) => css`
-    ${colors[$color](theme, {
-      isDisabled: $isDisabled
-    })}
-  `}
-
-  ${({ theme, $size = defaultValues.size }) => {
-    if (typeof $size === 'string') {
-      return css`
-        ${sizes[$size](theme)}
-      `;
-    }
-
-    if (typeof $size === 'object' && !Array.isArray($size)) {
-      return Object.keys($size).map((breakpoint) => {
-        const getBreakpoint = breakpoint as ResponsiveBreakpoints;
-        const getSize = $size[getBreakpoint];
-
-        if (!getSize) {
-          return '';
-        }
-
-        return css`
-          ${theme.respondTo[getBreakpoint]`
-            ${sizes[getSize](theme)}
-          `}
-        `;
-      });
-    }
-
-    return '';
-  }}
-
-  ${({ $isDisabled }) =>
-    !!$isDisabled &&
-    `
-      &, * {
-        cursor: not-allowed;
+export const getColors = (
+  theme: DefaultTheme
+): {
+  [key in NonNullable<SwitchProps['color']>]: SwitchColor;
+} => ({
+  light: {
+    label: {
+      idle: {
+        color: theme.palettes.dark[700]
+      },
+      disabled: {
+        color: theme.palettes.dark[400]
       }
-    `}
-
-  ${({ $hasError, theme }) =>
-    $hasError &&
-    `
-      ${Input}:not(:checked) ~ ${SwitchHolder} {
-        background-color: ${theme.surfaces.error};
+    },
+    switch: {
+      idle: {
+        trackBackgroundColor: theme.palettes.dark[700],
+        trackBackgroundColorWhenChecked: theme.surfaces.primary,
+        knobBackgroundColor: theme.palettes.light[100]
+      },
+      disabled: {
+        trackBackgroundColor: theme.palettes.light[400],
+        trackBackgroundColorWhenChecked: theme.palettes.light[400],
+        knobBackgroundColor: theme.palettes.dark[400]
       }
-    `}
-`;
-
-export const Label = styled.label`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  user-select: none;
-  transition: ${({ theme }) => theme.ease(['color'])};
-`;
-
-export const Input = styled.input`
-  position: absolute;
-  left: -9999px;
-`;
-
-export const SwitchHolder = styled.div`
-  position: relative;
-  transition: ${({ theme }) => theme.ease(['background-color'])};
-
-  .\\@entire\\.se__is-tabbing ${Input}:focus ~ & {
-    ${isTabbing};
+    }
   }
-`;
+});
 
-export const Switch = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background-color: transparent;
-  transition: ${({ theme }) => theme.ease(['transform'])};
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    transition: ${({ theme }) => theme.ease(['background-color'])};
+export const getSizes = (
+  theme: DefaultTheme
+): {
+  [key in SwitchSizes]: SwitchSize;
+} => ({
+  small: {
+    trackWidth: '44px',
+    trackHeight: '22px',
+    knobSize: '14px',
+    labelTypography: theme.typography.body[10],
+    labelGap: theme.spacing(0.75)
+  },
+  medium: {
+    trackWidth: '52px',
+    trackHeight: '26px',
+    knobSize: '18px',
+    labelTypography: theme.typography.body[20],
+    labelGap: theme.spacing(1)
+  },
+  large: {
+    trackWidth: '60px',
+    trackHeight: '30px',
+    knobSize: '20px',
+    labelTypography: theme.typography.body[30],
+    labelGap: theme.spacing(1.25)
   }
-`;
-
-export const LabelRight = styled.span``;
-
-export const LabelLeft = styled.span``;
+});

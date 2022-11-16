@@ -17,11 +17,6 @@
  * }
  */
 
-export enum ButtonSelectors {
-  Root = 'button-root',
-  Spinner = 'button-spinner'
-}
-
 export enum FormErrorSelectors {
   Root = 'form-error-root'
 }
@@ -29,17 +24,6 @@ export enum FormErrorSelectors {
 export enum ImageSelectors {
   Root = 'image-root',
   Image = 'image-image'
-}
-
-export enum TextFieldSelectors {
-  Root = 'text-field-root',
-  Label = 'text-field-label',
-  Field = 'text-field-field'
-}
-
-export enum SelectSelectors {
-  Root = 'select-root',
-  Label = 'select-label'
 }
 
 export enum TableSelectors {
@@ -52,24 +36,4 @@ export enum TableSelectors {
   Pagination = 'table-pagination',
   Above = 'table-above',
   Search = 'table-search'
-}
-
-export enum CheckboxSelectors {
-  Root = 'checkbox-root',
-  Input = 'checkbox-input'
-}
-
-export enum RadioSelectors {
-  Root = 'radio-root',
-  Input = 'radio-input'
-}
-
-export enum SwitchSelectors {
-  Root = 'switch-root',
-  Input = 'switch-input'
-}
-
-export enum FileSelectors {
-  Root = 'file-root',
-  Input = 'file-input'
 }

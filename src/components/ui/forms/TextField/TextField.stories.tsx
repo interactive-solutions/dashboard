@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { FieldError, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { TextField, TextFieldProps } from './TextField';
 
@@ -112,7 +112,8 @@ Placeholder.args = {
 export const Error = Template.bind({});
 Error.args = {
   error: {
-    message: 'Error message' as unknown as FieldError
+    message: 'Error message',
+    type: 'required'
   }
 };
 
