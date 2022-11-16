@@ -19,7 +19,7 @@ Some things within this boilerplate are project specific and therefore needs to 
    2. **codegen/default.config.ts** - Update `schema`.
 8. Search within the entire repository for `nextjs-boilerplate` and replace it with the project name.
 9. Replace namespace `internal` with the namespace that is for your project.
-10. Want to disable SSR because e.g. you're going to create a backoffice? Go to `src/pages/_app.tsx` and use the commented out code.
+10. Want to enable SSR? Go to `src/pages/_app.tsx` and use the commented out code.
 11. Setup [Sentry](https://sentry.interactivesolutions.se/) and edit these:
     1. **process.env.NEXT_PUBLIC_SENTRY_DSN** - Within `.gitlab-ci.yml`.
     2. **sentry.properties** - Edit `defaults.project`.
