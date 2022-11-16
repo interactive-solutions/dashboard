@@ -1,8 +1,11 @@
 import { ElementType, MouseEventHandler, ReactNode } from 'react';
 
-import { ResponsiveBreakpoints, Spinner } from '@entire.se/components';
+import {
+  LinkProps,
+  ResponsiveBreakpoints,
+  Spinner
+} from '@entire.se/components';
 
-import { LinkProps } from 'components/tools';
 import { ButtonSelectors } from 'consts/cypress';
 import { ButtonSizes } from 'types/button';
 

@@ -70,3 +70,11 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true
 };
+
+export const Link = Template.bind({});
+Link.args = {
+  link: {
+    href: 'https://www.modohockey.se/',
+    target: '_blank'
+  }
+};

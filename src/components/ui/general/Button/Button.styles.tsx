@@ -1,7 +1,5 @@
-import { ResponsiveBreakpoints } from '@entire.se/components';
+import { Link, ResponsiveBreakpoints } from '@entire.se/components';
 import styled, { css } from 'styled-components';
-
-import { Link } from 'components/tools';
 
 import { ButtonProps } from './Button';
 import { sizes, colors } from './styles';

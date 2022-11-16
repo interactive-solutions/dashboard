@@ -1,4 +1,5 @@
-import { Link } from 'components/tools';
+import { Link } from '@entire.se/components';
+
 import { Paths } from 'consts/router';
 
 import * as styles from './Header.styles';

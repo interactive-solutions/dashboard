@@ -1470,12 +1470,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/components@^1.3.4":
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.3.4.tgz#a1a3c629bad9c413040c284004486478b6a1deeb"
-  integrity sha512-UedwfdnfIRQNAHu/mcbS0Kde4KYbmfI4gKhxHQLFE7CvvBujrDY9wU67Sl4KP8gGL7+lPc+L3UVyehvHqG/7tA==
+"@entire.se/components@^1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.4.4.tgz#4204521069ba2e5d6d7a36e1b15f47547a390aa2"
+  integrity sha512-H1zXpRJ2/noc/Y2DqsjKxcxX6z/8wwxPYNP3kMOXmR7JpNt0sIT+dZlSUZdYNShDMyEN5v3ryKxZGFldYX4aMQ==
   dependencies:
-    "@entire.se/hooks" "^1.3.0"
+    "@entire.se/hooks" "^1.3.1"
     "@entire.se/utils" "^1.1.0"
     "@floating-ui/react-dom-interactions" "^0.10.3"
     csstype "^3.1.1"
@@ -1495,10 +1495,10 @@
   resolved "https://registry.yarnpkg.com/@entire.se/eslint-plugin-eslint-react/-/eslint-plugin-eslint-react-1.1.0.tgz#ab510e588a82ce20539700193d89e9fa68d17998"
   integrity sha512-h6z83Ud8qJTjxFMjMTn1pJZjd30K+oTojOZNFXbXPNDyjNQIMOsC/7pywKgcLTc/4W4XB+xOtVQCZNy6oxP9rg==
 
-"@entire.se/hooks@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/hooks/-/hooks-1.3.0.tgz#75883eacfb04c95daf687e44d72412af6cb0658c"
-  integrity sha512-6y5PeBq3RnjcJLqqEtONJW+7iJXtfFl9abiQ9Pvl1W0dL4/G34zj3UKmNbWutUIVyzeI+7pVPo/qc22hKJUYnA==
+"@entire.se/hooks@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/hooks/-/hooks-1.3.1.tgz#4703a9ee627775908b4ecaa796a24957a3605984"
+  integrity sha512-1SPPqa24pi8h3y9bi8JKlUCJ9gOGvfENWMw7qHm6zuYQ75nMkwg66zc7DSs+Xjxj9eydmpsMHQMhaSzsfISsFA==
   dependencies:
     "@entire.se/utils" "^1.1.0"
     lodash.debounce "^4.0.8"

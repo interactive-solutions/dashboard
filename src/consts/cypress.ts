@@ -22,10 +22,6 @@ export enum ButtonSelectors {
   Spinner = 'button-spinner'
 }
 
-export enum LinkSelectors {
-  Root = 'link-root'
-}
-
 export enum FormErrorSelectors {
   Root = 'form-error-root'
 }

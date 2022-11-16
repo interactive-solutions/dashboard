@@ -1,8 +1,8 @@
-import { Grid, Tooltip } from '@entire.se/components';
+import { Grid, Link, Tooltip } from '@entire.se/components';
 import { useIntl } from 'react-intl';
 
 import { BooksQuery } from 'api/graphql';
-import { Link, SEO } from 'components/tools';
+import { SEO } from 'components/tools';
 import { Container } from 'components/ui/general';
 import { Paths } from 'consts/router';
 
