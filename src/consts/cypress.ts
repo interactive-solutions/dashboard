@@ -21,11 +21,6 @@ export enum FormErrorSelectors {
   Root = 'form-error-root'
 }
 
-export enum ImageSelectors {
-  Root = 'image-root',
-  Image = 'image-image'
-}
-
 export enum TableSelectors {
   Root = 'table-root',
   Table = 'table-table',

@@ -1,4 +1,3 @@
-import { ImageSelectors } from 'consts/cypress';
 import { Paths } from 'consts/router';
 
 describe('Example', () => {
@@ -8,6 +7,6 @@ describe('Example', () => {
 
   it('Image exists', () => {
     cy.get('.\\@entire\\.se__Link__Root').last().click();
-    cy.getSelector(ImageSelectors.Image).should('exist');
+    cy.get('.\\@entire\\.se__Image__Image').should('exist');
   });
 });
