@@ -8,9 +8,10 @@ Some things within this boilerplate are project specific and therefore needs to 
    2. **ENTIRE_HOSTNAME_STORYBOOK** - URL to Storybook for the project (e.g. boilerplate has _storybook.nextjs-boilerplate.isdemo.se_).
    3. **CF_ACCESS_CLIENT_ID_STAGING** - Cloudflare access client id. Set as masked and use values from [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/ci_cd).
    4. **CF_ACCESS_CLIENT_SECRET_STAGING** - Cloudflare access client secret. Set as masked and use values from [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/ci_cd).
-   5. **CLOUDFLARE_ZONE_ID** - Setup on group level. Use value from [here](https://git.interactivesolutions.se/groups/internal/-/settings/ci_cd).
-   6. **CF_AUTH_TOKEN** - Setup on group level. Use value from [here](https://git.interactivesolutions.se/groups/internal/-/settings/ci_cd).
-   7. **KUBECONFIG_STAGING** - Setup on group level. This is generated per project by backenders (or anyone with knowledge and access to terraform).
+   5. **SENTRY_AUTH_TOKEN** - Sentry auth token. Use value from [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/ci_cd).
+   6. **CLOUDFLARE_ZONE_ID** - Setup on group level. Use value from [here](https://git.interactivesolutions.se/groups/internal/-/settings/ci_cd).
+   7. **CF_AUTH_TOKEN** - Setup on group level. Use value from [here](https://git.interactivesolutions.se/groups/internal/-/settings/ci_cd).
+   8. **KUBECONFIG_STAGING** - Setup on group level. This is generated per project by backenders (or anyone with knowledge and access to terraform).
 3. Setup branches in Settings --> Repository:
    1. **Default branch** - Set this to _develop_.
    2. **Protected branches** - Protect _master_ and _develop_ with the same settings as [here](https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/repository).
