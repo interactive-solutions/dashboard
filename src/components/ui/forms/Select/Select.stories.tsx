@@ -104,7 +104,6 @@ PreventCloseMenuOnSelect.args = {
 
 export const NoOptionsMessage = Template.bind({});
 NoOptionsMessage.args = {
-  noOptionsMessage: () => 'Lorem ipsum',
   options: []
 };
 
