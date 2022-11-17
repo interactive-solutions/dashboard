@@ -14,6 +14,15 @@ spec:
         app.kubernetes.io/name: nextjs-boilerplate
         app.kubernetes.io/component: web
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: k8s.scaleway.com/purpose
+                    operator: In
+                    values:
+                      - web
       containers:
         - name: nextjs-boilerplate
           image: "image"
