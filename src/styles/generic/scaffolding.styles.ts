@@ -1,6 +1,5 @@
+import { isTabbing } from '@entire.se/components';
 import { css } from 'styled-components';
-
-import { isTabbing } from 'styles/tools';
 
 export const scaffolding = css`
   html {

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { format as dateFnsFormat } from 'date-fns';
 import { sv } from 'date-fns/locale';
 
-import { DateFormat } from 'consts/date';
+import { DateFormat } from 'consts/format';
 
 export const useFormat = () => {
   const formatDate = useCallback(

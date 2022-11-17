@@ -4,8 +4,20 @@
     "description": "Form error message"
   },
   "Home.seoTitle": {
-    "defaultMessage": "Home",
+    "defaultMessage": "Hem",
     "description": "Seo title"
+  },
+  "Pagination.pageOf": {
+    "defaultMessage": "Sida {pageIndex} av {pageCount}",
+    "description": "Current page of the total count"
+  },
+  "Search.placeholder": {
+    "defaultMessage": "Sök",
+    "description": "Search placeholder for table"
+  },
+  "Select.noOptionsMessage": {
+    "defaultMessage": "Hittade inga resultat",
+    "description": "No options message"
   },
   "useValidate.isAtLeast": {
     "defaultMessage": "Behöver vara minst {atLeast}",
