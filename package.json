@@ -34,7 +34,7 @@
     "graphql:watch": "graphql-codegen --config codegen/default.config.ts --watch",
     "graphql:operations": "amplify-graphql-docs-generator --schema graphql/graphql.schema.json --maxDepth=4 --output graphql/operations.graphql --language graphql",
     "storybook:start": "env-cmd -f .env.isStorybook start-storybook -p 1337",
-    "storybook:build": "env-cmd -f .env.isStorybook build-storybook -o build-storybook",
+    "storybook:build": "env-cmd -f .env.isStorybook build-storybook",
     "i18n:extract": "formatjs extract 'src/**/*.{js,tsx,ts}' --out-file src/i18n/cli/extracted.json --ignore **/*.d.ts",
     "i18n:compile": "formatjs compile src/i18n/cli/extracted.json --out-file src/i18n/cli/compiled.json"
   },
