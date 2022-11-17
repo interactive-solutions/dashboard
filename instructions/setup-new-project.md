@@ -32,4 +32,4 @@ Some things within this boilerplate are project specific and therefore needs to 
     1. Navigate to https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/packages_and_registries.
     2. Click on "Edit cleanup rules".
     3. Make the same settings for your project.
-14. TODO: Write how to setup provisioning...
+14. TODO: Write how to setup provisioning.
