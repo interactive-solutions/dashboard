@@ -5,6 +5,7 @@ const isBuild = process.env.NODE_ENV === 'production';
 const withSentry = process.env.NEXT_PUBLIC_SENTRY_DSN && isBuild;
 
 const nextConfig = {
+  output: 'standalone',
   compiler: {
     styledComponents: {
       displayName: isDevelopment,
@@ -17,7 +18,6 @@ const nextConfig = {
   },
   swcMinify: true,
   reactStrictMode: true,
-  distDir: 'build',
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGES_DOMAINS?.split(' ') || []
   },
