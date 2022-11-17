@@ -61,6 +61,7 @@ export const Book = ({ bookIsbn }: BookProps) => {
               >
                 <Grid.Item width={12}>
                   <Typography
+                    color="dark-700"
                     type={{
                       root: 'headline-10',
                       xs: 'headline-40',
