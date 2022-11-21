@@ -25,9 +25,9 @@ Some things within this boilerplate are project specific and therefore needs to 
 7. Replace namespace `internal` with the namespace that is for your project.
 8. Want to enable SSR? Go to `src/pages/_app.tsx` and use the commented out code.
 9. Setup [Sentry](https://sentry.interactivesolutions.se/) and edit these:
-    1. **process.env.NEXT_PUBLIC_SENTRY_DSN** - Within `.gitlab-ci.yml`.
-    2. **sentry.properties** - Edit `defaults.project`.
-    3. Make sure it works with a simple `throw new Error('...')`.
+   1. **process.env.NEXT_PUBLIC_SENTRY_DSN** - Within `.gitlab-ci.yml`.
+   2. **sentry.properties** - Edit `defaults.project`.
+   3. Make sure it works with a simple `throw new Error('...')`.
 10. Want a responsive website? Remove `min-width` from `src/components/ui/general/Layout/Layout.styles.ts`.
 11. Clean up image tags:
     1. Navigate to https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/packages_and_registries.

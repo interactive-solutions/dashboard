@@ -1,4 +1,3 @@
-import { Grid, Link, Tooltip } from '@entire.se/components';
 import { useIntl } from 'react-intl';
 
 import { SEO } from 'components/tools';
