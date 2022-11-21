@@ -1,35 +1,19 @@
-query BookIsbn($isbn: String!) {
-  bookIsbn(isbn: $isbn) {
-    id
-    image {
-      height
-      id
-      uri
-      width
-    }
-    title
-  }
-}
-
-query Books($filter: BookFilter, $sorting: SortOrdering) {
-  books(filter: $filter, sorting: $sorting) {
-    edges {
-      id
-      isbn
-      title
-    }
-    meta {
-      limit
-      offset
-      total
-    }
-  }
-}
-
 query Users($filter: UserFilter, $sorting: SortOrdering) {
   users(filter: $filter, sorting: $sorting) {
     edges {
       id
+      firstName
+      email
+      lastName
+      mobileNumber
+      createdAt
+      image {
+        id
+        uri
+        width
+        height
+        originalName
+      }
     }
     meta {
       limit

@@ -85,7 +85,7 @@ export const getSizes = (
     addonPaddingRightAndLeft: theme.spacing(1)
   },
   medium: {
-    paddingTopAndBottom: theme.spacing(1),
+    paddingTopAndBottom: theme.spacing(1.25),
     paddingRightAndLeft: theme.spacing(1.5),
     fieldTypography: theme.typography.body[20],
     labelTypography: theme.typography.title[10],

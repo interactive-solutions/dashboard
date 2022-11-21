@@ -15,7 +15,7 @@ export const Landing = () => {
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
       <styles.Root>
-        <Container>{'Landing'.toString()}</Container>
+        <Container>{'[insert-landing]'.toString()}</Container>
       </styles.Root>
     </>
   );

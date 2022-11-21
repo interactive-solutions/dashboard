@@ -60,7 +60,7 @@ export const getSizes = (
     iconGap: theme.spacing(1)
   },
   medium: {
-    paddingTopAndBottom: theme.spacing(1),
+    paddingTopAndBottom: theme.spacing(1.25),
     paddingRightAndLeft: theme.spacing(3),
     typography: theme.typography.body[20],
     borderWidth: '2px',

@@ -1232,28 +1232,13 @@ export enum UserRole {
   User = 'user'
 }
 
-export type BookIsbnQueryVariables = Exact<{
-  isbn: Scalars['String'];
-}>;
-
-
-export type BookIsbnQuery = { __typename?: 'Query', bookIsbn?: { __typename?: 'Book', id: string | number, title: string, image?: { __typename?: 'Image', height: number, id: string | number, uri: string, width: number } | null } | null };
-
-export type BooksQueryVariables = Exact<{
-  filter?: InputMaybe<BookFilter>;
-  sorting?: InputMaybe<SortOrdering>;
-}>;
-
-
-export type BooksQuery = { __typename?: 'Query', books: { __typename?: 'BookCollection', edges: Array<{ __typename?: 'Book', id: string | number, isbn: string, title: string }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
-
 export type UsersQueryVariables = Exact<{
   filter?: InputMaybe<UserFilter>;
   sorting?: InputMaybe<SortOrdering>;
 }>;
 
 
-export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
+export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, mobileNumber?: string | null, createdAt: string | number, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, originalName: string } | null }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
 
 export type RefreshTokenMutationVariables = Exact<{
   token: Scalars['String'];
@@ -1276,98 +1261,23 @@ export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null } | null };
 
 
-export const BookIsbnDocument = gql`
-    query BookIsbn($isbn: String!) {
-  bookIsbn(isbn: $isbn) {
-    id
-    image {
-      height
-      id
-      uri
-      width
-    }
-    title
-  }
-}
-    `;
-
-/**
- * __useBookIsbnQuery__
- *
- * To run a query within a React component, call `useBookIsbnQuery` and pass it any options that fit your needs.
- * When your component renders, `useBookIsbnQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBookIsbnQuery({
- *   variables: {
- *      isbn: // value for 'isbn'
- *   },
- * });
- */
-export function useBookIsbnQuery(baseOptions: Apollo.QueryHookOptions<BookIsbnQuery, BookIsbnQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<BookIsbnQuery, BookIsbnQueryVariables>(BookIsbnDocument, options);
-      }
-export function useBookIsbnLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BookIsbnQuery, BookIsbnQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<BookIsbnQuery, BookIsbnQueryVariables>(BookIsbnDocument, options);
-        }
-export type BookIsbnQueryHookResult = ReturnType<typeof useBookIsbnQuery>;
-export type BookIsbnLazyQueryHookResult = ReturnType<typeof useBookIsbnLazyQuery>;
-export type BookIsbnQueryResult = Apollo.QueryResult<BookIsbnQuery, BookIsbnQueryVariables>;
-export const BooksDocument = gql`
-    query Books($filter: BookFilter, $sorting: SortOrdering) {
-  books(filter: $filter, sorting: $sorting) {
-    edges {
-      id
-      isbn
-      title
-    }
-    meta {
-      limit
-      offset
-      total
-    }
-  }
-}
-    `;
-
-/**
- * __useBooksQuery__
- *
- * To run a query within a React component, call `useBooksQuery` and pass it any options that fit your needs.
- * When your component renders, `useBooksQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBooksQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *      sorting: // value for 'sorting'
- *   },
- * });
- */
-export function useBooksQuery(baseOptions?: Apollo.QueryHookOptions<BooksQuery, BooksQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<BooksQuery, BooksQueryVariables>(BooksDocument, options);
-      }
-export function useBooksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BooksQuery, BooksQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<BooksQuery, BooksQueryVariables>(BooksDocument, options);
-        }
-export type BooksQueryHookResult = ReturnType<typeof useBooksQuery>;
-export type BooksLazyQueryHookResult = ReturnType<typeof useBooksLazyQuery>;
-export type BooksQueryResult = Apollo.QueryResult<BooksQuery, BooksQueryVariables>;
 export const UsersDocument = gql`
     query Users($filter: UserFilter, $sorting: SortOrdering) {
   users(filter: $filter, sorting: $sorting) {
     edges {
       id
+      firstName
+      email
+      lastName
+      mobileNumber
+      createdAt
+      image {
+        id
+        uri
+        width
+        height
+        originalName
+      }
     }
     meta {
       limit

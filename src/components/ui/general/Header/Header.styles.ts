@@ -2,11 +2,23 @@ import styled from 'styled-components';
 
 export const Root = styled.header`
   background-color: ${({ theme }) => theme.surfaces.dark};
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing(2)};
+  height: 54px;
+  display: flex;
+`;
 
-  &,
-  * {
-    color: ${({ theme }) => theme.surfaces.onDark};
+export const Content = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  height: 54px;
+`;
+
+export const Logout = styled.button`
+  background-color: transparent;
+  color: ${({ theme }) => theme.surfaces.light};
+  transition: ${({ theme }) => theme.ease(['color'])};
+
+  &:hover {
+    color: ${({ theme }) => theme.surfaces.primary};
   }
 `;
