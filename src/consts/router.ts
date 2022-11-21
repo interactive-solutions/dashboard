@@ -7,6 +7,5 @@
  */
 
 export const Paths = Object.freeze({
-  Home: '/',
-  Book: (isbn?: string | number) => (isbn ? `/books/${isbn}` : `/books/[isbn]`)
+  Home: '/'
 });

@@ -1,3 +1,10 @@
+# Fetch on the server
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+# Example
+
+```tsx
 import { GetServerSideProps } from 'next';
 
 import { client } from 'api/apollo';
@@ -41,3 +48,4 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     }
   };
 };
+```
