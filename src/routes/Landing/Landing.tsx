@@ -4,18 +4,18 @@ import { useIntl } from 'react-intl';
 import { SEO } from 'components/tools';
 import { Container } from 'components/ui/general';
 
-import { texts } from './Home.text';
+import { texts } from './Landing.text';
 
-import * as styles from './Home.styles';
+import * as styles from './Landing.styles';
 
-export const Home = () => {
+export const Landing = () => {
   const { formatMessage } = useIntl();
 
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
       <styles.Root>
-        <Container>{'Home'.toString()}</Container>
+        <Container>{'Landing'.toString()}</Container>
       </styles.Root>
     </>
   );

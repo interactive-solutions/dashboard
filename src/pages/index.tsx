@@ -1,5 +1,5 @@
-import { Home } from 'routes';
+import { Landing } from 'routes';
 
 export default () => {
-  return <Home />;
+  return <Landing />;
 };
