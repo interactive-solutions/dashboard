@@ -5,15 +5,7 @@ query Users($filter: UserFilter, $sorting: SortOrdering) {
       firstName
       email
       lastName
-      mobileNumber
       createdAt
-      image {
-        id
-        uri
-        width
-        height
-        originalName
-      }
     }
     meta {
       limit

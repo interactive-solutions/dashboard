@@ -1238,7 +1238,7 @@ export type UsersQueryVariables = Exact<{
 }>;
 
 
-export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, mobileNumber?: string | null, createdAt: string | number, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, originalName: string } | null }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
+export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, createdAt: string | number }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
 
 export type RefreshTokenMutationVariables = Exact<{
   token: Scalars['String'];
@@ -1269,15 +1269,7 @@ export const UsersDocument = gql`
       firstName
       email
       lastName
-      mobileNumber
       createdAt
-      image {
-        id
-        uri
-        width
-        height
-        originalName
-      }
     }
     meta {
       limit

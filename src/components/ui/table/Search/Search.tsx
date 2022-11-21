@@ -49,6 +49,7 @@ export const Search = ({
         name="searchTerm"
         fullWidth
         onChange={debouncedOnChange}
+        iconLeft="🔍"
         defaultValue={
           handleQueryParameters ? getSearchTermQueryParameter() : undefined
         }
