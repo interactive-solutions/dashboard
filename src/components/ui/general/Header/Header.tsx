@@ -7,7 +7,7 @@ import * as styles from './Header.styles';
 export const Header = () => {
   return (
     <styles.Root>
-      <Link href={Paths.Home}>{'[insert-header]'.toString()}</Link>
+      <Link href={Paths.Landing}>{'[insert-header]'.toString()}</Link>
     </styles.Root>
   );
 };

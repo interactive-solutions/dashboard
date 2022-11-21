@@ -7,5 +7,5 @@
  */
 
 export const Paths = Object.freeze({
-  Home: '/'
+  Landing: '/'
 });

@@ -58,14 +58,6 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
           set(() => ({ hasError }), false, 'authentication/setError');
         },
         login: async (variables) => {
-          const { data } = await client.mutate<
-            LoginEmailMutation,
-            LoginEmailMutationVariables
-          >({
-            mutation: LoginEmailDocument,
-            variables
-          });
-
           set(
             () => ({
               ...initialAuthenticationStore,
@@ -74,6 +66,14 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
             false,
             'authentication/login/isLoading'
           );
+
+          const { data } = await client.mutate<
+            LoginEmailMutation,
+            LoginEmailMutationVariables
+          >({
+            mutation: LoginEmailDocument,
+            variables
+          });
 
           const {
             success,

@@ -14,7 +14,7 @@ export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const user = useAuthenticationStore((store) => store.user);
 
   if (!user) {
-    router.replace(Paths.Home);
+    router.replace(Paths.Landing);
   }
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

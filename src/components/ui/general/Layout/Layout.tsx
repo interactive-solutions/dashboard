@@ -18,10 +18,18 @@ export const Layout = ({ children }: LayoutProps) => {
   const token = useAuthenticationStore((store) => store.token);
   const { data } = useMeQuery({ skip: !token });
 
-  useEffect(() => {
-    const user = data?.me || null;
+  useIsTabbing();
 
-    setUser(user);
+  // If "me" updates we want to update the global state
+  useEffect(() => {
+    const user = data?.me;
+    if (user) setUser(user);
+  }, [data?.me, setUser]);
+
+  // Tell Sentry who's signed in
+  useEffect(() => {
+    const user = data?.me;
+
     setUserSentry(
       user
         ? {
@@ -30,9 +38,7 @@ export const Layout = ({ children }: LayoutProps) => {
           }
         : null
     );
-  }, [data?.me, setUser]);
-
-  useIsTabbing();
+  }, [data?.me]);
 
   return (
     <styles.Root>
