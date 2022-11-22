@@ -1470,13 +1470,13 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/components@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.8.0.tgz#6ad3e85733cfb8d5840faa0d96e54bc063c0d3ed"
-  integrity sha512-K4p+I+XsUbZ4rzsRS08Vgkm4JTnB9Ru0mlqeJ1pIvKH95nbNoqb+gnByxks8ojr2VyiV7/+IFIulTebP/hVLNw==
+"@entire.se/components@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.8.1.tgz#519781099838b16251cc44b5a2e731e48def301b"
+  integrity sha512-0PrFrRSnzl7dVBJ96qx1xaXbyvK88/ZXOzVErTkpxGN7sgIVDp5npKc6nKztvBQbDPFWeUn57m+rM/3VHUvFNQ==
   dependencies:
-    "@entire.se/hooks" "^1.3.1"
-    "@entire.se/utils" "^1.1.0"
+    "@entire.se/hooks" "^1.3.2"
+    "@entire.se/utils" "^1.1.1"
     "@floating-ui/react-dom-interactions" "^0.10.3"
     csstype "^3.1.1"
     framer-motion "^7.2.0"
@@ -1487,40 +1487,40 @@
     react-textarea-autosize "^8.4.0"
     uuid "^9.0.0"
 
-"@entire.se/eslint-config-eslint-react@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-1.2.1.tgz#45293375eeeea215a4964008e393430e8657dcdf"
-  integrity sha512-vVtrR4qW+lflPwDtzRc+OC/1m8dAxhpRA+LGwAvIEDv1F3+O5I4mDdyIs+2o9GaOE+I4177+pVGDFdPYTFH8TQ==
+"@entire.se/eslint-config-eslint-react@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-1.2.2.tgz#05e6ece13a17370830e9eb2bf8aaf2b6badbb22c"
+  integrity sha512-6XaOz0NHEfsQh84/3ETn9mguhALDZswlDEjkrf8+/kZ3RJr1e91B2u88TTCwPs4my31UAIxDE9+qbAlkSfTVvw==
 
-"@entire.se/eslint-plugin-eslint-react@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/eslint-plugin-eslint-react/-/eslint-plugin-eslint-react-1.1.0.tgz#ab510e588a82ce20539700193d89e9fa68d17998"
-  integrity sha512-h6z83Ud8qJTjxFMjMTn1pJZjd30K+oTojOZNFXbXPNDyjNQIMOsC/7pywKgcLTc/4W4XB+xOtVQCZNy6oxP9rg==
+"@entire.se/eslint-plugin-eslint-react@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/eslint-plugin-eslint-react/-/eslint-plugin-eslint-react-1.1.1.tgz#d81db3952434222592a7662bd23985d2a2e24882"
+  integrity sha512-h0C8u3yiPz+EzI/7Y6la6fgd9CeSlALFxblciyCeZMhlkgpl3WoI1i9HIwJwFsUoxRTdFBzY2mHKYA3pxQ6XJg==
 
-"@entire.se/hooks@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@entire.se/hooks/-/hooks-1.3.1.tgz#4703a9ee627775908b4ecaa796a24957a3605984"
-  integrity sha512-1SPPqa24pi8h3y9bi8JKlUCJ9gOGvfENWMw7qHm6zuYQ75nMkwg66zc7DSs+Xjxj9eydmpsMHQMhaSzsfISsFA==
+"@entire.se/hooks@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@entire.se/hooks/-/hooks-1.3.2.tgz#fe02eb711dbbbb251bc0c09e2d11d277adb08fc1"
+  integrity sha512-6roUMwTHHc8whN3k76NMVTZe4XNOOkAG9PZjD9IRb/xsgUGlBkK7Ia6gWvnnYd2XauJelx6iNgZXyiMevuvIfg==
   dependencies:
-    "@entire.se/utils" "^1.1.0"
+    "@entire.se/utils" "^1.1.1"
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
     tabbable "^6.0.0"
 
-"@entire.se/prettier@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/prettier/-/prettier-1.1.0.tgz#ef837eaee866f3e44668ef315544fb952b5d7926"
-  integrity sha512-3tJptjpKnrVN60RkuYiWpKcU/4vPacqwBNaTVfsCK0RjrtWKANEEwf+a5I3JRP4FhXfFNBtn6ou9irzrymowyA==
+"@entire.se/prettier@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/prettier/-/prettier-1.1.1.tgz#9d265e66bf10fbfef5b70b2ad3d29dd13595c048"
+  integrity sha512-R59NmTvJuVR6+zcOQIquQ793aIMu3E+65GCH+PXrnPaorkx59w7MsQAVE//a6zA+m97Gr7YInJZjLQKIFEEXBg==
 
-"@entire.se/stylelint-styled-components@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/stylelint-styled-components/-/stylelint-styled-components-1.1.0.tgz#51c377772c5a59ed516c6dcf6b89b34eb8bcb2b8"
-  integrity sha512-LYhF5wyU61eJQWsJ+LZSils3gbQc6ZFziFDtXYGSun6xq+kuhTrQbzPsx7Qys12KkXgezGMdGITww08Z1+y6YQ==
+"@entire.se/stylelint-styled-components@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/stylelint-styled-components/-/stylelint-styled-components-1.1.1.tgz#e48b1e3d41521f1261367d1c6d46f45c0f7b2234"
+  integrity sha512-3Lib1geZn84qDVg22CfR5TysAEKWNSmS/l6mduP3XY/sufeqgYUB7EIALMRGUg+D8xtOwKD+ZmLstaD5pXK97g==
 
-"@entire.se/utils@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/utils/-/utils-1.1.0.tgz#efa6fd18cd8565f7ad9534fb4b3e9ccb66d0c749"
-  integrity sha512-HHn1/+YQliWtcDM8KrScsAoFeNDDs26w8XNXENqtJxsXp658w/dGhQ9e2yFkNFGE6AZzflFii8u+25qZ2RJ5ww==
+"@entire.se/utils@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@entire.se/utils/-/utils-1.1.1.tgz#7041a1e81aa0926d7eaf4cfeadf4590533bab2f1"
+  integrity sha512-1/yRzO43MoxVIcVYvUjS2mMXOw8kGu5b1o7qovQvIWESFLi4wR//eNMNPvq6u339cp5oa9f1KCRvyCtXk7gRDg==
   dependencies:
     classnames "^2.3.1"
 
@@ -7971,10 +7971,10 @@ framer-motion@^7.2.0:
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
-framer-motion@^7.6.7:
-  version "7.6.7"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.7.tgz#4ab0f33d0b77b4fe2289ce8b7c5cf6448d84f23d"
-  integrity sha512-vEGsjXygf4qSmgXXsCT1FC56DjiZau9tSQTCchwAP2mOHnYHUy5gbthc4RXFWJh4Z/gFtqE8bzEmjahwOrfT7w==
+framer-motion@^7.6.9:
+  version "7.6.9"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.9.tgz#d2c8ca8b97580aa00f7c6e2b616da241bd2ce8e6"
+  integrity sha512-byPSPOqKApmVUvbtvmFCyL09dqBNLUwkXRQMeTsawtF6YpiB54yCVzk+9YXAnoswMSgsB7CQaA6ls7e8QL+C+g==
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"
