@@ -98,7 +98,6 @@ export const normalize = css`
   }
 
   button {
-    font-weight: inherit;
     -webkit-appearance: button;
   }
 
