@@ -78,3 +78,8 @@ Link.args = {
     target: '_blank'
   }
 };
+
+export const MinWidth = Template.bind({});
+MinWidth.args = {
+  minWidth: 400
+};
