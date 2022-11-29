@@ -1477,10 +1477,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/components@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.9.0.tgz#ca27f517a5789d46f233003a92503a64224e6661"
-  integrity sha512-PVLmotgcf7BRL92hs3+HMP4cpkM5ANIzuqXBCCTnTE5eRpDVhtKQ/seroFyxJLLJ0TSSg5V3Jzgj9BavdHhKoA==
+"@entire.se/components@^1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@entire.se/components/-/components-1.9.2.tgz#fc928642771aa76b12e13e61ab5c3094579162ae"
+  integrity sha512-o3ZEn7fa6pAIADdgSayjj5BEM/KqMAqW58tX4iu5FsXL3a5vnoCVonTCJRWrBE2GyXP2Z1oVp1dz714GWoWPaA==
   dependencies:
     "@entire.se/hooks" "^1.3.2"
     "@entire.se/utils" "^1.1.1"
@@ -7992,10 +7992,10 @@ framer-motion@^7.2.0:
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
-framer-motion@^7.6.12:
-  version "7.6.12"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.12.tgz#a1f228e00da03ceb78482ae4a7fba63be39d34e4"
-  integrity sha512-Xm1jPB91v6vIr9b+V3q6c96sPzU1jWdvN+Mv4CvIAY23ZIezGNIWxWNGIWj1We0CZ8SSOQkttz8921M10TQjXg==
+framer-motion@^7.6.15:
+  version "7.6.15"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.15.tgz#2990cf9792e2bc9d63474ccee4000564d86780cc"
+  integrity sha512-z3LPTWWq3zlmtxtZyCHWyucNRHg8iXXeLo9cFQwCIgOT8mp3gWFzU+KrGQ9h3QJFx79G9MVqAcuIN6dVhhuFQQ==
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"
