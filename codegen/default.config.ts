@@ -18,7 +18,7 @@ const config: CodegenConfig = {
         'typescript-react-apollo' // https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript-react-apollo
       ],
       config: {
-        flattenGeneratedTypes: true,
+        flattenGeneratedTypes: false,
         withHooks: true,
         scalars: {
           ID: 'string | number',
