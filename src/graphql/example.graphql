@@ -1,3 +1,53 @@
+fragment FullUser on User {
+  id
+  firstName
+  lastName
+  email
+  mobileNumber
+  role
+  blocked
+  emailVerified
+  image {
+    id
+    uri
+    width
+    height
+    sizeInBytes
+    contentType
+    filename
+    originalName
+    createdAt
+  }
+  subscription {
+    id
+    customerId
+    plan
+    status
+    PaidAt
+    currentPeriodEnd
+    cancelAtPeriodEnd
+    planBillingInterval
+    currency
+    interval
+    amount
+    createdAt
+    updatedAt
+    trialUntil
+  }
+  signupReason
+  joinReason {
+    id
+    occupation
+    school
+    subject
+  }
+  newsletter
+  language
+  createdAt
+  updatedAt
+  deletedAt
+}
+
 query Users($filter: UserFilter, $sorting: SortOrdering) {
   users(filter: $filter, sorting: $sorting) {
     edges {
@@ -31,105 +81,13 @@ mutation LoginEmail($email: String!, $password: String!) {
     success
     newAccount
     user {
-      id
-      firstName
-      lastName
-      email
-      mobileNumber
-      role
-      blocked
-      emailVerified
-      image {
-        id
-        uri
-        width
-        height
-        sizeInBytes
-        contentType
-        filename
-        originalName
-        createdAt
-      }
-      subscription {
-        id
-        customerId
-        plan
-        status
-        PaidAt
-        currentPeriodEnd
-        cancelAtPeriodEnd
-        planBillingInterval
-        currency
-        interval
-        amount
-        createdAt
-        updatedAt
-        trialUntil
-      }
-      signupReason
-      joinReason {
-        id
-        occupation
-        school
-        subject
-      }
-      newsletter
-      language
-      createdAt
-      updatedAt
-      deletedAt
+      ...FullUser
     }
   }
 }
 
 query Me {
   me {
-    id
-    firstName
-    lastName
-    email
-    mobileNumber
-    role
-    blocked
-    emailVerified
-    image {
-      id
-      uri
-      width
-      height
-      sizeInBytes
-      contentType
-      filename
-      originalName
-      createdAt
-    }
-    subscription {
-      id
-      customerId
-      plan
-      status
-      PaidAt
-      currentPeriodEnd
-      cancelAtPeriodEnd
-      planBillingInterval
-      currency
-      interval
-      amount
-      createdAt
-      updatedAt
-      trialUntil
-    }
-    signupReason
-    joinReason {
-      id
-      occupation
-      school
-      subject
-    }
-    newsletter
-    language
-    createdAt
-    updatedAt
-    deletedAt
+    ...FullUser
   }
 }

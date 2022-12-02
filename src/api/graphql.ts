@@ -1232,6 +1232,8 @@ export enum UserRole {
   User = 'user'
 }
 
+export type FullUserFragment = { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null };
+
 export type UsersQueryVariables = Exact<{
   filter?: InputMaybe<UserFilter>;
   sorting?: InputMaybe<SortOrdering>;
@@ -1260,7 +1262,57 @@ export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null } | null };
 
-
+export const FullUserFragmentDoc = gql`
+    fragment FullUser on User {
+  id
+  firstName
+  lastName
+  email
+  mobileNumber
+  role
+  blocked
+  emailVerified
+  image {
+    id
+    uri
+    width
+    height
+    sizeInBytes
+    contentType
+    filename
+    originalName
+    createdAt
+  }
+  subscription {
+    id
+    customerId
+    plan
+    status
+    PaidAt
+    currentPeriodEnd
+    cancelAtPeriodEnd
+    planBillingInterval
+    currency
+    interval
+    amount
+    createdAt
+    updatedAt
+    trialUntil
+  }
+  signupReason
+  joinReason {
+    id
+    occupation
+    school
+    subject
+  }
+  newsletter
+  language
+  createdAt
+  updatedAt
+  deletedAt
+}
+    `;
 export const UsersDocument = gql`
     query Users($filter: UserFilter, $sorting: SortOrdering) {
   users(filter: $filter, sorting: $sorting) {
@@ -1352,57 +1404,11 @@ export const LoginEmailDocument = gql`
     success
     newAccount
     user {
-      id
-      firstName
-      lastName
-      email
-      mobileNumber
-      role
-      blocked
-      emailVerified
-      image {
-        id
-        uri
-        width
-        height
-        sizeInBytes
-        contentType
-        filename
-        originalName
-        createdAt
-      }
-      subscription {
-        id
-        customerId
-        plan
-        status
-        PaidAt
-        currentPeriodEnd
-        cancelAtPeriodEnd
-        planBillingInterval
-        currency
-        interval
-        amount
-        createdAt
-        updatedAt
-        trialUntil
-      }
-      signupReason
-      joinReason {
-        id
-        occupation
-        school
-        subject
-      }
-      newsletter
-      language
-      createdAt
-      updatedAt
-      deletedAt
+      ...FullUser
     }
   }
 }
-    `;
+    ${FullUserFragmentDoc}`;
 export type LoginEmailMutationFn = Apollo.MutationFunction<LoginEmailMutation, LoginEmailMutationVariables>;
 
 /**
@@ -1433,56 +1439,10 @@ export type LoginEmailMutationOptions = Apollo.BaseMutationOptions<LoginEmailMut
 export const MeDocument = gql`
     query Me {
   me {
-    id
-    firstName
-    lastName
-    email
-    mobileNumber
-    role
-    blocked
-    emailVerified
-    image {
-      id
-      uri
-      width
-      height
-      sizeInBytes
-      contentType
-      filename
-      originalName
-      createdAt
-    }
-    subscription {
-      id
-      customerId
-      plan
-      status
-      PaidAt
-      currentPeriodEnd
-      cancelAtPeriodEnd
-      planBillingInterval
-      currency
-      interval
-      amount
-      createdAt
-      updatedAt
-      trialUntil
-    }
-    signupReason
-    joinReason {
-      id
-      occupation
-      school
-      subject
-    }
-    newsletter
-    language
-    createdAt
-    updatedAt
-    deletedAt
+    ...FullUser
   }
 }
-    `;
+    ${FullUserFragmentDoc}`;
 
 /**
  * __useMeQuery__
