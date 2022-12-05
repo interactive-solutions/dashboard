@@ -1232,15 +1232,7 @@ export enum UserRole {
   User = 'user'
 }
 
-export type FullUserFragment = { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null };
-
-export type UsersQueryVariables = Exact<{
-  filter?: InputMaybe<UserFilter>;
-  sorting?: InputMaybe<SortOrdering>;
-}>;
-
-
-export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, createdAt: string | number }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
+export type LoginUserFragment = { __typename?: 'User', blocked: boolean, createdAt: string | number, deletedAt?: string | number | null, email: string, emailVerified: boolean, firstName: string, id: string | number, language?: Language | null, lastName: string, mobileNumber?: string | null, newsletter?: boolean | null, role: UserRole, signupReason: boolean, updatedAt: string | number, image?: { __typename?: 'Image', contentType: string, createdAt: string | number, filename: string, height: number, id: string | number, originalName: string, sizeInBytes: number, uri: string, width: number } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null, subscription?: { __typename?: 'StripeSubscription', PaidAt?: string | number | null, amount?: number | null, cancelAtPeriodEnd: boolean, createdAt: string | number, currency?: string | null, currentPeriodEnd?: string | number | null, customerId: string, id: string | number, interval?: number | null, plan?: string | null, planBillingInterval: string, status?: string | null, trialUntil?: string | number | null, updatedAt?: string | number | null } | null };
 
 export type RefreshTokenMutationVariables = Exact<{
   token: Scalars['String'];
@@ -1255,111 +1247,83 @@ export type LoginEmailMutationVariables = Exact<{
 }>;
 
 
-export type LoginEmailMutation = { __typename?: 'Mutation', loginEmail: { __typename?: 'AuthenticationResponse', jwt: string, refreshToken: string, userId: string, message: string, success: boolean, newAccount: boolean, user?: { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null } | null } };
+export type LoginEmailMutation = { __typename?: 'Mutation', loginEmail: { __typename?: 'AuthenticationResponse', jwt: string, refreshToken: string, userId: string, message: string, success: boolean, newAccount: boolean, user?: { __typename?: 'User', blocked: boolean, createdAt: string | number, deletedAt?: string | number | null, email: string, emailVerified: boolean, firstName: string, id: string | number, language?: Language | null, lastName: string, mobileNumber?: string | null, newsletter?: boolean | null, role: UserRole, signupReason: boolean, updatedAt: string | number, image?: { __typename?: 'Image', contentType: string, createdAt: string | number, filename: string, height: number, id: string | number, originalName: string, sizeInBytes: number, uri: string, width: number } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null, subscription?: { __typename?: 'StripeSubscription', PaidAt?: string | number | null, amount?: number | null, cancelAtPeriodEnd: boolean, createdAt: string | number, currency?: string | null, currentPeriodEnd?: string | number | null, customerId: string, id: string | number, interval?: number | null, plan?: string | null, planBillingInterval: string, status?: string | null, trialUntil?: string | number | null, updatedAt?: string | number | null } | null } | null } };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', id: string | number, firstName: string, lastName: string, email: string, mobileNumber?: string | null, role: UserRole, blocked: boolean, emailVerified: boolean, signupReason: boolean, newsletter?: boolean | null, language?: Language | null, createdAt: string | number, updatedAt: string | number, deletedAt?: string | number | null, image?: { __typename?: 'Image', id: string | number, uri: string, width: number, height: number, sizeInBytes: number, contentType: string, filename: string, originalName: string, createdAt: string | number } | null, subscription?: { __typename?: 'StripeSubscription', id: string | number, customerId: string, plan?: string | null, status?: string | null, PaidAt?: string | number | null, currentPeriodEnd?: string | number | null, cancelAtPeriodEnd: boolean, planBillingInterval: string, currency?: string | null, interval?: number | null, amount?: number | null, createdAt: string | number, updatedAt?: string | number | null, trialUntil?: string | number | null } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null } | null };
+export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', blocked: boolean, createdAt: string | number, deletedAt?: string | number | null, email: string, emailVerified: boolean, firstName: string, id: string | number, language?: Language | null, lastName: string, mobileNumber?: string | null, newsletter?: boolean | null, role: UserRole, signupReason: boolean, updatedAt: string | number, image?: { __typename?: 'Image', contentType: string, createdAt: string | number, filename: string, height: number, id: string | number, originalName: string, sizeInBytes: number, uri: string, width: number } | null, joinReason?: { __typename?: 'JoinReason', id: string | number, occupation: JoinReasonOccupation, school?: School | null, subject?: Subject | null } | null, subscription?: { __typename?: 'StripeSubscription', PaidAt?: string | number | null, amount?: number | null, cancelAtPeriodEnd: boolean, createdAt: string | number, currency?: string | null, currentPeriodEnd?: string | number | null, customerId: string, id: string | number, interval?: number | null, plan?: string | null, planBillingInterval: string, status?: string | null, trialUntil?: string | number | null, updatedAt?: string | number | null } | null } | null };
 
-export const FullUserFragmentDoc = gql`
-    fragment FullUser on User {
-  id
-  firstName
-  lastName
-  email
-  mobileNumber
-  role
+export type UsersUserFragment = { __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, createdAt: string | number };
+
+export type UsersQueryVariables = Exact<{
+  filter?: InputMaybe<UserFilter>;
+  sorting?: InputMaybe<SortOrdering>;
+}>;
+
+
+export type UsersQuery = { __typename?: 'Query', users: { __typename?: 'UserCollection', edges: Array<{ __typename?: 'User', id: string | number, firstName: string, email: string, lastName: string, createdAt: string | number }>, meta: { __typename?: 'PageInfo', limit: number, offset: number, total: number } } };
+
+export const LoginUserFragmentDoc = gql`
+    fragment LoginUser on User {
   blocked
+  createdAt
+  deletedAt
+  email
   emailVerified
+  firstName
+  id
   image {
+    contentType
+    createdAt
+    filename
+    height
     id
+    originalName
+    sizeInBytes
     uri
     width
-    height
-    sizeInBytes
-    contentType
-    filename
-    originalName
-    createdAt
   }
-  subscription {
-    id
-    customerId
-    plan
-    status
-    PaidAt
-    currentPeriodEnd
-    cancelAtPeriodEnd
-    planBillingInterval
-    currency
-    interval
-    amount
-    createdAt
-    updatedAt
-    trialUntil
-  }
-  signupReason
   joinReason {
     id
     occupation
     school
     subject
   }
-  newsletter
   language
-  createdAt
-  updatedAt
-  deletedAt
-}
-    `;
-export const UsersDocument = gql`
-    query Users($filter: UserFilter, $sorting: SortOrdering) {
-  users(filter: $filter, sorting: $sorting) {
-    edges {
-      id
-      firstName
-      email
-      lastName
-      createdAt
-    }
-    meta {
-      limit
-      offset
-      total
-    }
+  lastName
+  mobileNumber
+  newsletter
+  role
+  signupReason
+  subscription {
+    PaidAt
+    amount
+    cancelAtPeriodEnd
+    createdAt
+    currency
+    currentPeriodEnd
+    customerId
+    id
+    interval
+    plan
+    planBillingInterval
+    status
+    trialUntil
+    updatedAt
   }
+  updatedAt
 }
     `;
-
-/**
- * __useUsersQuery__
- *
- * To run a query within a React component, call `useUsersQuery` and pass it any options that fit your needs.
- * When your component renders, `useUsersQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useUsersQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *      sorting: // value for 'sorting'
- *   },
- * });
- */
-export function useUsersQuery(baseOptions?: Apollo.QueryHookOptions<UsersQuery, UsersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<UsersQuery, UsersQueryVariables>(UsersDocument, options);
-      }
-export function useUsersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UsersQuery, UsersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<UsersQuery, UsersQueryVariables>(UsersDocument, options);
-        }
-export type UsersQueryHookResult = ReturnType<typeof useUsersQuery>;
-export type UsersLazyQueryHookResult = ReturnType<typeof useUsersLazyQuery>;
-export type UsersQueryResult = Apollo.QueryResult<UsersQuery, UsersQueryVariables>;
+export const UsersUserFragmentDoc = gql`
+    fragment UsersUser on User {
+  id
+  firstName
+  email
+  lastName
+  createdAt
+}
+    `;
 export const RefreshTokenDocument = gql`
     mutation RefreshToken($token: String!) {
   refreshToken(token: $token) {
@@ -1404,11 +1368,11 @@ export const LoginEmailDocument = gql`
     success
     newAccount
     user {
-      ...FullUser
+      ...LoginUser
     }
   }
 }
-    ${FullUserFragmentDoc}`;
+    ${LoginUserFragmentDoc}`;
 export type LoginEmailMutationFn = Apollo.MutationFunction<LoginEmailMutation, LoginEmailMutationVariables>;
 
 /**
@@ -1439,10 +1403,10 @@ export type LoginEmailMutationOptions = Apollo.BaseMutationOptions<LoginEmailMut
 export const MeDocument = gql`
     query Me {
   me {
-    ...FullUser
+    ...LoginUser
   }
 }
-    ${FullUserFragmentDoc}`;
+    ${LoginUserFragmentDoc}`;
 
 /**
  * __useMeQuery__
@@ -1470,3 +1434,46 @@ export function useMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MeQuery
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
+export const UsersDocument = gql`
+    query Users($filter: UserFilter, $sorting: SortOrdering) {
+  users(filter: $filter, sorting: $sorting) {
+    edges {
+      ...UsersUser
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+    ${UsersUserFragmentDoc}`;
+
+/**
+ * __useUsersQuery__
+ *
+ * To run a query within a React component, call `useUsersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUsersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUsersQuery({
+ *   variables: {
+ *      filter: // value for 'filter'
+ *      sorting: // value for 'sorting'
+ *   },
+ * });
+ */
+export function useUsersQuery(baseOptions?: Apollo.QueryHookOptions<UsersQuery, UsersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UsersQuery, UsersQueryVariables>(UsersDocument, options);
+      }
+export function useUsersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UsersQuery, UsersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UsersQuery, UsersQueryVariables>(UsersDocument, options);
+        }
+export type UsersQueryHookResult = ReturnType<typeof useUsersQuery>;
+export type UsersLazyQueryHookResult = ReturnType<typeof useUsersLazyQuery>;
+export type UsersQueryResult = Apollo.QueryResult<UsersQuery, UsersQueryVariables>;

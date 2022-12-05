@@ -13,7 +13,7 @@ import { useCallback, useMemo } from 'react';
 
 import { ColumnDef } from '@tanstack/react-table';
 
-import { ExampleQuery, useExampleLazyQuery } from 'api/graphql';
+import { ExampleFragment, useExampleLazyQuery } from 'api/graphql';
 import { Table } from 'components/ui/table';
 import { useTable } from 'hooks';
 import { TableFetchDataVariables } from 'types/table';
@@ -22,7 +22,7 @@ const Component = () => {
   const [fetchExample, { data, loading, error }] = useExampleLazyQuery();
   const { getPageCount, getFetchDataVariables } = useTable();
 
-  const columns = useMemo<ColumnDef<ExampleQuery['examples']['edges'][0]>[]>(
+  const columns = useMemo<ColumnDef<ExampleFragment>[]>(
     () => [
       {
         header: 'Title',

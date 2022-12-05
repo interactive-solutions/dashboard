@@ -1,0 +1,76 @@
+fragment LoginUser on User {
+  blocked
+  createdAt
+  deletedAt
+  email
+  emailVerified
+  firstName
+  id
+  image {
+    contentType
+    createdAt
+    filename
+    height
+    id
+    originalName
+    sizeInBytes
+    uri
+    width
+  }
+  joinReason {
+    id
+    occupation
+    school
+    subject
+  }
+  language
+  lastName
+  mobileNumber
+  newsletter
+  role
+  signupReason
+  subscription {
+    PaidAt
+    amount
+    cancelAtPeriodEnd
+    createdAt
+    currency
+    currentPeriodEnd
+    customerId
+    id
+    interval
+    plan
+    planBillingInterval
+    status
+    trialUntil
+    updatedAt
+  }
+  updatedAt
+}
+
+mutation RefreshToken($token: String!) {
+  refreshToken(token: $token) {
+    jwt
+    refreshToken
+  }
+}
+
+mutation LoginEmail($email: String!, $password: String!) {
+  loginEmail(email: $email, password: $password) {
+    jwt
+    refreshToken
+    userId
+    message
+    success
+    newAccount
+    user {
+      ...LoginUser
+    }
+  }
+}
+
+query Me {
+  me {
+    ...LoginUser
+  }
+}

@@ -2,7 +2,7 @@ import create from 'zustand';
 
 import { client } from 'api/apollo';
 import {
-  FullUserFragment,
+  LoginUserFragment,
   LoginEmailDocument,
   LoginEmailMutation,
   LoginEmailMutationVariables
@@ -13,12 +13,12 @@ import { NonFunctionProperties } from 'types/nonFunction';
 export interface AuthenticationStore {
   token: string | null;
   refreshToken: string | null;
-  user: FullUserFragment | null;
+  user: LoginUserFragment | null;
   isLoading: boolean;
   hasError: boolean;
   setToken: (token: string) => void;
   setRefreshToken: (refreshToken: string) => void;
-  setUser: (user: FullUserFragment) => void;
+  setUser: (user: AuthenticationStore['user']) => void;
   setLoading: (isLoading: boolean) => void;
   setError: (hasError: boolean) => void;
   login: (variables: LoginEmailMutationVariables) => void;

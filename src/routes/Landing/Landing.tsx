@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { ColumnDef } from '@tanstack/react-table';
 import { useIntl } from 'react-intl';
 
-import { UsersQuery, useUsersLazyQuery } from 'api/graphql';
+import { UsersUserFragment, useUsersLazyQuery } from 'api/graphql';
 import { SEO } from 'components/tools';
 import { Table } from 'components/ui/table';
 import { useFormat, useTable } from 'hooks';
@@ -19,7 +19,7 @@ export const Landing = () => {
   const { getPageCount, getFetchDataVariables } = useTable();
   const format = useFormat();
 
-  const columns = useMemo<ColumnDef<UsersQuery['users']['edges'][0]>[]>(
+  const columns = useMemo<ColumnDef<UsersUserFragment>[]>(
     () => [
       {
         header: 'Name',
