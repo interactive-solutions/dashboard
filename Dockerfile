@@ -4,13 +4,6 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies
-COPY package.json yarn.lock* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
-
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 WORKDIR /app
@@ -35,9 +28,6 @@ ENV NEXT_PUBLIC_SENTRY_RELEASE=${NEXT_PUBLIC_SENTRY_RELEASE}
 ENV NEXT_PUBLIC_SENTRY_ENVIRONMENT=${NEXT_PUBLIC_SENTRY_ENVIRONMENT}
 RUN env
 
-# Generate GraphQL
-RUN yarn graphql:generate
-
 # Build application
 RUN JOBS=max yarn build:${DOCKER_ENVIRONMENT}
 
@@ -46,7 +36,6 @@ FROM node:16-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
@@ -61,9 +50,8 @@ COPY --from=builder /app/public ./standalone/.next/public
 COPY --from=builder /app/public ./public
 
 USER nextjs
-
 EXPOSE 9090
-
 ENV PORT 9090
 
+# Start server
 CMD ["node", "server.js"]

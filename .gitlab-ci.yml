@@ -114,6 +114,9 @@ build:storybook:
 docker:staging:
   stage: docker
   image: docker:20.10.16
+  dependencies:
+    - dependencies:install
+    - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
@@ -127,6 +130,8 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
+    - dependencies:install
+    - graphql:generate
     - test:cypress
     - test:lint
   tags:
@@ -135,6 +140,9 @@ docker:staging:
 docker:production:
   stage: docker
   image: docker:20.10.16
+  dependencies:
+    - dependencies:install
+    - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
@@ -148,6 +156,8 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
+    - dependencies:install
+    - graphql:generate
     - test:cypress
     - test:lint
   tags:
