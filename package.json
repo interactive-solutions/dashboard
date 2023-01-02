@@ -32,7 +32,7 @@
     "typescript:report": "tsc --noEmit && tsc --noEmit --project cypress/tsconfig.json",
     "graphql:generate": "graphql-codegen --config codegen/default.config.ts && yarn graphql:operations && graphql-codegen --config codegen/everything.config.ts",
     "graphql:watch": "graphql-codegen --config codegen/default.config.ts --watch",
-    "graphql:operations": "amplify-graphql-docs-generator --schema src/graphql/cli/graphql.schema.json --maxDepth=4 --output src/graphql/cli/operations.graphql --language graphql",
+    "graphql:operations": "amplify-graphql-docs-generator --schema src/graphql/cli/schema.everything.json --maxDepth=4 --output src/graphql/cli/operations.everything.graphql --language graphql",
     "storybook:start": "env-cmd -f .env.isStorybook start-storybook -p 1337",
     "storybook:build": "env-cmd -f .env.isStorybook build-storybook",
     "i18n:extract": "formatjs extract 'src/**/*.{js,tsx,ts}' --out-file src/i18n/cli/extracted.json --ignore **/*.d.ts",

@@ -7,10 +7,10 @@ delete defaultConfig.generates['src/api/graphql.ts'];
 
 const config: CodegenConfig = {
   ...defaultConfig,
-  documents: ['src/graphql/cli/operations.graphql'],
+  documents: ['src/graphql/cli/operations.everything.graphql'],
   generates: {
     ...defaultConfig.generates,
-    'src/graphql/cli/everything.ts': getGeneratesItem
+    'src/graphql/cli/graphql.everything.ts': getGeneratesItem
   }
 };
 
