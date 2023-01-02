@@ -55,6 +55,8 @@ test:cypress:
   stage: test
   image: cypress/base:16.13.0
   dependencies:
+    - dependencies:install
+  needs:
     - graphql:generate
   script:
     - $(npm bin)/cypress install
@@ -80,6 +82,8 @@ test:lint:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
+    - dependencies:install
+  needs:
     - graphql:generate
   script:
     - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
@@ -91,6 +95,8 @@ build:storybook:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
+    - dependencies:install
+  needs:
     - graphql:generate
   script:
     - yarn storybook:build
@@ -119,6 +125,7 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
+    - graphql:generate
     - test:cypress
     - test:lint
   tags:
@@ -201,6 +208,7 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
+    - graphql:generate
     - test:cypress
     - test:lint
   tags:
