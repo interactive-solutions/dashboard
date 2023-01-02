@@ -57,6 +57,7 @@ test:cypress:
   dependencies:
     - dependencies:install
   needs:
+    - dependencies:install
     - graphql:generate
   script:
     - $(npm bin)/cypress install
@@ -84,6 +85,7 @@ test:lint:
   dependencies:
     - dependencies:install
   needs:
+    - dependencies:install
     - graphql:generate
   script:
     - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
@@ -97,6 +99,7 @@ build:storybook:
   dependencies:
     - dependencies:install
   needs:
+    - dependencies:install
     - graphql:generate
   script:
     - yarn storybook:build
