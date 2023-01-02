@@ -22,12 +22,13 @@ cache:
 
 stages:
   - dependencies
+  - graphql
   - test
   - build
   - docker
   - deploy
 
-dependencies:
+dependencies:install:
   stage: dependencies
   image: node:$NODE_VERSION
   script:
@@ -36,6 +37,17 @@ dependencies:
     expire_in: 1 hour
     paths:
       - node_modules
+  tags:
+    - docker
+
+graphql:generate:
+  stage: graphql
+  image: node:$NODE_VERSION
+  cache: {}
+  dependencies:
+    - dependencies
+  script:
+    - yarn graphql:generate
   tags:
     - docker
 
