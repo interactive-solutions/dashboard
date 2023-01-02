@@ -127,7 +127,6 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
-    - graphql:generate
     - test:cypress
     - test:lint
   tags:
@@ -210,7 +209,6 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
-    - graphql:generate
     - test:cypress
     - test:lint
   tags:
