@@ -48,15 +48,18 @@ graphql:generate:
     - dependencies:install
   script:
     - yarn graphql:generate
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - api/graphql
   tags:
     - docker
 
 test:cypress:
   stage: test
   image: cypress/base:16.13.0
+  cache: {}
   dependencies:
-    - dependencies:install
-  needs:
     - dependencies:install
     - graphql:generate
   script:
@@ -84,8 +87,6 @@ test:lint:
   cache: {}
   dependencies:
     - dependencies:install
-  needs:
-    - dependencies:install
     - graphql:generate
   script:
     - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
@@ -97,8 +98,6 @@ build:storybook:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
-    - dependencies:install
-  needs:
     - dependencies:install
     - graphql:generate
   script:
