@@ -4,12 +4,10 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+# Install dependencies
+COPY package.json yarn.lock* ./
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
@@ -22,7 +20,6 @@ COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
 ARG DOCKER_ENVIRONMENT
 ARG CI_PIPELINE_IID
 ARG NEXT_PUBLIC_SENTRY_AUTH_TOKEN
@@ -38,10 +35,11 @@ ENV NEXT_PUBLIC_SENTRY_RELEASE=${NEXT_PUBLIC_SENTRY_RELEASE}
 ENV NEXT_PUBLIC_SENTRY_ENVIRONMENT=${NEXT_PUBLIC_SENTRY_ENVIRONMENT}
 RUN env
 
-RUN JOBS=max yarn run build:${DOCKER_ENVIRONMENT}
+# Generate GraphQL
+RUN yarn graphql:generate
 
-# If using npm comment out above and use below instead
-# RUN npm run build
+# Build application
+RUN JOBS=max yarn build:${DOCKER_ENVIRONMENT}
 
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
