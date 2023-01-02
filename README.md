@@ -6,6 +6,8 @@
 
 Recommended node version is defined in `.nvmrc`.
 
+Run `$ yarn graphql:generate` before doing anything else, it will generate GraphQL with codegen for the application to work.
+
 - `$ yarn install` - Install packages.
 - `$ yarn start` - Start development server on port 9000.
 - `$ yarn start:localhost` - Same as `$ yarn start` but with localhost settings.
