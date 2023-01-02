@@ -114,6 +114,8 @@ build:storybook:
 docker:staging:
   stage: docker
   image: docker:20.10.16
+  dependencies:
+    - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
@@ -127,10 +129,37 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
+    - graphql:generate
     - test:cypress
     - test:lint
   tags:
     - docker
+
+docker:production:
+  stage: docker
+  image: docker:20.10.16
+  dependencies:
+    - graphql:generate
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+      --build-arg DOCKER_ENVIRONMENT=production
+      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
+      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+  services:
+    - docker:20.10.16-dind
+  needs:
+    - graphql:generate
+    - test:cypress
+    - test:lint
+  tags:
+    - docker
+  only:
+    - master
 
 deploy:review:
   stage: deploy
@@ -191,29 +220,6 @@ deploy:review:cleanup:
     action: stop
   except:
     - develop
-    - master
-
-docker:production:
-  stage: docker
-  image: docker:20.10.16
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
-      --build-arg DOCKER_ENVIRONMENT=production
-      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
-      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
-      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
-      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
-      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
-    - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
-  services:
-    - docker:20.10.16-dind
-  needs:
-    - test:cypress
-    - test:lint
-  tags:
-    - docker
-  only:
     - master
 
 deploy:storybook:
