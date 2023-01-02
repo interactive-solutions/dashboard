@@ -45,7 +45,7 @@ graphql:generate:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
-    - dependencies
+    - dependencies:install
   script:
     - yarn graphql:generate
   tags:
@@ -78,7 +78,7 @@ test:lint:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
-    - dependencies
+    - dependencies:install
   script:
     - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
   tags:
@@ -89,7 +89,7 @@ build:storybook:
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
-    - dependencies
+    - dependencies:install
   script:
     - yarn storybook:build
   artifacts:
