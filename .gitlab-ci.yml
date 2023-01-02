@@ -51,7 +51,7 @@ graphql:generate:
   artifacts:
     expire_in: 1 hour
     paths:
-      - api/graphql
+      - src/api/graphql.ts
   tags:
     - docker
 
