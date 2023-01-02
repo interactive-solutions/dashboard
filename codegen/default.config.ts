@@ -2,7 +2,7 @@ import { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   schema: 'https://api.booksquare.isdemo.se/graphql', // TODO: Change schema
-  documents: ['src/graphql/**/*.graphql'],
+  documents: ['src/graphql/**/!(/cli)/**/*.graphql'],
   generates: {
     'src/graphql/fragment-matcher.json': {
       plugins: ['fragment-matcher'], // https://www.the-guild.dev/graphql/codegen/plugins/other/fragment-matcher
@@ -29,7 +29,7 @@ const config: CodegenConfig = {
         }
       }
     },
-    'graphql/graphql.schema.json': {
+    'src/graphql/cli/graphql.schema.json': {
       plugins: ['introspection']
     }
   }
