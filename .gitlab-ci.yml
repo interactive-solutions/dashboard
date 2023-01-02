@@ -32,7 +32,7 @@ dependencies:install:
   stage: dependencies
   image: node:$NODE_VERSION
   script:
-    - JOBS=max yarn install
+    - yarn --frozen-lockfile
   artifacts:
     expire_in: 1 hour
     paths:
@@ -115,7 +115,6 @@ docker:staging:
   stage: docker
   image: docker:20.10.16
   dependencies:
-    - dependencies:install
     - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -130,7 +129,6 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
-    - dependencies:install
     - graphql:generate
     - test:cypress
     - test:lint
@@ -141,7 +139,6 @@ docker:production:
   stage: docker
   image: docker:20.10.16
   dependencies:
-    - dependencies:install
     - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -156,7 +153,6 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
-    - dependencies:install
     - graphql:generate
     - test:cypress
     - test:lint

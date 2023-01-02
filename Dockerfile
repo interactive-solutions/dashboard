@@ -4,6 +4,13 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Install dependencies
+COPY package.json yarn.lock* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 WORKDIR /app
@@ -29,7 +36,7 @@ ENV NEXT_PUBLIC_SENTRY_ENVIRONMENT=${NEXT_PUBLIC_SENTRY_ENVIRONMENT}
 RUN env
 
 # Build application
-RUN JOBS=max yarn build:${DOCKER_ENVIRONMENT}
+RUN yarn build:${DOCKER_ENVIRONMENT}
 
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
@@ -50,8 +57,8 @@ COPY --from=builder /app/public ./standalone/.next/public
 COPY --from=builder /app/public ./public
 
 USER nextjs
-EXPOSE 9090
-ENV PORT 9090
 
 # Start server
+EXPOSE 9090
+ENV PORT 9090
 CMD ["node", "server.js"]
