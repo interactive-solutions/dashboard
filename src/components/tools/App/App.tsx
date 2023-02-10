@@ -15,12 +15,11 @@ import { messages } from 'i18n/messages';
 import { theme } from 'styles';
 import { createEmotionCache } from 'utils';
 
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
 export interface AppProps extends NextAppProps {
   emotionCache?: EmotionCache;
 }
+
+const clientSideEmotionCache = createEmotionCache();
 
 export const App = ({
   Component,

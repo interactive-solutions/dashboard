@@ -48,6 +48,7 @@
     "@entire.se/utils": "^1.1.1",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
+    "@mui/system": "^5.11.8",
     "@sentry/nextjs": "^7.21.1",
     "@sentry/tracing": "^7.21.1",
     "apollo-upload-client": "^17.0.0",
