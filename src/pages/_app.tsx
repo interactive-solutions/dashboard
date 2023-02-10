@@ -1,13 +1,51 @@
-import { AppProps } from 'next/app';
+import { ApolloProvider } from '@apollo/client';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { NextAdapter } from 'next-query-params';
+import { AppProps as NextAppProps } from 'next/app';
 import dynamic from 'next/dynamic';
+import { IntlProvider } from 'react-intl';
+import { QueryParamProvider } from 'use-query-params';
 
-const App = dynamic(() => import('components/tools/App/App'), {
+import { client } from 'api/apollo';
+import { SEO } from 'components/tools';
+import { Layout } from 'components/ui/general';
+import { ProgressBar } from 'components/ui/router';
+import { messages } from 'i18n/messages';
+import { theme } from 'styles';
+import { createEmotionCache } from 'utils';
+
+export interface AppProps extends NextAppProps {
+  emotionCache?: EmotionCache;
+}
+
+const clientSideEmotionCache = createEmotionCache();
+
+export const App = ({
+  Component,
+  emotionCache = clientSideEmotionCache,
+  pageProps
+}: AppProps) => {
+  return (
+    <QueryParamProvider adapter={NextAdapter}>
+      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+        <ApolloProvider client={client}>
+          <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={theme}>
+              <SEO />
+              <CssBaseline />
+              <ProgressBar />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </ThemeProvider>
+          </CacheProvider>
+        </ApolloProvider>
+      </IntlProvider>
+    </QueryParamProvider>
+  );
+};
+
+export default dynamic(() => Promise.resolve(App), {
   ssr: false
 });
-
-export default (props: AppProps) => <App {...props} />;
-
-// import { App } from 'components/tools';
-// export default (props: AppProps) => {
-//   return <App {...props} />;
-// };

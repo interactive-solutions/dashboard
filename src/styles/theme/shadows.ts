@@ -1,3 +1,5 @@
-import { ThemeOptions } from '@mui/material';
+import { createTheme, ThemeOptions } from '@mui/material';
 
-export const shadows: ThemeOptions['shadows'] = undefined;
+const defaultTheme = createTheme();
+
+export const shadows: ThemeOptions['shadows'] = defaultTheme.shadows;

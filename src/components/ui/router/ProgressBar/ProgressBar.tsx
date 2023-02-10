@@ -1,34 +1,20 @@
 import { useCallback, useEffect } from 'react';
 
-// import {
-//   TransitionCubicBeziers,
-//   TransitionDurations
-// } from '@entire.se/components';
+import { GlobalStyles, useTheme } from '@mui/material';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
+const className = 'progress-bar';
 NProgress.configure({
-  template: '<div class="progress-bar" role="bar"></div>',
+  template: `<div class="${className}" role="bar"></div>`,
   showSpinner: false
   // easing: TransitionCubicBeziers.Ease,
   // speed: TransitionDurations.Medium * 1000
 });
 
-// import { css } from 'styled-components';
-
-// export const progressBar = css`
-//   .progress-bar {
-//     background: ${({ theme }) => theme.surfaces.primary};
-//     position: fixed;
-//     z-index: 9999;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 3px;
-//   }
-// `;
-
 export const ProgressBar = () => {
+  const { palette, zIndex } = useTheme();
+
   const routeChangeStart = useCallback(() => {
     NProgress.set(0);
     NProgress.start();
@@ -50,5 +36,19 @@ export const ProgressBar = () => {
     };
   }, [routeChangeEnd, routeChangeStart]);
 
-  return null;
+  return (
+    <GlobalStyles
+      styles={{
+        [`.${className}`]: {
+          background: palette.primary.main,
+          position: 'fixed',
+          zIndex: zIndex.snackbar,
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: 3
+        }
+      }}
+    />
+  );
 };

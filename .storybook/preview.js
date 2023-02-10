@@ -2,8 +2,7 @@ import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
 import { useIsTabbing } from '@entire.se/hooks';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { DocsContainer } from '@storybook/addon-docs';
 import { IntlProvider } from 'react-intl';
 
