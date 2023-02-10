@@ -16,6 +16,7 @@ export const SEO = ({ children, title, description }: SEOProps) => {
       </title>
       {description && <meta name="description" content={description} />}
       <link rel="icon" href="/favicon.png" />
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
       {children}
     </Head>
   );
