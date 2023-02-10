@@ -7,8 +7,6 @@ import { useMeQuery } from 'api/graphql';
 import { Header } from 'components/ui/general';
 import { useAuthenticationStore } from 'store/authentication';
 
-import * as styles from './Layout.styles';
-
 export interface LayoutProps {
   children: ReactNode;
 }
@@ -41,9 +39,9 @@ export const Layout = ({ children }: LayoutProps) => {
   }, [data?.me]);
 
   return (
-    <styles.Root>
+    <div>
       <Header />
-      <styles.Content>{children}</styles.Content>
-    </styles.Root>
+      <div>{children}</div>
+    </div>
   );
 };

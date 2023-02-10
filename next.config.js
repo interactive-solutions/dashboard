@@ -1,17 +1,17 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+// const isDevelopment = process.env.NODE_ENV === 'development';
 const isBuild = process.env.NODE_ENV === 'production';
 const withSentry = process.env.NEXT_PUBLIC_SENTRY_DSN && isBuild;
 
 const nextConfig = {
   output: 'standalone',
-  compiler: {
-    styledComponents: {
-      displayName: isDevelopment,
-      fileName: isDevelopment
-    }
-  },
+  // compiler: {
+  //   styledComponents: {
+  //     displayName: isDevelopment,
+  //     fileName: isDevelopment
+  //   }
+  // },
   i18n: {
     locales: ['sv'],
     defaultLocale: 'sv'

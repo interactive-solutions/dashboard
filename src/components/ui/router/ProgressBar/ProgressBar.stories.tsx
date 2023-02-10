@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 
-import { Grid } from '@entire.se/components';
+// import { Grid } from '@entire.se/components';
 import { Story, Meta } from '@storybook/react';
 import NProgress from 'nprogress';
 
-import { Button } from 'components/ui/general';
+// import { Button } from 'components/ui/general';
 
 import { ProgressBar } from './ProgressBar';
 
@@ -24,19 +24,19 @@ const Template: Story = (args) => {
   }, []);
 
   return (
-    <Grid gap={2}>
-      <Grid.Item>
-        <Button type="button" onClick={start}>
+    <div>
+      <div>
+        <button type="button" onClick={start}>
           Start
-        </Button>
-      </Grid.Item>
-      <Grid.Item>
-        <Button type="button" onClick={end}>
+        </button>
+      </div>
+      <div>
+        <button type="button" onClick={end}>
           End
-        </Button>
-      </Grid.Item>
+        </button>
+      </div>
       <ProgressBar {...args} />
-    </Grid>
+    </div>
   );
 };
 
