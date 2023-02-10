@@ -31,8 +31,8 @@ export const App = ({
       <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
         <ApolloProvider client={client}>
           <CacheProvider value={emotionCache}>
-            <SEO />
             <ThemeProvider theme={theme}>
+              <SEO />
               <CssBaseline />
               <ProgressBar />
               <Layout>
