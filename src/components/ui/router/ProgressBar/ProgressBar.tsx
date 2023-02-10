@@ -4,16 +4,9 @@ import { GlobalStyles, useTheme } from '@mui/material';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-const className = 'progress-bar';
-NProgress.configure({
-  template: `<div class="${className}" role="bar"></div>`,
-  showSpinner: false
-  // easing: TransitionCubicBeziers.Ease,
-  // speed: TransitionDurations.Medium * 1000
-});
-
 export const ProgressBar = () => {
-  const { palette, zIndex } = useTheme();
+  const className = 'progress-bar';
+  const { palette, zIndex, transitions } = useTheme();
 
   const routeChangeStart = useCallback(() => {
     NProgress.set(0);
@@ -23,6 +16,15 @@ export const ProgressBar = () => {
   const routeChangeEnd = useCallback(() => {
     NProgress.done(true);
   }, []);
+
+  useEffect(() => {
+    NProgress.configure({
+      template: `<div class="${className}" role="bar"></div>`,
+      showSpinner: false,
+      easing: transitions.easing.easeInOut,
+      speed: transitions.duration.complex
+    });
+  }, [transitions.easing.easeInOut, transitions.duration.complex]);
 
   useEffect(() => {
     Router.events.on('routeChangeStart', routeChangeStart);

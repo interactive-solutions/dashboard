@@ -12,5 +12,5 @@ export const createEmotionCache = () => {
     insertionPoint = emotionInsertionPoint ?? undefined;
   }
 
-  return createCache({ key: 'modo-hockey', insertionPoint });
+  return createCache({ key: 'entire', insertionPoint });
 };
