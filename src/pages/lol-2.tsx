@@ -1,12 +1,18 @@
 import { LoadingButton } from '@mui/lab';
+import { Container, Typography } from '@mui/material';
 
 export default () => {
   return (
-    <div>
-      <div>2.</div>
-      <LoadingButton href="/lol-1" variant="contained">
-        2.
+    <Container>
+      <Typography>2.</Typography>
+      <LoadingButton
+        href="/lol-1"
+        variant="contained"
+        fullWidth
+        color="warning"
+      >
+        1.
       </LoadingButton>
-    </div>
+    </Container>
   );
 };
