@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ApolloProvider } from '@apollo/client';
 import { useIsTabbing } from '@entire.se/hooks';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -15,16 +13,16 @@ export const decorators = [
     useIsTabbing();
 
     return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
-          <ApolloProvider client={client}>
+      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+        <ApolloProvider client={client}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
             <main>
               <Story />
             </main>
-          </ApolloProvider>
-        </IntlProvider>
-      </ThemeProvider>
+          </ThemeProvider>
+        </ApolloProvider>
+      </IntlProvider>
     );
   }
 ];

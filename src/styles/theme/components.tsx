@@ -13,5 +13,10 @@ export const components: ThemeOptions['components'] = {
       disableRipple: true,
       LinkComponent: NextLinkStyled
     }
+  },
+  MuiButtonGroup: {
+    defaultProps: {
+      disableRipple: true
+    }
   }
 };

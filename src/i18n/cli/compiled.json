@@ -1,9 +1,7 @@
 {
   "FormError.message": "Obligatoriskt fält",
-  "Home.seoTitle": "Hem",
-  "Pagination.pageOf": "Sida {pageIndex} av {pageCount}",
-  "Search.placeholder": "Sök",
-  "Select.noOptionsMessage": "Hittade inga resultat",
+  "Landing.seoTitle": "Landningssida",
+  "Login.seoTitle": "Logga in",
   "useValidate.isAtLeast": "Behöver vara minst {atLeast}",
   "useValidate.isEmail": "E-post har fel format",
   "useValidate.isInt": "Behöver vara heltal",

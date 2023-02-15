@@ -1,10 +1,8 @@
 import { useCallback } from 'react';
 
-// import { Grid } from '@entire.se/components';
+import { Button, ButtonGroup } from '@mui/material';
 import { Story, Meta } from '@storybook/react';
 import NProgress from 'nprogress';
-
-// import { Button } from 'components/ui/general';
 
 import { ProgressBar } from './ProgressBar';
 
@@ -24,19 +22,17 @@ const Template: Story = (args) => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <button type="button" onClick={start}>
+    <>
+      <ButtonGroup variant="contained">
+        <Button type="button" onClick={start}>
           Start
-        </button>
-      </div>
-      <div>
-        <button type="button" onClick={end}>
+        </Button>
+        <Button type="button" onClick={end}>
           End
-        </button>
-      </div>
+        </Button>
+      </ButtonGroup>
       <ProgressBar {...args} />
-    </div>
+    </>
   );
 };
 

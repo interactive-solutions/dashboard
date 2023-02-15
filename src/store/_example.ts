@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 import { withDevtools } from 'store/middlewares';
 import { NonFunctionProperties } from 'types/nonFunction';

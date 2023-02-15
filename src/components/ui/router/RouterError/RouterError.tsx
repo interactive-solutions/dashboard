@@ -1,7 +1,11 @@
+import { Typography } from '@mui/material';
+
 export interface RouterErrorProps {
   statusCode: number;
 }
 
 export const RouterError = ({ statusCode }: RouterErrorProps) => {
-  return <div>{`Error with status code "${statusCode}"`}</div>;
+  return (
+    <Typography color="error.main">{`Router error with status code "${statusCode}".`}</Typography>
+  );
 };
