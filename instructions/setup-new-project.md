@@ -30,7 +30,7 @@ Some things within this boilerplate are project specific and therefore needs to 
    3. Make sure it works with a simple `throw new Error('...')`.
 10. Want a responsive website? Remove `min-width` from `src/components/ui/general/Layout/Layout.styles.ts`.
 11. Clean up image tags:
-   1. Navigate to https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/packages_and_registries.
-   2. Click on "Edit cleanup rules".
-   3. Make the same settings for your project.
+    1. Navigate to https://git.interactivesolutions.se/internal/nextjs-boilerplate/-/settings/packages_and_registries.
+    2. Click on "Edit cleanup rules".
+    3. Make the same settings for your project.
 12. TODO: Write how to setup provisioning.
