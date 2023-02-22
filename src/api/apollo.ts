@@ -57,14 +57,14 @@ const retryLink = new RetryLink({
 const defaultOptions: DefaultOptions = {
   watchQuery: {
     fetchPolicy: 'cache-first',
-    errorPolicy: 'all'
+    errorPolicy: 'none'
   },
   query: {
     fetchPolicy: 'cache-first',
-    errorPolicy: 'all'
+    errorPolicy: 'none'
   },
   mutate: {
-    errorPolicy: 'all'
+    errorPolicy: 'none'
   }
 };
 
