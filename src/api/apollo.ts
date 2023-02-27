@@ -72,7 +72,9 @@ export const client = new ApolloClient({
   ssrMode: isSSR,
   cache,
   link: retryLink.concat(
-    errorLink.concat(authenticationLink.concat(uploadHttpLink))
+    errorLink.concat(
+      authenticationLink.concat(uploadHttpLink as unknown as ApolloLink)
+    )
   ),
   defaultOptions
 });
