@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { useIntl } from 'react-intl';
 
 import { SEO } from 'components/tools';
@@ -10,7 +11,9 @@ export const Login = () => {
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
-      <h1>{'Login'.toString()}</h1>
+      <Typography variant="h4" color="error.main">
+        {'Login'.toString()}
+      </Typography>
     </>
   );
 };
