@@ -11,7 +11,7 @@ export const Login = () => {
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
-      <Typography variant="h4" color="error.main">
+      <Typography variant="h4" color="info.dark">
         {'Login'.toString()}
       </Typography>
     </>

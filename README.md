@@ -2,6 +2,14 @@
 
 [Next.js](https://nextjs.org/) with modifications.
 
+## To do
+
+- Look for better TypeScript support for some MUI stuff, e.g. for color props
+- react-hook-form
+- Authentication flow
+- Logic for colors and typography
+- react-table
+
 ## Usage
 
 Recommended node version is defined in `.nvmrc`.
