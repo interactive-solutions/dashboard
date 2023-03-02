@@ -9,6 +9,7 @@
 - Authentication flow
 - Logic for colors and typography
 - react-table
+- @entire.se__is-tabbing styling
 
 ## Usage
 
