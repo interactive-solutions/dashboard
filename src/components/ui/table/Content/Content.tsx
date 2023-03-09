@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import {
-  CircularProgress,
   Table,
   TableBody,
   TableCell,
@@ -23,7 +22,7 @@ import {
   flexRender
 } from '@tanstack/react-table';
 
-import { TableProps } from 'components/ui/table';
+import { Loading, TableProps } from 'components/ui/table';
 import { TableFetchDataVariables } from 'types/table';
 
 export const Content = ({
@@ -34,11 +33,10 @@ export const Content = ({
   pageCount,
   pageSize,
   loading,
-  // error,
+  error,
   onFetchData
-}: // handleQueryParameters
-TableProps) => {
-  const [initiated, setInitiated] = useState<boolean>(false);
+}: TableProps) => {
+  const [initiated, setInitiated] = useState(false);
 
   const [variables, setVariables] = useState<TableFetchDataVariables>({
     pageIndex: 0,
@@ -47,7 +45,7 @@ TableProps) => {
   });
 
   const handleFetchData = useCallback(() => {
-    onFetchData?.(variables);
+    onFetchData(variables);
   }, [variables, onFetchData]);
 
   useEffect(() => {
@@ -140,8 +138,7 @@ TableProps) => {
             </TableRow>
           ))}
         </TableBody>
-        {!!loading && initiated && <CircularProgress />}
-        {!!pagination && (
+        {!!pagination && !loading && initiated && (
           <TableFooter>
             <TableRow>
               <TablePagination
@@ -158,6 +155,10 @@ TableProps) => {
           </TableFooter>
         )}
       </Table>
+      <Loading visible={!!loading && initiated} />
+      {!table.getRowModel().rows.length && !loading && initiated && (
+        <div>{error?.message || 'Empty'.toString()}</div>
+      )}
     </TableContainer>
   );
 };
