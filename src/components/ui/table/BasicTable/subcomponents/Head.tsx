@@ -3,11 +3,11 @@ import { useCallback } from 'react';
 import { TableCell, TableHead, TableRow, TableSortLabel } from '@mui/material';
 import { flexRender, Header, Table } from '@tanstack/react-table';
 
-export interface HeadProps {
+export type HeadProps = {
   table: Table<any>;
   visible: boolean;
   sorting: boolean;
-}
+};
 
 export const Head = ({ table, visible, sorting }: HeadProps) => {
   const enableSorting = useCallback(

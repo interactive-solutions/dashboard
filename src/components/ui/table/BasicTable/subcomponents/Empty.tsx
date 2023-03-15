@@ -2,10 +2,10 @@ import { ApolloError } from '@apollo/client';
 
 import * as styles from '../BasicTable.styles';
 
-export interface EmptyProps {
+export type EmptyProps = {
   visible: boolean;
   error?: ApolloError;
-}
+};
 
 export const Empty = ({ visible, error }: EmptyProps) => {
   if (!visible) {

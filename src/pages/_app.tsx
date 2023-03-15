@@ -1,6 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 import { NextAdapter } from 'next-query-params';
 import { AppProps as NextAppProps } from 'next/app';
 import dynamic from 'next/dynamic';
@@ -12,12 +12,12 @@ import { SEO } from 'components/tools';
 import { Layout } from 'components/ui/general';
 import { ProgressBar } from 'components/ui/router';
 import { messages } from 'i18n/messages';
-import { theme } from 'styles';
+import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
 
-export interface AppProps extends NextAppProps {
+export type AppProps = {
   emotionCache?: EmotionCache;
-}
+} & NextAppProps;
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -34,6 +34,7 @@ export const App = ({
             <ThemeProvider theme={theme}>
               <SEO />
               <CssBaseline />
+              <GlobalStyles styles={global} />
               <ProgressBar />
               <Layout>
                 <Component {...pageProps} />

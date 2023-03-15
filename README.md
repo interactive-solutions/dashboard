@@ -5,11 +5,7 @@
 ## To do
 
 - Look for better TypeScript support for some MUI stuff, e.g. for color props
-- react-hook-form
-- Authentication flow
-- Logic for colors and typography
-- react-table
-- @entire.se\_\_is-tabbing styling
+- Sync logic for colors and typography with designer
 
 ## Usage
 

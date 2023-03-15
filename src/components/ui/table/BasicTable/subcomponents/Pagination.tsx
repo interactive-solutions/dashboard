@@ -1,10 +1,10 @@
 import { TableFooter, TablePagination, TableRow } from '@mui/material';
 import { Table } from '@tanstack/react-table';
 
-export interface PaginationProps {
+export type PaginationProps = {
   table: Table<any>;
   visible: boolean;
-}
+};
 
 export const Pagination = ({ table, visible }: PaginationProps) => {
   if (!visible) {

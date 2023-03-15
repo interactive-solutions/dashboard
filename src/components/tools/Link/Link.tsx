@@ -5,15 +5,14 @@ import clsx from 'clsx';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
-export interface NextLinkComposedProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
-    Omit<
-      NextLinkProps,
-      'href' | 'as' | 'passHref' | 'onMouseEnter' | 'onClick' | 'onTouchStart'
-    > {
+export type NextLinkComposedProps = {
   to: NextLinkProps['href'];
   linkAs?: NextLinkProps['as'];
-}
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> &
+  Omit<
+    NextLinkProps,
+    'href' | 'as' | 'passHref' | 'onMouseEnter' | 'onClick' | 'onTouchStart'
+  >;
 
 const Anchor = styled('a')({});
 

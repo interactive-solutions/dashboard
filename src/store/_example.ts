@@ -3,10 +3,10 @@ import { create } from 'zustand';
 import { withDevtools } from 'store/middlewares';
 import { NonFunctionProperties } from 'types/nonFunction';
 
-export interface ExampleStore {
+export type ExampleStore = {
   amount: number;
   increase: (by?: number) => void;
-}
+};
 
 export const initialExampleStore: NonFunctionProperties<ExampleStore> = {
   amount: 0

@@ -1,10 +1,10 @@
 import { TableBody, TableCell, TableRow } from '@mui/material';
 import { flexRender, Table } from '@tanstack/react-table';
 
-export interface BodyProps {
+export type BodyProps = {
   table: Table<any>;
   visible: boolean;
-}
+};
 
 export const Body = ({ table, visible }: BodyProps) => {
   if (!visible) {

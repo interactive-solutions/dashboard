@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material';
 
-export interface RouterErrorProps {
+export type RouterErrorProps = {
   statusCode: number;
-}
+};
 
 export const RouterError = ({ statusCode }: RouterErrorProps) => {
   return (

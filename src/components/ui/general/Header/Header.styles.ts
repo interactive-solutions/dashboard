@@ -6,4 +6,7 @@ export const Root = styled('header')`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: ${({ theme }) => theme.zIndex.appBar};
 `;

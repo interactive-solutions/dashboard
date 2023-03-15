@@ -10,7 +10,7 @@ import {
 import { withDevtools, withPersist } from 'store/middlewares';
 import { NonFunctionProperties } from 'types/nonFunction';
 
-export interface AuthenticationStore {
+export type AuthenticationStore = {
   token: string | null;
   refreshToken: string | null;
   user: LoginUserFragment | null;
@@ -23,7 +23,7 @@ export interface AuthenticationStore {
   setError: (hasError: boolean) => void;
   login: (variables: LoginEmailMutationVariables) => void;
   logout: () => void;
-}
+};
 
 export const initialAuthenticationStore: NonFunctionProperties<AuthenticationStore> =
   {

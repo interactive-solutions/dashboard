@@ -15,9 +15,9 @@ import {
 } from 'api/graphql';
 import { Book } from 'routes';
 
-export interface PageProps {
+export type PageProps = {
   bookIsbn: NonNullable<BookIsbnQuery['bookIsbn']>;
-}
+};
 
 export default ({ bookIsbn }: PageProps) => {
   return <Book bookIsbn={bookIsbn} />;

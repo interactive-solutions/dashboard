@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 
 import Head from 'next/head';
 
-export interface SEOProps {
+export type SEOProps = {
   children?: ReactNode;
   title?: string;
   description?: string;
-}
+};
 
 export const SEO = ({ children, title, description }: SEOProps) => {
   return (

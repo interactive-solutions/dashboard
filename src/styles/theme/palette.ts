@@ -3,10 +3,7 @@ import { red } from '@mui/material/colors';
 
 export const palette: ThemeOptions['palette'] = {
   primary: {
-    main: '#b00'
-  },
-  secondary: {
-    main: '#19857b'
+    main: '#fe5b3c'
   },
   error: {
     main: red.A400

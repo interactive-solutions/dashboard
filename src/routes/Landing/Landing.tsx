@@ -11,7 +11,7 @@ export const Landing = () => {
   return (
     <>
       <SEO title={formatMessage(texts.seoTitle)} />
-      <Typography>{'Landing'.toString()}</Typography>
+      <Typography>{'[insert-landing]'.toString()}</Typography>
     </>
   );
 };

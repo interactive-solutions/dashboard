@@ -9,9 +9,9 @@ import { useAuthenticationStore } from 'store/authentication';
 
 import * as styles from './Layout.styles';
 
-export interface LayoutProps {
+export type LayoutProps = {
   children: ReactNode;
-}
+};
 
 export const Layout = ({ children }: LayoutProps) => {
   const setUser = useAuthenticationStore((store) => store.setUser);

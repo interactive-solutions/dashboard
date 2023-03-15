@@ -18,7 +18,7 @@ import { BasicTableFetchDataVariables } from 'types/table';
 
 import { Body, Empty, Head, Loading, Pagination } from './subcomponents';
 
-export interface BasicTableProps {
+export type BasicTableProps = {
   data: any[];
   columns: ColumnDef<any, any>[];
   onFetchData: (variables: BasicTableFetchDataVariables) => void;
@@ -28,7 +28,7 @@ export interface BasicTableProps {
   pageSize?: number;
   loading?: boolean;
   error?: ApolloError;
-}
+};
 
 export const BasicTable = ({
   data,

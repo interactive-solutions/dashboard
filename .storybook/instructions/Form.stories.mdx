@@ -8,8 +8,6 @@ We are using [React Hook Form](https://react-hook-form.com/) when creating forms
 
 ## Example setup
 
-See more examples [here](https://entire-storybook.internal.isdemo.se/?path=/story/documentation-form-components--page).
-
 ```tsx
 import { useForm } from 'react-hook-form';
 
@@ -18,8 +16,9 @@ import { useValidate } from 'hooks';
 
 const Component = () => {
   const { isEmail } = useValidate();
+
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
     reset
@@ -36,7 +35,7 @@ const Component = () => {
         name="email"
         type="email"
         label="Email"
-        register={register}
+        control={control}
         validation={{
           required: true,
           validate: isEmail
