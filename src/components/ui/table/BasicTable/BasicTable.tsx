@@ -1,16 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { ApolloError } from '@apollo/client';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableFooter,
-  TableHead,
-  TablePagination,
-  TableRow
-} from '@mui/material';
+import { Table, TableContainer } from '@mui/material';
 import {
   getCoreRowModel,
   useReactTable,
@@ -20,13 +11,12 @@ import {
   PaginationState,
   getPaginationRowModel,
   functionalUpdate,
-  flexRender,
   ColumnDef
 } from '@tanstack/react-table';
 
 import { BasicTableFetchDataVariables } from 'types/table';
 
-import { Loading } from './subcomponents';
+import { Body, Empty, Head, Loading, Pagination } from './subcomponents';
 
 export interface BasicTableProps {
   data: any[];
@@ -51,7 +41,7 @@ export const BasicTable = ({
   error,
   onFetchData
 }: BasicTableProps) => {
-  const initiated = useRef(false);
+  const [initiated, setInitiated] = useState(false);
 
   const [variables, setVariables] = useState<BasicTableFetchDataVariables>({
     pageIndex: 0,
@@ -65,7 +55,7 @@ export const BasicTable = ({
 
   useEffect(() => {
     handleFetchData();
-    initiated.current = true;
+    setInitiated(true);
   }, [handleFetchData]);
 
   const onSortingChange = useCallback(
@@ -124,53 +114,18 @@ export const BasicTable = ({
   return (
     <TableContainer>
       <Table>
-        <TableHead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableCell key={header.id} colSpan={header.colSpan}>
-                  {header.isPlaceholder ? null : (
-                    <div>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </div>
-                  )}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableHead>
-        <TableBody>
-          {table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
-        {!!pagination && !loading && initiated.current && (
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                count={table.getPageCount()}
-                rowsPerPage={variables.pageSize}
-                page={variables.pageIndex}
-                onPageChange={(_, page) => table.setPageIndex(page)}
-                rowsPerPageOptions={[]}
-              />
-            </TableRow>
-          </TableFooter>
-        )}
+        <Head table={table} visible sorting={!!sorting} />
+        <Body table={table} visible />
+        <Pagination
+          table={table}
+          visible={!!pagination && !loading && initiated}
+        />
       </Table>
-      <Loading visible={!!loading && initiated.current} />
-      {!table.getRowModel().rows.length && !loading && initiated.current && (
-        <div>{error?.message || 'Empty'.toString()}</div>
-      )}
+      <Loading visible={!!loading && initiated} />
+      <Empty
+        visible={!table.getRowModel().rows.length && !loading && initiated}
+        error={error}
+      />
     </TableContainer>
   );
 };
