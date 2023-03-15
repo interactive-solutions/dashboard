@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { ApolloError } from '@apollo/client';
 import {
   Table,
   TableBody,
@@ -19,13 +20,27 @@ import {
   PaginationState,
   getPaginationRowModel,
   functionalUpdate,
-  flexRender
+  flexRender,
+  ColumnDef
 } from '@tanstack/react-table';
 
-import { Loading, TableProps } from 'components/ui/table';
-import { TableFetchDataVariables } from 'types/table';
+import { BasicTableFetchDataVariables } from 'types/table';
 
-export const Content = ({
+import { Loading } from './subcomponents';
+
+export interface BasicTableProps {
+  data: any[];
+  columns: ColumnDef<any, any>[];
+  onFetchData: (variables: BasicTableFetchDataVariables) => void;
+  sorting?: boolean;
+  pagination?: boolean;
+  pageCount?: number;
+  pageSize?: number;
+  loading?: boolean;
+  error?: ApolloError;
+}
+
+export const BasicTable = ({
   data,
   columns,
   sorting,
@@ -35,10 +50,10 @@ export const Content = ({
   loading,
   error,
   onFetchData
-}: TableProps) => {
-  const [initiated, setInitiated] = useState(false);
+}: BasicTableProps) => {
+  const initiated = useRef(false);
 
-  const [variables, setVariables] = useState<TableFetchDataVariables>({
+  const [variables, setVariables] = useState<BasicTableFetchDataVariables>({
     pageIndex: 0,
     pageSize: typeof pageSize === 'number' ? pageSize : 10,
     sorting: []
@@ -50,7 +65,7 @@ export const Content = ({
 
   useEffect(() => {
     handleFetchData();
-    setInitiated(true);
+    initiated.current = true;
   }, [handleFetchData]);
 
   const onSortingChange = useCallback(
@@ -138,25 +153,22 @@ export const Content = ({
             </TableRow>
           ))}
         </TableBody>
-        {!!pagination && !loading && initiated && (
+        {!!pagination && !loading && initiated.current && (
           <TableFooter>
             <TableRow>
               <TablePagination
-                count={table.getFilteredRowModel().rows.length}
+                count={table.getPageCount()}
                 rowsPerPage={variables.pageSize}
                 page={variables.pageIndex}
-                onPageChange={(_, page) => {
-                  table.setPageIndex(page);
-                  console.log(page);
-                }}
+                onPageChange={(_, page) => table.setPageIndex(page)}
                 rowsPerPageOptions={[]}
               />
             </TableRow>
           </TableFooter>
         )}
       </Table>
-      <Loading visible={!!loading && initiated} />
-      {!table.getRowModel().rows.length && !loading && initiated && (
+      <Loading visible={!!loading && initiated.current} />
+      {!table.getRowModel().rows.length && !loading && initiated.current && (
         <div>{error?.message || 'Empty'.toString()}</div>
       )}
     </TableContainer>

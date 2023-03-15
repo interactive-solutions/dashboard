@@ -2,13 +2,13 @@ import { Story, Meta } from '@storybook/react';
 import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
-import { TableFetchDataVariables } from 'types/table';
+import { BasicTableFetchDataVariables } from 'types/table';
 
-import { Table, TableProps } from './Table';
+import { BasicTable, BasicTableProps } from './BasicTable';
 
 export default {
-  title: 'components/table/Table',
-  component: Table,
+  title: 'components/table/BasicTable',
+  component: BasicTable,
   args: {
     columns: [
       {
@@ -48,15 +48,15 @@ export default {
         col4: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto accusantium ducimus possimus.'
       }
     ],
-    onFetchData: (variables: TableFetchDataVariables) => {
+    onFetchData: (variables: BasicTableFetchDataVariables) => {
       console.log(variables);
     }
   }
 } as Meta;
 
-const Template: Story<TableProps> = (args) => (
+const Template: Story<BasicTableProps> = (args) => (
   <QueryParamProvider adapter={NextAdapter}>
-    <Table {...args} />
+    <BasicTable {...args} />
   </QueryParamProvider>
 );
 

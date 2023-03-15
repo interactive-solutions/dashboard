@@ -1,6 +1,6 @@
 import { SortingState } from '@tanstack/react-table';
 
-export interface TableFetchDataVariables {
+export interface BasicTableFetchDataVariables {
   pageIndex: number;
   pageSize: number;
   sorting: SortingState;

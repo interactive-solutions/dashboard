@@ -1,6 +1,6 @@
 import { CircularProgress } from '@mui/material';
 
-import * as styles from './Loading.styles';
+import * as styles from '../BasicTable.styles';
 
 export interface LoadingProps {
   visible: boolean;
@@ -12,8 +12,8 @@ export const Loading = ({ visible }: LoadingProps) => {
   }
 
   return (
-    <styles.Root>
+    <styles.Loading>
       <CircularProgress />
-    </styles.Root>
+    </styles.Loading>
   );
 };

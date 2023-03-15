@@ -4,9 +4,9 @@ import { Typography } from '@mui/material';
 import { useIntl } from 'react-intl';
 
 import { SEO } from 'components/tools';
-import { Table } from 'components/ui/table';
+import { BasicTable } from 'components/ui/table';
 import { useBooksLazyQuery } from 'graphql/cli/graphql.everything';
-import { TableFetchDataVariables } from 'types/table';
+import { BasicTableFetchDataVariables } from 'types/table';
 
 import { texts } from './Login.text';
 
@@ -25,8 +25,9 @@ export const Login = () => {
   );
 
   const handleFetchData = useCallback(
-    (variables: TableFetchDataVariables) => {
+    (variables: BasicTableFetchDataVariables) => {
       console.log(variables);
+
       fetchBooks({
         variables: {
           filter: {
@@ -45,13 +46,19 @@ export const Login = () => {
       <Typography variant="h4" color="info.dark">
         {'Login'.toString()}
       </Typography>
-      <Table
+      <BasicTable
         columns={columns}
         data={data?.books.edges || []}
         onFetchData={handleFetchData}
         pagination
         loading={loading}
         error={error}
+        pageCount={
+          typeof data?.books.meta.total === 'number' &&
+          typeof data?.books.meta.limit === 'number'
+            ? Math.ceil(data.books.meta.total / data.books.meta.limit)
+            : undefined
+        }
       />
     </>
   );
