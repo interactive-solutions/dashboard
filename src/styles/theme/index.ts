@@ -23,5 +23,5 @@ export const theme = createTheme({
   spacing,
   transitions,
   typography,
-  zIndex
+  zIndex,
 });

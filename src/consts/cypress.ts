@@ -18,5 +18,5 @@
  */
 
 export enum FormErrorSelectors {
-  Root = 'form-error-root'
+  Root = 'form-error-root',
 }

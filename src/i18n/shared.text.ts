@@ -13,15 +13,15 @@ const userRole = defineMessages<UserRole>({
   admin: {
     id: 'userRole.admin',
     description: 'Admin',
-    defaultMessage: 'Admin'
+    defaultMessage: 'Admin',
   },
   user: {
     id: 'userRole.user',
     description: 'User',
-    defaultMessage: 'Användare'
-  }
+    defaultMessage: 'Användare',
+  },
 });
 
 export const shared = {
-  userRole
+  userRole,
 };

@@ -4,6 +4,6 @@ export const texts = defineMessages({
   message: {
     id: 'FormError.message',
     description: 'Form error message',
-    defaultMessage: 'Obligatoriskt fält'
-  }
+    defaultMessage: 'Obligatoriskt fält',
+  },
 });

@@ -24,7 +24,7 @@ const clientSideEmotionCache = createEmotionCache();
 export const App = ({
   Component,
   emotionCache = clientSideEmotionCache,
-  pageProps
+  pageProps,
 }: AppProps) => {
   return (
     <QueryParamProvider adapter={NextAdapter}>
@@ -48,5 +48,5 @@ export const App = ({
 };
 
 export default dynamic(() => Promise.resolve(App), {
-  ssr: false
+  ssr: false,
 });

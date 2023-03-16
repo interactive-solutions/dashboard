@@ -8,7 +8,7 @@ import { ProgressBar } from './ProgressBar';
 
 export default {
   title: 'components/router/ProgressBar',
-  component: ProgressBar
+  component: ProgressBar,
 } as Meta;
 
 const Template: Story = (args) => {

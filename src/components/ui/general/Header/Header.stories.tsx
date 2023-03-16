@@ -4,7 +4,7 @@ import { Header } from './Header';
 
 export default {
   title: 'components/general/Header',
-  component: Header
+  component: Header,
 } as Meta;
 
 const Template: Story = (args) => <Header {...args} />;

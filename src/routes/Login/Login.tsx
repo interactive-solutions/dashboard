@@ -25,7 +25,7 @@ export const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<MutationLoginEmailArgs>();
 
   const isLoading = useAuthenticationStore((store) => store.isLoading);

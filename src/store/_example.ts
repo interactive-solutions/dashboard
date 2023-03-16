@@ -9,7 +9,7 @@ export type ExampleStore = {
 };
 
 export const initialExampleStore: NonFunctionProperties<ExampleStore> = {
-  amount: 0
+  amount: 0,
 };
 
 export const useExampleStore = create<ExampleStore>()(
@@ -18,11 +18,11 @@ export const useExampleStore = create<ExampleStore>()(
     increase: (by) => {
       set(
         (state) => ({
-          amount: state.amount + typeof by === 'number' ? by : get().amount + 1
+          amount: state.amount + typeof by === 'number' ? by : get().amount + 1,
         }),
         false,
         'example/increase'
       );
-    }
+    },
   }))
 );

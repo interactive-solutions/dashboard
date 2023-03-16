@@ -8,14 +8,14 @@ const config: CodegenConfig = {
       plugins: ['fragment-matcher'], // https://www.the-guild.dev/graphql/codegen/plugins/other/fragment-matcher
       config: {
         module: 'commonjs',
-        useExplicitTyping: true
-      }
+        useExplicitTyping: true,
+      },
     },
     'src/api/graphql.ts': {
       plugins: [
         'typescript', // https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript
         'typescript-operations', // https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript-operations
-        'typescript-react-apollo' // https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript-react-apollo
+        'typescript-react-apollo', // https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript-react-apollo
       ],
       config: {
         flattenGeneratedTypes: false,
@@ -25,14 +25,14 @@ const config: CodegenConfig = {
           Time: 'string | number',
           Uint32: 'number',
           Uint64: 'number',
-          Upload: 'File'
-        }
-      }
+          Upload: 'File',
+        },
+      },
     },
     'src/graphql/cli/schema.everything.json': {
-      plugins: ['introspection']
-    }
-  }
+      plugins: ['introspection'],
+    },
+  },
 };
 
 export default config;

@@ -11,7 +11,7 @@ import {
   PaginationState,
   getPaginationRowModel,
   functionalUpdate,
-  ColumnDef
+  ColumnDef,
 } from '@tanstack/react-table';
 
 import { BasicTableFetchDataVariables } from 'types/table';
@@ -39,14 +39,14 @@ export const BasicTable = ({
   pageSize,
   loading,
   error,
-  onFetchData
+  onFetchData,
 }: BasicTableProps) => {
   const [initiated, setInitiated] = useState(false);
 
   const [variables, setVariables] = useState<BasicTableFetchDataVariables>({
     pageIndex: 0,
     pageSize: typeof pageSize === 'number' ? pageSize : 10,
-    sorting: []
+    sorting: [],
   });
 
   const handleFetchData = useCallback(() => {
@@ -66,7 +66,7 @@ export const BasicTable = ({
       setVariables((previousVariables) => ({
         ...previousVariables,
         sorting: value,
-        pageIndex: 0
+        pageIndex: 0,
       }));
     },
     [sorting, variables.sorting]
@@ -78,12 +78,12 @@ export const BasicTable = ({
 
       const value = functionalUpdate(paginationState, {
         pageIndex: variables.pageIndex,
-        pageSize: variables.pageSize
+        pageSize: variables.pageSize,
       });
       setVariables((previousVariables) => ({
         ...previousVariables,
         pageIndex: value.pageIndex,
-        pageSize: value.pageSize
+        pageSize: value.pageSize,
       }));
     },
     [pagination, variables.pageIndex, variables.pageSize]
@@ -100,15 +100,15 @@ export const BasicTable = ({
       pagination: pagination
         ? {
             pageIndex: variables.pageIndex,
-            pageSize: variables.pageSize
+            pageSize: variables.pageSize,
           }
-        : undefined
+        : undefined,
     },
     onPaginationChange,
     onSortingChange,
     manualSorting: !!sorting,
     manualPagination: !!pagination,
-    pageCount
+    pageCount,
   });
 
   return (

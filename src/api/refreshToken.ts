@@ -5,7 +5,7 @@ import { client } from 'api/apollo';
 import {
   RefreshTokenDocument,
   RefreshTokenMutation,
-  RefreshTokenMutationVariables
+  RefreshTokenMutationVariables,
 } from 'api/graphql';
 import { useAuthenticationStore } from 'store/authentication';
 
@@ -26,7 +26,7 @@ export const refreshToken = (error: ErrorResponse) => {
   client
     .mutate<RefreshTokenMutation, RefreshTokenMutationVariables>({
       mutation: RefreshTokenDocument,
-      variables: { token: authenticationStore.refreshToken }
+      variables: { token: authenticationStore.refreshToken },
     })
     .then(({ data }) => {
       if (!data?.refreshToken) {
@@ -41,8 +41,8 @@ export const refreshToken = (error: ErrorResponse) => {
 
       operation.setContext({
         headers: {
-          authorization: `jwt ${token}`
-        }
+          authorization: `jwt ${token}`,
+        },
       });
 
       forward(operation);

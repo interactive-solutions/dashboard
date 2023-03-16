@@ -9,6 +9,6 @@ export default defineConfig({
       // eslint-disable-next-line global-require
       return require('./cypress/plugins/index').default(on, config);
     },
-    baseUrl: 'http://localhost:9000'
-  }
+    baseUrl: 'http://localhost:9000',
+  },
 });

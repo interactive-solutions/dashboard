@@ -34,7 +34,7 @@ export const Layout = ({ children }: LayoutProps) => {
       user
         ? {
             id: String(user.id),
-            email: user.email
+            email: user.email,
           }
         : null
     );

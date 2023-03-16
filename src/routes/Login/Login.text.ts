@@ -4,6 +4,6 @@ export const texts = defineMessages({
   seoTitle: {
     id: 'Login.seoTitle',
     description: 'Seo title',
-    defaultMessage: 'Logga in'
-  }
+    defaultMessage: 'Logga in',
+  },
 });

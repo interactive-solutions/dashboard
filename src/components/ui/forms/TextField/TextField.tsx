@@ -1,6 +1,6 @@
 import {
   TextField as MuiTextField,
-  TextFieldProps as MuiTextFieldProps
+  TextFieldProps as MuiTextFieldProps,
 } from '@mui/material';
 import {
   Control,
@@ -8,7 +8,7 @@ import {
   FieldError,
   FieldErrorsImpl,
   Merge,
-  RegisterOptions
+  RegisterOptions,
 } from 'react-hook-form';
 
 import { FormError } from 'components/ui/forms';
@@ -38,8 +38,8 @@ export const TextField = ({
           value: fieldValue,
           onChange: fieldOnChange,
           onBlur: fieldOnBlur,
-          ref: fieldRef
-        }
+          ref: fieldRef,
+        },
       }) => {
         return (
           <MuiTextField

@@ -6,7 +6,7 @@ export const cache = new InMemoryCache({
   possibleTypes: fragmentMatcher.possibleTypes,
   typePolicies: {
     User: {
-      merge: true
-    }
-  }
+      merge: true,
+    },
+  },
 });
