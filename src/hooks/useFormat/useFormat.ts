@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 
+// eslint-disable-next-line import/no-duplicates
 import { format as dateFormat } from 'date-fns';
+// eslint-disable-next-line import/no-duplicates
 import { sv } from 'date-fns/locale';
 import { useIntl } from 'react-intl';
 
@@ -9,7 +11,7 @@ import { DateFormat } from 'consts/format';
 export const useFormat = () => {
   const intl = useIntl();
 
-  const formatDate = useCallback(
+  const handleDate = useCallback(
     (date: Date, format: DateFormat = DateFormat.YearMonthDate) => {
       let locale;
 
@@ -22,7 +24,7 @@ export const useFormat = () => {
     [intl.locale]
   );
 
-  const formatCurrency = useCallback(
+  const handleCurrency = useCallback(
     (number: number, options?: Intl.NumberFormatOptions) => {
       if (intl.locale === 'sv') {
         return number.toLocaleString('sv-SE', {
@@ -30,7 +32,7 @@ export const useFormat = () => {
           currency: 'SEK',
           currencyDisplay: 'code',
           maximumFractionDigits: 0,
-          ...options
+          ...options,
         });
       }
 
@@ -39,5 +41,5 @@ export const useFormat = () => {
     [intl.locale]
   );
 
-  return { date: formatDate, currency: formatCurrency };
+  return { date: handleDate, currency: handleCurrency };
 };

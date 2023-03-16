@@ -22,7 +22,7 @@ export const ProgressBar = () => {
       template: `<div class="${className}" role="bar"></div>`,
       showSpinner: false,
       easing: transitions.easing.easeInOut,
-      speed: transitions.duration.complex
+      speed: transitions.duration.complex,
     });
   }, [transitions.easing.easeInOut, transitions.duration.complex]);
 
@@ -48,8 +48,8 @@ export const ProgressBar = () => {
           top: 0,
           left: 0,
           width: '100%',
-          height: 3
-        }
+          height: 3,
+        },
       }}
     />
   );
