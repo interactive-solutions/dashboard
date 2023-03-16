@@ -8,7 +8,7 @@ import { Patterns } from 'consts/validate';
 import { texts } from './useValidate.text';
 
 export const useValidate = () => {
-  const { formatMessage } = useIntl();
+  const { formatMessage, locale } = useIntl();
 
   const isEmail = useCallback(
     (value: string) =>
@@ -56,10 +56,10 @@ export const useValidate = () => {
 
   const isPostalCode = useCallback(
     (value: string) =>
-      validator.isPostalCode(value, 'SE')
+      validator.isPostalCode(value, locale === 'sv' ? 'SE' : 'any')
         ? true
         : formatMessage(texts.isPostalCode),
-    [formatMessage]
+    [formatMessage, locale]
   );
 
   const isURL = useCallback(

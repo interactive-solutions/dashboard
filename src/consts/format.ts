@@ -1,3 +1,3 @@
 export enum DateFormat {
-  Date = 'yyyy-MM-dd'
+  YearMonthDate = 'yyyy-MM-dd'
 }

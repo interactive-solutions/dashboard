@@ -21,7 +21,7 @@ import { Body, Empty, Head, Loading, Pagination } from './subcomponents';
 export type BasicTableProps = {
   data: any[];
   columns: ColumnDef<any, any>[];
-  onFetchData: (variables: BasicTableFetchDataVariables) => void;
+  onFetchData?: (variables: BasicTableFetchDataVariables) => void;
   sorting?: boolean;
   pagination?: boolean;
   pageCount?: number;
@@ -50,7 +50,7 @@ export const BasicTable = ({
   });
 
   const handleFetchData = useCallback(() => {
-    onFetchData(variables);
+    onFetchData?.(variables);
   }, [variables, onFetchData]);
 
   useEffect(() => {

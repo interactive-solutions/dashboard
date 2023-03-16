@@ -10,7 +10,7 @@ export const useFormat = () => {
   const intl = useIntl();
 
   const formatDate = useCallback(
-    (date: Date, format: DateFormat = DateFormat.Date) => {
+    (date: Date, format: DateFormat = DateFormat.YearMonthDate) => {
       let locale;
 
       if (intl.locale === 'sv') {
@@ -24,19 +24,19 @@ export const useFormat = () => {
 
   const formatCurrency = useCallback(
     (number: number, options?: Intl.NumberFormatOptions) => {
-      if (typeof number !== 'number') {
-        return number;
+      if (intl.locale === 'sv') {
+        return number.toLocaleString('sv-SE', {
+          style: 'currency',
+          currency: 'SEK',
+          currencyDisplay: 'code',
+          maximumFractionDigits: 0,
+          ...options
+        });
       }
 
-      return number.toLocaleString('sv-SE', {
-        style: 'currency',
-        currency: 'SEK',
-        currencyDisplay: 'code',
-        maximumFractionDigits: 0,
-        ...options
-      });
+      return number;
     },
-    []
+    [intl.locale]
   );
 
   return { date: formatDate, currency: formatCurrency };

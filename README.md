@@ -2,11 +2,6 @@
 
 [Next.js](https://nextjs.org/) with modifications.
 
-## To do
-
-- Look for better TypeScript support for some MUI stuff, e.g. for color props
-- Sync logic for colors and typography with designer
-
 ## Usage
 
 Recommended node version is defined in `.nvmrc`.

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import { LoadingButton } from '@mui/lab';
 import { Container, Grid, Typography } from '@mui/material';
@@ -28,9 +28,6 @@ export const Login = () => {
     formState: { errors }
   } = useForm<MutationLoginEmailArgs>();
 
-  // Next.js doesn't like when multiple router.replace() is triggered
-  const hasInitiatedRouterReplace = useRef(false);
-
   const isLoading = useAuthenticationStore((store) => store.isLoading);
   const hasError = useAuthenticationStore((store) => store.hasError);
   const user = useAuthenticationStore((store) => store.user);
@@ -43,9 +40,8 @@ export const Login = () => {
 
   // User is signed in, so send him/her to the Landing page
   useEffect(() => {
-    if (user && !hasInitiatedRouterReplace.current) {
+    if (user) {
       router.replace(Paths.Landing);
-      hasInitiatedRouterReplace.current = true;
     }
   }, [router, user]);
 
