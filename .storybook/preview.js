@@ -24,7 +24,7 @@ export const decorators = [
         </ApolloProvider>
       </IntlProvider>
     );
-  }
+  },
 ];
 
 export const parameters = {
@@ -40,11 +40,11 @@ export const parameters = {
           </DocsContainer>
         </ThemeProvider>
       );
-    }
+    },
   },
   options: {
     storySort: {
-      order: ['Instructions', 'Components']
-    }
-  }
+      order: ['Instructions', 'Components'],
+    },
+  },
 };

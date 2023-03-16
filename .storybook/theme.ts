@@ -33,5 +33,5 @@ export default create({
   // Brand
   brandTitle: 'Modo Hockey',
   brandUrl: 'https://www.modohockey.se/',
-  brandImage: '/modo.png'
+  brandImage: '/modo.png',
 });
