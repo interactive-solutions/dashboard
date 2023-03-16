@@ -1,9 +1,9 @@
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
-import { NextAdapter } from 'next-query-params';
 import { AppProps as NextAppProps } from 'next/app';
 import dynamic from 'next/dynamic';
+import { NextAdapter } from 'next-query-params';
 import { IntlProvider } from 'react-intl';
 import { QueryParamProvider } from 'use-query-params';
 
