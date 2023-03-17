@@ -14,14 +14,14 @@ import {
   ColumnDef,
 } from '@tanstack/react-table';
 
-import { BasicTableFetchDataVariables } from 'types/table';
+import { TableFetchDataVariables } from 'types/table';
 
 import { Body, Empty, Head, Loading, Pagination } from './subcomponents';
 
 export type BasicTableProps = {
   data: any[];
   columns: ColumnDef<any, any>[];
-  onFetchData?: (variables: BasicTableFetchDataVariables) => void;
+  onFetchData?: (variables: TableFetchDataVariables) => void;
   sorting?: boolean;
   pagination?: boolean;
   pageCount?: number;
@@ -43,7 +43,7 @@ export const BasicTable = ({
 }: BasicTableProps) => {
   const [initiated, setInitiated] = useState(false);
 
-  const [variables, setVariables] = useState<BasicTableFetchDataVariables>({
+  const [variables, setVariables] = useState<TableFetchDataVariables>({
     pageIndex: 0,
     pageSize: typeof pageSize === 'number' ? pageSize : 10,
     sorting: [],

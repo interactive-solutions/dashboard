@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
-import { BasicTableFetchDataVariables } from 'types/table';
+import { TableFetchDataVariables } from 'types/table';
 
 import { BasicTable, BasicTableProps } from './BasicTable';
 
@@ -48,7 +48,7 @@ export default {
         col4: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto accusantium ducimus possimus.',
       },
     ],
-    onFetchData: (variables: BasicTableFetchDataVariables) => {
+    onFetchData: (variables: TableFetchDataVariables) => {
       console.log(variables);
     },
   },
