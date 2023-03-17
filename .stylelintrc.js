@@ -1,3 +1,3 @@
 module.exports = {
-  extends: '@entire.se/stylelint-styled-components',
+  extends: ['@entire.se/stylelint-emotion'],
 };

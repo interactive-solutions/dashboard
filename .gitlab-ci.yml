@@ -89,8 +89,7 @@ test:lint:
     - dependencies:install
     - graphql:generate
   script:
-    # TODO: Insert stylelint:report when it's working with emotion
-    - yarn npm-run-all eslint:report prettier:report typescript:report
+    - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
   tags:
     - docker
 
