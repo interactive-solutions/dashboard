@@ -12,7 +12,7 @@ export const useFormat = () => {
   const intl = useIntl();
 
   const handleDate = useCallback(
-    (date: Date, format: DateFormat = DateFormat.YearMonthDate) => {
+    (date: Date, format: DateFormat = DateFormat.YearMonthDay) => {
       let locale;
 
       if (intl.locale === 'sv') {
