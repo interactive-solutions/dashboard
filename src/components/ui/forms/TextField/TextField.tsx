@@ -25,6 +25,7 @@ export const TextField = ({
   control,
   validation,
   error,
+  defaultValue,
   ...rest
 }: TextFieldProps) => {
   return (
@@ -32,6 +33,7 @@ export const TextField = ({
       name={name}
       control={control}
       rules={validation}
+      defaultValue={defaultValue}
       render={({
         field: {
           name: fieldName,
