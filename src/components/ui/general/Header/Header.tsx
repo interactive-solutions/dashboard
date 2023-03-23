@@ -1,4 +1,5 @@
-import { Container } from 'components/ui/general';
+import { Button } from '@mui/material';
+
 import { useAuthenticationStore } from 'store/authentication';
 
 import * as styles from './Header.styles';
@@ -9,14 +10,17 @@ export const Header = () => {
 
   return (
     <styles.Root>
-      {!!token && (
-        <Container fullWidth>
-          <styles.Content>
-            <styles.Logout type="button" onClick={() => logout()}>
-              {'[insert-logout]'.toString()}
-            </styles.Logout>
-          </styles.Content>
-        </Container>
+      {token ? (
+        <Button
+          type="button"
+          onClick={() => logout()}
+          variant="contained"
+          size="small"
+        >
+          {'[insert-logout]'.toString()}
+        </Button>
+      ) : (
+        '[insert-header]'.toString()
       )}
     </styles.Root>
   );

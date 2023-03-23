@@ -1,22 +1,26 @@
 import { useCallback } from 'react';
 
 import { useIntl } from 'react-intl';
-import validator from 'validator';
+import isEmail from 'validator/lib/isEmail';
+import isFloat from 'validator/lib/isFloat';
+import isInt from 'validator/lib/isInt';
+import isNumeric from 'validator/lib/isNumeric';
+import isPostalCode from 'validator/lib/isPostalCode';
+import isURL from 'validator/lib/isURL';
 
 import { Patterns } from 'consts/validate';
 
 import { texts } from './useValidate.text';
 
 export const useValidate = () => {
-  const { formatMessage } = useIntl();
+  const { formatMessage, locale } = useIntl();
 
-  const isEmail = useCallback(
-    (value: string) =>
-      validator.isEmail(value) ? true : formatMessage(texts.isEmail),
+  const handleIsEmail = useCallback(
+    (value: string) => (isEmail(value) ? true : formatMessage(texts.isEmail)),
     [formatMessage]
   );
 
-  const isPhoneNumber = useCallback(
+  const handleIsPhoneNumber = useCallback(
     (value: string) =>
       new RegExp(Patterns.PhoneNumber).test(value)
         ? true
@@ -24,7 +28,7 @@ export const useValidate = () => {
     [formatMessage]
   );
 
-  const isOrganisationNumber = useCallback(
+  const handleIsOrganisationNumber = useCallback(
     (value: string) =>
       new RegExp(Patterns.OrganisationNumber).test(value)
         ? true
@@ -32,51 +36,50 @@ export const useValidate = () => {
     [formatMessage]
   );
 
-  const isNumeric = useCallback(
+  const handleIsNumeric = useCallback(
     (value: string) =>
-      validator.isNumeric(value) ? true : formatMessage(texts.isNumeric),
+      isNumeric(value) ? true : formatMessage(texts.isNumeric),
     [formatMessage]
   );
 
-  const isLatitude = useCallback(
+  const handleIsLatitude = useCallback(
     (value: string) =>
-      validator.isFloat(value, { min: -90, max: 90 })
+      isFloat(value, { min: -90, max: 90 })
         ? true
         : formatMessage(texts.isLatitude),
     [formatMessage]
   );
 
-  const isLongitude = useCallback(
+  const handleIsLongitude = useCallback(
     (value: string) =>
-      validator.isFloat(value, { min: -180, max: 180 })
+      isFloat(value, { min: -180, max: 180 })
         ? true
         : formatMessage(texts.isLongitude),
     [formatMessage]
   );
 
-  const isPostalCode = useCallback(
+  const handleIsPostalCode = useCallback(
     (value: string) =>
-      validator.isPostalCode(value, 'SE')
+      isPostalCode(value, locale === 'sv' ? 'SE' : 'any')
         ? true
         : formatMessage(texts.isPostalCode),
-    [formatMessage]
+    [formatMessage, locale]
   );
 
-  const isURL = useCallback(
+  const handleIsURL = useCallback(
     (value: string) =>
-      validator.isURL(value, { require_protocol: true })
+      isURL(value, { require_protocol: true })
         ? true
         : formatMessage(texts.isURL),
     [formatMessage]
   );
 
-  const isInt = useCallback(
-    (value: string) =>
-      validator.isInt(value) ? true : formatMessage(texts.isInt),
+  const handleIsInt = useCallback(
+    (value: string) => (isInt(value) ? true : formatMessage(texts.isInt)),
     [formatMessage]
   );
 
-  const isAtLeast = useCallback(
+  const handleIsAtLeast = useCallback(
     (atLeast: number, value: number) => {
       const numberAtLeast = Number(atLeast);
       const numberValue = Number(value);
@@ -98,15 +101,15 @@ export const useValidate = () => {
   );
 
   return {
-    isEmail,
-    isPhoneNumber,
-    isOrganisationNumber,
-    isNumeric,
-    isLatitude,
-    isLongitude,
-    isPostalCode,
-    isURL,
-    isAtLeast,
-    isInt
+    isEmail: handleIsEmail,
+    isPhoneNumber: handleIsPhoneNumber,
+    isOrganisationNumber: handleIsOrganisationNumber,
+    isNumeric: handleIsNumeric,
+    isLatitude: handleIsLatitude,
+    isLongitude: handleIsLongitude,
+    isPostalCode: handleIsPostalCode,
+    isURL: handleIsURL,
+    isAtLeast: handleIsAtLeast,
+    isInt: handleIsInt,
   };
 };

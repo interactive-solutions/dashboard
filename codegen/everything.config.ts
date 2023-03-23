@@ -10,8 +10,8 @@ const config: CodegenConfig = {
   documents: ['src/graphql/cli/operations.everything.graphql'],
   generates: {
     ...defaultConfig.generates,
-    'src/graphql/cli/graphql.everything.ts': getGeneratesItem
-  }
+    'src/graphql/cli/graphql.everything.ts': getGeneratesItem,
+  },
 };
 
 export default config;

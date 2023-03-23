@@ -6,8 +6,8 @@ export default {
   title: 'components/forms/FormError',
   component: FormError,
   args: {
-    error: 'Lorem ipsum'
-  }
+    error: 'Lorem ipsum',
+  },
 } as Meta;
 
 const Template: Story<FormErrorProps> = (args) => <FormError {...args} />;

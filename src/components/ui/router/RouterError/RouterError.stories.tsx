@@ -6,8 +6,8 @@ export default {
   title: 'components/router/RouterError',
   component: RouterError,
   args: {
-    statusCode: 404
-  }
+    statusCode: 404,
+  },
 } as Meta;
 
 const Template: Story<RouterErrorProps> = (args) => <RouterError {...args} />;

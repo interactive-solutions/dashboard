@@ -1,16 +1,14 @@
 import { useCallback } from 'react';
 
-import { Grid } from '@entire.se/components';
+import { Button, ButtonGroup } from '@mui/material';
 import { Story, Meta } from '@storybook/react';
 import NProgress from 'nprogress';
-
-import { Button } from 'components/ui/general';
 
 import { ProgressBar } from './ProgressBar';
 
 export default {
   title: 'components/router/ProgressBar',
-  component: ProgressBar
+  component: ProgressBar,
 } as Meta;
 
 const Template: Story = (args) => {
@@ -24,19 +22,17 @@ const Template: Story = (args) => {
   }, []);
 
   return (
-    <Grid gap={2}>
-      <Grid.Item>
+    <>
+      <ButtonGroup variant="contained">
         <Button type="button" onClick={start}>
           Start
         </Button>
-      </Grid.Item>
-      <Grid.Item>
         <Button type="button" onClick={end}>
           End
         </Button>
-      </Grid.Item>
+      </ButtonGroup>
       <ProgressBar {...args} />
-    </Grid>
+    </>
   );
 };
 

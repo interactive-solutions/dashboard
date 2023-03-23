@@ -6,42 +6,35 @@ import { Meta } from '@storybook/addon-docs';
 
 We are using [React Table](https://tanstack.com/table/v8).
 
-## Example setup
+## Basic table
 
 ```tsx
 import { useCallback, useMemo } from 'react';
 
 import { ColumnDef } from '@tanstack/react-table';
+import { FormattedMessage } from 'react-intl';
 
-import { ExampleFragment, useExampleLazyQuery } from 'api/graphql';
-import { Table } from 'components/ui/table';
+import { ExamplesExampleFragment, useExamplesLazyQuery } from 'api/graphql';
+import { BasicTable } from 'components/ui/table';
 import { useTable } from 'hooks';
 import { TableFetchDataVariables } from 'types/table';
 
 const Component = () => {
-  const [fetchExample, { data, loading, error }] = useExampleLazyQuery();
+  const [fetchExamples, { data, loading, error }] = useExamplesLazyQuery();
   const { getPageCount, getFetchDataVariables } = useTable();
 
-  const columns = useMemo<ColumnDef<ExampleFragment>[]>(
+  const columns = useMemo<ColumnDef<ExamplesExampleFragment>[]>(
     () => [
       {
-        header: 'Title',
-        accessorKey: 'title'
+        header: <FormattedMessage {...texts.firstName} />,
+        accessorKey: 'firstName',
+        accessorFn: ({ firstName, lastName }) => `${firstName} ${lastName}`,
       },
       {
-        header: 'Something',
-        accessorFn: ({ something }) => something,
-        cell: ({ row }) => <div>{row.original.something}</div>
-      },
-      {
-        header: 'Trigger',
+        header: <FormattedMessage {...texts.id} />,
+        accessorKey: 'id',
         enableSorting: false,
-        cell: ({ row }) => (
-          <button type="button" onClick={() => console.log(row.original.id)}>
-            Button
-          </button>
-        )
-      }
+      },
     ],
     []
   );
@@ -49,23 +42,21 @@ const Component = () => {
   const handleFetchData = useCallback(
     (variables: TableFetchDataVariables) => {
       const { filter, sorting } = getFetchDataVariables(variables);
-      fetchExample({ variables: { filter, sorting } });
+      fetchExamples({ variables: { filter, sorting } });
     },
-    [fetchExample, getFetchDataVariables]
+    [fetchExamples, getFetchDataVariables]
   );
 
   return (
-    <Table
+    <BasicTable
       data={data?.examples.edges || []}
       columns={columns}
       onFetchData={handleFetchData}
-      loading={loading}
-      sorting
       pagination
-      pageCount={getPageCount(data?.examples.meta)}
+      loading={loading}
       error={error}
-      handleQueryParameters // Only works client side
-      search
+      sorting
+      pageCount={getPageCount(data?.examples.meta)}
     />
   );
 };

@@ -1,35 +1,28 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
 const isBuild = process.env.NODE_ENV === 'production';
 const withSentry = process.env.NEXT_PUBLIC_SENTRY_DSN && isBuild;
 
 const nextConfig = {
   output: 'standalone',
-  compiler: {
-    styledComponents: {
-      displayName: isDevelopment,
-      fileName: isDevelopment
-    }
-  },
   i18n: {
     locales: ['sv'],
-    defaultLocale: 'sv'
+    defaultLocale: 'sv',
   },
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGES_DOMAINS?.split(' ') || []
+    domains: process.env.NEXT_PUBLIC_IMAGES_DOMAINS?.split(' ') || [],
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack']
+      use: ['@svgr/webpack'],
     });
 
     return config;
-  }
+  },
 };
 
 module.exports = withSentry
@@ -37,12 +30,12 @@ module.exports = withSentry
       {
         ...nextConfig,
         sentry: {
-          hideSourceMaps: true
-        }
+          hideSourceMaps: true,
+        },
       },
       {
         authToken: process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN,
-        silent: true
+        silent: true,
       }
     )
   : nextConfig;

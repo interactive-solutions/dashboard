@@ -1,27 +1,70 @@
 import {
-  TextField as EntireTextField,
-  TextFieldProps as EntireTextFieldProps
-} from '@entire.se/components';
-import { useTheme } from 'styled-components';
+  TextField as MuiTextField,
+  TextFieldProps as MuiTextFieldProps,
+} from '@mui/material';
+import {
+  Control,
+  Controller,
+  FieldError,
+  FieldErrorsImpl,
+  Merge,
+  RegisterOptions,
+} from 'react-hook-form';
 
 import { FormError } from 'components/ui/forms';
 
-import * as styles from './TextField.styles';
+export type TextFieldProps = {
+  name: string;
+  control: Control<any, any>;
+  validation?: RegisterOptions;
+  error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
+} & Omit<MuiTextFieldProps, 'error' | 'required'>;
 
-export interface TextFieldProps extends EntireTextFieldProps {
-  color?: 'light';
-}
-
-export const TextField = (props: TextFieldProps) => {
-  const theme = useTheme();
-
+export const TextField = ({
+  name,
+  control,
+  validation,
+  error,
+  ...rest
+}: TextFieldProps) => {
   return (
-    <EntireTextField
-      {...props}
-      color={props.color || 'light'}
-      colors={styles.getColors(theme)}
-      sizes={styles.getSizes(theme)}
-      errorComponent={<FormError />}
+    <Controller
+      name={name}
+      control={control}
+      rules={validation}
+      render={({
+        field: {
+          name: fieldName,
+          value: fieldValue,
+          onChange: fieldOnChange,
+          onBlur: fieldOnBlur,
+          ref: fieldRef,
+        },
+      }) => {
+        return (
+          <MuiTextField
+            {...rest}
+            name={fieldName}
+            value={fieldValue || ''}
+            onChange={(event) => {
+              fieldOnChange(event);
+              rest.onChange?.(event);
+            }}
+            onBlur={(event) => {
+              fieldOnBlur();
+              rest.onBlur?.(event);
+            }}
+            error={!!error}
+            helperText={error ? <FormError error={error} /> : rest.helperText}
+            inputRef={fieldRef}
+            label={
+              rest.label
+                ? `${rest.label}${validation?.required ? ' *' : ''}`
+                : null
+            }
+          />
+        );
+      }}
     />
   );
 };

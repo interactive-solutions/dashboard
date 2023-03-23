@@ -6,20 +6,22 @@
 
 import { defineMessages } from 'react-intl';
 
+import { UserRole } from 'api/graphql';
+
 // enum UserRole
-const userRole = defineMessages({
+const userRole = defineMessages<UserRole>({
   admin: {
     id: 'userRole.admin',
     description: 'Admin',
-    defaultMessage: 'Admin'
+    defaultMessage: 'Admin',
   },
   user: {
     id: 'userRole.user',
     description: 'User',
-    defaultMessage: 'Användare'
-  }
+    defaultMessage: 'Användare',
+  },
 });
 
 export const shared = {
-  userRole
+  userRole,
 };

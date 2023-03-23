@@ -11,7 +11,7 @@ import { refreshToken } from 'api/refreshToken';
 import { useAuthenticationStore } from 'store/authentication';
 
 const uploadHttpLink = createUploadLink({
-  uri: environment.uri
+  uri: environment.uri,
 });
 
 const authenticationLink = new ApolloLink((operation, forward) => {
@@ -20,9 +20,9 @@ const authenticationLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: token
       ? {
-          authorization: `jwt ${token}`
+          authorization: `jwt ${token}`,
         }
-      : {}
+      : {},
   });
 
   return forward(operation);
@@ -51,28 +51,30 @@ const errorLink = onError((error) => {
 });
 
 const retryLink = new RetryLink({
-  attempts: { max: 2 }
+  attempts: { max: 2 },
 });
 
 const defaultOptions: DefaultOptions = {
   watchQuery: {
     fetchPolicy: 'cache-first',
-    errorPolicy: 'none'
+    errorPolicy: 'none',
   },
   query: {
     fetchPolicy: 'cache-first',
-    errorPolicy: 'none'
+    errorPolicy: 'none',
   },
   mutate: {
-    errorPolicy: 'none'
-  }
+    errorPolicy: 'none',
+  },
 };
 
 export const client = new ApolloClient({
   ssrMode: isSSR,
   cache,
   link: retryLink.concat(
-    errorLink.concat(authenticationLink.concat(uploadHttpLink))
+    errorLink.concat(
+      authenticationLink.concat(uploadHttpLink as unknown as ApolloLink)
+    )
   ),
-  defaultOptions
+  defaultOptions,
 });

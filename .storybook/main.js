@@ -5,7 +5,7 @@ module.exports = {
   stories: [
     '../src/**/*.stories.mdx',
     './**/*.stories.mdx',
-    '../src/**/*.stories.@(ts|tsx)'
+    '../src/**/*.stories.@(ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
@@ -15,14 +15,14 @@ module.exports = {
     {
       name: 'storybook-addon-next',
       options: {
-        nextConfigPath: path.resolve(__dirname, '../next.config.js')
-      }
-    }
+        nextConfigPath: path.resolve(__dirname, '../next.config.js'),
+      },
+    },
   ],
   staticDirs: ['../public', './assets'],
   framework: '@storybook/react',
   core: {
-    builder: 'webpack5'
+    builder: 'webpack5',
   },
   babel: async (options) => {
     options.plugins.push('babel-plugin-inline-react-svg');
@@ -32,16 +32,16 @@ module.exports = {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
       new TsconfigPathsPlugin({
-        extensions: config.resolve.extensions
-      })
+        extensions: config.resolve.extensions,
+      }),
     ];
 
     config.resolve.fallback = {
       ...(config.resolve.fallback || {}),
       assert: require.resolve('assert'),
-      util: require.resolve('util')
+      util: require.resolve('util'),
     };
 
     return config;
-  }
+  },
 };

@@ -1,16 +1,16 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 import { client } from 'api/apollo';
 import {
   LoginUserFragment,
   LoginEmailDocument,
   LoginEmailMutation,
-  LoginEmailMutationVariables
+  LoginEmailMutationVariables,
 } from 'api/graphql';
 import { withDevtools, withPersist } from 'store/middlewares';
 import { NonFunctionProperties } from 'types/nonFunction';
 
-export interface AuthenticationStore {
+export type AuthenticationStore = {
   token: string | null;
   refreshToken: string | null;
   user: LoginUserFragment | null;
@@ -23,7 +23,7 @@ export interface AuthenticationStore {
   setError: (hasError: boolean) => void;
   login: (variables: LoginEmailMutationVariables) => void;
   logout: () => void;
-}
+};
 
 export const initialAuthenticationStore: NonFunctionProperties<AuthenticationStore> =
   {
@@ -31,7 +31,7 @@ export const initialAuthenticationStore: NonFunctionProperties<AuthenticationSto
     refreshToken: null,
     user: null,
     isLoading: false,
-    hasError: false
+    hasError: false,
   };
 
 export const useAuthenticationStore = create<AuthenticationStore>()(
@@ -62,7 +62,7 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
           set(
             () => ({
               ...initialAuthenticationStore,
-              isLoading: true
+              isLoading: true,
             }),
             false,
             'authentication/login/isLoading'
@@ -73,14 +73,14 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
             LoginEmailMutationVariables
           >({
             mutation: LoginEmailDocument,
-            variables
+            variables,
           });
 
           const {
             success,
             jwt: token,
             refreshToken,
-            user
+            user,
           } = data?.loginEmail || {};
 
           if (success) {
@@ -89,7 +89,7 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
                 ...initialAuthenticationStore,
                 token,
                 refreshToken,
-                user
+                user,
               }),
               false,
               'authentication/login/success'
@@ -105,10 +105,10 @@ export const useAuthenticationStore = create<AuthenticationStore>()(
         },
         logout: () => {
           set(() => initialAuthenticationStore, false, 'authentication/logout');
-        }
+        },
       }),
       {
-        name: 'nextjs-boilerplate/authentication'
+        name: 'nextjs-boilerplate/authentication',
       }
     )
   )

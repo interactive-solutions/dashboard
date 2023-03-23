@@ -1,6 +1,6 @@
 # Next.js boilerplate :fire:
 
-[Next.js](https://nextjs.org/) with modifications.
+[Next.js](https://nextjs.org/) with [MUI](https://mui.com/).
 
 ## Usage
 

@@ -4,6 +4,6 @@ export const texts = defineMessages({
   seoTitle: {
     id: 'Landing.seoTitle',
     description: 'Seo title',
-    defaultMessage: 'Landningssida'
-  }
+    defaultMessage: 'Landningssida',
+  },
 });

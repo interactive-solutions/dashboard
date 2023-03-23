@@ -1,6 +1,6 @@
-export interface Environment {
+export type Environment = {
   uri?: string;
-}
+};
 
 export const environment: Environment = {};
 

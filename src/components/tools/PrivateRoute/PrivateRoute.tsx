@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import { Paths } from 'consts/router';
 import { useAuthenticationStore } from 'store/authentication';
 
-export interface PrivateRouteProps {
+export type PrivateRouteProps = {
   children: ReactNode;
-}
+};
 
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const router = useRouter();

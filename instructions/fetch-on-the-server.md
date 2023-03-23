@@ -11,13 +11,13 @@ import { client } from 'api/apollo';
 import {
   BookIsbnDocument,
   BookIsbnQueryVariables,
-  BookIsbnQuery
+  BookIsbnQuery,
 } from 'api/graphql';
 import { Book } from 'routes';
 
-export interface PageProps {
+export type PageProps = {
   bookIsbn: NonNullable<BookIsbnQuery['bookIsbn']>;
-}
+};
 
 export default ({ bookIsbn }: PageProps) => {
   return <Book bookIsbn={bookIsbn} />;
@@ -34,8 +34,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   >({
     query: BookIsbnDocument,
     variables: {
-      isbn: query.isbn
-    }
+      isbn: query.isbn,
+    },
   });
 
   if (!data?.bookIsbn) {
@@ -44,8 +44,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      bookIsbn: data.bookIsbn
-    }
+      bookIsbn: data.bookIsbn,
+    },
   };
 };
 ```

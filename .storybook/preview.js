@@ -1,35 +1,30 @@
-import React from 'react';
-
 import { ApolloProvider } from '@apollo/client';
-import { RootProvider } from '@entire.se/components';
 import { useIsTabbing } from '@entire.se/hooks';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { DocsContainer } from '@storybook/addon-docs';
 import { IntlProvider } from 'react-intl';
 
 import { client } from '../src/api/apollo';
 import { messages } from '../src/i18n/messages';
-import { theme } from '../src/styles/settings';
-import { Documentation } from './components';
-
-import { Global } from '../src/styles/Global.styles';
+import { theme } from '../src/styles';
 
 export const decorators = [
   (Story) => {
     useIsTabbing();
 
     return (
-      <RootProvider theme={theme}>
-        <Global />
-        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
-          <ApolloProvider client={client}>
+      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+        <ApolloProvider client={client}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
             <main>
               <Story />
             </main>
-          </ApolloProvider>
-        </IntlProvider>
-      </RootProvider>
+          </ThemeProvider>
+        </ApolloProvider>
+      </IntlProvider>
     );
-  }
+  },
 ];
 
 export const parameters = {
@@ -38,18 +33,18 @@ export const parameters = {
       useIsTabbing();
 
       return (
-        <RootProvider theme={theme}>
-          <Global />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           <DocsContainer context={context}>
-            <Documentation>{children}</Documentation>
+            <div>{children}</div>
           </DocsContainer>
-        </RootProvider>
+        </ThemeProvider>
       );
-    }
+    },
   },
   options: {
     storySort: {
-      order: ['Instructions', 'Components']
-    }
-  }
+      order: ['Instructions', 'Components'],
+    },
+  },
 };
