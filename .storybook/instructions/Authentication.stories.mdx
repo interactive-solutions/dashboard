@@ -9,8 +9,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ## Example setup
 
 ```tsx
-import { useEffect } from 'react';
-
 import { useAuthenticationStore } from 'store/authentication';
 
 const Component = () => {
@@ -20,18 +18,26 @@ const Component = () => {
   const login = useAuthenticationStore((store) => store.login);
   const logout = useAuthenticationStore((store) => store.logout);
 
-  useEffect(() => {
-    console.log(isLoading, hasError, user);
-  }, [isLoading, hasError, user]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (hasError) {
+    return <div>Error</div>;
+  }
+
+  if (user) {
+    return <div>Signed in as {user.email}</div>;
+  }
 
   return (
     <div>
       <button
         type="button"
-        onClick={() =>
-          login({
-            email: '...',
-            password: '...'
+        onClick={async () =>
+          await login({
+            email: 'lorem@ipsum.dolor',
+            password: 'password123',
           })
         }
       >

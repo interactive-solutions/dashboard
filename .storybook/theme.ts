@@ -31,7 +31,7 @@ export default create({
   inputBorderRadius: 4,
 
   // Brand
-  brandTitle: 'Modo Hockey',
-  brandUrl: 'https://www.modohockey.se/',
-  brandImage: '/modo.png',
+  brandTitle: 'Entire',
+  brandUrl: 'https://entire.se/',
+  brandImage: '/entire.png',
 });

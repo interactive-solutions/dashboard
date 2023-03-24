@@ -1,12 +1,12 @@
 import { ApolloProvider } from '@apollo/client';
 import { useIsTabbing } from '@entire.se/hooks';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider, GlobalStyles } from '@mui/material';
 import { DocsContainer } from '@storybook/addon-docs';
 import { IntlProvider } from 'react-intl';
 
 import { client } from '../src/api/apollo';
 import { messages } from '../src/i18n/messages';
-import { theme } from '../src/styles';
+import { theme, global } from '../src/styles';
 
 export const decorators = [
   (Story) => {
@@ -17,6 +17,7 @@ export const decorators = [
         <ApolloProvider client={client}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <GlobalStyles styles={global} />
             <main>
               <Story />
             </main>
@@ -35,6 +36,7 @@ export const parameters = {
       return (
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <GlobalStyles styles={global} />
           <DocsContainer context={context}>
             <div>{children}</div>
           </DocsContainer>

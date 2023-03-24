@@ -5,14 +5,16 @@ import { FormErrorSelectors } from 'consts/cypress';
 
 import { texts } from './FormError.text';
 
+import * as styles from './FormError.styles';
+
 export type FormErrorProps = {
   error: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
 };
 
 export const FormError = ({ error }: FormErrorProps) => {
   return (
-    <span data-cy={FormErrorSelectors.Root}>
+    <styles.Root data-cy={FormErrorSelectors.Root} error>
       {error.message?.toString() || <FormattedMessage {...texts.message} />}
-    </span>
+    </styles.Root>
   );
 };
