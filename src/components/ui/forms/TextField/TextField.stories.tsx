@@ -10,7 +10,7 @@ export default {
   component: TextField,
   args: {
     name: 'name',
-    register: `Don't mind this field...`,
+    control: `Don't mind this field...`,
   },
 } as Meta;
 

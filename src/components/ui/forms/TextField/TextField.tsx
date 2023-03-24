@@ -18,7 +18,7 @@ export type TextFieldProps = {
   control: Control<any, any>;
   validation?: RegisterOptions;
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
-} & Omit<MuiTextFieldProps, 'error' | 'required'>;
+} & Omit<MuiTextFieldProps, 'name' | 'error' | 'required'>;
 
 export const TextField = ({
   name,
@@ -26,8 +26,19 @@ export const TextField = ({
   validation,
   error,
   defaultValue,
+  onChange,
+  onBlur,
+  helperText,
+  label,
+  disabled,
   ...rest
 }: TextFieldProps) => {
+  const getValidation = !disabled ? validation : {};
+  const hasError = !!error;
+  const getLabel = !!label
+    ? `${label}${getValidation?.required ? ' *' : ''}`
+    : null;
+
   return (
     <Controller
       name={name}
@@ -42,31 +53,26 @@ export const TextField = ({
           onBlur: fieldOnBlur,
           ref: fieldRef,
         },
-      }) => {
-        return (
-          <MuiTextField
-            {...rest}
-            name={fieldName}
-            value={fieldValue || ''}
-            onChange={(event) => {
-              fieldOnChange(event);
-              rest.onChange?.(event);
-            }}
-            onBlur={(event) => {
-              fieldOnBlur();
-              rest.onBlur?.(event);
-            }}
-            error={!!error}
-            helperText={error ? <FormError error={error} /> : rest.helperText}
-            inputRef={fieldRef}
-            label={
-              rest.label
-                ? `${rest.label}${validation?.required ? ' *' : ''}`
-                : null
-            }
-          />
-        );
-      }}
+      }) => (
+        <MuiTextField
+          {...rest}
+          name={fieldName}
+          value={fieldValue || ''}
+          onChange={(event) => {
+            fieldOnChange(event);
+            onChange?.(event);
+          }}
+          onBlur={(event) => {
+            fieldOnBlur();
+            onBlur?.(event);
+          }}
+          error={hasError}
+          helperText={hasError ? <FormError error={error} /> : helperText}
+          inputRef={fieldRef}
+          label={getLabel}
+          disabled={disabled}
+        />
+      )}
     />
   );
 };

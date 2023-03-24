@@ -1385,10 +1385,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
-"@entire.se/eslint-config-eslint-react@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-2.1.0.tgz#e02cf1dae7e9c1da64cb00954c16af365f88b1bb"
-  integrity sha512-iPfrWMJt/hsuvc5qk1Uk844NppZbjZQVXUaA7bnNCIjHuZeLC98L5S2eOruVxLzP7kHWy9jskt6CIkAxshmg5A==
+"@entire.se/eslint-config-eslint-react@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@entire.se/eslint-config-eslint-react/-/eslint-config-eslint-react-2.2.0.tgz#a23d6f1bf0b96e180b655194d5a11f400fc2ad0f"
+  integrity sha512-HHqQyX2bW53fhaZB/J9WOmhreGgTCkmjsLnY9+x8jlUx7SiKgQsu+JppA03+MExf4BAUPlMV4cmWCIa1KdBIzA==
 
 "@entire.se/eslint-plugin-eslint-react@^1.2.0":
   version "1.2.0"
@@ -7354,7 +7354,7 @@ eslint-plugin-jest@^27.1.6:
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
-eslint-plugin-jsx-a11y@^6.5.1:
+eslint-plugin-jsx-a11y@^6.5.1, eslint-plugin-jsx-a11y@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.7.1.tgz#fca5e02d115f48c9a597a6894d5bcec2f7a76976"
   integrity sha512-63Bog4iIethyo8smBklORknVjB0T2dwB8Mr/hIC+fBS0uyHdYYpzM/Ed+YC8VxTjlXHEWFOdmgwcDn1U2L9VCA==
