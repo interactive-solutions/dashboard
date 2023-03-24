@@ -6,13 +6,13 @@ import { format as dateFormat } from 'date-fns';
 import { sv } from 'date-fns/locale';
 import { useIntl } from 'react-intl';
 
-import { DateFormat } from 'consts/format';
+import { DateFormats } from 'consts/format';
 
 export const useFormat = () => {
   const intl = useIntl();
 
   const handleDate = useCallback(
-    (date: Date, format: DateFormat = DateFormat.YearMonthDay) => {
+    (date: Date, format: DateFormats = DateFormats.YearMonthDay) => {
       let locale;
 
       if (intl.locale === 'sv') {

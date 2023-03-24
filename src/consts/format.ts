@@ -1,3 +1,3 @@
-export enum DateFormat {
+export enum DateFormats {
   YearMonthDay = 'yyyy-MM-dd',
 }
