@@ -1,4 +1,9 @@
 import { ApolloError } from '@apollo/client';
+import { AppsOutage } from '@mui/icons-material';
+import { Grid, Typography } from '@mui/material';
+import { FormattedMessage } from 'react-intl';
+
+import { texts } from '../BasicTable.text';
 
 import * as styles from '../BasicTable.styles';
 
@@ -13,6 +18,23 @@ export const Empty = ({ visible, error }: EmptyProps) => {
   }
 
   return (
-    <styles.Error>{error?.message || '[insert-empty]'.toString()}</styles.Error>
+    <styles.Error>
+      <Grid container alignItems="center" direction="column" spacing={1}>
+        <Grid item>
+          <AppsOutage
+            sx={{
+              fontSize: 90,
+              display: 'block',
+              color: 'grey.500',
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Typography>
+            {error?.message || <FormattedMessage {...texts.table_empty} />}
+          </Typography>
+        </Grid>
+      </Grid>
+    </styles.Error>
   );
 };

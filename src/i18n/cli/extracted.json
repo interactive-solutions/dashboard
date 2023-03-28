@@ -1,15 +1,47 @@
 {
-  "FormError.message": {
-    "defaultMessage": "Obligatoriskt fält",
-    "description": "Form error message"
-  },
   "Landing.seoTitle": {
     "defaultMessage": "Landningssida",
     "description": "Seo title"
   },
+  "Login.buttonSubmit": {
+    "defaultMessage": "Logga in",
+    "description": "Button submit login form"
+  },
+  "Login.errorResponse": {
+    "defaultMessage": "Kunde inte logga in, endera har ni angett fel inloggningsuppgifter eller så ligger servern nere.",
+    "description": "Error response when login fails"
+  },
   "Login.seoTitle": {
     "defaultMessage": "Logga in",
     "description": "Seo title"
+  },
+  "shared.form_labelEmail": {
+    "defaultMessage": "E-post",
+    "description": "Label email"
+  },
+  "shared.form_labelPassword": {
+    "defaultMessage": "Lösenord",
+    "description": "Label password"
+  },
+  "shared.form_validationRequired": {
+    "defaultMessage": "Obligatoriskt fält",
+    "description": "Validation required"
+  },
+  "shared.table_empty": {
+    "defaultMessage": "Hittade inga resultat",
+    "description": "Empty results"
+  },
+  "shared.table_loading": {
+    "defaultMessage": "Hämtar data...",
+    "description": "Loading results"
+  },
+  "shared.userRole_admin": {
+    "defaultMessage": "Admin",
+    "description": "Admin"
+  },
+  "shared.userRole_user": {
+    "defaultMessage": "Användare",
+    "description": "User"
   },
   "useValidate.isAtLeast": {
     "defaultMessage": "Behöver vara minst {atLeast}",
@@ -50,13 +82,5 @@
   "useValidate.isURL": {
     "defaultMessage": "URL har fel format",
     "description": "Incorrect format of URL"
-  },
-  "userRole.admin": {
-    "defaultMessage": "Admin",
-    "description": "Admin"
-  },
-  "userRole.user": {
-    "defaultMessage": "Användare",
-    "description": "User"
   }
 }

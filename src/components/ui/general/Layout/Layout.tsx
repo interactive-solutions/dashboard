@@ -4,7 +4,6 @@ import { useIsTabbing } from '@entire.se/hooks';
 import { setUser as setUserSentry } from '@sentry/nextjs';
 
 import { useMeQuery } from 'api/graphql';
-import { Header } from 'components/ui/general';
 import { useAuthenticationStore } from 'store/authentication';
 
 import * as styles from './Layout.styles';
@@ -42,7 +41,6 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <styles.Root>
-      <Header />
       <styles.Content>{children}</styles.Content>
     </styles.Root>
   );

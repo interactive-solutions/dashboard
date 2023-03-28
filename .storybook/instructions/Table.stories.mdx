@@ -26,7 +26,7 @@ const Component = () => {
   const columns = useMemo<ColumnDef<ExamplesExampleFragment>[]>(
     () => [
       {
-        header: <FormattedMessage {...texts.firstName} />,
+        header: <FormattedMessage {...texts.name} />,
         accessorKey: 'firstName',
         accessorFn: ({ firstName, lastName }) => `${firstName} ${lastName}`,
       },

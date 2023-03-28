@@ -48,9 +48,12 @@ export const Select = ({
 }: SelectProps) => {
   const getValidation = !disabled ? validation : {};
   const hasError = !!error;
-  const getLabel = !!label
-    ? `${label}${getValidation?.required ? ' *' : ''}`
-    : null;
+  const getLabel = !!label ? (
+    <>
+      {label}
+      {!!getValidation?.required && ' *'}
+    </>
+  ) : null;
 
   return (
     <Controller

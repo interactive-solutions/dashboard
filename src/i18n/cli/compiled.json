@@ -1,7 +1,15 @@
 {
-  "FormError.message": "Obligatoriskt fält",
   "Landing.seoTitle": "Landningssida",
+  "Login.buttonSubmit": "Logga in",
+  "Login.errorResponse": "Kunde inte logga in, endera har ni angett fel inloggningsuppgifter eller så ligger servern nere.",
   "Login.seoTitle": "Logga in",
+  "shared.form_labelEmail": "E-post",
+  "shared.form_labelPassword": "Lösenord",
+  "shared.form_validationRequired": "Obligatoriskt fält",
+  "shared.table_empty": "Hittade inga resultat",
+  "shared.table_loading": "Hämtar data...",
+  "shared.userRole_admin": "Admin",
+  "shared.userRole_user": "Användare",
   "useValidate.isAtLeast": "Behöver vara minst {atLeast}",
   "useValidate.isEmail": "E-post har fel format",
   "useValidate.isInt": "Behöver vara heltal",
@@ -11,7 +19,5 @@
   "useValidate.isOrganisationNumber": "Organisationsnummer har fel format",
   "useValidate.isPhoneNumber": "Telefon har fel format",
   "useValidate.isPostalCode": "Postnummer har fel format",
-  "useValidate.isURL": "URL har fel format",
-  "userRole.admin": "Admin",
-  "userRole.user": "Användare"
+  "useValidate.isURL": "URL har fel format"
 }

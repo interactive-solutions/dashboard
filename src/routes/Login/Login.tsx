@@ -4,7 +4,7 @@ import { LoadingButton } from '@mui/lab';
 import { Container, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { MutationLoginEmailArgs } from 'api/graphql';
 import { SEO } from 'components/tools';
@@ -64,7 +64,7 @@ export const Login = () => {
       <SEO title={formatMessage(texts.seoTitle)} />
       <Container maxWidth="xs">
         <form onSubmit={onSubmit}>
-          <Grid container spacing={1} direction="column">
+          <Grid container spacing={1.5} direction="column">
             <Grid item>
               <TextField
                 control={control}
@@ -73,7 +73,7 @@ export const Login = () => {
                 fullWidth
                 validation={{ required: true, validate: isEmail }}
                 error={errors.email}
-                label="[insert-email-label]"
+                label={<FormattedMessage {...texts.form_labelEmail} />}
                 autoFocus
               />
             </Grid>
@@ -85,13 +85,13 @@ export const Login = () => {
                 fullWidth
                 validation={{ required: true }}
                 error={errors.password}
-                label="[insert-password-label]"
+                label={<FormattedMessage {...texts.form_labelPassword} />}
               />
             </Grid>
             {hasError && (
               <Grid item>
-                <Typography color="error">
-                  {'[insert-error-response]'.toString()}
+                <Typography color="error" variant="body2">
+                  <FormattedMessage {...texts.errorResponse} />
                 </Typography>
               </Grid>
             )}
@@ -103,7 +103,7 @@ export const Login = () => {
                 size="large"
                 loading={isLoading}
               >
-                {'[insert-submit]'.toString()}
+                <FormattedMessage {...texts.buttonSubmit} />
               </LoadingButton>
             </Grid>
           </Grid>
