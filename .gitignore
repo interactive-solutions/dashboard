@@ -57,4 +57,4 @@ yarn-error.log*
 /src/api/graphql.ts
 
 # lang
-/src/lang/cli
+/src/i18n/cli
