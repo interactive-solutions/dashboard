@@ -55,3 +55,6 @@ yarn-error.log*
 # graphql
 /src/graphql/cli
 /src/api/graphql.ts
+
+# lang
+/src/lang/cli
