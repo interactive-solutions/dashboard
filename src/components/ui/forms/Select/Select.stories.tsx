@@ -30,12 +30,13 @@ const Template: Story<SelectProps> = (args) => {
 
   return (
     <Select {...args} control={control} sx={{ minWidth: 200 }}>
-      {args.children ||
-        options.map(({ value, label }) => (
-          <MenuItem key={value} value={value}>
-            {label}
-          </MenuItem>
-        ))}
+      {args.children !== undefined
+        ? args.children
+        : options.map(({ value, label }) => (
+            <MenuItem key={value} value={value}>
+              {label}
+            </MenuItem>
+          ))}
     </Select>
   );
 };
@@ -94,4 +95,14 @@ export const DefaultValueMultiple = Template.bind({});
 DefaultValueMultiple.args = {
   multiple: true,
   defaultValue: ['koenigsegg', 'volvo', 'honda'],
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  children: null,
 };

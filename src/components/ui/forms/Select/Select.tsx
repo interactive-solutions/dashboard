@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import {
+  CircularProgress,
   FormControl,
   FormHelperText,
   InputLabel,
@@ -15,8 +16,13 @@ import {
   Merge,
   RegisterOptions,
 } from 'react-hook-form';
+import { FormattedMessage } from 'react-intl';
 
 import { FormError } from 'components/ui/forms';
+
+import { texts } from './Select.text';
+
+import * as styles from './Select.styles';
 
 export type SelectProps = {
   name: string;
@@ -25,6 +31,7 @@ export type SelectProps = {
   validation?: RegisterOptions;
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
   helperText?: ReactNode;
+  loading?: boolean;
 } & Omit<MuiSelectProps, 'name' | 'error' | 'required' | 'children'>;
 
 export const Select = ({
@@ -34,6 +41,7 @@ export const Select = ({
   validation,
   error,
   helperText,
+  loading,
   defaultValue,
   label,
   fullWidth,
@@ -46,7 +54,8 @@ export const Select = ({
   multiple,
   ...rest
 }: SelectProps) => {
-  const getValidation = !disabled ? validation : {};
+  const isDisabled = disabled || loading;
+  const getValidation = !isDisabled ? validation : {};
   const hasError = !!error;
   const getLabel = !!label ? (
     <>
@@ -73,7 +82,7 @@ export const Select = ({
         <FormControl
           fullWidth={fullWidth}
           error={hasError}
-          disabled={disabled}
+          disabled={isDisabled}
           variant={variant}
           size={size}
           margin={margin}
@@ -94,8 +103,21 @@ export const Select = ({
             inputRef={fieldRef}
             label={getLabel}
             multiple={multiple}
+            IconComponent={
+              loading
+                ? () => (
+                    <styles.Loading>
+                      <CircularProgress size={20} />
+                    </styles.Loading>
+                  )
+                : undefined
+            }
           >
-            {children}
+            {children || (
+              <styles.Empty>
+                <FormattedMessage {...texts.emptyMenuItems} />
+              </styles.Empty>
+            )}
           </MuiSelect>
           {hasError && (
             <FormHelperText>
