@@ -14,16 +14,16 @@ export const components: ThemeOptions['components'] = {
         textTransform: 'none',
       }),
       sizeSmall: ({ theme }) => ({
-        padding: theme.spacing(0.5, 1),
-        borderRadius: 15,
+        padding: theme.spacing(0.5, 1.25),
+        borderRadius: 16,
       }),
       sizeMedium: ({ theme }) => ({
-        padding: theme.spacing(1, 2),
-        borderRadius: 20,
+        padding: theme.spacing(0.75, 2),
+        borderRadius: 19,
       }),
       sizeLarge: ({ theme }) => ({
-        padding: theme.spacing(1.5, 3),
-        borderRadius: 25,
+        padding: theme.spacing(1, 2.75),
+        borderRadius: 22,
       }),
     },
     defaultProps: {
