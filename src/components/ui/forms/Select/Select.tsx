@@ -52,6 +52,7 @@ export const Select = ({
   onChange,
   onBlur,
   multiple,
+  color,
   ...rest
 }: SelectProps) => {
   const isDisabled = disabled || loading;
@@ -86,6 +87,7 @@ export const Select = ({
           variant={variant}
           size={size}
           margin={margin}
+          color={color}
         >
           {!!getLabel && <InputLabel>{getLabel}</InputLabel>}
           <MuiSelect

@@ -90,3 +90,45 @@ export const DefaultValue = Template.bind({});
 DefaultValue.args = {
   defaultValue: '1',
 };
+
+export const ColorPrimary = Template.bind({});
+ColorPrimary.args = {
+  color: 'primary',
+  defaultValue: '1',
+};
+
+export const ColorSecondary = Template.bind({});
+ColorSecondary.args = {
+  color: 'secondary',
+  defaultValue: '1',
+};
+
+export const ColorError = Template.bind({});
+ColorError.args = {
+  color: 'error',
+  defaultValue: '1',
+};
+
+export const ColorInfo = Template.bind({});
+ColorInfo.args = {
+  color: 'info',
+  defaultValue: '1',
+};
+
+export const ColorSuccess = Template.bind({});
+ColorSuccess.args = {
+  color: 'success',
+  defaultValue: '1',
+};
+
+export const ColorWarning = Template.bind({});
+ColorWarning.args = {
+  color: 'warning',
+  defaultValue: '1',
+};
+
+export const ColorDefault = Template.bind({});
+ColorDefault.args = {
+  color: 'default',
+  defaultValue: '1',
+};

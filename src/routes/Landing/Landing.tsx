@@ -15,7 +15,7 @@ export const Landing = () => {
   return (
     <styles.Root>
       <SEO title={formatMessage(texts.seoTitle)} />
-      <Button type="button" onClick={() => logout()} variant="contained">
+      <Button type="button" onClick={() => logout()}>
         {'Logga ut'.toString()}
       </Button>
     </styles.Root>

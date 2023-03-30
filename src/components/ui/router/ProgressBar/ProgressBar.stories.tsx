@@ -23,7 +23,7 @@ const Template: Story = (args) => {
 
   return (
     <>
-      <ButtonGroup variant="contained">
+      <ButtonGroup>
         <Button type="button" onClick={start}>
           Start
         </Button>

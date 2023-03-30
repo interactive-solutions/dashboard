@@ -99,7 +99,6 @@ export const Login = () => {
               <LoadingButton
                 type="submit"
                 fullWidth
-                variant="contained"
                 size="large"
                 loading={isLoading}
               >

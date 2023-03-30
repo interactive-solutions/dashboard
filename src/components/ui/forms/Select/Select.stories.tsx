@@ -10,6 +10,7 @@ export default {
   args: {
     name: 'name',
     control: `Don't mind this field...`,
+    label: 'Label',
   },
 } as Meta;
 
@@ -53,14 +54,29 @@ Medium.args = {
   size: 'medium',
 };
 
+export const VariantFilled = Template.bind({});
+VariantFilled.args = {
+  variant: 'filled',
+};
+
+export const VariantOutlined = Template.bind({});
+VariantOutlined.args = {
+  variant: 'outlined',
+};
+
+export const VariantStandard = Template.bind({});
+VariantStandard.args = {
+  variant: 'standard',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const Label = Template.bind({});
-Label.args = {
-  label: 'Label',
+export const NoLabel = Template.bind({});
+NoLabel.args = {
+  label: null,
 };
 
 export const Error = Template.bind({});
@@ -105,4 +121,34 @@ Loading.args = {
 export const Empty = Template.bind({});
 Empty.args = {
   children: null,
+};
+
+export const ColorPrimary = Template.bind({});
+ColorPrimary.args = {
+  color: 'primary',
+};
+
+export const ColorSecondary = Template.bind({});
+ColorSecondary.args = {
+  color: 'secondary',
+};
+
+export const ColorError = Template.bind({});
+ColorError.args = {
+  color: 'error',
+};
+
+export const ColorInfo = Template.bind({});
+ColorInfo.args = {
+  color: 'info',
+};
+
+export const ColorSuccess = Template.bind({});
+ColorSuccess.args = {
+  color: 'success',
+};
+
+export const ColorWarning = Template.bind({});
+ColorWarning.args = {
+  color: 'warning',
 };

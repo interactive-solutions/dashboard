@@ -30,6 +30,7 @@ export const components: ThemeOptions['components'] = {
       disableRipple: true,
       disableElevation: true,
       LinkComponent: NextLinkStyled,
+      variant: 'contained',
     },
   },
   MuiButtonBase: {
@@ -42,6 +43,7 @@ export const components: ThemeOptions['components'] = {
     defaultProps: {
       disableRipple: true,
       disableElevation: true,
+      variant: 'contained',
     },
   },
 };

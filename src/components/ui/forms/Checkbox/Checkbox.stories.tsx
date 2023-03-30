@@ -80,3 +80,45 @@ export const DefaultChecked = Template.bind({});
 DefaultChecked.args = {
   defaultChecked: true,
 };
+
+export const ColorPrimary = Template.bind({});
+ColorPrimary.args = {
+  color: 'primary',
+  defaultChecked: true,
+};
+
+export const ColorSecondary = Template.bind({});
+ColorSecondary.args = {
+  color: 'secondary',
+  defaultChecked: true,
+};
+
+export const ColorError = Template.bind({});
+ColorError.args = {
+  color: 'error',
+  defaultChecked: true,
+};
+
+export const ColorInfo = Template.bind({});
+ColorInfo.args = {
+  color: 'info',
+  defaultChecked: true,
+};
+
+export const ColorSuccess = Template.bind({});
+ColorSuccess.args = {
+  color: 'success',
+  defaultChecked: true,
+};
+
+export const ColorWarning = Template.bind({});
+ColorWarning.args = {
+  color: 'warning',
+  defaultChecked: true,
+};
+
+export const ColorDefault = Template.bind({});
+ColorDefault.args = {
+  color: 'default',
+  defaultChecked: true,
+};
