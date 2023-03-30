@@ -1,6 +1,4 @@
 import { Story, Meta } from '@storybook/react';
-import { NextAdapter } from 'next-query-params';
-import { QueryParamProvider } from 'use-query-params';
 
 import { TableFetchDataVariables } from 'types/table';
 
@@ -54,11 +52,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<BasicTableProps> = (args) => (
-  <QueryParamProvider adapter={NextAdapter}>
-    <BasicTable {...args} />
-  </QueryParamProvider>
-);
+const Template: Story<BasicTableProps> = (args) => <BasicTable {...args} />;
 
 export const Default = Template.bind({});
 
