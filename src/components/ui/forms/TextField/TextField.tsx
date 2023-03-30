@@ -46,7 +46,7 @@ export const TextField = ({
     <Controller
       name={name}
       control={control}
-      rules={validation}
+      rules={getValidation}
       defaultValue={defaultValue}
       render={({
         field: {

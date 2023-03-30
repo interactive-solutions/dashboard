@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 import {
-  Checkbox as MuiCheckbox,
-  CheckboxProps as MuiCheckboxProps,
+  Radio as MuiRadio,
+  RadioProps as MuiRadioProps,
   FormControl,
   FormControlLabel,
   FormControlLabelProps,
@@ -19,7 +19,7 @@ import {
 
 import { FormError } from 'components/ui/forms';
 
-export type CheckboxProps = {
+export type RadioProps = {
   name: string;
   control: Control<any, any>;
   validation?: RegisterOptions;
@@ -27,14 +27,14 @@ export type CheckboxProps = {
   label?: ReactNode;
   labelPlacement?: FormControlLabelProps['labelPlacement'];
   helperText?: ReactNode;
-} & Omit<MuiCheckboxProps, 'name' | 'required'>;
+} & Omit<MuiRadioProps, 'name' | 'required'>;
 
-export const Checkbox = ({
+export const Radio = ({
   name,
   control,
   validation,
   error,
-  defaultChecked,
+  defaultValue,
   onChange,
   onBlur,
   helperText,
@@ -44,7 +44,7 @@ export const Checkbox = ({
   size,
   value,
   ...rest
-}: CheckboxProps) => {
+}: RadioProps) => {
   const getValidation = !disabled ? validation : {};
   const hasError = !!error;
   const getLabel = !!label ? (
@@ -59,7 +59,7 @@ export const Checkbox = ({
       name={name}
       control={control}
       rules={getValidation}
-      defaultValue={defaultChecked}
+      defaultValue={defaultValue}
       render={({
         field: {
           name: fieldName,
@@ -73,12 +73,12 @@ export const Checkbox = ({
           <FormControlLabel
             label={getLabel}
             disabled={disabled}
-            defaultChecked={defaultChecked}
-            checked={fieldValue || false}
+            defaultValue={defaultValue}
+            checked={fieldValue === value}
             labelPlacement={labelPlacement}
             value={value}
             control={
-              <MuiCheckbox
+              <MuiRadio
                 {...rest}
                 name={fieldName}
                 onChange={(event, checked) => {
