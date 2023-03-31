@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-import { LoadingButton } from '@mui/lab';
 import { Container, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -9,6 +8,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { MutationLoginEmailArgs } from 'api/graphql';
 import { SEO } from 'components/tools';
 import { TextField } from 'components/ui/forms';
+import { Button } from 'components/ui/general';
 import { Paths } from 'consts/router';
 import { useValidate } from 'hooks';
 import { useAuthenticationStore } from 'store/authentication';
@@ -96,14 +96,9 @@ export const Login = () => {
               </Grid>
             )}
             <Grid item>
-              <LoadingButton
-                type="submit"
-                fullWidth
-                size="large"
-                loading={isLoading}
-              >
+              <Button type="submit" fullWidth size="large" loading={isLoading}>
                 <FormattedMessage {...texts.buttonSubmit} />
-              </LoadingButton>
+              </Button>
             </Grid>
           </Grid>
         </form>

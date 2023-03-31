@@ -1,7 +1,7 @@
 import { FireTruck } from '@mui/icons-material';
-import { LoadingButton, LoadingButtonProps } from '@mui/lab';
-import { Button, ButtonProps } from '@mui/material';
 import { Story, Meta } from '@storybook/react';
+
+import { Button, ButtonProps } from './Button';
 
 export default {
   title: 'components/general/Button',
@@ -45,9 +45,10 @@ VariantText.args = {
   variant: 'text',
 };
 
-export const Loading: Story<LoadingButtonProps> = (args) => (
-  <LoadingButton {...args} loading />
-);
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {

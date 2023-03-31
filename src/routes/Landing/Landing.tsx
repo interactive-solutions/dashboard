@@ -1,7 +1,7 @@
-import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 
 import { SEO } from 'components/tools';
+import { Button } from 'components/ui/general';
 import { useAuthenticationStore } from 'store/authentication';
 
 import { texts } from './Landing.text';
@@ -15,7 +15,7 @@ export const Landing = () => {
   return (
     <styles.Root>
       <SEO title={formatMessage(texts.seoTitle)} />
-      <Button type="button" onClick={() => logout()}>
+      <Button type="button" onClick={() => logout()} size="large">
         {'Logga ut'.toString()}
       </Button>
     </styles.Root>

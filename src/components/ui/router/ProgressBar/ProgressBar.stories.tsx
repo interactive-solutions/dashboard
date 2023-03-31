@@ -1,8 +1,10 @@
 import { useCallback } from 'react';
 
-import { Button, ButtonGroup } from '@mui/material';
+import { ButtonGroup } from '@mui/material';
 import { Story, Meta } from '@storybook/react';
 import NProgress from 'nprogress';
+
+import { Button } from 'components/ui/general';
 
 import { ProgressBar } from './ProgressBar';
 
