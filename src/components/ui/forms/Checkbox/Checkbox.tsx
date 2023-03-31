@@ -82,7 +82,7 @@ export const Checkbox = ({
                 {...rest}
                 name={fieldName}
                 onChange={(event, checked) => {
-                  fieldOnChange(event);
+                  fieldOnChange(event, checked);
                   onChange?.(event, checked);
                 }}
                 onBlur={(event) => {

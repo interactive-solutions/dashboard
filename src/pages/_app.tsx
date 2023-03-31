@@ -1,19 +1,15 @@
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { AppProps as NextAppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { NextAdapter } from 'next-query-params';
-import { IntlProvider } from 'react-intl';
 import { QueryParamProvider } from 'use-query-params';
 
 import { client } from 'api/apollo';
-import { SEO } from 'components/tools';
+import { IntlProvider, LocalizationProvider, SEO } from 'components/tools';
 import { Layout } from 'components/ui/general';
 import { ProgressBar } from 'components/ui/router';
-import { messages } from 'i18n/messages';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
 
@@ -29,9 +25,9 @@ export const App = ({
   pageProps,
 }: AppProps) => {
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <QueryParamProvider adapter={NextAdapter}>
-        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+    <QueryParamProvider adapter={NextAdapter}>
+      <IntlProvider>
+        <LocalizationProvider>
           <ApolloProvider client={client}>
             <CacheProvider value={emotionCache}>
               <ThemeProvider theme={theme}>
@@ -45,9 +41,9 @@ export const App = ({
               </ThemeProvider>
             </CacheProvider>
           </ApolloProvider>
-        </IntlProvider>
-      </QueryParamProvider>
-    </LocalizationProvider>
+        </LocalizationProvider>
+      </IntlProvider>
+    </QueryParamProvider>
   );
 };
 
