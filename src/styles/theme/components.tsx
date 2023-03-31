@@ -1,5 +1,6 @@
 import { ThemeOptions, LinkProps } from '@mui/material';
 
+import type {} from '@mui/lab/themeAugmentation';
 import { NextLinkStyled } from 'components/tools';
 
 export const components: ThemeOptions['components'] = {
@@ -40,6 +41,13 @@ export const components: ThemeOptions['components'] = {
     },
   },
   MuiButtonGroup: {
+    defaultProps: {
+      disableRipple: true,
+      disableElevation: true,
+      variant: 'contained',
+    },
+  },
+  MuiLoadingButton: {
     defaultProps: {
       disableRipple: true,
       disableElevation: true,

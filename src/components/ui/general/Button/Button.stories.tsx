@@ -8,7 +8,6 @@ export default {
   component: Button,
   args: {
     children: 'Button',
-    variant: 'contained',
   },
 } as Meta;
 
