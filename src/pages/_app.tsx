@@ -1,6 +1,8 @@
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { AppProps as NextAppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { NextAdapter } from 'next-query-params';
@@ -27,23 +29,25 @@ export const App = ({
   pageProps,
 }: AppProps) => {
   return (
-    <QueryParamProvider adapter={NextAdapter}>
-      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
-        <ApolloProvider client={client}>
-          <CacheProvider value={emotionCache}>
-            <ThemeProvider theme={theme}>
-              <SEO />
-              <CssBaseline />
-              <GlobalStyles styles={global} />
-              <ProgressBar />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </ThemeProvider>
-          </CacheProvider>
-        </ApolloProvider>
-      </IntlProvider>
-    </QueryParamProvider>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <QueryParamProvider adapter={NextAdapter}>
+        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+          <ApolloProvider client={client}>
+            <CacheProvider value={emotionCache}>
+              <ThemeProvider theme={theme}>
+                <SEO />
+                <CssBaseline />
+                <GlobalStyles styles={global} />
+                <ProgressBar />
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </ThemeProvider>
+            </CacheProvider>
+          </ApolloProvider>
+        </IntlProvider>
+      </QueryParamProvider>
+    </LocalizationProvider>
   );
 };
 

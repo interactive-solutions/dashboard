@@ -1,6 +1,8 @@
 import { ApolloProvider } from '@apollo/client';
 import { useIsTabbing } from '@entire.se/hooks';
 import { CssBaseline, ThemeProvider, GlobalStyles } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DocsContainer } from '@storybook/addon-docs';
 import { IntlProvider } from 'react-intl';
 
@@ -13,17 +15,19 @@ export const decorators = [
     useIsTabbing();
 
     return (
-      <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
-        <ApolloProvider client={client}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <GlobalStyles styles={global} />
-            <main>
-              <Story />
-            </main>
-          </ThemeProvider>
-        </ApolloProvider>
-      </IntlProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <IntlProvider messages={messages.sv} locale="sv" defaultLocale="sv">
+          <ApolloProvider client={client}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <GlobalStyles styles={global} />
+              <main>
+                <Story />
+              </main>
+            </ThemeProvider>
+          </ApolloProvider>
+        </IntlProvider>
+      </LocalizationProvider>
     );
   },
 ];
