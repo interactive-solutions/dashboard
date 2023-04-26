@@ -13,13 +13,6 @@ export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const router = useRouter();
   const user = useAuthenticationStore((store) => store.user);
 
-  // Send user to login page if they are not already signed in
-  useEffect(() => {
-    if (!user) {
-      router.replace(Paths.Login);
-    }
-  }, [router, user]);
-
   // Make sure nothing is visible if not signed in
   if (!user) {
     return null;
