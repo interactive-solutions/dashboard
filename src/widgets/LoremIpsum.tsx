@@ -1,4 +1,1 @@
-
-export const LoremIpsum = () => {
-  return <span>Lorem Ipsum</span>;
-};
+export const LoremIpsum = () => <span>12345</span>;
