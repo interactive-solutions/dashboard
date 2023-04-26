@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export const Logo = () => (
-  <img width={'100%'} src={'/entire_logotype_dark.png'}  alt={"Logo"}/>
+  <Image fill src={'/entire_logotype_dark.png'} alt={'Logo'} />
 );

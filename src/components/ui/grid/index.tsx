@@ -2,8 +2,8 @@ import { PureComponent } from 'react';
 
 import { Responsive, WidthProvider } from 'react-grid-layout';
 
+import { Logo } from '../../../widgets/Logo';
 import { LoremIpsum } from '../../../widgets/LoremIpsum';
-import { Logo } from "../../../widgets/Logo";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
