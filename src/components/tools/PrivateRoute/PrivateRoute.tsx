@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import { useAuthenticationStore } from 'store/authentication';
 
 export type PrivateRouteProps = {
