@@ -7,6 +7,7 @@ import { Logo } from 'widgets/Logo';
 import { LoremIpsum } from 'widgets/LoremIpsum';
 import { LunchToday } from 'widgets/LunchToday/LunchToday';
 import { Quotes } from 'widgets/Quotes';
+import { SimpleWeather } from 'widgets/SimpleWeather';
 
 const ReactGridLayout = WidthProvider(Responsive);
 
@@ -103,6 +104,19 @@ export const GridLayout = () => {
         }}
       >
         <Logo />
+      </div>
+      <div
+        key="item6"
+        className="grid-item handle"
+        style={{
+          backgroundColor: '#FD5A3B',
+          paddingLeft: '10px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <SimpleWeather />
       </div>
     </ReactGridLayout>
   );

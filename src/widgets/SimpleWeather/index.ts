@@ -1,0 +1,1 @@
+export { SimpleWeather } from './SimpleWeather';
