@@ -1,1 +1,1 @@
-export const LoremIpsum = () => <span>12345</span>;
+export const LoremIpsum = () => <div>{'Lorem ipsummmmmm'.toString()}</div>;
