@@ -8,7 +8,7 @@ patches:
 - path: ingress.yaml
   target:
     kind: Ingress
-    name: nextjs-boilerplate-web
+    name: dashboard-web
 
 generatorOptions:
   labels:
@@ -17,7 +17,7 @@ generatorOptions:
 configMapGenerator:
 - envs:
   - config.properties
-  name: nextjs-boilerplate-config
+  name: dashboard-config
 
 patchesStrategicMerge:
 - deployment.yaml
