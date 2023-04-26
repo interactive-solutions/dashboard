@@ -93,24 +93,6 @@ test:lint:
   tags:
     - docker
 
-build:storybook:
-  stage: build
-  image: node:$NODE_VERSION
-  cache: {}
-  dependencies:
-    - dependencies:install
-    - graphql:generate
-  script:
-    - yarn storybook:build
-  artifacts:
-    untracked: false
-    paths:
-      - storybook-static/
-  tags:
-    - docker
-  only:
-    - develop
-
 docker:staging:
   stage: docker
   image: docker:20.10.16
@@ -160,84 +142,6 @@ docker:production:
     - docker
   only:
     - master
-
-deploy:review:
-  stage: deploy
-  image:
-    name: alpine/k8s:1.21.2
-    entrypoint: [""]
-  script:
-    - chmod go-r $KUBECONFIG_STAGING
-    - export KUBECONFIG=$KUBECONFIG_STAGING
-    - cd provisioning/overlays/review
-    - kustomize edit set nameprefix $CI_ENVIRONMENT_SLUG
-    - kustomize edit set image image=${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
-    - | 
-      kustomize edit add patch --patch '[{"op": "replace", "path": "/spec/rules/0/host", "value": "'${CI_ENVIRONMENT_SLUG}-${ENTIRE_HOSTNAME_STAGING}'"},{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "'${CI_ENVIRONMENT_SLUG}${PROVISIONING_NAME}-web-service'"}]' target: --kind Ingress
-    - |
-      kustomize edit add patch --patch '[{"op": "replace", "path": "/spec/selector/name", "value": "'${CI_ENVIRONMENT_SLUG}'"}]' target: --kind Service
-    - kustomize edit set label name:$CI_ENVIRONMENT_SLUG
-    - kubectl diff -k ./ || true
-    - kubectl apply -k ./
-    - kubectl -n $NAMESPACE rollout status deployment/${CI_ENVIRONMENT_SLUG}${PROVISIONING_NAME}
-    - |
-      curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/dns_records" \
-      -H "Authorization: Bearer ${CF_AUTH_TOKEN}" \
-      -H "Content-Type: application/json" \
-      --data '{"type":"CNAME","name":"'${CI_ENVIRONMENT_SLUG}-${ENTIRE_HOSTNAME_STAGING}'","content":"scw-ingress.isdemo.se","ttl":1,"proxied":true}'
-  tags:
-    - docker
-  environment:
-    name: staging/review/$CI_COMMIT_REF_NAME
-    url: https://$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING/
-    on_stop: deploy:review:cleanup
-    auto_stop_in: 2 days
-  needs:
-    - docker:staging
-  except:
-    - develop
-    - master
-
-deploy:review:cleanup:
-  stage: deploy
-  image:
-    name: alpine/k8s:1.21.2
-    entrypoint: [ "" ]
-  cache: {}
-  variables:
-    GIT_STRATEGY: none
-  dependencies:
-    - deploy:review
-  script:
-    - chmod go-r $KUBECONFIG_STAGING
-    - export KUBECONFIG=$KUBECONFIG_STAGING
-    - kubectl delete deployment,service,ingress -l name=${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
-    - 'curl -F "hostname=$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/removedns'
-  when: manual
-  environment:
-    name: staging/review/$CI_COMMIT_REF_NAME
-    url: https://$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING
-    action: stop
-  except:
-    - develop
-    - master
-
-deploy:storybook:
-  stage: deploy
-  image: alpine/curl
-  cache: {}
-  dependencies:
-    - build:storybook
-  script:
-    - tar -cvf dist.tar.gz -C storybook-static .
-    - 'curl -F "hostname=$ENTIRE_HOSTNAME_STORYBOOK" -F "file=@dist.tar.gz" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/publish'
-  environment:
-    name: storybook
-    url: https://$ENTIRE_HOSTNAME_STORYBOOK
-  tags:
-    - docker
-  only:
-    - develop
 
 deploy:staging:
   stage: deploy
