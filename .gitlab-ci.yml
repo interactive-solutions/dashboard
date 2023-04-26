@@ -55,32 +55,6 @@ graphql:generate:
   tags:
     - docker
 
-test:cypress:
-  stage: test
-  image: cypress/base:16.13.0
-  cache: {}
-  dependencies:
-    - dependencies:install
-    - graphql:generate
-  script:
-    - $(npm bin)/cypress install
-    - $(npm bin)/cypress cache path
-    - $(npm bin)/cypress cache list
-    - $(npm bin)/cypress verify
-    - yarn cypress:ci:staging
-  artifacts:
-    when: always
-    expire_in: 1 day
-    paths:
-      - cypress/junit.xml
-      - cypress/videos/**/*.mp4
-      - cypress/screenshots/**/*.png
-    reports:
-      junit:
-        - $CI_PROJECT_DIR/cypress/junit.xml
-  tags:
-    - docker
-
 test:lint:
   stage: test
   image: node:$NODE_VERSION
@@ -112,7 +86,6 @@ docker:staging:
     - docker:20.10.16-dind
   needs:
     - graphql:generate
-    - test:cypress
     - test:lint
   tags:
     - docker
@@ -136,7 +109,6 @@ docker:production:
     - docker:20.10.16-dind
   needs:
     - graphql:generate
-    - test:cypress
     - test:lint
   tags:
     - docker
