@@ -20,6 +20,5 @@ export const Quotes = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-
   return <span>{joke}</span>;
 };
