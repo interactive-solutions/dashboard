@@ -8,5 +8,4 @@
 
 export const Paths = Object.freeze({
   Landing: '/',
-  Login: '/login',
 });
