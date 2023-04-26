@@ -1,8 +1,6 @@
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import { FormErrorSelectors } from 'consts/cypress';
-
 import { texts } from './FormError.text';
 
 export type FormErrorProps = {
@@ -11,7 +9,7 @@ export type FormErrorProps = {
 
 export const FormError = ({ error }: FormErrorProps) => {
   return (
-    <span data-cy={FormErrorSelectors.Root}>
+    <span>
       {typeof error.message === 'string' && error.message.length ? (
         error.message
       ) : (

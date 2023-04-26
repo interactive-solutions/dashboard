@@ -1,4 +1,3 @@
-import { captureUnderscoreErrorException } from '@sentry/nextjs';
 import { NextPageContext } from 'next';
 import NextErrorComponent, { ErrorProps } from 'next/error';
 
@@ -9,10 +8,6 @@ export default ({ statusCode }: ErrorProps) => {
 };
 
 export const getInitialProps = async (contextData: NextPageContext) => {
-  // In case this is running in a serverless function, await this in order to
-  // give Sentry time to send the error before the lambda exits
-  await captureUnderscoreErrorException(contextData);
-
   // This will contain the status code of the response
   return NextErrorComponent.getInitialProps(contextData);
 };

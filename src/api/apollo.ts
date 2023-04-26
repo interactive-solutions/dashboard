@@ -2,7 +2,6 @@ import { ApolloClient, ApolloLink, DefaultOptions } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 import { RetryLink } from '@apollo/client/link/retry';
 import { isSSR } from '@entire.se/utils';
-import { withScope, captureMessage } from '@sentry/nextjs';
 import { createUploadLink } from 'apollo-upload-client';
 
 import { cache } from 'api/cache';
@@ -29,24 +28,6 @@ const authenticationLink = new ApolloLink((operation, forward) => {
 });
 
 const errorLink = onError((error) => {
-  const { networkError, operation, graphQLErrors, response } = error;
-
-  if (networkError?.message !== 'Network request failed') {
-    withScope((scope) => {
-      scope.setExtra('graphQLErrors', graphQLErrors);
-      scope.setExtra('networkError', networkError);
-      scope.setExtra('response', response);
-      scope.setExtra('operation', operation);
-
-      captureMessage(
-        `Apollo error: Operation name "${
-          operation.operationName || 'unknown'
-        }"`,
-        'error'
-      );
-    });
-  }
-
   refreshToken(error);
 });
 
