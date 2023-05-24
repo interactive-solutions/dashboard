@@ -5,8 +5,6 @@ export type DataGrid = {
   i?: string;
 
   // These are all in grid units, not pixels
-  x: number;
-  y: number;
   w: number;
   h: number;
   minW?: number;

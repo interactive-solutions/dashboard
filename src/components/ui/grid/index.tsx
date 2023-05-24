@@ -37,7 +37,7 @@ export const GridLayout = () => {
           key={`item${index}`}
           className="grid-item handle"
           style={widgetHolderStyle}
-          data-grid={dataGrid}
+          data-grid={{ ...dataGrid, x: 0, y: 0 }}
         >
           <Widget />
         </div>
