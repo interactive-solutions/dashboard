@@ -5,6 +5,7 @@ import { LoremIpsum } from './LoremIpsum';
 import { LunchToday } from './LunchToday/LunchToday';
 import { Memes } from './Memes';
 import { Quotes } from './Quotes';
+import { That70sClock } from './That70sClock';
 import { WeatherWidget } from './WeatherWidget';
 
 export const gridItems: GridItem[] = [
@@ -31,5 +32,9 @@ export const gridItems: GridItem[] = [
   {
     Widget: Memes,
     dataGrid: { w: 2, h: 10 },
+  },
+  {
+    Widget: That70sClock,
+    dataGrid: { w: 6, h: 2 },
   },
 ];
