@@ -1,9 +1,8 @@
 import date from 'date-fns';
-import sv from 'date-fns/locale/sv';
 
 export const Week = () => {
   const currentDate = new Date();
-  const currentWeekNumber = date.getWeek(currentDate, { locale: sv });
+  const currentWeekNumber = date.getWeek(currentDate);
 
   const headingStyle: React.CSSProperties = {
     margin: '0',
