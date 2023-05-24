@@ -1,5 +1,6 @@
+
 import { getWeek } from 'date-fns';
-import { sv } from 'date-fns/locale';
+import sv from 'date-fns/locale/sv';
 
 export const Week = () => {
   const currentDate = new Date();
@@ -24,7 +25,7 @@ export const Week = () => {
 
   return (
     <div style={containerStyle}>
-      <h3 style={headingStyle}>Current week</h3>
+      <h3 style={headingStyle}>{'Current week'.toString()}</h3>
       <div style={weekNrStyle}>{currentWeekNumber}</div>
     </div>
   );
