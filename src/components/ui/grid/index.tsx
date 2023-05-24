@@ -24,6 +24,16 @@ export const GridLayout = () => {
     setLayout(newLayout);
   };
 
+  const widgetHolderStyle = {
+    backgroundColor: 'rgba(200, 200, 200, 0.1)',
+    backdropFilter: 'blur(10px) saturate(100%) contrast(45%) brightness(130%)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '8px',
+    boxShadow: '5px 5px 15px 5px rgba(0,0,0,0.05)',
+  };
+
   return (
     <ReactGridLayout
       className="layout"
@@ -34,88 +44,29 @@ export const GridLayout = () => {
       draggableHandle=".handle"
       compactType={null}
       style={{
-        backgroundColor: '#390115',
+        backgroundImage:
+          'linear-gradient(235deg, rgba(213,231,255,1) 0%, rgba(222,255,227,1) 100%)',
         width: '100vw',
         height: '100vh',
         overflow: 'hidden',
       }}
     >
-      <div
-        key="item1"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item1" className="grid-item handle" style={widgetHolderStyle}>
         <LunchToday />
       </div>
-      <div
-        key="item2"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item2" className="grid-item handle" style={widgetHolderStyle}>
         <LoremIpsum />
       </div>
-      <div
-        key="item3"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item3" className="grid-item handle" style={widgetHolderStyle}>
         <Quotes />
       </div>
-      <div
-        key="item4"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item4" className="grid-item handle" style={widgetHolderStyle}>
         {'Item 4'.toString()}
       </div>
-      <div
-        key="item5"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item5" className="grid-item handle" style={widgetHolderStyle}>
         <Logo />
       </div>
-      <div
-        key="item6"
-        className="grid-item handle"
-        style={{
-          backgroundColor: '#FD5A3B',
-          paddingLeft: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div key="item6" className="grid-item handle" style={widgetHolderStyle}>
         <SimpleWeather />
       </div>
     </ReactGridLayout>
