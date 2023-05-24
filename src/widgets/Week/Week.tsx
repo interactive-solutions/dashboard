@@ -1,8 +1,10 @@
-import date from 'date-fns';
+/* eslint-disable import/no-duplicates */
+import { getWeek } from 'date-fns';
+import { sv } from 'date-fns/locale';
 
 export const Week = () => {
   const currentDate = new Date();
-  const currentWeekNumber = date.getWeek(currentDate);
+  const currentWeekNumber = getWeek(currentDate, { locale: sv });
 
   const headingStyle: React.CSSProperties = {
     margin: '0',
