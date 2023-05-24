@@ -5,7 +5,7 @@ import { LoremIpsum } from './LoremIpsum';
 import { LunchToday } from './LunchToday/LunchToday';
 import { Memes } from './Memes';
 import { Quotes } from './Quotes';
-import { SimpleWeather } from './SimpleWeather';
+import { WeatherWidget } from './WeatherWidget';
 
 export const gridItems: GridItem[] = [
   {
@@ -25,7 +25,7 @@ export const gridItems: GridItem[] = [
     dataGrid: { w: 3, h: 3 },
   },
   {
-    Widget: SimpleWeather,
+    Widget: WeatherWidget,
     dataGrid: { w: 3, h: 3 },
   },
   {
