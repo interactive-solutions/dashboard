@@ -49,6 +49,8 @@ import Snow from './svg/snow.svg';
 import Thunderstorms from './svg/thunderstorms.svg';
 
 // The icons are taken from https://github.com/basmilius/weather-icons
+// There are a lot of additional icons that we can use,
+// but I couldn't be bothered to add/map them all.
 export const iconMap = {
   1: ClearDay,
   2: ClearNight,
