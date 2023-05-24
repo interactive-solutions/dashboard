@@ -1,6 +1,5 @@
-import date from "date-fns";
-import sv from "date-fns/locale/sv";
-
+import date from 'date-fns';
+import sv from 'date-fns/locale/sv';
 
 export const Week = () => {
   const currentDate = new Date();
