@@ -12,10 +12,6 @@ export type DataGrid = {
   minH?: number;
   maxH?: number;
 
-  // If true, equal to `isDraggable: false, isResizable: false`.
-  static?: boolean;
-  // If false, will not be draggable. Overrides `static`.
-  isDraggable?: boolean;
   // If false, will not be resizable. Overrides `static`.
   isResizable?: boolean;
   // By default, a handle is only shown on the bottom-right (southeast) corner.
