@@ -40,7 +40,7 @@ export const Memes = () => {
         )}
       </styles.ImageContainer>
       <styles.Button type="button" onClick={getMeme}>
-        Give me a meme
+        {'Give me a meme'.toString()}
       </styles.Button>
     </styles.Container>
   );
