@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import styles from './Digit.module.css';
 
 export const Digit = ({ digit }: { digit: number }) => {
