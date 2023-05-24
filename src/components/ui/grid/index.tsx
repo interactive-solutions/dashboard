@@ -1,29 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { WidthProvider, Responsive } from 'react-grid-layout';
 
 import 'react-grid-layout/css/styles.css';
-import { Logo } from 'widgets/Logo';
-import { LoremIpsum } from 'widgets/LoremIpsum';
-import { LunchToday } from 'widgets/LunchToday/LunchToday';
-import { Quotes } from 'widgets/Quotes';
-import { SimpleWeather } from 'widgets/SimpleWeather';
+import { gridItems } from 'widgets';
 
 const ReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = () => {
-  const [layout, setLayout] = useState([
-    { i: 'item1', x: 0, y: 0, w: 3, h: 3 },
-    { i: 'item2', x: 3, y: 0, w: 3, h: 3 },
-    { i: 'item3', x: 6, y: 0, w: 3, h: 3 },
-    { i: 'item4', x: 9, y: 0, w: 3, h: 3 },
-    { i: 'item5', x: 12, y: 0, w: 3, h: 3 },
-  ]);
-
-  const onLayoutChange = (newLayout: any) => {
-    setLayout(newLayout);
-  };
-
   const widgetHolderStyle = {
     backgroundColor: 'rgba(200, 200, 200, 0.1)',
     backdropFilter: 'blur(10px) saturate(100%) contrast(45%) brightness(130%)',
@@ -36,11 +20,8 @@ export const GridLayout = () => {
 
   return (
     <ReactGridLayout
-      className="layout"
-      layouts={{ lg: layout, md: layout, sm: layout, xs: layout, xxs: layout }}
       cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
       rowHeight={50}
-      onLayoutChange={onLayoutChange}
       draggableHandle=".handle"
       compactType={null}
       style={{
@@ -51,24 +32,16 @@ export const GridLayout = () => {
         overflow: 'hidden',
       }}
     >
-      <div key="item1" className="grid-item handle" style={widgetHolderStyle}>
-        <LunchToday />
-      </div>
-      <div key="item2" className="grid-item handle" style={widgetHolderStyle}>
-        <LoremIpsum />
-      </div>
-      <div key="item3" className="grid-item handle" style={widgetHolderStyle}>
-        <Quotes />
-      </div>
-      <div key="item4" className="grid-item handle" style={widgetHolderStyle}>
-        {'Item 4'.toString()}
-      </div>
-      <div key="item5" className="grid-item handle" style={widgetHolderStyle}>
-        <Logo />
-      </div>
-      <div key="item6" className="grid-item handle" style={widgetHolderStyle}>
-        <SimpleWeather />
-      </div>
+      {gridItems.map(({ Widget, dataGrid }, index) => (
+        <div
+          key={`item${index}`}
+          className="grid-item handle"
+          style={widgetHolderStyle}
+          data-grid={{ ...dataGrid, x: 0, y: 0 }}
+        >
+          <Widget />
+        </div>
+      ))}
     </ReactGridLayout>
   );
 };
