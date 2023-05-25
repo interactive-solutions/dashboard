@@ -2,30 +2,41 @@
 import { getWeek } from 'date-fns';
 import { sv } from 'date-fns/locale';
 
+const containerStyle: React.CSSProperties = {
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignContent: 'center',
+  textAlign: 'center',
+  fontSize: '1.3rem',
+  display: 'flex',
+  height: '100%',
+  width: '100%',
+};
+
+const dayStyle = {
+  fontSize: '2rem',
+  fontWeight: 'bold',
+};
+
 export const Week = () => {
+  const { format } = require('date-fns');
   const currentDate = new Date();
   const currentWeekNumber = getWeek(currentDate, { locale: sv });
-
-  const headingStyle: React.CSSProperties = {
-    margin: '0',
-    position: 'absolute',
-    top: '10px',
-    left: '0',
-    width: '100%',
-  };
-  const containerStyle: React.CSSProperties = {
-    textAlign: 'center',
-  };
-  const weekNrStyle = {
-    fontSize: '4rem',
-    fontWeight: 'bold',
-    textDcoration: 'underline',
-  };
+  const theDate = currentDate.getDate();
+  const theMonth = currentDate.getMonth() + 1;
+  const theYear = currentDate.getFullYear();
+  const theDay = format(new Date(), 'EEEE');
 
   return (
     <div style={containerStyle}>
-      <h3 style={headingStyle}>{'Current week'.toString()}</h3>
-      <div style={weekNrStyle}>{currentWeekNumber}</div>
+      <div style={dayStyle}>{theDay}</div>
+      <div>
+        {theDate}-{theMonth}-{theYear}
+      </div>
+      <div>
+        {'Week '.toString()}
+        {currentWeekNumber}
+      </div>
     </div>
   );
 };
