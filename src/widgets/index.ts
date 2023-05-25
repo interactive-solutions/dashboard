@@ -25,6 +25,6 @@ export const gridItems: GridItem[] = [
   },
   {
     Widget: That70sClock,
-    dataGrid: { w: 6, h: 2 },
+    dataGrid: { w: 3, h: 2 },
   },
 ];
