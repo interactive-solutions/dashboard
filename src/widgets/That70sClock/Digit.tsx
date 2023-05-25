@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { he } from 'date-fns/locale';
+
 import styles from './Digit.module.css';
 
 export const Digit = ({ digit }: { digit: number }) => {
@@ -18,6 +20,8 @@ export const Digit = ({ digit }: { digit: number }) => {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
+        minHeight: '170px',
+        minWidth: '70px',
         width: '100%',
       }}
     >
