@@ -4,5 +4,4 @@ export * from './isTest/isTest';
 export * from './isLocalhost/isLocalhost';
 export * from './isProduction/isProduction';
 export * from './isStaging/isStaging';
-export * from './isStorybook/isStorybook';
 export * from './createEmotionCache/createEmotionCache';

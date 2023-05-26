@@ -1,4 +1,3 @@
-import { ApolloError } from '@apollo/client';
 import { AppsOutage } from '@mui/icons-material';
 import { Grid, Typography } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
@@ -9,10 +8,9 @@ import * as styles from '../BasicTable.styles';
 
 export type EmptyProps = {
   visible: boolean;
-  error?: ApolloError;
 };
 
-export const Empty = ({ visible, error }: EmptyProps) => {
+export const Empty = ({ visible }: EmptyProps) => {
   if (!visible) {
     return null;
   }
@@ -31,7 +29,7 @@ export const Empty = ({ visible, error }: EmptyProps) => {
         </Grid>
         <Grid item>
           <Typography>
-            {error?.message || <FormattedMessage {...texts.table_empty} />}
+            <FormattedMessage {...texts.table_empty} />
           </Typography>
         </Grid>
       </Grid>

@@ -10,9 +10,6 @@
 /.next/
 /out/
 
-# storybook
-/storybook-static
-
 # misc
 .DS_Store
 *.pem

@@ -31,8 +31,6 @@ Run `$ yarn graphql:generate` after installing the packages, it will generate Gr
 - `$ yarn graphql:generate` - Generate GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql` and generate everything from backend into gitignored `/graphql`.
 - `$ yarn graphql:watch` - Watch GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql`.
 - `$ yarn graphql:operations` - Generate a GraphQL operations file for [codegen](https://graphql-code-generator.com/).
-- `$ yarn storybook:start` - Start [Storybook](https://storybook.js.org/) server on port 1337.
-- `$ yarn storybook:build` - Build [Storybook](https://storybook.js.org/).
 - `$ yarn i18n:extract` - [Extract](https://formatjs.io/docs/tooling/cli#extraction) string messages.
 - `$ yarn i18n:compile` - [Compile](https://formatjs.io/docs/tooling/cli#compilation) extracted file.
 
@@ -49,9 +47,7 @@ You should look at a component as its own lifecycle. Everything about it should 
 ├── components
 │   └── ...
 │       ├── Example
-│       │   ├── Example.stories.tsx   # Storybook
 │       │   ├── Example.styles.ts     # Styling
-│       │   ├── Example.text.ts       # Intl text
 │       │   └── Example.tsx           # Export component and props
 │       │   ...
 │       └── index.ts                  # Exports every component and props within the folder
@@ -61,7 +57,7 @@ You should look at a component as its own lifecycle. Everything about it should 
 ## Environment variables
 
 - `NEXT_PUBLIC_IMAGES_DOMAINS` - Space separated list of [images.domains](https://nextjs.org/docs/basic-features/image-optimization#domains) for the Next.js configuration.
-- `NEXT_PUBLIC_ENVIRONMENT` - Tell the application which system it's running. It can be localhost, production, staging or storybook.
+- `NEXT_PUBLIC_ENVIRONMENT` - Tell the application which system it's running. It can be localhost, production or staging.
 
 ## Browser support
 

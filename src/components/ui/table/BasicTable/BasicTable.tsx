@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { ApolloError } from '@apollo/client';
 import { Table, TableContainer } from '@mui/material';
 import {
   getCoreRowModel,
@@ -27,7 +26,6 @@ export type BasicTableProps = {
   pageCount?: number;
   pageSize?: number;
   loading?: boolean;
-  error?: ApolloError;
 };
 
 export const BasicTable = ({
@@ -38,7 +36,6 @@ export const BasicTable = ({
   pageCount,
   pageSize,
   loading,
-  error,
   onFetchData,
 }: BasicTableProps) => {
   const [initiated, setInitiated] = useState(false);
@@ -124,7 +121,6 @@ export const BasicTable = ({
       <Loading visible={!!loading && initiated} />
       <Empty
         visible={!table.getRowModel().rows.length && !loading && initiated}
-        error={error}
       />
     </TableContainer>
   );
