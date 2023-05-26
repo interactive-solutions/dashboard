@@ -63,10 +63,6 @@ You should look at a component as its own lifecycle. Everything about it should 
 - `NEXT_PUBLIC_APOLLO_URI` - [Apollo](https://www.apollographql.com/) uri.
 - `NEXT_PUBLIC_IMAGES_DOMAINS` - Space separated list of [images.domains](https://nextjs.org/docs/basic-features/image-optimization#domains) for the Next.js configuration.
 - `NEXT_PUBLIC_ENVIRONMENT` - Tell the application which system it's running. It can be localhost, production, staging or storybook.
-- `NEXT_PUBLIC_SENTRY_AUTH_TOKEN` - Will be populated with `$SENTRY_AUTH_TOKEN` within `.gitlab-ci.yml`.
-- `NEXT_PUBLIC_SENTRY_DSN` - Define [Data Source Name (DSN)](https://docs.sentry.io/product/sentry-basics/dsn-explainer/).
-- `NEXT_PUBLIC_SENTRY_RELEASE` - Will be populated with `$CI_PIPELINE_ID` within `.gitlab-ci.yml`.
-- `NEXT_PUBLIC_SENTRY_ENVIRONMENT` - Will be populated with `$CI_ENVIRONMENT_NAME` within `.gitlab-ci.yml`.
 
 ## Browser support
 
