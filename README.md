@@ -60,7 +60,6 @@ You should look at a component as its own lifecycle. Everything about it should 
 
 ## Environment variables
 
-- `NEXT_PUBLIC_APOLLO_URI` - [Apollo](https://www.apollographql.com/) uri.
 - `NEXT_PUBLIC_IMAGES_DOMAINS` - Space separated list of [images.domains](https://nextjs.org/docs/basic-features/image-optimization#domains) for the Next.js configuration.
 - `NEXT_PUBLIC_ENVIRONMENT` - Tell the application which system it's running. It can be localhost, production, staging or storybook.
 

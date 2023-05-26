@@ -33,7 +33,6 @@
     "i18n:compile": "formatjs compile src/i18n/cli/extracted.json --out-file src/i18n/cli/compiled.json"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.7",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
@@ -45,7 +44,6 @@
     "@mui/material": "^5.11.9",
     "@mui/x-date-pickers": "^6.0.4",
     "@tanstack/react-table": "^8.7.9",
-    "apollo-upload-client": "^17.0.0",
     "clsx": "^1.2.1",
     "date-fns": "^2.28.0",
     "framer-motion": "^10.5.0",
@@ -87,7 +85,6 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^7.0.0",
-    "@types/apollo-upload-client": "^17.0.2",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.13.0",
     "@types/nprogress": "^0.2.0",
