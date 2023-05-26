@@ -11,11 +11,9 @@ export type SEOProps = {
 export const SEO = ({ children, title, description }: SEOProps) => {
   return (
     <Head>
-      <title>
-        {title ? `${title} | nextjs-boilerplate` : 'nextjs-boilerplate'}
-      </title>
+      <title>{title ? `${title} | Dashboard` : 'Dashboard'}</title>
       {description && <meta name="description" content={description} />}
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/images/favicon.png" />
       <meta name="viewport" content="initial-scale=1, width=device-width" />
       {children}
     </Head>
