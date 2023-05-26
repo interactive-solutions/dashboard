@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Loading } from 'components/ui/table/BasicTable/subcomponents';
+import { Loading } from 'components/table/BasicTable/subcomponents';
 
 import * as styles from './Memes.styles';
 
@@ -40,7 +40,7 @@ export const Memes = () => {
         )}
       </styles.ImageContainer>
       <styles.Button type="button" onClick={getMeme}>
-        {'Give me a meme'.toString()}
+        Give me a meme
       </styles.Button>
     </styles.Container>
   );

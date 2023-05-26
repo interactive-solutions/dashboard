@@ -34,7 +34,7 @@ export const Week = () => {
         {theDate}-{theMonth}-{theYear}
       </div>
       <div>
-        {'Week '.toString()}
+        Week
         {currentWeekNumber}
       </div>
     </div>

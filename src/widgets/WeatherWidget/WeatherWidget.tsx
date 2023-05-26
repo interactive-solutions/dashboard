@@ -1,7 +1,6 @@
-/* eslint-disable @calm/react-intl/missing-formatted-message */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Button } from 'components/ui/general';
+import { Button } from 'components/general';
 
 import { UpcomingWeather } from './components/UpcomingWeather';
 import {
@@ -65,7 +64,6 @@ export const WeatherWidget = () => {
     fetch(url)
       .then((res) => res.json())
       .then((incomingData: SMHIResponse) => {
-        console.log({ incomingData });
         setData(incomingData);
         setLoading(false);
       });
@@ -76,7 +74,6 @@ export const WeatherWidget = () => {
     loadData();
   }, [loadData, location]);
 
-  console.log({ data });
   const currentData = useMemo(() => data?.timeSeries?.[0].parameters, [data]);
 
   if (isLoading && !data) return <p>Loading...</p>;

@@ -5,22 +5,6 @@
 
 import { defineMessages } from 'react-intl';
 
-import { UserRole } from 'api/graphql';
-
-// enum UserRole
-const userRole = defineMessages<`userRole_${UserRole}`>({
-  userRole_admin: {
-    id: 'shared.userRole_admin',
-    description: 'Admin',
-    defaultMessage: 'Admin',
-  },
-  userRole_user: {
-    id: 'shared.userRole_user',
-    description: 'User',
-    defaultMessage: 'Användare',
-  },
-});
-
 // Form messages
 const form = defineMessages({
   form_labelEmail: {
@@ -55,7 +39,6 @@ const table = defineMessages({
 });
 
 export const shared = {
-  userRole,
   form,
   table,
 };

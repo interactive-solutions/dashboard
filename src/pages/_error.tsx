@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next';
 import NextErrorComponent, { ErrorProps } from 'next/error';
 
-import { RouterError } from 'components/ui/router';
+import { RouterError } from 'components/router';
 
 export default ({ statusCode }: ErrorProps) => {
   return <RouterError statusCode={statusCode || 404} />;

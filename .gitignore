@@ -5,14 +5,10 @@
 
 # testing
 /coverage
-/cypress/junit.xml
 
 # next.js
 /.next/
 /out/
-
-# storybook
-/storybook-static
 
 # misc
 .DS_Store
@@ -42,19 +38,8 @@ yarn-error.log*
 .eslintcache
 .stylelintcache
 
-# cypress
-/cypress/videos
-/cypress/screenshots
-
 # vscode
 .vscode
-
-# sentry
-.sentryclirc
-
-# graphql
-/src/graphql/cli
-/src/api/graphql.ts
 
 # lang
 /src/i18n/cli
