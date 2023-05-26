@@ -10,6 +10,7 @@ import * as styles from './Landing.styles';
 
 export const Landing = () => {
   const { formatMessage } = useIntl();
+
   return (
     <styles.Root>
       <SEO title={formatMessage(texts.seoTitle)} />
