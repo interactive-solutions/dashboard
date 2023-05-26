@@ -18,7 +18,7 @@ import {
 } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import { FormError } from 'components/ui/forms';
+import { FormError } from 'components/forms';
 
 import { texts } from './Select.text';
 

@@ -1,9 +1,8 @@
 import { useIntl } from 'react-intl';
 
+import { Layout } from 'components/general';
+import { GridLayout } from 'components/grid';
 import { SEO } from 'components/tools';
-import { GridLayout } from 'components/ui/grid';
-
-import { Layout } from '../../components/ui/general';
 
 import { texts } from './Landing.text';
 

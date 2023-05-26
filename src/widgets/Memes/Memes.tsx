@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Loading } from 'components/ui/table/BasicTable/subcomponents';
+import { Loading } from 'components/table/BasicTable/subcomponents';
 
 import * as styles from './Memes.styles';
 

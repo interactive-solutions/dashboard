@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic';
 import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
+import { Layout } from 'components/general';
+import { ProgressBar } from 'components/router';
 import { IntlProvider, LocalizationProvider, SEO } from 'components/tools';
-import { Layout } from 'components/ui/general';
-import { ProgressBar } from 'components/ui/router';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
 

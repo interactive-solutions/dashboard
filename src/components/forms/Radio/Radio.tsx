@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 import {
-  Switch as MuiSwitch,
-  SwitchProps as MuiSwitchProps,
+  Radio as MuiRadio,
+  RadioProps as MuiRadioProps,
   FormControl,
   FormControlLabel,
   FormControlLabelProps,
@@ -17,9 +17,9 @@ import {
   RegisterOptions,
 } from 'react-hook-form';
 
-import { FormError } from 'components/ui/forms';
+import { FormError } from 'components/forms';
 
-export type SwitchProps = {
+export type RadioProps = {
   name: string;
   control: Control<any, any>;
   validation?: RegisterOptions;
@@ -27,14 +27,14 @@ export type SwitchProps = {
   label?: ReactNode;
   labelPlacement?: FormControlLabelProps['labelPlacement'];
   helperText?: ReactNode;
-} & Omit<MuiSwitchProps, 'name' | 'required'>;
+} & Omit<MuiRadioProps, 'name' | 'required'>;
 
-export const Switch = ({
+export const Radio = ({
   name,
   control,
   validation,
   error,
-  defaultChecked,
+  defaultValue,
   onChange,
   onBlur,
   helperText,
@@ -44,7 +44,7 @@ export const Switch = ({
   size,
   value,
   ...rest
-}: SwitchProps) => {
+}: RadioProps) => {
   const getValidation = !disabled ? validation : {};
   const hasError = !!error;
   const getLabel = !!label ? (
@@ -59,7 +59,7 @@ export const Switch = ({
       name={name}
       control={control}
       rules={getValidation}
-      defaultValue={defaultChecked}
+      defaultValue={defaultValue}
       render={({
         field: {
           name: fieldName,
@@ -73,12 +73,12 @@ export const Switch = ({
           <FormControlLabel
             label={getLabel}
             disabled={disabled}
-            defaultChecked={defaultChecked}
-            checked={fieldValue || false}
+            defaultValue={defaultValue}
+            checked={fieldValue === value}
             labelPlacement={labelPlacement}
             value={value}
             control={
-              <MuiSwitch
+              <MuiRadio
                 {...rest}
                 name={fieldName}
                 onChange={(event, checked) => {

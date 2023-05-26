@@ -17,7 +17,7 @@ import {
   RegisterOptions,
 } from 'react-hook-form';
 
-import { FormError } from 'components/ui/forms';
+import { FormError } from 'components/forms';
 
 export type CheckboxProps = {
   name: string;
