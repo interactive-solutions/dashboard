@@ -28,9 +28,6 @@ Run `$ yarn graphql:generate` after installing the packages, it will generate Gr
 - `$ yarn stylelint:report` - Report any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn stylelint:fix` - Fix any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn typescript:report` - Report any TypeScript issues.
-- `$ yarn graphql:generate` - Generate GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql` and generate everything from backend into gitignored `/graphql`.
-- `$ yarn graphql:watch` - Watch GraphQL with [codegen](https://graphql-code-generator.com/) within `/src/graphql`.
-- `$ yarn graphql:operations` - Generate a GraphQL operations file for [codegen](https://graphql-code-generator.com/).
 - `$ yarn i18n:extract` - [Extract](https://formatjs.io/docs/tooling/cli#extraction) string messages.
 - `$ yarn i18n:compile` - [Compile](https://formatjs.io/docs/tooling/cli#compilation) extracted file.
 

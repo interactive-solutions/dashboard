@@ -15,7 +15,6 @@ cache:
 
 stages:
   - dependencies
-  - graphql
   - test
   - build
   - docker
@@ -33,28 +32,12 @@ dependencies:install:
   tags:
     - docker
 
-graphql:generate:
-  stage: graphql
-  image: node:$NODE_VERSION
-  cache: {}
-  dependencies:
-    - dependencies:install
-  script:
-    - yarn graphql:generate
-  artifacts:
-    expire_in: 1 hour
-    paths:
-      - src/api/graphql.ts
-  tags:
-    - docker
-
 test:lint:
   stage: test
   image: node:$NODE_VERSION
   cache: {}
   dependencies:
     - dependencies:install
-    - graphql:generate
   script:
     - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
   tags:
@@ -63,8 +46,6 @@ test:lint:
 docker:staging:
   stage: docker
   image: docker:20.10.16
-  dependencies:
-    - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
@@ -74,7 +55,6 @@ docker:staging:
   services:
     - docker:20.10.16-dind
   needs:
-    - graphql:generate
     - test:lint
   tags:
     - docker
@@ -82,8 +62,6 @@ docker:staging:
 docker:production:
   stage: docker
   image: docker:20.10.16
-  dependencies:
-    - graphql:generate
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
@@ -93,7 +71,6 @@ docker:production:
   services:
     - docker:20.10.16-dind
   needs:
-    - graphql:generate
     - test:lint
   tags:
     - docker

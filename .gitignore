@@ -41,9 +41,5 @@ yarn-error.log*
 # vscode
 .vscode
 
-# graphql
-/src/graphql/cli
-/src/api/graphql.ts
-
 # lang
 /src/i18n/cli
