@@ -1,1 +1,1 @@
-export const LoremIpsum = () => <div>{'Lorem ipsummmmmm'.toString()}</div>;
+export const LoremIpsum = () => <div>Lorem ipsummmmmm</div>;

@@ -1,7 +1,7 @@
 export const LunchToday = () => {
   return (
     <div>
-      <h3>{'lunchToday'.toString()}</h3>
+      <h3>lunchToday</h3>
     </div>
   );
 };

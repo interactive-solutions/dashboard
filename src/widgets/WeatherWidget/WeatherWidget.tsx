@@ -1,5 +1,4 @@
-/* eslint-disable @calm/react-intl/missing-formatted-message */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Button } from 'components/ui/general';
 
