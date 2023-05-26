@@ -1,7 +1,6 @@
 variables:
   NODE_VERSION: "16.13.0"
   npm_config_cache: "$CI_PROJECT_DIR/.npm"
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
   NAMESPACE: "internal"
   FF_USE_FASTZIP: "true"
   ARTIFACT_COMPRESSION_LEVEL: "fast"
@@ -17,7 +16,6 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .npm
-    - cache/Cypress
     - node_modules
 
 stages:
