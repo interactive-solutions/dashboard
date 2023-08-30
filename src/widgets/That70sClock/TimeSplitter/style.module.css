@@ -1,0 +1,10 @@
+.timeSplitter {
+  display: flex;
+
+  width: 10%;
+
+  justify-content: center;
+  align-items: center;  
+
+  padding-bottom: 3%;
+}

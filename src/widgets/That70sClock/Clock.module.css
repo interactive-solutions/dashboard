@@ -1,0 +1,11 @@
+.clockContainer {
+  display: flex;
+  flex-direction: row;
+
+  width: 90%;
+  height: 90%;
+  font-size: 6rem;
+
+  justify-content: center;
+  align-items: center;
+}
