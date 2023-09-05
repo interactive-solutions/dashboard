@@ -1,8 +1,5 @@
 import { AppsOutage } from '@mui/icons-material';
 import { Grid, Typography } from '@mui/material';
-import { FormattedMessage } from 'react-intl';
-
-import { texts } from '../BasicTable.text';
 
 import * as styles from '../BasicTable.styles';
 
@@ -28,9 +25,7 @@ export const Empty = ({ visible }: EmptyProps) => {
           />
         </Grid>
         <Grid item>
-          <Typography>
-            <FormattedMessage {...texts.table_empty} />
-          </Typography>
+          <Typography>No results found</Typography>
         </Grid>
       </Grid>
     </styles.Error>

@@ -1,7 +1,4 @@
 import { CircularProgress, Grid, Typography } from '@mui/material';
-import { FormattedMessage } from 'react-intl';
-
-import { texts } from '../BasicTable.text';
 
 import * as styles from '../BasicTable.styles';
 
@@ -21,9 +18,7 @@ export const Loading = ({ visible }: LoadingProps) => {
           <CircularProgress size={50} />
         </Grid>
         <Grid item>
-          <Typography variant="body2">
-            <FormattedMessage {...texts.table_loading} />
-          </Typography>
+          <Typography variant="body2">Fetching data</Typography>
         </Grid>
       </Grid>
     </styles.Loading>

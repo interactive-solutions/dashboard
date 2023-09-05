@@ -7,7 +7,7 @@ import { QueryParamProvider } from 'use-query-params';
 
 import { Layout } from 'components/general';
 import { ProgressBar } from 'components/router';
-import { IntlProvider, LocalizationProvider, SEO } from 'components/tools';
+import { SEO } from 'components/tools';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
 
@@ -24,21 +24,17 @@ export const App = ({
 }: AppProps) => {
   return (
     <QueryParamProvider adapter={NextAdapter}>
-      <IntlProvider>
-        <LocalizationProvider>
-          <CacheProvider value={emotionCache}>
-            <ThemeProvider theme={theme}>
-              <SEO />
-              <CssBaseline />
-              <GlobalStyles styles={global} />
-              <ProgressBar />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </ThemeProvider>
-          </CacheProvider>
-        </LocalizationProvider>
-      </IntlProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <SEO />
+          <CssBaseline />
+          <GlobalStyles styles={global} />
+          <ProgressBar />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </CacheProvider>
     </QueryParamProvider>
   );
 };

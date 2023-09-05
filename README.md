@@ -26,8 +26,6 @@ Recommended node version is defined in `.nvmrc`.
 - `$ yarn stylelint:report` - Report any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn stylelint:fix` - Fix any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn typescript:report` - Report any TypeScript issues.
-- `$ yarn i18n:extract` - [Extract](https://formatjs.io/docs/tooling/cli#extraction) string messages.
-- `$ yarn i18n:compile` - [Compile](https://formatjs.io/docs/tooling/cli#compilation) extracted file.
 
 ## Pages
 
