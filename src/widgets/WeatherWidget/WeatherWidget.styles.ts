@@ -25,7 +25,8 @@ export const TopRow = styled('div')`
 export const LocationRow = styled('div')`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
+  border-bottom: 1px solid
+    ${({ theme }) => theme.palette.brandColors.entireOrange};
   margin-bottom: 5px;
   margin-top: -5px;
 `;
