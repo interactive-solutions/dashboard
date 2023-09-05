@@ -1,12 +1,41 @@
-import { ThemeOptions } from '@mui/material';
 import { red } from '@mui/material/colors';
 
-export const palette: ThemeOptions['palette'] = {
+// brandColors, textColors and uiColors are defined in the design
+const brandColors = {
+  burgundy: '#3A0018',
+  entireOrange: '#FE5B3C',
+  lightOrange: '#FFE6E2',
+  black: '#1B1B1B',
+  darkGray: '#444444',
+  deepPurple: '#9B96FF',
+  lightPurple: '#ECECFF',
+  gray: '#EFEFEF',
+  white: '#FFFFFF',
+};
+
+const textColors = {
+  primary: '#1B1B1B',
+  secondary: '#444444',
+};
+
+const uiColors = {
+  successGreen: '#4B9C54',
+  errorRed: '#DC391B',
+  deepPurpleHover: '#8B85F8',
+  entireOrangeHover: '#D14E35',
+  lightBlack: '#767676',
+  darkWhite: '#D8CCD1',
+};
+
+export const palette = {
   primary: {
-    main: '#FD5A3B',
+    main: brandColors.entireOrange,
+    light: brandColors.lightOrange,
+    dark: brandColors.burgundy,
   },
   secondary: {
-    main: '#390115',
+    main: brandColors.deepPurple,
+    light: brandColors.lightPurple,
   },
   grey: {
     100: '#ffffff',
@@ -20,4 +49,10 @@ export const palette: ThemeOptions['palette'] = {
   error: {
     main: red.A400,
   },
+  text: {
+    primary: textColors.primary,
+    secondary: textColors.secondary,
+  },
+  brandColors,
+  uiColors,
 };
