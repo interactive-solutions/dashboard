@@ -23,9 +23,7 @@
     "eslint:fix": "eslint '**/*.{js,tsx,ts}' --fix",
     "stylelint:report": "stylelint '**/*.{js,jsx,ts,tsx}' --cache",
     "stylelint:fix": "stylelint '**/*.{js,jsx,ts,tsx}' --fix",
-    "typescript:report": "tsc --noEmit && tsc --noEmit",
-    "i18n:extract": "formatjs extract 'src/**/*.{js,tsx,ts}' --out-file src/i18n/cli/extracted.json --ignore **/*.d.ts",
-    "i18n:compile": "formatjs compile src/i18n/cli/extracted.json --out-file src/i18n/cli/compiled.json"
+    "typescript:report": "tsc --noEmit && tsc --noEmit"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -49,7 +47,6 @@
     "react-dom": "^18.2.0",
     "react-grid-layout": "^1.3.4",
     "react-hook-form": "^7.43.9",
-    "react-intl": "^6.2.8",
     "use-query-params": "^2.2.0",
     "validator": "^13.9.0",
     "zustand": "^4.3.3"

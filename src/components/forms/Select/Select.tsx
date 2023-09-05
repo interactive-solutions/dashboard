@@ -16,11 +16,8 @@ import {
   Merge,
   RegisterOptions,
 } from 'react-hook-form';
-import { FormattedMessage } from 'react-intl';
 
 import { FormError } from 'components/forms';
-
-import { texts } from './Select.text';
 
 import * as styles from './Select.styles';
 
@@ -115,11 +112,7 @@ export const Select = ({
                 : undefined
             }
           >
-            {children || (
-              <styles.Empty>
-                <FormattedMessage {...texts.emptyMenuItems} />
-              </styles.Empty>
-            )}
+            {children || <styles.Empty>No results found</styles.Empty>}
           </MuiSelect>
           {hasError && (
             <FormHelperText>
