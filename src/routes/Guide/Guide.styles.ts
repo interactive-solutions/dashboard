@@ -21,9 +21,14 @@ export const Text = styled('p')`
   font-size: 14px;
 `;
 
+/* stylelint-disable */
 export const List = styled('ol')``;
+
 export const ListItem = styled('li')``;
+
 export const Link = styled('a')``;
+/* stylelint-enable */
+
 export const BoldText = styled('div')`
   font-size: 14px;
   font-weight: bold;
