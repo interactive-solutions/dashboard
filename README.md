@@ -20,10 +20,6 @@ from where everyone can drag and drop widgets they consider helpful into their d
 
 This project is built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/) and [MUI](https://mui.com/)
 
-#### Pages
-
-Pages lives within two places, this because we're using separate sibling files for styling, texts etc. and Next.js doesn't like that. So within the pages folder we're collecting data and making the optional data request(s), then the page itself with styling should be within the routes folder. So the pages component will send its data as props to the routes component.
-
 #### Component lifecycle
 
 You should look at a component as its own lifecycle. Everything about it should be wrapped in the same folder, where the folder name is the components name, and then return itself. This is the structure and files that could/should be included:
@@ -51,10 +47,10 @@ Widgets are rendered as a grid with drag-and-drop functionality. To make your wi
 We are using stylelint, eslint and prettier as code quality tools. Rules are extended from external packages and defined in `.eslintrc.js`, `.prettierrc.js` and `.stylelintrc.js`.
 Make sure your IDE use these files. It is recommended to make your IDE run lint fixes on save.
 
-To get reports on lint issues you can run `yarn eslint:report && stylelint:report && prettier:report`
-To manually fix lint issues you can run `yarn eslint:fix && stylelint:fix && prettier:fix`
+To get reports on lint and typescript issues you can run `yarn eslint:report && stylelint:report && prettier:report && typescript:report`
+To automatically fix some lint issues you can run `yarn eslint:fix && stylelint:fix && prettier:fix`
 
-To be allowed to push, lint needs to be ok.
+We have a "pre-push hook" that checks code quality before pushing it to the remote branch. It is defined in `.huskyrc.js` and checks the code using the same commands as specified above. Any errors reported will only be shown to you. If you get errors, simply fix whatever is reported and push again (just don't forget to `add` and `commit` your fixes)
 
 ### Useful commands
 
