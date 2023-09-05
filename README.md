@@ -1,6 +1,6 @@
 # Entire dashboard
 
-This is an internal dashboard created and used by employees of Entire. The idea is to create a library of widgets 
+This is an internal dashboard created and used by employees of Entire. The idea is to create a library of widgets
 from where everyone can drag and drop widgets they consider helpful into their dashboard.
 
 ## Development
@@ -78,8 +78,6 @@ To be allowed to push, lint needs to be ok.
 - `$ yarn stylelint:report` - Report any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn stylelint:fix` - Fix any [Stylelint](https://stylelint.io/) issues.
 - `$ yarn typescript:report` - Report any TypeScript issues.
-
-
 
 ### Environment variables
 
