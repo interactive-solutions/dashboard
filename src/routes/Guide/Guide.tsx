@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import { Layout } from 'components/general';
 import { SEO } from 'components/tools';
 
 import {
