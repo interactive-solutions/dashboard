@@ -3,6 +3,8 @@ import { ThemeOptions, LinkProps } from '@mui/material';
 import type {} from '@mui/lab/themeAugmentation';
 import { NextLinkStyled } from 'components/tools';
 
+const fontBase = 'fonts/TWKLausanne/TWKLausanne-';
+
 export const components: ThemeOptions['components'] = {
   MuiLink: {
     defaultProps: {
@@ -53,5 +55,29 @@ export const components: ThemeOptions['components'] = {
       disableElevation: true,
       variant: 'contained',
     },
+  },
+  MuiCssBaseline: {
+    styleOverrides: `
+        @font-face {
+            font-family: 'Twk Lausanne';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('${fontBase}300.otf') format('otf'),
+                url('${fontBase}300.ttf') format('ttf'), 
+                url('${fontBase}300.woff') format('woff'), 
+                url('${fontBase}300.woff2') format('woff2')
+        },
+         @font-face {
+            font-family: 'Twk Lausanne';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('${fontBase}500.otf') format('otf'),
+                url('${fontBase}500.ttf') format('ttf'), 
+                url('${fontBase}500.woff') format('woff'), 
+                url('${fontBase}500.woff2') format('woff2')
+        }
+      `,
   },
 };
