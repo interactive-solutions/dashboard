@@ -8,8 +8,9 @@ export const Root = styled('div')`
   justify-content: center;
   align-items: center;
   align-self: center;
-  width: 100%;
   max-width: 1200px;
+  width: 100vw;
+  padding: ${theme.spacing(12)};
 `;
 
 export const HeroContainer = styled('div')`
@@ -17,6 +18,7 @@ export const HeroContainer = styled('div')`
   justify-content: center;
   align-items: center;
   margin-bottom: ${theme.spacing(4)};
+  width: 100%;
 `;
 
 export const HeroInfo = styled('div')`
@@ -72,6 +74,7 @@ export const HeadLine = styled('div')`
   color: ${theme.palette.brandColors.entireOrange};
   border-bottom: 1px solid ${theme.palette.brandColors.entireOrange};
   margin-bottom: ${theme.spacing(5)};
+  width: 100%;
 `;
 
 export const Text = styled('div')`
@@ -94,6 +97,7 @@ export const ListItem = styled('div')`
   padding-bottom: ${theme.spacing(5)};
   padding-top: ${theme.spacing(5)};
   border-bottom: 2px solid ${theme.palette.brandColors.gray};
+  width: 100%;
 `;
 
 export const ListItemHeadline = styled('div')`

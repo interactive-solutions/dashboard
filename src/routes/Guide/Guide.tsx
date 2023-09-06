@@ -78,41 +78,39 @@ export const Guide = () => {
   return (
     <Root>
       <SEO title="Guide för kodprov" />
-      <Layout>
-        <HeroContainer>
-          <HeroInfo>
-            <HeaderFirstLine>Entires</HeaderFirstLine>
-            <HeaderSecondLine>Kodprov</HeaderSecondLine>
-            <HeroText>
-              Under fliken ”Dashboard” finns en samling widgets skapade av
-              medarbetare på Entire. Din uppgift är att skapa en sådan widget.
-              Uppgiften ska inte ta mer än en dag att göra.
-            </HeroText>
-          </HeroInfo>
-          <Image src={'images/hero.png'} alt={'colleagues'}></Image>
-        </HeroContainer>
-        <HeadLine>Tillvägagångssätt</HeadLine>
-        {steps.map((step, i) => (
-          <ListItem>
-            <ListItemHeadline>{`${i + 1}. ${step.headline}`}</ListItemHeadline>
-            <ListItemContainer>
-              <Text>{step.info}</Text>
-              <Text>
-                <Code>{step.examples}</Code>
-              </Text>
-            </ListItemContainer>
-          </ListItem>
-        ))}
-        <HeadLine>Widgets</HeadLine>
-        {tasks.map((task) => (
-          <ListItem>
-            <ListItemContainer>
-              <ListItemHeadline>{task.name}</ListItemHeadline>
-              <Text>{task.info}</Text>
-            </ListItemContainer>
-          </ListItem>
-        ))}
-      </Layout>
+      <HeroContainer>
+        <HeroInfo>
+          <HeaderFirstLine>Entires</HeaderFirstLine>
+          <HeaderSecondLine>Kodprov</HeaderSecondLine>
+          <HeroText>
+            Under fliken ”Dashboard” finns en samling widgets skapade av
+            medarbetare på Entire. Din uppgift är att skapa en sådan widget.
+            Uppgiften ska inte ta mer än en dag att göra.
+          </HeroText>
+        </HeroInfo>
+        <Image src={'images/hero.png'} alt={'colleagues'}></Image>
+      </HeroContainer>
+      <HeadLine>Tillvägagångssätt</HeadLine>
+      {steps.map((step, i) => (
+        <ListItem>
+          <ListItemHeadline>{`${i + 1}. ${step.headline}`}</ListItemHeadline>
+          <ListItemContainer>
+            <Text>{step.info}</Text>
+            <Text>
+              <Code>{step.examples}</Code>
+            </Text>
+          </ListItemContainer>
+        </ListItem>
+      ))}
+      <HeadLine>Widgets</HeadLine>
+      {tasks.map((task) => (
+        <ListItem>
+          <ListItemContainer>
+            <ListItemHeadline>{task.name}</ListItemHeadline>
+            <Text>{task.info}</Text>
+          </ListItemContainer>
+        </ListItem>
+      ))}
     </Root>
   );
 };
