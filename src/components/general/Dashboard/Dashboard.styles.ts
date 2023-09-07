@@ -1,11 +1,5 @@
 import { styled } from '@mui/material';
 
-export const Root = styled('div')`
-  position: absolute;
-  width: 100vw;
-  height: 100vw;
-`;
-
 export const WidgetHolder = styled('div')`
   background-color: ${({ theme }) => theme.palette.brandColors.white};
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
