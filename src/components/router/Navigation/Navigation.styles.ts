@@ -28,7 +28,7 @@ export const NavBar = styled('div')`
   justify-content: space-between;
   align-items: center;
   border-radius: 40px;
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 8%);
   backdrop-filter: blur(10px);
   padding: ${theme.spacing(1)} ${theme.spacing(2)};
 `;
