@@ -24,4 +24,6 @@ export type DataGrid = {
 export type GridItem = {
   Widget: FC;
   dataGrid: DataGrid;
+  defaultVisible: boolean;
+  workInProgress: boolean;
 };

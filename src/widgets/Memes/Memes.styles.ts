@@ -1,6 +1,4 @@
-import { styled } from '@mui/material';
-
-import { Button as ButtonComponent } from 'components/general';
+import { styled, Button as ButtonComponent } from '@mui/material';
 
 export const Container = styled('div')`
   display: flex;

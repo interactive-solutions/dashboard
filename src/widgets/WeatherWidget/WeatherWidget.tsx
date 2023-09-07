@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Button } from 'components/general';
+import { Button } from '@mui/material';
 
 import { UpcomingWeather } from './components/UpcomingWeather';
 import {
