@@ -27,9 +27,9 @@ export const NavBar = styled('div')`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 40px;
-  box-shadow: 0 2px 8px 1px rgb(0, 0, 0 / 8%); /* stylelint-disable-line color-function-notation */
-  backdrop-filter: blur(10px);
+  border-radius: ${theme.spacing(5)};
+  box-shadow: 0 2px 8px 1px ${theme.palette.brandColors.gray};
+  backdrop-filter: blur(${theme.spacing(1.25)});
   padding: ${theme.spacing(1)} ${theme.spacing(2)};
 `;
 
