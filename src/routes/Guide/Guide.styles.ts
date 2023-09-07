@@ -8,9 +8,9 @@ export const Root = styled('div')`
   justify-content: center;
   align-items: center;
   align-self: center;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100vw;
-  padding: ${theme.spacing(12)};
+  padding: 0 ${theme.spacing(12)} ${theme.spacing(12)} ${theme.spacing(12)};
 `;
 
 export const HeroContainer = styled('div')`

@@ -11,6 +11,8 @@ import { SEO } from 'components/tools';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
 
+import { Navigation } from '../components/router/Navigation/Navigation';
+
 export type AppProps = {
   emotionCache?: EmotionCache;
 } & NextAppProps;
@@ -30,6 +32,7 @@ export const App = ({
           <CssBaseline />
           <GlobalStyles styles={global} />
           <ProgressBar />
+          <Navigation />
           <Layout>
             <Component {...pageProps} />
           </Layout>
