@@ -33,6 +33,9 @@ export const palette = {
     light: brandColors.lightOrange,
     dark: brandColors.burgundy,
   },
+  background: {
+    default: brandColors.white,
+  },
   secondary: {
     main: brandColors.deepPurple,
     light: brandColors.lightPurple,
