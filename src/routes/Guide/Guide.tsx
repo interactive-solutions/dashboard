@@ -1,9 +1,23 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
-import { Layout } from 'components/general';
 import { SEO } from 'components/tools';
 
-import * as styles from './Guide.styles';
+import {
+  Link,
+  Root,
+  HeroContainer,
+  HeroInfo,
+  HeroText,
+  Text,
+  Image,
+  Code,
+  ListItemHeadline,
+  ListItem,
+  ListItemContainer,
+  HeaderFirstLine,
+  HeaderSecondLine,
+  HeadLine,
+} from './Guide.styles';
 
 const repoUrl = 'https://git.interactivesolutions.se/internal/dashboard';
 
@@ -14,71 +28,88 @@ const tasks: Array<{ name: string; info: string }> = [
   { name: 'Widget 4', info: 'Här är info' },
 ];
 
-const steps: Array<{ info: string | ReactElement; examples?: string }> = [
+const steps: Array<{
+  headline: string;
+  info: string | ReactElement;
+  examples?: string;
+}> = [
   {
+    headline: 'Hämta koden',
     info: (
       <>
-        Kodrepot för dashboarden och dess widgets hittar du
-        <styles.Link href={repoUrl}>här</styles.Link>
+        {'Kodrepot för dashboarden och dess widgets hittar du '}
+        <Link href={repoUrl}>här</Link>
+        <br />
+        {'Namnge din branch med uppgiften du valt samt ditt eget namn.'}
       </>
     ),
+    examples: `cd path-to-your-workspace
+      git clone ${repoUrl}
+      cd dashboard/
+      git checkout -b widget1/kalle-johansson`,
   },
   {
-    info: `Skapa din implementation. Se README för kodspecifika instruktioner 
-      och setup av projektet lokalt.`,
+    headline: 'Bygg en widget',
+    info: `Skapa din implementation. Se README för kodspecifika instruktioner och setup av projektet lokalt.`,
   },
   {
-    info: `Du får gärna dela upp din implementation i flera commits, och du kan
-      pusha koden till din remote branch under arbetets gång om du önskar.
-      Vi kommer att titta först när du meddelat oss att du är klar.`,
+    headline: 'Ladda upp din kod',
+    info: `Du får gärna dela upp din implementation i flera commits, och du kan pusha koden till din remote branch under arbetets gång om du önskar. Vi kommer att titta först när du meddelat oss att du är klar.`,
+    examples: `git add .
+      git commit -m "your message"
+      git push`,
   },
   {
+    headline: 'Skapa en Pull Request',
     info: `När du känner dig färdig pushar du din branch och skapar en Merge Request.`,
   },
   {
-    info: `Skriv en beskrivning i din Merge request. Använd gärna den template
-      för Merge Requests som går att välja under. Fyll i de rubriker och
-      beskrivningar som känns tillämpbara och relevanta.`,
+    headline: 'Fyll i din pull request',
+    info: `Skriv en beskrivning i din pull request. Använd gärna den template för Pull Requests som går att välja ... . Fyll i de rubriker och beskrivningar som känns tillämpbara och relevanta.`,
   },
-  { info: `Skicka länk till din merge request till.` },
+  {
+    headline: 'Skicka oss en länk',
+    info: `Skicka länk till din Pull Request till ... .`,
+  },
 ];
 
 export const Guide = () => {
   return (
-    <styles.Root>
+    <Root>
       <SEO title="Guide för kodprov" />
-      <Layout>
-        <styles.Header>Välkommen till ditt kodprov för Entire! </styles.Header>
-        <styles.Text>
-          Under fliken ”Dashboard” finns en samling widgets skapade av
-          medarbetare på Entire. Din uppgift är att skapa en sådan widget.
-          Uppgiften ska inte ta mer än en dag att göra.
-        </styles.Text>
-        <styles.HeadLine>Du kan välja mellan följande widgets:</styles.HeadLine>
-        <styles.List>
-          {tasks.map((task) => (
-            <styles.ListItem>
-              <styles.BoldText>{task.name}</styles.BoldText>
-              <styles.Text>{task.info}</styles.Text>
-            </styles.ListItem>
-          ))}
-        </styles.List>
-        <styles.HeadLine>Tillvägagångssätt</styles.HeadLine>
-        <styles.Text>
-          Kortfattat kommer du att klona repot för dashboarden, skapa din
-          implementation i en egen branch, och sen skapa en Merge Request i
-          GitLab (motsvarar Pull Request i GitHub) som du skickar till oss.
-        </styles.Text>
-        <styles.BoldText>Stegen i mer detalj:</styles.BoldText>
-        <styles.List>
-          {steps.map((step) => (
-            <styles.ListItem>
-              <styles.Text>{step.info}</styles.Text>
-            </styles.ListItem>
-          ))}
-        </styles.List>
-        <styles.BoldText>Stort lycka till och ha så kul!</styles.BoldText>
-      </Layout>
-    </styles.Root>
+      <HeroContainer>
+        <HeroInfo>
+          <HeaderFirstLine>Entires</HeaderFirstLine>
+          <HeaderSecondLine>Kodprov</HeaderSecondLine>
+          <HeroText>
+            Under fliken ”Dashboard” finns en samling widgets skapade av
+            medarbetare på Entire. Din uppgift är att skapa en sådan widget.
+            Uppgiften ska inte ta mer än en dag att göra.
+          </HeroText>
+        </HeroInfo>
+        <Image src={'images/hero.png'} alt={'colleagues'}></Image>
+      </HeroContainer>
+      <HeadLine>Tillvägagångssätt</HeadLine>
+      {steps.map((step, i) => (
+        <ListItem>
+          <ListItemHeadline>{`${i + 1}. ${step.headline}`}</ListItemHeadline>
+          <ListItemContainer>
+            <Text>{step.info}</Text>
+            <Text>
+              <Code>{step.examples}</Code>
+            </Text>
+          </ListItemContainer>
+        </ListItem>
+      ))}
+      <HeadLine>Widgets</HeadLine>
+      {tasks.map((task) => (
+        <ListItem>
+          <ListItemContainer>
+            <ListItemHeadline>{task.name}</ListItemHeadline>
+            <Text>{task.info}</Text>
+          </ListItemContainer>
+        </ListItem>
+      ))}
+    </Root>
   );
 };
