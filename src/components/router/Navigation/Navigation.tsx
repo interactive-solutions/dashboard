@@ -34,7 +34,7 @@ export const Navigation = () => {
             Company
           </TextButton>
           <ContainedButton
-            onClick={() => router.push('https://www.entire.se/contact')}
+            onClick={() => router.push('https://www.entire.se/#footer-form')}
             endIcon={<ArrowForwardIcon />}
           >
             Get in touch
