@@ -82,7 +82,7 @@ export const Text = styled('div')`
   margin-right: 10%;
   padding-top: ${theme.spacing(2)};
   padding-bottom: ${theme.spacing(2)};
-  color: ${theme.palette.brandColors.darkGray};
+  color: ${theme.palette.textColors.secondary};
 `;
 
 export const Code = styled('div')`

@@ -22,8 +22,9 @@ export type DataGrid = {
 };
 
 export type GridItem = {
+  name: string;
   Widget: FC;
   dataGrid: DataGrid;
-  defaultVisible: boolean;
+  visible: boolean;
   workInProgress: boolean;
 };

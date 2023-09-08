@@ -1,21 +1,26 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { IconButton } from '@mui/material';
+import { GridItem } from 'types/grid';
 
-import { SettingsMenu } from './subComponents';
+import { SettingsMenu, SettingsButton } from './subComponents';
 
 import * as styles from './Settings.styles';
 
-export const Settings = () => {
-  const [isOpen, setIsOpen] = useState(false);
+type SettingsProps = {
+  gridItems: GridItem[];
+  setGridItems: Dispatch<SetStateAction<GridItem[]>>;
+};
+
+export const Settings = ({ gridItems, setGridItems }: SettingsProps) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <styles.Root>
-      <IconButton onClick={() => setIsOpen(!isOpen)}>
-        <SettingsOutlinedIcon fontSize="large" />
-      </IconButton>
-      {isOpen && <SettingsMenu />}
+      {isOpen ? (
+        <SettingsMenu {...{ gridItems, setGridItems, setIsOpen }} />
+      ) : (
+        <SettingsButton {...{ setIsOpen }} />
+      )}
     </styles.Root>
   );
 };
