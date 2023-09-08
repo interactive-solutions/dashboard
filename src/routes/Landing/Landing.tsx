@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Layout, Dashboard, Settings } from 'components/general';
+import { Dashboard, Settings } from 'components/general';
 import { SEO } from 'components/tools';
 import { gridItems as defaultGridItems } from 'widgets';
 
@@ -12,10 +12,8 @@ export const Landing = () => {
   return (
     <styles.Root>
       <SEO title="Landing" />
-      <Layout>
-        <Dashboard gridItems={gridItems} />
-        <Settings />
-      </Layout>
+      <Dashboard gridItems={gridItems} />
+      <Settings />
     </styles.Root>
   );
 };

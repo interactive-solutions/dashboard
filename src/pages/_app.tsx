@@ -6,7 +6,7 @@ import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
 import { Layout } from 'components/general';
-import { ProgressBar } from 'components/router';
+import { ProgressBar, Navigation } from 'components/router';
 import { SEO } from 'components/tools';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
@@ -30,6 +30,7 @@ export const App = ({
           <CssBaseline />
           <GlobalStyles styles={global} />
           <ProgressBar />
+          <Navigation />
           <Layout>
             <Component {...pageProps} />
           </Layout>
