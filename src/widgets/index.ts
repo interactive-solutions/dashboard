@@ -9,39 +9,45 @@ import { Week } from './Week/Week';
 
 export const gridItems: GridItem[] = [
   {
+    name: 'Logo',
     Widget: Logo,
     dataGrid: { w: 4, h: 3 },
-    defaultVisible: false,
+    visible: false,
     workInProgress: true,
   },
   {
+    name: 'Quotes',
     Widget: Quotes,
     dataGrid: { w: 3, h: 3 },
-    defaultVisible: false,
+    visible: false,
     workInProgress: true,
   },
   {
+    name: 'WeatherWidget',
     Widget: WeatherWidget,
     dataGrid: { w: 3, h: 3 },
-    defaultVisible: false,
+    visible: false,
     workInProgress: true,
   },
   {
+    name: 'Memes',
     Widget: Memes,
     dataGrid: { w: 2, h: 10 },
-    defaultVisible: false,
+    visible: false,
     workInProgress: true,
   },
   {
+    name: 'That70sClock',
     Widget: That70sClock,
     dataGrid: { w: 3, h: 2 },
-    defaultVisible: false,
+    visible: false,
     workInProgress: true,
   },
   {
+    name: 'Week',
     Widget: Week,
     dataGrid: { w: 2, h: 2 },
-    defaultVisible: true,
+    visible: true,
     workInProgress: true,
   },
 ];

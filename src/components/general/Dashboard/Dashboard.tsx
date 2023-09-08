@@ -44,7 +44,7 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
         }}
       >
         {gridItems
-          .filter(({ defaultVisible }) => defaultVisible)
+          .filter(({ visible }) => visible)
           .map(({ Widget, dataGrid }, index) => (
             <styles.WidgetHolder
               key={`item${index}`}

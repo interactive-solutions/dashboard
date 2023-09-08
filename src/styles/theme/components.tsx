@@ -11,19 +11,18 @@ export const components: ThemeOptions['components'] = {
       component: NextLinkStyled,
     } as LinkProps,
   },
-  MuiSvgIcon: {
-    styleOverrides: {
-      fontSizeLarge: () => ({ fontSize: '40px' }),
-    },
-  },
   MuiIconButton: {
     styleOverrides: {
       root: ({ theme }) => ({
         color: theme.palette.brandColors.white,
         backgroundColor: theme.palette.brandColors.entireOrange,
-        transition: 'background-color 150ms ease-in-out',
         '&:hover': {
+          transition: 'background-color 150ms ease-in-out',
           backgroundColor: theme.palette.brandColors.burgundy,
+        },
+        '&:disabled': {
+          backgroundColor: theme.palette.brandColors.lightOrange,
+          color: theme.palette.brandColors.white,
         },
       }),
     },
