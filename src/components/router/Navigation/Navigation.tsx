@@ -1,7 +1,7 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useRouter } from 'next/router';
 
-import { BigLogo } from 'assets/icons';
+import { EntireLogoAndName } from 'assets/icons';
 
 import {
   Header,
@@ -18,7 +18,7 @@ export const Navigation = () => {
   return (
     <Header>
       <Container>
-        <BigLogo />
+        <EntireLogoAndName />
         <NavBar>
           <Logo />
           <TextButton variant="text" href="/">

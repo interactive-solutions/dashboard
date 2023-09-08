@@ -6,12 +6,10 @@ import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
 import { Layout } from 'components/general';
-import { ProgressBar } from 'components/router';
+import { ProgressBar, Navigation } from 'components/router';
 import { SEO } from 'components/tools';
 import { global, theme } from 'styles';
 import { createEmotionCache } from 'utils';
-
-import { Navigation } from '../components/router/Navigation/Navigation';
 
 export type AppProps = {
   emotionCache?: EmotionCache;

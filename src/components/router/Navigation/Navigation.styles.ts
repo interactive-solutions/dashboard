@@ -1,6 +1,6 @@
 import { styled, Button } from '@mui/material';
 
-import { SmallLogo } from 'assets/icons';
+import { EntireLogo } from 'assets/icons';
 import { theme } from 'styles';
 
 export const Header = styled('div')`
@@ -48,6 +48,6 @@ export const ContainedButton = styled(Button)`
   font-size: ${theme.spacing(2.25)};
 `;
 
-export const Logo = styled(SmallLogo)`
+export const Logo = styled(EntireLogo)`
   margin-right: ${theme.spacing(3)};
 `;

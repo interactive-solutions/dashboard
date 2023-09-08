@@ -29,6 +29,7 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
       style={{
         width: '100vw',
         height: `calc(100vh - ${offsetTop}px)`,
+        overflow: 'hidden',
       }}
     >
       <ReactGridLayout
@@ -39,6 +40,7 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
         style={{
           width: '100%',
           height: '100%',
+          overflow: 'hidden',
         }}
       >
         {gridItems
