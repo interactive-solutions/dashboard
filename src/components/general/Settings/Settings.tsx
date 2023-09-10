@@ -12,7 +12,7 @@ type SettingsProps = {
 };
 
 export const Settings = ({ gridItems, setGridItems }: SettingsProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <styles.Root>

@@ -10,8 +10,9 @@ export const Header = styled('div')`
   position: sticky;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 98vw;
   background-color: ${theme.palette.brandColors.white};
+  scrollbar-width: none;
 `;
 
 export const Container = styled('div')`
@@ -45,6 +46,7 @@ export const TextButton = styled(Button)`
 `;
 
 export const ContainedButton = styled(Button)`
+  white-space: nowrap;
   font-size: ${theme.spacing(2.25)};
 `;
 
