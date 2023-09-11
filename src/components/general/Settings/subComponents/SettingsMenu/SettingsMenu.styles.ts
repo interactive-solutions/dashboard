@@ -23,8 +23,10 @@ export const ButtonRow = styled('div')`
 `;
 
 export const Line = styled('hr')`
-  color: ${({ theme }) => theme.palette.grey[100]};
+  background: ${({ theme }) => theme.palette.brandColors.gray};
   width: 100%;
+  height: 1px;
+  border: none;
 `;
 
 export const WidgetList = styled('div')`
@@ -40,7 +42,7 @@ export const ButtonContent = styled(Button)`
   align-items: center;
   width: 100%;
   border-radius: 32px;
-  color: ${({ theme }) => theme.palette.textColors.secondary};
+  color: ${({ theme }) => theme.palette.uiColors.lightBlack};
   padding: 0 ${({ theme }) => theme.spacing(2)};
   font-size: 16px;
 

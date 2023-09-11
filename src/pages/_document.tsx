@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="shortcut icon" href="/images/favicon.png" />
+          <link rel="shortcut icon" href="/images/favicon.svg" />
           <meta name="emotion-insertion-point" content="" />
           {(this.props as any).emotionStyleTags}
         </Head>
