@@ -7,7 +7,7 @@ export const exampleWidgets: InformationItem[] = [
     headline: 'UUID-generator',
     info: 'Skapa och visa ett slumpmässigt genererat UUID',
     extendedInfo:
-      'Widgeten skulle vara användbar när till exempel nya rader ska läggas till i en databas manuellt. Utökade funktioner kan vara att kunna bulk-generera UUID:s och en knapp som genererar om det visade UUID:t.',
+      'Widgeten skulle vara användbar när till exempel nya rader ska läggas till i en databas manuellt. Utökade funktioner kan vara att kunna bulk-generera UUID:s och en knapp som genererar ett nytt UUID',
   },
   {
     headline: 'JWT-parser 🤔',
