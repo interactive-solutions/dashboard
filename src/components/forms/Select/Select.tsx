@@ -19,7 +19,7 @@ import {
 
 import { FormError } from 'components/forms';
 
-import * as styles from './Select.styles';
+import { Loading, Empty } from './Select.styles';
 
 export type SelectProps = {
   name: string;
@@ -105,14 +105,14 @@ export const Select = ({
             IconComponent={
               loading
                 ? () => (
-                    <styles.Loading>
+                    <Loading>
                       <CircularProgress size={20} />
-                    </styles.Loading>
+                    </Loading>
                   )
                 : undefined
             }
           >
-            {children || <styles.Empty>No results found</styles.Empty>}
+            {children || <Empty>No results found</Empty>}
           </MuiSelect>
           {hasError && (
             <FormHelperText>

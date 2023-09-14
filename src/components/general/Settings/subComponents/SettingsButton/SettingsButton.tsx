@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
-import * as styles from './SettingsButton.styles';
+import { Button } from './SettingsButton.styles';
 
 type SettingsButtonProps = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -19,11 +19,8 @@ export const SettingsButton = ({ setIsOpen }: SettingsButtonProps) => {
   }, [isRendered]);
 
   return (
-    <styles.SettingsButton
-      isRendered={isRendered}
-      onClick={() => setIsOpen(true)}
-    >
+    <Button isRendered={isRendered} onClick={() => setIsOpen(true)}>
       <SettingsOutlinedIcon fontSize="large" />
-    </styles.SettingsButton>
+    </Button>
   );
 };

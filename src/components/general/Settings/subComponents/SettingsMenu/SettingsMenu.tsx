@@ -7,7 +7,15 @@ import { IconButton } from '@mui/material';
 
 import { GridItem } from 'types/grid';
 
-import * as styles from './SettingsMenu.styles';
+import {
+  Root,
+  WidgetList,
+  ButtonContent,
+  VisibilityIcon,
+  Line,
+  ButtonRow,
+  CloseButton,
+} from './SettingsMenu.styles';
 
 type SettingsMenuProps = {
   gridItems: GridItem[];
@@ -29,29 +37,29 @@ export const SettingsMenu = ({
   };
 
   return (
-    <styles.Root>
-      <styles.WidgetList>
+    <Root>
+      <WidgetList>
         {gridItems.map(({ name, visible }) => (
-          <styles.ButtonContent key={name} onClick={() => toggleWidget(name)}>
+          <ButtonContent key={name} onClick={() => toggleWidget(name)}>
             {name}
-            <styles.VisibilityIcon isActive={visible} />
-          </styles.ButtonContent>
+            <VisibilityIcon isActive={visible} />
+          </ButtonContent>
         ))}
-      </styles.WidgetList>
+      </WidgetList>
 
-      <styles.Line />
+      <Line />
 
-      <styles.ButtonRow>
+      <ButtonRow>
         <IconButton disabled>
           <SaveIcon fontSize="large" />
         </IconButton>
         <IconButton disabled>
           <DarkModeOutlinedIcon fontSize="large" />
         </IconButton>
-        <styles.CloseButton onClick={() => setIsOpen(false)}>
+        <CloseButton onClick={() => setIsOpen(false)}>
           <CloseIcon fontSize="large" />
-        </styles.CloseButton>
-      </styles.ButtonRow>
-    </styles.Root>
+        </CloseButton>
+      </ButtonRow>
+    </Root>
   );
 };

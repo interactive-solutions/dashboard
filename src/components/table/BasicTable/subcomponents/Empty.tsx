@@ -1,7 +1,7 @@
 import { AppsOutage } from '@mui/icons-material';
 import { Grid, Typography } from '@mui/material';
 
-import * as styles from '../BasicTable.styles';
+import { Error } from '../BasicTable.styles';
 
 export type EmptyProps = {
   visible: boolean;
@@ -13,7 +13,7 @@ export const Empty = ({ visible }: EmptyProps) => {
   }
 
   return (
-    <styles.Error>
+    <Error>
       <Grid container alignItems="center" direction="column" spacing={1}>
         <Grid item>
           <AppsOutage
@@ -28,6 +28,6 @@ export const Empty = ({ visible }: EmptyProps) => {
           <Typography>No results found</Typography>
         </Grid>
       </Grid>
-    </styles.Error>
+    </Error>
   );
 };
