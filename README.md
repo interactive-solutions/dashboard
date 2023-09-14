@@ -38,7 +38,8 @@ You should look at a component as its own lifecycle. Everything about it should 
 
 #### Material UI Components
 
-We use [Material UI]('https://mui.com/material-ui/') React components. 
+We use [Material UI]('https://mui.com/material-ui/') React components.
+
 ```
 import { IconButton } from '@mui/material;
 ```
