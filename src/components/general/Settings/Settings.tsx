@@ -4,7 +4,7 @@ import { GridItem } from 'types/grid';
 
 import { SettingsMenu, SettingsButton } from './subComponents';
 
-import * as styles from './Settings.styles';
+import { Root } from './Settings.styles';
 
 type SettingsProps = {
   gridItems: GridItem[];
@@ -15,12 +15,12 @@ export const Settings = ({ gridItems, setGridItems }: SettingsProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <styles.Root>
+    <Root>
       {isOpen ? (
         <SettingsMenu {...{ gridItems, setGridItems, setIsOpen }} />
       ) : (
         <SettingsButton {...{ setIsOpen }} />
       )}
-    </styles.Root>
+    </Root>
   );
 };

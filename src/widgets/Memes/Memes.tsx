@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Loading } from 'components/table/BasicTable/subcomponents';
 
-import * as styles from './Memes.styles';
+import { Container, ImageContainer, Image, Button } from './Memes.styles';
 
 type Meme = {
   url: string;
@@ -28,20 +28,17 @@ export const Memes = () => {
   }, []);
 
   return (
-    <styles.Container>
-      <styles.ImageContainer>
+    <Container>
+      <ImageContainer>
         {loading ? (
           <Loading visible />
         ) : (
-          <styles.Image
-            src={meme?.url || ''}
-            alt={meme?.title || ''}
-          ></styles.Image>
+          <Image src={meme?.url || ''} alt={meme?.title || ''}></Image>
         )}
-      </styles.ImageContainer>
-      <styles.Button type="button" onClick={getMeme}>
+      </ImageContainer>
+      <Button type="button" onClick={getMeme}>
         Give me a meme
-      </styles.Button>
-    </styles.Container>
+      </Button>
+    </Container>
   );
 };

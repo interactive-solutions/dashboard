@@ -32,7 +32,7 @@ export const gridItems: GridItem[] = [
   {
     name: 'Memes',
     Widget: Memes,
-    dataGrid: { w: 2, h: 10 },
+    dataGrid: { w: 2, h: 6 },
     visible: false,
     workInProgress: true,
   },

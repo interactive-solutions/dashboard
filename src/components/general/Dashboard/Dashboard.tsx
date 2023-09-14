@@ -5,7 +5,7 @@ import { WidthProvider, Responsive } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import { GridItem } from 'types/grid';
 
-import * as styles from './Dashboard.styles';
+import { WidgetHolder } from './Dashboard.styles';
 
 const ReactGridLayout = WidthProvider(Responsive);
 
@@ -28,8 +28,8 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
       ref={ref}
       style={{
         width: '100vw',
-        height: `calc(100vh - ${offsetTop}px)`,
-        overflow: 'hidden',
+        height: `calc(100vh - ${offsetTop}px - 10px)`,
+        maxHeight: `calc(100vh - ${offsetTop}px - 10px)`,
       }}
     >
       <ReactGridLayout
@@ -37,22 +37,23 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
         rowHeight={50}
         draggableHandle=".handle"
         compactType={null}
+        isBounded={true}
         style={{
           width: '100%',
           height: '100%',
-          overflow: 'hidden',
+          maxHeight: '100%',
         }}
       >
         {gridItems
           .filter(({ visible }) => visible)
-          .map(({ Widget, dataGrid }, index) => (
-            <styles.WidgetHolder
-              key={`item${index}`}
+          .map(({ Widget, dataGrid, name }) => (
+            <WidgetHolder
+              key={`item${name}`}
               className="grid-item handle"
               data-grid={{ ...dataGrid, x: 0, y: 0 }}
             >
               <Widget />
-            </styles.WidgetHolder>
+            </WidgetHolder>
           ))}
       </ReactGridLayout>
     </div>

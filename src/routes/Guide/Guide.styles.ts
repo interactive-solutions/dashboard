@@ -74,7 +74,11 @@ export const ListItem = styled('li')`
 
 export const ListItemLeft = styled('div')`
   width: 100%;
-  padding-right: 32px;
+  padding-right: ${({ theme }) => theme.spacing(4)};
+`;
+
+export const ListItemHeader = styled(Typography)`
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const Link = styled('a')`

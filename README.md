@@ -36,6 +36,25 @@ You should look at a component as its own lifecycle. Everything about it should 
 └── ...
 ```
 
+#### Material UI Components
+
+We use [Material UI]('https://mui.com/material-ui/') React components.
+
+```
+import { IconButton } from '@mui/material;
+```
+
+#### Style theme
+
+Theme is defined in `styles/theme` directory. Please use colors defined in `palette.ts` and spacing unit defined in `spacing.ts` when creating styled components.
+
+```
+export const Box = styled('div')`
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
+  color: ${({ theme }) => theme.palette.brandColors.darkGray};
+`;
+```
+
 ### To create a widget
 
 Widgets live in `src/widgets` directory. Every widget should have its own subdirectory, as described in _Component lifecycle_ section above.

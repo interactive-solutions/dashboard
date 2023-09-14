@@ -1,6 +1,6 @@
 import { styled, IconButton } from '@mui/material';
 
-export const SettingsButton = styled(IconButton)<{
+export const Button = styled(IconButton)<{
   isRendered: boolean;
 }>`
   background: ${({ isRendered, theme }) =>

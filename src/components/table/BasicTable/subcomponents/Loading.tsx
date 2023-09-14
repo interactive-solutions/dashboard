@@ -1,6 +1,6 @@
 import { CircularProgress, Grid, Typography } from '@mui/material';
 
-import * as styles from '../BasicTable.styles';
+import { LoadingContainer } from '../BasicTable.styles';
 
 export type LoadingProps = {
   visible: boolean;
@@ -12,7 +12,7 @@ export const Loading = ({ visible }: LoadingProps) => {
   }
 
   return (
-    <styles.Loading>
+    <LoadingContainer>
       <Grid container alignItems="center" direction="column" spacing={1.5}>
         <Grid item>
           <CircularProgress size={50} />
@@ -21,6 +21,6 @@ export const Loading = ({ visible }: LoadingProps) => {
           <Typography variant="body2">Fetching data</Typography>
         </Grid>
       </Grid>
-    </styles.Loading>
+    </LoadingContainer>
   );
 };

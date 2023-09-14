@@ -1,7 +1,7 @@
 import { Error } from '@mui/icons-material';
 import { Grid, Typography } from '@mui/material';
 
-import * as styles from './RouterError.styles';
+import { Root } from './RouterError.styles';
 
 export type RouterErrorProps = {
   statusCode: number;
@@ -9,7 +9,7 @@ export type RouterErrorProps = {
 
 export const RouterError = ({ statusCode }: RouterErrorProps) => {
   return (
-    <styles.Root>
+    <Root>
       <Grid container alignItems="center" direction="column" spacing={2}>
         <Grid item>
           <Error
@@ -24,6 +24,6 @@ export const RouterError = ({ statusCode }: RouterErrorProps) => {
           <Typography color="error.main">{`Router error with status code "${statusCode}".`}</Typography>
         </Grid>
       </Grid>
-    </styles.Root>
+    </Root>
   );
 };
