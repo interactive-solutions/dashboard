@@ -66,7 +66,7 @@ Widgets are rendered as a grid with drag-and-drop functionality. To make your wi
 We are using stylelint, eslint and prettier as code quality tools. Rules are extended from external packages and defined in `.eslintrc.js`, `.prettierrc.js` and `.stylelintrc.js`.
 Make sure your IDE use these files. It is recommended to make your IDE run lint fixes on save.
 
-To get reports on lint and typescript issues you can run `yarn eslint:report && stylelint:report && prettier:report &&z typescript:report`
+To get reports on lint and typescript issues you can run `yarn eslint:report && stylelint:report && prettier:report && typescript:report`
 To automatically fix some lint issues you can run `yarn eslint:fix && stylelint:fix && prettier:fix`
 
 We have a "pre-push hook" that checks code quality before pushing it to the remote branch. It is defined in `.huskyrc.js` and checks the code using the same commands as specified above. Any errors reported will only be shown to you. If you get errors, simply fix whatever is reported and push again (just don't forget to `add` and `commit` your fixes)
