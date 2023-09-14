@@ -46,9 +46,9 @@ export const Dashboard = ({ gridItems }: DashboardProps) => {
       >
         {gridItems
           .filter(({ visible }) => visible)
-          .map(({ Widget, dataGrid }, index) => (
+          .map(({ Widget, dataGrid, name }) => (
             <WidgetHolder
-              key={`item${index}`}
+              key={`item${name}`}
               className="grid-item handle"
               data-grid={{ ...dataGrid, x: 0, y: 0 }}
             >
