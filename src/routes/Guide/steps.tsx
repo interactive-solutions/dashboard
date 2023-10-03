@@ -33,7 +33,7 @@ export const steps: InformationItem[] = [
   },
   {
     headline: 'Skapa en Pull Request',
-    info: `När du känner dig färdig pushar du din branch och skapar en Merge Request.`,
+    info: `När du känner dig färdig pushar du din branch och skapar en Pull Request.`,
   },
   {
     headline: 'Fyll i din pull request',
