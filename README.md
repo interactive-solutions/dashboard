@@ -5,7 +5,7 @@ from where everyone can drag and drop widgets they consider helpful into their d
 
 ## Development
 
-### Prerequisites 
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en). Make sure you use the recommended node version, it is defined in .nvmrc. If using nvm, run `nvm use` to automatically
   use the defined version.
